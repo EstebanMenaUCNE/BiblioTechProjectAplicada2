@@ -38,6 +38,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnRegistrarUsuario = new System.Windows.Forms.Button();
+            this.btnRegisterCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblRegisterId
@@ -122,18 +123,30 @@
             // 
             this.btnRegistrarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistrarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarUsuario.Location = new System.Drawing.Point(111, 292);
+            this.btnRegistrarUsuario.Location = new System.Drawing.Point(64, 293);
             this.btnRegistrarUsuario.Name = "btnRegistrarUsuario";
-            this.btnRegistrarUsuario.Size = new System.Drawing.Size(119, 29);
+            this.btnRegistrarUsuario.Size = new System.Drawing.Size(91, 29);
             this.btnRegistrarUsuario.TabIndex = 9;
             this.btnRegistrarUsuario.Text = "Registrar Usuario";
             this.btnRegistrarUsuario.UseVisualStyleBackColor = true;
+            // 
+            // btnRegisterCancel
+            // 
+            this.btnRegisterCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegisterCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterCancel.Location = new System.Drawing.Point(164, 292);
+            this.btnRegisterCancel.Name = "btnRegisterCancel";
+            this.btnRegisterCancel.Size = new System.Drawing.Size(91, 30);
+            this.btnRegisterCancel.TabIndex = 10;
+            this.btnRegisterCancel.Text = "Cancelar";
+            this.btnRegisterCancel.UseVisualStyleBackColor = true;
             // 
             // FrmRegisterUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 338);
+            this.Controls.Add(this.btnRegisterCancel);
             this.Controls.Add(this.btnRegistrarUsuario);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
@@ -163,5 +176,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button btnRegistrarUsuario;
+        private System.Windows.Forms.Button btnRegisterCancel;
     }
 }
