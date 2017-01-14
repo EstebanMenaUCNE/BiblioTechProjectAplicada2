@@ -20,5 +20,15 @@ namespace BiblioTechProject
         {
 
         }
+
+        private void lblUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
