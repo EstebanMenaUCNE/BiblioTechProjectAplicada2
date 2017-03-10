@@ -14,4 +14,5 @@ namespace BiblioTechProject.DAL
         TEntity Buscar(Expression<Func<TEntity, bool>> criterioBusqueda);
         List<TEntity> Lista(Expression<Func<TEntity, bool>> criterioBusqueda);
     }
+
 }

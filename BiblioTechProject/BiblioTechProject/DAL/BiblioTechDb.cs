@@ -25,4 +25,5 @@ namespace BiblioTechProject.DAL
         public DbSet<Prestamo> Prestamos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
     }
+
 }

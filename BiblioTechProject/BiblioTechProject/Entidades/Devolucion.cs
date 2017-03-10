@@ -14,4 +14,5 @@ namespace BiblioTechProject.Entidades
         public int ClienteId { get; set; }
         public int UsuarioId { get; set; }
     }
+
 }

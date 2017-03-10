@@ -15,4 +15,5 @@ namespace BiblioTechProject.Entidades
         public int UsuarioId { get; set; }
 
     }
+
 }
