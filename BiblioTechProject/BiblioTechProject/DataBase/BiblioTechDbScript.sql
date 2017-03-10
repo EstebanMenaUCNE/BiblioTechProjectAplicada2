@@ -47,7 +47,7 @@ UsuarioId int REFERENCES usuarios(UsuarioId)
 );
 
 CREATE TABLE autoresLibros(
-AutoresLibrosId int IDENTITY(1,1) PRIMARY KEY,
+AutorLibroId int IDENTITY(1,1) PRIMARY KEY,
 AutorId int REFERENCES autores(AutorId),
 LibroId int REFERENCES libros(LibroId),
 UsuarioId int REFERENCES usuarios(UsuarioId)
