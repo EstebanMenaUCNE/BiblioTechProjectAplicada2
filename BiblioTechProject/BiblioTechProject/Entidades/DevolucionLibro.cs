@@ -12,7 +12,14 @@ namespace BiblioTechProject.Entidades
         public int DevolicionLibroId { get; set; }
         public int DevolucionId { get; set; }
         public int LibroId { get; set; }
-        public int UsuarioId { get; set; }
+
+        public virtual Libro Libro { get; set; }
+        public virtual Usuario Usuario { get; set; }
+
+        public DevolucionLibro(int libroId)
+        {
+            LibroId = libroId;
+        }
 
     }
 

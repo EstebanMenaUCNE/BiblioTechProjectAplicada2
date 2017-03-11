@@ -83,7 +83,7 @@ namespace BiblioTechProject.DAL
             }
         }
 
-        public List<TEntity> Lista(Expression<Func<TEntity, bool>> criterioBusqueda)
+        public List<TEntity> GetList(Expression<Func<TEntity, bool>> criterioBusqueda)
         {
             try
             {

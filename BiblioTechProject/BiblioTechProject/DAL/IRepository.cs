@@ -12,7 +12,7 @@ namespace BiblioTechProject.DAL
         bool Modificar(TEntity entidad);
         bool Eliminar(TEntity entidad);
         TEntity Buscar(Expression<Func<TEntity, bool>> criterioBusqueda);
-        List<TEntity> Lista(Expression<Func<TEntity, bool>> criterioBusqueda);
+        List<TEntity> GetList(Expression<Func<TEntity, bool>> criterioBusqueda);
     }
 
 }

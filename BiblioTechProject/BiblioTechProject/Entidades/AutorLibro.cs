@@ -12,7 +12,6 @@ namespace BiblioTechProject.Entidades
         public int AutorLibroId { get; set; }
         public int AutorId { get; set; }
         public int LibroId { get; set; }
-        public int UsuarioId { get; set; }
     }
 
 }

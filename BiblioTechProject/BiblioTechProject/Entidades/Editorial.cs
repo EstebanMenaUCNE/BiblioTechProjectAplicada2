@@ -12,6 +12,19 @@ namespace BiblioTechProject.Entidades
         public int EditorialId { get; set; }
         public string Nombre { get; set; }
         public int UsuarioId { get; set; }
+
+        public virtual Usuario Usuario { get; set; }
+        public ICollection<EditorialLibro> EditorialesLibros { get; set; }
+
+        public Editorial()
+        {
+            EditorialesLibros = new HashSet<EditorialLibro>();
+        }
+
+        public void AgregarDetalle(int libroId)
+        {
+            EditorialesLibros.Add(new EditorialLibro(libroId));
+        }
     }
 
 }

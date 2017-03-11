@@ -68,6 +68,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\AutorBLL.cs" />
+    <Compile Include="BLL\ClienteBLL.cs" />
+    <Compile Include="BLL\DevolucionBLL.cs" />
+    <Compile Include="BLL\EditorialBLL.cs" />
+    <Compile Include="BLL\LibroBLL.cs" />
+    <Compile Include="BLL\PrestamoBLL.cs" />
+    <Compile Include="BLL\UsuarioBLL.cs" />
     <Compile Include="DAL\BiblioTechDb.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\Repositorio.cs" />
@@ -75,9 +82,9 @@
     <Compile Include="Entidades\DevolucionLibro.cs" />
     <Compile Include="Entidades\Autor.cs" />
     <Compile Include="Entidades\AutorLibro.cs" />
-    <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Editorial.cs" />
+    <Compile Include="Entidades\EditorialLibro.cs" />
     <Compile Include="Entidades\Libro.cs" />
     <Compile Include="Entidades\Prestamo.cs" />
     <Compile Include="Entidades\PrestamoLibro.cs" />
@@ -134,7 +141,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BLL\" />
     <Folder Include="UI\Consultas\" />
     <Folder Include="UI\Registros\" />
   </ItemGroup>

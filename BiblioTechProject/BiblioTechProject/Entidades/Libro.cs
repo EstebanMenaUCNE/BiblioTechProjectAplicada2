@@ -13,16 +13,14 @@ namespace BiblioTechProject.Entidades
         public string Titulo { get; set; }
         public int Edicion { get; set; }
         public string Estado { get; set; }
-        public int CategoriaId { get; set; }
-        public virtual List<Autor> AutorId { get; set; }
         public int EditorialId { get; set; }
         public int UsuarioId { get; set; }
 
-        public Libro()
-        {
-            AutorId = new List<Autor>();
-        }
-        
+        public virtual Usuario Usuario { get; set; }
+        public List<Autor> Autores { get; set; }
+        public virtual ICollection<EditorialLibro> EditorialesLibros { get; set; }
+        public virtual ICollection<PrestamoLibro> PrestamosLibros { get; set; }
+        public virtual ICollection<DevolucionLibro> DevolucionesLibros { get; set; }
     }
 
 }
