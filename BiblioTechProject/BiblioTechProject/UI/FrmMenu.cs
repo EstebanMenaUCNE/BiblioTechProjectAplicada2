@@ -44,7 +44,7 @@ namespace BiblioTechProject.UI
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            LlenarLabelsUsuario();
+            
         }
 
         private void FrmMenu_FormClosed(object sender, FormClosedEventArgs e)
@@ -66,6 +66,17 @@ namespace BiblioTechProject.UI
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Registros.FrmRegistroUsuarios().Show();
+        }
+
+        private void FrmMenu_VisibleChanged(object sender, EventArgs e)
+        {
+            LlenarLabelsUsuario();
+            DesabilitarNoAdmin();
+        }
+
+        private void usuariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new Consultas.FrmConsultaUsuarios().Show();
         }
     }
 }

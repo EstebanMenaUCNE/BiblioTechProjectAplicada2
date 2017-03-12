@@ -96,6 +96,12 @@
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Consultas\FrmConsultaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\FrmConsultaUsuarios.Designer.cs">
+      <DependentUpon>FrmConsultaUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,7 @@
     <Compile Include="UI\Registros\FrmRegistroUsuarios.Designer.cs">
       <DependentUpon>FrmRegistroUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilidad.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -123,6 +130,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Consultas\FrmConsultaUsuarios.resx">
+      <DependentUpon>FrmConsultaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,9 +175,7 @@
       <DependentUpon>BiblioTechDb.mdf</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Consultas\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>

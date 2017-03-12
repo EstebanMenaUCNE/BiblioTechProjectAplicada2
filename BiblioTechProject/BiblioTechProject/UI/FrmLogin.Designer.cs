@@ -75,6 +75,7 @@
             // 
             this.contrasenaTextBox.Location = new System.Drawing.Point(106, 97);
             this.contrasenaTextBox.Name = "contrasenaTextBox";
+            this.contrasenaTextBox.PasswordChar = '☻';
             this.contrasenaTextBox.Size = new System.Drawing.Size(124, 20);
             this.contrasenaTextBox.TabIndex = 1;
             this.contrasenaTextBox.TextChanged += new System.EventHandler(this.contrasenaTextBox_TextChanged);

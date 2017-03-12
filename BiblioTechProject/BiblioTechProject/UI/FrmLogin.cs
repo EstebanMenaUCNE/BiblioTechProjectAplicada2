@@ -68,7 +68,7 @@ namespace BiblioTechProject.UI
                 }
                 else
                 {
-                    List<Entidades.Usuario> lista = BLL.UsuarioBLL.GetListNombre(usuarioTextBox.Text);
+                    List<Entidades.Usuario> lista = BLL.UsuarioBLL.GetListNombreUsuario(usuarioTextBox.Text);
                     if (lista.Count > 0)
                     {
                         usuario = lista.ElementAt(0);

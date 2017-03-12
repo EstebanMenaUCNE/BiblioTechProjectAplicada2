@@ -54,6 +54,14 @@ namespace BiblioTechProject.BLL
             }
         }
 
+        public static List<Entidades.Usuario> GetListNombreUsuario(string nombreUsuario)
+        {
+            using (var repositorio = new DAL.Repositorio<Entidades.Usuario>())
+            {
+                return repositorio.GetList(U => U.NombreUsuario == nombreUsuario);
+            }
+        }
+
         public static List<Entidades.Usuario> GetListId(int id)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Usuario>())

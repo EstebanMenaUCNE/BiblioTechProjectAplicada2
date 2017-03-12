@@ -34,12 +34,13 @@
             this.cambiarDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ediciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nombreUsuarioLabel = new System.Windows.Forms.Label();
             this.cargoUsuarioLabel = new System.Windows.Forms.Label();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.principalMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,11 +96,27 @@
             this.registrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.registrosToolStripMenuItem.Text = "Registros";
             // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
             // consultasToolStripMenuItem
             // 
+            this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuariosToolStripMenuItem1});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "Consultas";
+            // 
+            // usuariosToolStripMenuItem1
+            // 
+            this.usuariosToolStripMenuItem1.Name = "usuariosToolStripMenuItem1";
+            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.usuariosToolStripMenuItem1.Text = "Usuarios";
+            this.usuariosToolStripMenuItem1.Click += new System.EventHandler(this.usuariosToolStripMenuItem1_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -115,9 +132,10 @@
             // 
             // nombreUsuarioLabel
             // 
+            this.nombreUsuarioLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.nombreUsuarioLabel.AutoSize = true;
             this.nombreUsuarioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombreUsuarioLabel.Location = new System.Drawing.Point(451, 33);
+            this.nombreUsuarioLabel.Location = new System.Drawing.Point(12, 223);
             this.nombreUsuarioLabel.Name = "nombreUsuarioLabel";
             this.nombreUsuarioLabel.Size = new System.Drawing.Size(62, 16);
             this.nombreUsuarioLabel.TabIndex = 2;
@@ -125,20 +143,14 @@
             // 
             // cargoUsuarioLabel
             // 
+            this.cargoUsuarioLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cargoUsuarioLabel.AutoSize = true;
             this.cargoUsuarioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cargoUsuarioLabel.Location = new System.Drawing.Point(451, 49);
+            this.cargoUsuarioLabel.Location = new System.Drawing.Point(12, 239);
             this.cargoUsuarioLabel.Name = "cargoUsuarioLabel";
             this.cargoUsuarioLabel.Size = new System.Drawing.Size(35, 13);
             this.cargoUsuarioLabel.TabIndex = 3;
             this.cargoUsuarioLabel.Text = "Cargo";
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
-            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // FrmMenu
             // 
@@ -153,6 +165,7 @@
             this.Text = "BiblioTech - Menú Principal";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMenu_FormClosed);
             this.Load += new System.EventHandler(this.FrmMenu_Load);
+            this.VisibleChanged += new System.EventHandler(this.FrmMenu_VisibleChanged);
             this.principalMenuStrip.ResumeLayout(false);
             this.principalMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -174,5 +187,6 @@
         private System.Windows.Forms.Label nombreUsuarioLabel;
         private System.Windows.Forms.Label cargoUsuarioLabel;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem1;
     }
 }
