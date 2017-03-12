@@ -56,7 +56,12 @@ namespace BiblioTechProject.BLL
 
         public static List<Entidades.Prestamo> GetListCliente(string nombreCliente)
         {
-            Entidades.Cliente cliente = ClienteBLL.GetListNombre(nombreCliente).ElementAt(0);
+            Entidades.Cliente cliente = null;
+            List<Entidades.Cliente> lista = ClienteBLL.GetListNombre(nombreCliente);
+            if (lista.Count > 0)
+            {
+                cliente = lista.ElementAt(0);
+            }
             if (cliente != null)
             {
                 using (var repositorio = new DAL.Repositorio<Entidades.Prestamo>())

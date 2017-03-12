@@ -11,6 +11,7 @@
     <AssemblyName>BiblioTechProject</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -68,6 +68,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BiblioTechDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BiblioTechDbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BLL\AutorBLL.cs" />
     <Compile Include="BLL\ClienteBLL.cs" />
     <Compile Include="BLL\DevolucionBLL.cs" />
@@ -89,26 +94,26 @@
     <Compile Include="Entidades\Prestamo.cs" />
     <Compile Include="Entidades\PrestamoLibro.cs" />
     <Compile Include="Entidades\Usuario.cs" />
-    <Compile Include="FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmRegisterUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRegisterUser.Designer.cs">
-      <DependentUpon>FrmRegisterUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmLogin.resx">
+    <Compile Include="UI\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegisterUser.resx">
-      <DependentUpon>FrmRegisterUser.cs</DependentUpon>
-    </EmbeddedResource>
+    </Compile>
+    <Compile Include="UI\FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\FrmRegistroUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\FrmRegistroUsuarios.Designer.cs">
+      <DependentUpon>FrmRegistroUsuarios.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -118,7 +123,27 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\FrmRegistroUsuarios.resx">
+      <DependentUpon>FrmRegistroUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="BiblioTechDbDataSet.xsc">
+      <DependentUpon>BiblioTechDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BiblioTechDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BiblioTechDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BiblioTechDbDataSet.xss">
+      <DependentUpon>BiblioTechDbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -142,7 +167,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UI\Consultas\" />
-    <Folder Include="UI\Registros\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

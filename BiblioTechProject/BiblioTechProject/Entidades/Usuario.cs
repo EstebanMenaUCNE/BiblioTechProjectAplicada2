@@ -13,7 +13,21 @@ namespace BiblioTechProject.Entidades
         public string Nombre { get; set; }
         public string NombreUsuario { get; set; }
         public string Contrasena { get; set; }
-        
+        public string Cargo { get; set; }
+
+        public Usuario()
+        {
+
+        }
+
+        public Usuario(int usuarioId, string nombre, string nombreUsuario, string contrasena, string cargo)
+        {
+            UsuarioId = usuarioId;
+            Nombre = nombre;
+            NombreUsuario = nombreUsuario;
+            Contrasena = contrasena;
+            Cargo = cargo;
+        }
     }
 
 }

@@ -64,7 +64,12 @@ namespace BiblioTechProject.BLL
 
         public static List<Entidades.Libro> GetListEditorial(string nombreEditorial)
         {
-            Entidades.Editorial editorial = EditorialBLL.GetListNombre(nombreEditorial).ElementAt(0);
+            Entidades.Editorial editorial = null;
+            List<Entidades.Editorial> lista = EditorialBLL.GetListNombre(nombreEditorial);
+            if (lista.Count > 0)
+            {
+                editorial = lista.ElementAt(0);
+            }
             if (editorial != null)
             {
                 using (var repositorio = new DAL.Repositorio<Entidades.Libro>())
