@@ -42,18 +42,18 @@
             this.cargoComboBox = new System.Windows.Forms.ComboBox();
             this.guardarButton = new System.Windows.Forms.Button();
             this.nuevoButton = new System.Windows.Forms.Button();
-            this.cancelarButton = new System.Windows.Forms.Button();
+            this.eliminarButton = new System.Windows.Forms.Button();
             this.buscarButton = new System.Windows.Forms.Button();
             this.nombreErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.usuarioErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.contrasenaErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cargoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.confirmarContrasenaTextBox = new System.Windows.Forms.TextBox();
             this.confirmarContrasenaErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.RegistroUsuariosStatusStrip = new System.Windows.Forms.StatusStrip();
             this.guardadoToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ErrorToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.noEncontradoToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.eliminadoToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             usuarioIdLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             nombreUsuarioLabel = new System.Windows.Forms.Label();
@@ -63,7 +63,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nombreErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contrasenaErrorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargoErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.confirmarContrasenaErrorProvider)).BeginInit();
             this.RegistroUsuariosStatusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -197,15 +196,15 @@
             this.nuevoButton.UseVisualStyleBackColor = true;
             this.nuevoButton.Click += new System.EventHandler(this.nuevoButton_Click);
             // 
-            // cancelarButton
+            // eliminarButton
             // 
-            this.cancelarButton.Location = new System.Drawing.Point(217, 213);
-            this.cancelarButton.Name = "cancelarButton";
-            this.cancelarButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelarButton.TabIndex = 7;
-            this.cancelarButton.Text = "Cancelar";
-            this.cancelarButton.UseVisualStyleBackColor = true;
-            this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
+            this.eliminarButton.Location = new System.Drawing.Point(217, 213);
+            this.eliminarButton.Name = "eliminarButton";
+            this.eliminarButton.Size = new System.Drawing.Size(75, 23);
+            this.eliminarButton.TabIndex = 7;
+            this.eliminarButton.Text = "Eliminar";
+            this.eliminarButton.UseVisualStyleBackColor = true;
+            this.eliminarButton.Click += new System.EventHandler(this.cancelarButton_Click);
             // 
             // buscarButton
             // 
@@ -230,10 +229,6 @@
             // 
             this.contrasenaErrorProvider.ContainerControl = this;
             // 
-            // cargoErrorProvider
-            // 
-            this.cargoErrorProvider.ContainerControl = this;
-            // 
             // confirmarContrasenaTextBox
             // 
             this.confirmarContrasenaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -253,12 +248,14 @@
             this.RegistroUsuariosStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.guardadoToolStripStatusLabel,
             this.ErrorToolStripStatusLabel,
-            this.noEncontradoToolStripStatusLabel});
+            this.noEncontradoToolStripStatusLabel,
+            this.eliminadoToolStripStatusLabel});
             this.RegistroUsuariosStatusStrip.Location = new System.Drawing.Point(0, 270);
             this.RegistroUsuariosStatusStrip.Name = "RegistroUsuariosStatusStrip";
             this.RegistroUsuariosStatusStrip.Size = new System.Drawing.Size(331, 22);
             this.RegistroUsuariosStatusStrip.TabIndex = 16;
             this.RegistroUsuariosStatusStrip.Text = "statusStrip1";
+            this.RegistroUsuariosStatusStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.RegistroUsuariosStatusStrip_ItemClicked);
             // 
             // guardadoToolStripStatusLabel
             // 
@@ -281,6 +278,13 @@
             this.noEncontradoToolStripStatusLabel.Text = "No encontrado...";
             this.noEncontradoToolStripStatusLabel.Visible = false;
             // 
+            // eliminadoToolStripStatusLabel
+            // 
+            this.eliminadoToolStripStatusLabel.Name = "eliminadoToolStripStatusLabel";
+            this.eliminadoToolStripStatusLabel.Size = new System.Drawing.Size(114, 17);
+            this.eliminadoToolStripStatusLabel.Text = "Eliminado con éxito!";
+            this.eliminadoToolStripStatusLabel.Visible = false;
+            // 
             // FrmRegistroUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,7 +294,7 @@
             this.Controls.Add(confimarContrasenaLabel);
             this.Controls.Add(this.confirmarContrasenaTextBox);
             this.Controls.Add(this.buscarButton);
-            this.Controls.Add(this.cancelarButton);
+            this.Controls.Add(this.eliminarButton);
             this.Controls.Add(this.nuevoButton);
             this.Controls.Add(this.guardarButton);
             this.Controls.Add(usuarioIdLabel);
@@ -305,11 +309,11 @@
             this.Controls.Add(this.cargoComboBox);
             this.Name = "FrmRegistroUsuarios";
             this.Text = "BiblioTech - Registro de Usuarios";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmRegistroUsuarios_FormClosed);
             this.Load += new System.EventHandler(this.FrmRegistroUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nombreErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contrasenaErrorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargoErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.confirmarContrasenaErrorProvider)).EndInit();
             this.RegistroUsuariosStatusStrip.ResumeLayout(false);
             this.RegistroUsuariosStatusStrip.PerformLayout();
@@ -327,17 +331,17 @@
         private System.Windows.Forms.ComboBox cargoComboBox;
         private System.Windows.Forms.Button guardarButton;
         private System.Windows.Forms.Button nuevoButton;
-        private System.Windows.Forms.Button cancelarButton;
+        private System.Windows.Forms.Button eliminarButton;
         private System.Windows.Forms.Button buscarButton;
         private System.Windows.Forms.ErrorProvider nombreErrorProvider;
         private System.Windows.Forms.ErrorProvider usuarioErrorProvider;
         private System.Windows.Forms.ErrorProvider contrasenaErrorProvider;
-        private System.Windows.Forms.ErrorProvider cargoErrorProvider;
         private System.Windows.Forms.TextBox confirmarContrasenaTextBox;
         private System.Windows.Forms.ErrorProvider confirmarContrasenaErrorProvider;
         private System.Windows.Forms.StatusStrip RegistroUsuariosStatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel guardadoToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel ErrorToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel noEncontradoToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel eliminadoToolStripStatusLabel;
     }
 }

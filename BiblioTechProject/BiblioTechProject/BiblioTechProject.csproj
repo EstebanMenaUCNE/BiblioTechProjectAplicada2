@@ -73,29 +73,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BiblioTechDbDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BLL\AutorBLL.cs" />
-    <Compile Include="BLL\ClienteBLL.cs" />
-    <Compile Include="BLL\DevolucionBLL.cs" />
-    <Compile Include="BLL\EditorialBLL.cs" />
-    <Compile Include="BLL\LibroBLL.cs" />
-    <Compile Include="BLL\PrestamoBLL.cs" />
-    <Compile Include="BLL\UsuarioBLL.cs" />
-    <Compile Include="DAL\BiblioTechDb.cs" />
-    <Compile Include="DAL\IRepository.cs" />
-    <Compile Include="DAL\Repositorio.cs" />
-    <Compile Include="Entidades\Devolucion.cs" />
-    <Compile Include="Entidades\DevolucionLibro.cs" />
-    <Compile Include="Entidades\Autor.cs" />
-    <Compile Include="Entidades\AutorLibro.cs" />
-    <Compile Include="Entidades\Cliente.cs" />
-    <Compile Include="Entidades\Editorial.cs" />
-    <Compile Include="Entidades\EditorialLibro.cs" />
-    <Compile Include="Entidades\Libro.cs" />
-    <Compile Include="Entidades\Prestamo.cs" />
-    <Compile Include="Entidades\PrestamoLibro.cs" />
-    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Consultas\FrmConsultaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\FrmConsultaClientes.Designer.cs">
+      <DependentUpon>FrmConsultaClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consultas\FrmConsultaUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +99,18 @@
     <Compile Include="UI\FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Registros\FrmRegistroAutores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\FrmRegistroAutores.Designer.cs">
+      <DependentUpon>FrmRegistroAutores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\FrmRegistroClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\FrmRegistroClientes.Designer.cs">
+      <DependentUpon>FrmRegistroClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registros\FrmRegistroUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +127,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Consultas\FrmConsultaClientes.resx">
+      <DependentUpon>FrmConsultaClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\FrmConsultaUsuarios.resx">
       <DependentUpon>FrmConsultaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +138,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\FrmRegistroAutores.resx">
+      <DependentUpon>FrmRegistroAutores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\FrmRegistroClientes.resx">
+      <DependentUpon>FrmRegistroClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\FrmRegistroUsuarios.resx">
       <DependentUpon>FrmRegistroUsuarios.cs</DependentUpon>
@@ -175,7 +181,16 @@
       <DependentUpon>BiblioTechDb.mdf</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{298BB840-FFC2-4B59-8F0C-35F8314BFFC5}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{AE61C2E9-601D-4D03-B25E-0BD9966EEEA4}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>

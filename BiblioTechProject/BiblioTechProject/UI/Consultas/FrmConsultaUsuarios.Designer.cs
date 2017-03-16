@@ -48,6 +48,7 @@
             this.filtrarComboBox.Name = "filtrarComboBox";
             this.filtrarComboBox.Size = new System.Drawing.Size(121, 21);
             this.filtrarComboBox.TabIndex = 0;
+            this.filtrarComboBox.SelectedIndexChanged += new System.EventHandler(this.filtrarComboBox_SelectedIndexChanged);
             // 
             // filtrarLabel
             // 
@@ -101,6 +102,8 @@
             this.Controls.Add(this.filtrarComboBox);
             this.Name = "FrmConsultaUsuarios";
             this.Text = "BiblioTech - Consulta de Usuarios";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmConsultaUsuarios_FormClosed);
+            this.Load += new System.EventHandler(this.FrmConsultaUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

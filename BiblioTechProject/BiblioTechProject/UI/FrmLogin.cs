@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BiblioTechProject.BLL;
+using BiblioTechProject.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +14,7 @@ namespace BiblioTechProject.UI
     public partial class FrmLogin : Form
     {
         private static Entidades.Usuario UsuarioLogueado = null;
-        private static FrmLogin formulario = new FrmLogin();
+        private static FrmLogin formulario = null;
 
         private FrmLogin()
         {
@@ -21,6 +23,10 @@ namespace BiblioTechProject.UI
 
         public static FrmLogin GetInstance()
         {
+            if (formulario == null)
+            {
+                formulario = new FrmLogin();
+            }
             return formulario;
         }
 
@@ -68,11 +74,7 @@ namespace BiblioTechProject.UI
                 }
                 else
                 {
-                    List<Entidades.Usuario> lista = BLL.UsuarioBLL.GetListNombreUsuario(usuarioTextBox.Text);
-                    if (lista.Count > 0)
-                    {
-                        usuario = lista.ElementAt(0);
-                    }
+                    usuario = BLL.UsuarioBLL.Buscar(U => U.NombreUsuario == usuarioTextBox.Text);
                 }
                 if (usuario != null)
                 {
@@ -86,12 +88,15 @@ namespace BiblioTechProject.UI
                     else
                     {
                         MessageBox.Show("Contraseña incorrecta...");
+                        contrasenaTextBox.Clear();
+                        contrasenaTextBox.Focus();
                     }
                 }
                 else
                 {
                     MessageBox.Show("El usuario no existe...");
-                    
+                    contrasenaTextBox.Clear();
+                    usuarioTextBox.Focus();
                 }
             }
         }

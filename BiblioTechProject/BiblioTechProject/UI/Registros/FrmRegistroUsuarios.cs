@@ -11,9 +11,20 @@ namespace BiblioTechProject.UI.Registros
 {
     public partial class FrmRegistroUsuarios : Form
     {
-        public FrmRegistroUsuarios()
+        private static FrmRegistroUsuarios formulario = null;
+
+        private FrmRegistroUsuarios()
         {
             InitializeComponent();
+        }
+
+        public static FrmRegistroUsuarios GetInstance()
+        {
+            if (formulario == null)
+            {
+                formulario = new FrmRegistroUsuarios();
+            }
+            return formulario;
         }
 
         private void Limpiar()
@@ -23,7 +34,6 @@ namespace BiblioTechProject.UI.Registros
             nombreUsuarioTextBox.Clear();
             contrasenaTextBox.Clear();
             confirmarContrasenaTextBox.Clear();
-            nombreTextBox.Focus();
         }
 
         private bool Validar()
@@ -54,11 +64,6 @@ namespace BiblioTechProject.UI.Registros
                 confirmarContrasenaErrorProvider.SetError(confirmarContrasenaTextBox, "Las contraseñas no coinciden");
                 flag = false;
             }
-            if (string.IsNullOrWhiteSpace(cargoComboBox.Text))
-            {
-                cargoErrorProvider.SetError(cargoComboBox, "Seleccione el cargo");
-                flag = false;
-            }
             return flag;
         }
 
@@ -67,6 +72,7 @@ namespace BiblioTechProject.UI.Registros
             guardadoToolStripStatusLabel.Visible = false;
             ErrorToolStripStatusLabel.Visible = false;
             noEncontradoToolStripStatusLabel.Visible = false;
+            eliminadoToolStripStatusLabel.Visible = false;
         }
 
         private Entidades.Usuario GetUsuarioCampos()
@@ -76,25 +82,44 @@ namespace BiblioTechProject.UI.Registros
 
         private void FrmRegistroUsuarios_Load(object sender, EventArgs e)
         {
-            
+            eliminarButton.Enabled = false;
+            cargoComboBox.Text = "Bibliotecario";
         }
 
         private void cargoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cargoErrorProvider.Clear();
             PonerEstadosInvisibles();
         }
 
         private void nuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
+            nombreTextBox.Focus();
             PonerEstadosInvisibles();
         }
 
         private void cancelarButton_Click(object sender, EventArgs e)
         {
-            Close();
             PonerEstadosInvisibles();
+            if (!string.IsNullOrWhiteSpace(usuarioIdTextBox.Text))
+            {
+                Entidades.Usuario usuario = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == Utilidad.ToInt(usuarioIdTextBox.Text));
+                if (usuario != null)
+                {
+                    if (BLL.UsuarioBLL.Eliminar(usuario))
+                    {
+                        eliminadoToolStripStatusLabel.Visible = true;
+                    }
+                    else
+                    {
+                        ErrorToolStripStatusLabel.Visible = true;
+                    }
+                }
+                else
+                {
+                    noEncontradoToolStripStatusLabel.Visible = true;
+                }
+            }
         }
 
         private void guardarButton_Click(object sender, EventArgs e)
@@ -104,7 +129,6 @@ namespace BiblioTechProject.UI.Registros
             {
                 if(BLL.UsuarioBLL.Guardar(GetUsuarioCampos()))
                 {
-                    Limpiar();
                     guardadoToolStripStatusLabel.Visible = true;
                 }
                 else
@@ -117,17 +141,24 @@ namespace BiblioTechProject.UI.Registros
         private void buscarButton_Click(object sender, EventArgs e)
         {
             PonerEstadosInvisibles();
-            Entidades.Usuario usuario = BLL.UsuarioBLL.Buscar(GetUsuarioCampos());
-            if (usuario != null)
+            if (!string.IsNullOrWhiteSpace(usuarioIdTextBox.Text))
             {
-                nombreTextBox.Text = usuario.Nombre;
-                nombreUsuarioTextBox.Text = usuario.NombreUsuario;
-                cargoComboBox.Text = usuario.Cargo;
+                int id = Utilidad.ToInt(usuarioIdTextBox.Text);
+                Entidades.Usuario usuario = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == id);
+                Limpiar();
+                if (usuario != null)
+                {
+                    usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
+                    nombreTextBox.Text = usuario.Nombre;
+                    nombreUsuarioTextBox.Text = usuario.NombreUsuario;
+                    cargoComboBox.Text = usuario.Cargo;
+                }
+                else
+                {
+                    noEncontradoToolStripStatusLabel.Visible = true;
+                }
             }
-            else
-            {
-                noEncontradoToolStripStatusLabel.Visible = true;
-            }
+            
         }
 
         private void nombreTextBox_TextChanged(object sender, EventArgs e)
@@ -157,6 +188,24 @@ namespace BiblioTechProject.UI.Registros
         private void usuarioIdTextBox_TextChanged(object sender, EventArgs e)
         {
             PonerEstadosInvisibles();
+            if (usuarioIdTextBox.Text == "")
+            {
+                eliminarButton.Enabled = false;
+            }
+            else
+            {
+                eliminarButton.Enabled = true;
+            }
+        }
+
+        private void RegistroUsuariosStatusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void FrmRegistroUsuarios_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formulario = null;
         }
     }
 }

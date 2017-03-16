@@ -11,7 +11,7 @@ namespace BiblioTechProject.UI
 {
     public partial class FrmMenu : Form
     {
-        private static FrmMenu formulario = new FrmMenu();
+        private static FrmMenu formulario = null;
 
         private FrmMenu()
         {
@@ -20,6 +20,10 @@ namespace BiblioTechProject.UI
 
         public static FrmMenu GetInstance()
         {
+            if (formulario == null)
+            {
+                formulario = new FrmMenu();
+            }
             return formulario;
         }
 
@@ -65,7 +69,8 @@ namespace BiblioTechProject.UI
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Registros.FrmRegistroUsuarios().Show();
+            Registros.FrmRegistroUsuarios.GetInstance().Show();
+            Registros.FrmRegistroUsuarios.GetInstance().Activate();
         }
 
         private void FrmMenu_VisibleChanged(object sender, EventArgs e)
@@ -76,7 +81,20 @@ namespace BiblioTechProject.UI
 
         private void usuariosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            new Consultas.FrmConsultaUsuarios().Show();
+            Consultas.FrmConsultaUsuarios.GetInstance().Show();
+            Consultas.FrmConsultaUsuarios.GetInstance().Activate();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.FrmRegistroClientes.GetInstance().Show();
+            Registros.FrmRegistroClientes.GetInstance().Activate();
+        }
+
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Consultas.FrmConsultaClientes.GetInstance().Show();
+            Consultas.FrmConsultaClientes.GetInstance().Activate();
         }
     }
 }
