@@ -8,13 +8,13 @@ namespace BiblioTechProject.BLL
 {
     public class PrestamoBLL
     {
-        public static bool Guardar(Entidades.Prestamo prestamo)
+        public static Entidades.Prestamo Guardar(Entidades.Prestamo prestamo)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Prestamo>())
             {
                 if (Buscar(P => P.PrestamoId == prestamo.PrestamoId) == null)
                 {
-                    return repositorio.Guardar(prestamo) != null;
+                    return repositorio.Guardar(prestamo);
                 }
                 else
                 {

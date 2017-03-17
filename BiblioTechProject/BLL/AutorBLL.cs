@@ -10,13 +10,13 @@ namespace BiblioTechProject.BLL
 {
     public class AutorBLL
     {
-        public static bool Guardar(Entidades.Autor autor)
+        public static Entidades.Autor Guardar(Entidades.Autor autor)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Autor>())
             {
                 if (Buscar(A => A.AutorId == autor.AutorId) == null)
                 {
-                    return repositorio.Guardar(autor) != null;
+                    return repositorio.Guardar(autor);
                 }
                 else
                 {

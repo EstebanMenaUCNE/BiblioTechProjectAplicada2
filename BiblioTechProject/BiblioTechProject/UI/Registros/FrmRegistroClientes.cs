@@ -12,6 +12,7 @@ namespace BiblioTechProject.UI.Registros
     public partial class FrmRegistroClientes : Form
     {
         private static FrmRegistroClientes formulario = null;
+        private static Entidades.Cliente cliente = null;
 
         private FrmRegistroClientes()
         {
@@ -27,8 +28,15 @@ namespace BiblioTechProject.UI.Registros
             return formulario;
         }
 
+        private void FrmRegistroClientes_Load(object sender, EventArgs e)
+        {
+            sexoComboBox.Text = "Masculino";
+            DeshabilidarCamposMenosId();
+        }
+
         private void Limpiar()
         {
+            cliente = null;
             clienteIdTextBox.Clear();
             nombreTextBox.Clear();
             cedulaMaskedTextBox.Clear();
@@ -36,6 +44,7 @@ namespace BiblioTechProject.UI.Registros
             direccionTextBox.Clear();
             fechaNacimientoDateTimePicker.Value = DateTime.Now;
             emailTextBox.Clear();
+            DeshabilitarModificarBorrar();
         }
 
         private bool validar()
@@ -69,6 +78,11 @@ namespace BiblioTechProject.UI.Registros
             return flag;
         }
 
+        private void LlenarCamposInstancia()
+        {
+            cliente = new Entidades.Cliente(Utilidad.ToInt(clienteIdTextBox.Text), nombreTextBox.Text, cedulaMaskedTextBox.Text, sexoComboBox.Text, telefonoMaskedTextBox.Text, direccionTextBox.Text, fechaNacimientoDateTimePicker.Value, emailTextBox.Text, FrmLogin.GetUsuarioLogueado().UsuarioId);
+        }
+
         private void PonerEstadosInvisibles()
         {
             guardadoToolStripStatusLabel.Visible = false;
@@ -77,33 +91,100 @@ namespace BiblioTechProject.UI.Registros
             eliminadoToolStripStatusLabel.Visible = false;
         }
 
-        private Entidades.Cliente GetClienteCampos()
+        private void GetClienteCampos()
         {
-            return new Entidades.Cliente(Utilidad.ToInt(clienteIdTextBox.Text), nombreTextBox.Text, cedulaMaskedTextBox.Text, sexoComboBox.Text, telefonoMaskedTextBox.Text, direccionTextBox.Text, fechaNacimientoDateTimePicker.Value, emailTextBox.Text, FrmLogin.GetUsuarioLogueado().UsuarioId);
+            cliente = new Entidades.Cliente(Utilidad.ToInt(clienteIdTextBox.Text), nombreTextBox.Text, cedulaMaskedTextBox.Text, sexoComboBox.Text, telefonoMaskedTextBox.Text, direccionTextBox.Text, fechaNacimientoDateTimePicker.Value, emailTextBox.Text, FrmLogin.GetUsuarioLogueado().UsuarioId);
         }
 
-        private void FrmRegistroClientes_Load(object sender, EventArgs e)
+        private void HabilitarModificarBorrar()
         {
-            sexoComboBox.Text = "Masculino";
+            eliminarButton.Enabled = true;
+            modificarButton.Enabled = true;
         }
 
-        private void nuevoButton_Click(object sender, EventArgs e)
+        private void DeshabilitarModificarBorrar()
+        {
+            eliminarButton.Enabled = false;
+            modificarButton.Enabled = false;
+        }
+
+        private void HabDeshabBuscar()
+        {
+            if (string.IsNullOrWhiteSpace(clienteIdTextBox.Text))
+            {
+                buscarButton.Enabled = false;
+            }
+            else
+            {
+                buscarButton.Enabled = true;
+            }
+        }
+
+        private void DeshabilidarCamposMenosId()
+        {
+            nombreTextBox.ReadOnly = true;
+            cedulaMaskedTextBox.ReadOnly = true;
+            sexoComboBox.Enabled = false;
+            telefonoMaskedTextBox.ReadOnly = true;
+            direccionTextBox.ReadOnly = true;
+            fechaNacimientoDateTimePicker.Enabled = false;
+            emailTextBox.ReadOnly = true;
+        }
+
+        private void HabilidarCamposMenosId()
+        {
+            nombreTextBox.ReadOnly = false;
+            cedulaMaskedTextBox.ReadOnly = false;
+            sexoComboBox.Enabled = true;
+            telefonoMaskedTextBox.ReadOnly = false;
+            direccionTextBox.ReadOnly = false;
+            fechaNacimientoDateTimePicker.Enabled = true;
+            emailTextBox.ReadOnly = false;
+        }
+
+        private void nuevoButton_Click_1(object sender, EventArgs e)
         {
             Limpiar();
+            HabilidarCamposMenosId();
             nombreTextBox.Focus();
             PonerEstadosInvisibles();
         }
 
-        private void cancelarButton_Click(object sender, EventArgs e)
+        private void guardarButton_Click_1(object sender, EventArgs e)
         {
             PonerEstadosInvisibles();
-            if (!string.IsNullOrWhiteSpace(clienteIdTextBox.Text))
+            if (!nombreTextBox.ReadOnly)
             {
-                Entidades.Cliente cliente = BLL.ClienteBLL.Buscar(C => C.ClienteId == Utilidad.ToInt(clienteIdTextBox.Text));
-                if (cliente != null)
+                if (validar())
+                {
+                    LlenarCamposInstancia();
+                    cliente = BLL.ClienteBLL.Guardar(cliente); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
+                    if (cliente != null)
+                    {
+                        clienteIdTextBox.Text = cliente.ClienteId.ToString();
+                        guardadoToolStripStatusLabel.Visible = true;
+                        DeshabilidarCamposMenosId();
+                        HabilitarModificarBorrar();
+                    }
+                    else
+                    {
+                        ErrorToolStripStatusLabel.Visible = true;
+                    }
+                }
+            }            
+        }
+
+        private void eliminarButton_Click(object sender, EventArgs e)
+        {
+            PonerEstadosInvisibles();
+            if (cliente != null)
+            {
+                DialogResult opcionEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (opcionEliminar == DialogResult.Yes)
                 {
                     if (BLL.ClienteBLL.Eliminar(cliente))
                     {
+                        Limpiar();
                         eliminadoToolStripStatusLabel.Visible = true;
                     }
                     else
@@ -111,105 +192,88 @@ namespace BiblioTechProject.UI.Registros
                         ErrorToolStripStatusLabel.Visible = true;
                     }
                 }
-                else
-                {
-                    noEncontradoToolStripStatusLabel.Visible = true;
-                }
+            }
+        }
+        
+        private void buscarButton_Click_1(object sender, EventArgs e)
+        {
+            PonerEstadosInvisibles();
+            int id = Utilidad.ToInt(clienteIdTextBox.Text);
+            DeshabilidarCamposMenosId();
+            Limpiar();
+            cliente = BLL.ClienteBLL.Buscar(C => C.ClienteId == id);
+            if (cliente != null)
+            {
+                clienteIdTextBox.Text = cliente.ClienteId.ToString();
+                nombreTextBox.Text = cliente.Nombre;
+                cedulaMaskedTextBox.Text = cliente.Cedula;
+                sexoComboBox.Text = cliente.Sexo;
+                telefonoMaskedTextBox.Text = cliente.Telefono;
+                direccionTextBox.Text = cliente.Direccion;
+                fechaNacimientoDateTimePicker.Value = cliente.FechaNacimiento;
+                emailTextBox.Text = cliente.Email;
+                HabilitarModificarBorrar();
+            }
+            else
+            {
+                noEncontradoToolStripStatusLabel.Visible = true;
             }
         }
 
-        private void guardarButton_Click(object sender, EventArgs e)
+        private void modificarButton_Click(object sender, EventArgs e)
         {
             PonerEstadosInvisibles();
-            if (validar())
-            {
-                if (BLL.ClienteBLL.Guardar(GetClienteCampos()))
-                {
-                    guardadoToolStripStatusLabel.Visible = true;
-                }
-                else
-                {
-                    ErrorToolStripStatusLabel.Visible = true;
-                }
-            }
-        }
-
-        private void buscarButton_Click(object sender, EventArgs e)
-        {
-            PonerEstadosInvisibles();
-            if (!string.IsNullOrWhiteSpace(clienteIdTextBox.Text))
-            {
-                int id = Utilidad.ToInt(clienteIdTextBox.Text);
-                Entidades.Cliente cliente = BLL.ClienteBLL.Buscar(C => C.ClienteId == id);
-                Limpiar();
-                if (cliente != null)
-                {
-                    clienteIdTextBox.Text = cliente.ClienteId.ToString();
-                    nombreTextBox.Text = cliente.Nombre;
-                    cedulaMaskedTextBox.Text = cliente.Cedula;
-                    sexoComboBox.Text = cliente.Sexo;
-                    telefonoMaskedTextBox.Text = cliente.Telefono;
-                    direccionTextBox.Text = cliente.Direccion;
-                    fechaNacimientoDateTimePicker.Value = cliente.FechaNacimiento;
-                    emailTextBox.Text = cliente.Email;
-                }
-                else
-                {
-                    noEncontradoToolStripStatusLabel.Visible = true;
-                }
-            }
+            HabilidarCamposMenosId();
         }
 
         private void clienteIdTextBox_TextChanged(object sender, EventArgs e)
         {
             PonerEstadosInvisibles();
-            if (string.IsNullOrWhiteSpace(clienteIdTextBox.Text))
-            {
-                eliminarButton.Enabled = false;
-            }
-            else
-            {
-                eliminarButton.Enabled = true;
-            }
+            HabDeshabBuscar();
         }
 
         private void nombreTextBox_TextChanged(object sender, EventArgs e)
         {
-            PonerEstadosInvisibles();
             nombreErrorProvider.Clear();
         }
 
         private void cedulaMaskedTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            PonerEstadosInvisibles();
+            
+        }
+
+        private void cedulaMaskedTextBox_TextChanged(object sender, EventArgs e)
+        {
             cedulaErrorProvider.Clear();
         }
 
         private void sexoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PonerEstadosInvisibles();
+            
         }
 
         private void telefonoMaskedTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            PonerEstadosInvisibles();
+            
+        }
+
+        private void telefonoMaskedTextBox_TextChanged(object sender, EventArgs e)
+        {
             telefonoErrorProvider.Clear();
         }
 
         private void direccionTextBox_TextChanged(object sender, EventArgs e)
         {
-            PonerEstadosInvisibles();
             direccionErrorProvider.Clear();
         }
 
         private void fechaNacimientoDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void emailTextBox_TextChanged(object sender, EventArgs e)
         {
-            PonerEstadosInvisibles();
             emailErrorProvider.Clear();
         }
 
@@ -217,5 +281,7 @@ namespace BiblioTechProject.UI.Registros
         {
             formulario = null;
         }
+
+        
     }
 }

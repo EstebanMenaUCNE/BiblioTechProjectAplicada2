@@ -126,6 +126,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\Consultas\FrmConsultaClientes.resx">
       <DependentUpon>FrmConsultaClientes.cs</DependentUpon>
@@ -180,6 +181,19 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BiblioTechDb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\ic_exit_to_app_black_24dp_1x.png" />
+    <None Include="Resources\ic_fingerprint_black_24dp_1x.png" />
+    <None Include="Resources\ic_lock_black_24dp_1x.png" />
+    <None Include="Resources\ic_account_circle_black_24dp_1x.png" />
+    <None Include="Resources\ic_account_circle_black_24dp_2x.png" />
+    <None Include="Resources\ic_mode_edit_black_24dp_1x.png" />
+    <None Include="Resources\ic_mode_edit_black_24dp_2x.png" />
+    <None Include="Resources\ic_note_add_black_24dp_1x.png" />
+    <None Include="Resources\ic_delete_black_24dp_1x.png" />
+    <None Include="Resources\ic_save_black_24dp_1x.png" />
+    <None Include="Resources\ic_search_black_24dp_1x1.png" />
+    <None Include="Resources\ic_search_black_24dp_1x.png" />
+    <None Include="Resources\ic_search_black_24dp_2x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

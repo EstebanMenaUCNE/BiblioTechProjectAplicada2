@@ -8,13 +8,13 @@ namespace BiblioTechProject.BLL
 {
     public class LibroBLL
     {
-        public static bool Guardar(Entidades.Libro libro)
+        public static Entidades.Libro Guardar(Entidades.Libro libro)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Libro>())
             {
                 if (Buscar(L => L.LibroId == libro.EditorialId) == null)
                 {
-                    return repositorio.Guardar(libro) != null;
+                    return repositorio.Guardar(libro);
                 }
                 else
                 {

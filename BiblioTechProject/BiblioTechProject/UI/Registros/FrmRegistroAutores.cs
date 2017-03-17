@@ -24,8 +24,27 @@ namespace BiblioTechProject.UI.Registros
 
         private bool Validar()
         {
-
+            if (string.IsNullOrWhiteSpace(nombreTextBox.Text))
+            {
+                nombreErrorProvider.SetError(nombreTextBox, "Digite el nombre");
+                return false;
+            }
+            return true;
         }
+
+        private void PonerEstadosInvisibles()
+        {
+            guardadoToolStripStatusLabel.Visible = false;
+            ErrorToolStripStatusLabel.Visible = false;
+            noEncontradoToolStripStatusLabel.Visible = false;
+            eliminadoToolStripStatusLabel.Visible = false;
+        }
+
+        /* Entidades.Autor GetAutorCampos()
+        {
+            //return new Entidades.Autor(Utilidad.ToInt(autorIdTextBox.Text), nombreTextBox);
+            //Hay que hacer uno global
+        }*/
 
         private void FrmRegistroAutores_Load(object sender, EventArgs e)
         {

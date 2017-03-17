@@ -8,13 +8,13 @@ namespace BiblioTechProject.BLL
 {
     public class DevolucionBLL
     {
-        public static bool Guardar(Entidades.Devolucion devolucion)
+        public static Entidades.Devolucion Guardar(Entidades.Devolucion devolucion)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Devolucion>())
             {
                 if (Buscar(D => D.DevolucionId == devolucion.DevolucionId) == null)
                 {
-                    return repositorio.Guardar(devolucion) != null;
+                    return repositorio.Guardar(devolucion);
                 }
                 else
                 {

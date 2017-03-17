@@ -39,18 +39,19 @@ namespace BiblioTechProject.DAL
             }
         }
 
-        public bool Modificar(TEntity entidad)
+        public TEntity Modificar(TEntity entidad)
         {
             try
             {
                 EntitySet.Attach(entidad);
                 Context.Entry<TEntity>(entidad).State = EntityState.Modified;
-                return Context.SaveChanges() > 0;
+                Context.SaveChanges();
+                return entidad;
             }
             catch (Exception)
             {
                 throw;
-                return false;
+                return null;
             }
         }
 
