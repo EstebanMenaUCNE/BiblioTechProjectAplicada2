@@ -23,6 +23,14 @@ namespace BiblioTechProject.Entidades
         {
             Libros = new List<Libro>();
         }
+
+        public Autor(int autorId, string nombre, int usuarioId)
+        {
+            AutorId = autorId;
+            Nombre = nombre;
+            UsuarioId = usuarioId;
+            Libros = new List<Libro>();
+        }
     }
 
 }

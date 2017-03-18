@@ -12,7 +12,7 @@ namespace BiblioTechProject.UI.Registros
     public partial class FrmRegistroClientes : Form
     {
         private static FrmRegistroClientes formulario = null;
-        private static Entidades.Cliente cliente = null;
+        private Entidades.Cliente cliente = null;
 
         private FrmRegistroClientes()
         {
@@ -47,7 +47,7 @@ namespace BiblioTechProject.UI.Registros
             DeshabilitarModificarBorrar();
         }
 
-        private bool validar()
+        private bool Validar()
         {
             bool flag = true;
             if (string.IsNullOrWhiteSpace(nombreTextBox.Text))
@@ -80,7 +80,12 @@ namespace BiblioTechProject.UI.Registros
 
         private void LlenarCamposInstancia()
         {
-            cliente = new Entidades.Cliente(Utilidad.ToInt(clienteIdTextBox.Text), nombreTextBox.Text, cedulaMaskedTextBox.Text, sexoComboBox.Text, telefonoMaskedTextBox.Text, direccionTextBox.Text, fechaNacimientoDateTimePicker.Value, emailTextBox.Text, FrmLogin.GetUsuarioLogueado().UsuarioId);
+            int id = 0;
+            if (cliente != null)
+            {
+                id = cliente.ClienteId;
+            }
+            cliente = new Entidades.Cliente(id, nombreTextBox.Text, cedulaMaskedTextBox.Text, sexoComboBox.Text, telefonoMaskedTextBox.Text, direccionTextBox.Text, fechaNacimientoDateTimePicker.Value, emailTextBox.Text, FrmLogin.GetUsuarioLogueado().UsuarioId);
         }
 
         private void PonerEstadosInvisibles()
@@ -89,11 +94,6 @@ namespace BiblioTechProject.UI.Registros
             ErrorToolStripStatusLabel.Visible = false;
             noEncontradoToolStripStatusLabel.Visible = false;
             eliminadoToolStripStatusLabel.Visible = false;
-        }
-
-        private void GetClienteCampos()
-        {
-            cliente = new Entidades.Cliente(Utilidad.ToInt(clienteIdTextBox.Text), nombreTextBox.Text, cedulaMaskedTextBox.Text, sexoComboBox.Text, telefonoMaskedTextBox.Text, direccionTextBox.Text, fechaNacimientoDateTimePicker.Value, emailTextBox.Text, FrmLogin.GetUsuarioLogueado().UsuarioId);
         }
 
         private void HabilitarModificarBorrar()
@@ -183,7 +183,7 @@ namespace BiblioTechProject.UI.Registros
             {
                 if (FrmLogin.GetUsuarioLogueado().UsuarioId > 0)
                 {
-                    if (validar())
+                    if (Validar())
                     {
                         LlenarCamposInstancia();
                         cliente = BLL.ClienteBLL.Guardar(cliente); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
@@ -213,8 +213,8 @@ namespace BiblioTechProject.UI.Registros
             PonerEstadosInvisibles();
             if (cliente != null)
             {
-                DialogResult opcionEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (opcionEliminar == DialogResult.Yes)
+                DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuestaEliminar == DialogResult.Yes)
                 {
                     if (BLL.ClienteBLL.Eliminar(cliente))
                     {

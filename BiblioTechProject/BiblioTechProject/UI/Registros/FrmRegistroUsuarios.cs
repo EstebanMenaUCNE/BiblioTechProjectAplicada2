@@ -78,7 +78,12 @@ namespace BiblioTechProject.UI.Registros
 
         private void LlenarCamposInstancia()
         {
-            usuario = new Entidades.Usuario(Utilidad.ToInt(usuarioIdTextBox.Text), nombreTextBox.Text, nombreUsuarioTextBox.Text, contrasenaTextBox.Text, cargoComboBox.Text);
+            int id = 0;
+            if (usuario != null)
+            {
+                id = usuario.UsuarioId;
+            }
+            usuario = new Entidades.Usuario(id, nombreTextBox.Text, nombreUsuarioTextBox.Text, contrasenaTextBox.Text, cargoComboBox.Text);
         }
 
         private void PonerEstadosInvisibles()
@@ -217,8 +222,8 @@ namespace BiblioTechProject.UI.Registros
             //usuario = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == Utilidad.ToInt(usuarioIdTextBox.Text));
             if (usuario != null)
             {
-                DialogResult opcionEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (opcionEliminar == DialogResult.Yes)
+                DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuestaEliminar == DialogResult.Yes)
                 {
                     //Poner a que no se borre el usuario logueado, ni el ultimo usuario admin
                     if (BLL.UsuarioBLL.Eliminar(usuario))

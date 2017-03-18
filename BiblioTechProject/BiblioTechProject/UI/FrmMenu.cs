@@ -96,5 +96,11 @@ namespace BiblioTechProject.UI
             Consultas.FrmConsultaClientes.GetInstance().Show();
             Consultas.FrmConsultaClientes.GetInstance().Activate();
         }
+
+        private void autorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.FrmRegistroAutores.GetInstance().Show();
+            Consultas.FrmConsultaClientes.GetInstance().Activate();
+        }
     }
 }

@@ -75,6 +75,8 @@
             this.autorIdTextBox.Name = "autorIdTextBox";
             this.autorIdTextBox.Size = new System.Drawing.Size(97, 20);
             this.autorIdTextBox.TabIndex = 2;
+            this.autorIdTextBox.TextChanged += new System.EventHandler(this.autorIdTextBox_TextChanged);
+            this.autorIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.autorIdTextBox_KeyPress);
             // 
             // nombreTextBox
             // 
@@ -82,6 +84,7 @@
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(178, 20);
             this.nombreTextBox.TabIndex = 4;
+            this.nombreTextBox.TextChanged += new System.EventHandler(this.nombreTextBox_TextChanged);
             // 
             // RegistroUsuariosStatusStrip
             // 
@@ -141,6 +144,7 @@
             this.modificarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.botonesToolTip.SetToolTip(this.modificarButton, "Modificar");
             this.modificarButton.UseVisualStyleBackColor = true;
+            this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
             // 
             // buscarButton
             // 
@@ -154,6 +158,7 @@
             this.buscarButton.TabIndex = 23;
             this.botonesToolTip.SetToolTip(this.buscarButton, "Buscar");
             this.buscarButton.UseVisualStyleBackColor = true;
+            this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
             // 
             // eliminarButton
             // 
@@ -167,6 +172,7 @@
             this.eliminarButton.Text = "Eliminar";
             this.eliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.eliminarButton.UseVisualStyleBackColor = true;
+            this.eliminarButton.Click += new System.EventHandler(this.eliminarButton_Click);
             // 
             // nuevoButton
             // 
@@ -179,6 +185,7 @@
             this.nuevoButton.Text = "Nuevo";
             this.nuevoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nuevoButton.UseVisualStyleBackColor = true;
+            this.nuevoButton.Click += new System.EventHandler(this.nuevoButton_Click);
             // 
             // guardarButton
             // 
@@ -191,6 +198,7 @@
             this.guardarButton.Text = "Guardar";
             this.guardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.guardarButton.UseVisualStyleBackColor = true;
+            this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
             // FrmRegistroAutores
             // 
@@ -209,6 +217,7 @@
             this.Controls.Add(this.nombreTextBox);
             this.Name = "FrmRegistroAutores";
             this.Text = "BiblioTech - Registro de Autores";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmRegistroAutores_FormClosed);
             this.Load += new System.EventHandler(this.FrmRegistroAutores_Load);
             this.RegistroUsuariosStatusStrip.ResumeLayout(false);
             this.RegistroUsuariosStatusStrip.PerformLayout();
