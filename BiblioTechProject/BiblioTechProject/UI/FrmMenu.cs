@@ -102,5 +102,10 @@ namespace BiblioTechProject.UI
             Registros.FrmRegistroAutores.GetInstance().Show();
             Consultas.FrmConsultaClientes.GetInstance().Activate();
         }
+
+        private void usuariosToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            new Reportes.FrmReporteUsuarios().Show();
+        }
     }
 }

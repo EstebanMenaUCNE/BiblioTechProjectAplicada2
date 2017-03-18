@@ -55,9 +55,12 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,7 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BiblioTechDbDataSet.Designer.cs">
+    <Compile Include="UI\Reportes\BiblioTechDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BiblioTechDbDataSet.xsd</DependentUpon>
@@ -117,6 +120,12 @@
     <Compile Include="UI\Registros\FrmRegistroUsuarios.Designer.cs">
       <DependentUpon>FrmRegistroUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\FrmReporteUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteUsuarios.Designer.cs">
+      <DependentUpon>FrmReporteUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilidad.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -149,16 +158,20 @@
     <EmbeddedResource Include="UI\Registros\FrmRegistroUsuarios.resx">
       <DependentUpon>FrmRegistroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\FrmReporteUsuarios.resx">
+      <DependentUpon>FrmReporteUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\UsuariosReport.rdlc" />
     <None Include="app.config" />
-    <None Include="BiblioTechDbDataSet.xsc">
+    <None Include="UI\Reportes\BiblioTechDbDataSet.xsc">
       <DependentUpon>BiblioTechDbDataSet.xsd</DependentUpon>
     </None>
-    <None Include="BiblioTechDbDataSet.xsd">
+    <None Include="UI\Reportes\BiblioTechDbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>BiblioTechDbDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="BiblioTechDbDataSet.xss">
+    <None Include="UI\Reportes\BiblioTechDbDataSet.xss">
       <DependentUpon>BiblioTechDbDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
