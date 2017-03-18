@@ -44,11 +44,14 @@
             // filtrarButton
             // 
             this.filtrarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.filtrarButton.Location = new System.Drawing.Point(784, 34);
+            this.filtrarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x;
+            this.filtrarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.filtrarButton.Location = new System.Drawing.Point(784, 31);
             this.filtrarButton.Name = "filtrarButton";
-            this.filtrarButton.Size = new System.Drawing.Size(75, 23);
+            this.filtrarButton.Size = new System.Drawing.Size(75, 28);
             this.filtrarButton.TabIndex = 9;
-            this.filtrarButton.Text = "Filtrar";
+            this.filtrarButton.Text = "Filtrar   ";
+            this.filtrarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.filtrarButton.UseVisualStyleBackColor = true;
             this.filtrarButton.Click += new System.EventHandler(this.filtrarButton_Click);
             // 
@@ -97,6 +100,7 @@
             this.filtrarMaskedTextBox.Name = "filtrarMaskedTextBox";
             this.filtrarMaskedTextBox.Size = new System.Drawing.Size(564, 20);
             this.filtrarMaskedTextBox.TabIndex = 10;
+            this.filtrarMaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filtrarMaskedTextBox_KeyPress);
             // 
             // desdeDateTimePicker
             // 

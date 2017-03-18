@@ -67,6 +67,7 @@
             this.filtrarTextBox.Name = "filtrarTextBox";
             this.filtrarTextBox.Size = new System.Drawing.Size(285, 20);
             this.filtrarTextBox.TabIndex = 2;
+            this.filtrarTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filtrarTextBox_KeyPress);
             // 
             // usuariosDataGridView
             // 
@@ -82,11 +83,14 @@
             // filtrarButton
             // 
             this.filtrarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.filtrarButton.Location = new System.Drawing.Point(505, 34);
+            this.filtrarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x;
+            this.filtrarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.filtrarButton.Location = new System.Drawing.Point(505, 31);
             this.filtrarButton.Name = "filtrarButton";
-            this.filtrarButton.Size = new System.Drawing.Size(75, 23);
+            this.filtrarButton.Size = new System.Drawing.Size(75, 28);
             this.filtrarButton.TabIndex = 4;
-            this.filtrarButton.Text = "Filtrar";
+            this.filtrarButton.Text = "Filtrar   ";
+            this.filtrarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.filtrarButton.UseVisualStyleBackColor = true;
             this.filtrarButton.Click += new System.EventHandler(this.filtrarButton_Click);
             // 

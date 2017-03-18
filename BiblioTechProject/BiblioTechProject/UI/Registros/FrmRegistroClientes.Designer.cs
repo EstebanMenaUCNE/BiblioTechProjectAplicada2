@@ -60,6 +60,7 @@
             this.eliminarButton = new System.Windows.Forms.Button();
             this.nuevoButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
+            this.botonesToolTip = new System.Windows.Forms.ToolTip(this.components);
             clienteIdLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             cedulaLabel = new System.Windows.Forms.Label();
@@ -155,6 +156,7 @@
             this.clienteIdTextBox.Size = new System.Drawing.Size(120, 20);
             this.clienteIdTextBox.TabIndex = 0;
             this.clienteIdTextBox.TextChanged += new System.EventHandler(this.clienteIdTextBox_TextChanged);
+            this.clienteIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.clienteIdTextBox_KeyPress);
             // 
             // nombreTextBox
             // 
@@ -292,8 +294,9 @@
             this.modificarButton.Location = new System.Drawing.Point(306, 33);
             this.modificarButton.Name = "modificarButton";
             this.modificarButton.Size = new System.Drawing.Size(33, 28);
-            this.modificarButton.TabIndex = 11;
+            this.modificarButton.TabIndex = 12;
             this.modificarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.botonesToolTip.SetToolTip(this.modificarButton, "Modificar");
             this.modificarButton.UseVisualStyleBackColor = true;
             this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
             // 
@@ -307,6 +310,7 @@
             this.buscarButton.Name = "buscarButton";
             this.buscarButton.Size = new System.Drawing.Size(33, 28);
             this.buscarButton.TabIndex = 2;
+            this.botonesToolTip.SetToolTip(this.buscarButton, "Buscar");
             this.buscarButton.UseVisualStyleBackColor = true;
             this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click_1);
             // 
@@ -318,7 +322,7 @@
             this.eliminarButton.Location = new System.Drawing.Point(242, 258);
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(75, 28);
-            this.eliminarButton.TabIndex = 12;
+            this.eliminarButton.TabIndex = 11;
             this.eliminarButton.Text = "Eliminar";
             this.eliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.eliminarButton.UseVisualStyleBackColor = true;
@@ -418,5 +422,6 @@
         private System.Windows.Forms.Button eliminarButton;
         private System.Windows.Forms.Button nuevoButton;
         private System.Windows.Forms.Button guardarButton;
+        private System.Windows.Forms.ToolTip botonesToolTip;
     }
 }

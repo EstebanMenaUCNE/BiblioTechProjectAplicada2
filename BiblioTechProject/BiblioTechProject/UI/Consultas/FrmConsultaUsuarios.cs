@@ -58,12 +58,7 @@ namespace BiblioTechProject.UI.Consultas
             filtrarTextBox.Enabled = false;
             filtrarComboBox.Text = "Todo";
         }
-
-        private void FrmConsultaUsuarios_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formulario = null;
-        }
-
+                
         private void filtrarComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (filtrarComboBox.Text == "Todo")
@@ -77,5 +72,19 @@ namespace BiblioTechProject.UI.Consultas
                 filtrarTextBox.Focus();
             }
         }
+
+        private void filtrarTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                Filtrar();
+            }
+        }
+
+        private void FrmConsultaUsuarios_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formulario = null;
+        }
+
     }
 }

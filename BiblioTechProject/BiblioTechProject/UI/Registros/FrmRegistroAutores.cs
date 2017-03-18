@@ -11,15 +11,34 @@ namespace BiblioTechProject.UI.Registros
 {
     public partial class FrmRegistroAutores : Form
     {
+        private static FrmRegistroAutores formulario = null;
+        private static Entidades.Autor autor = null;
+
         public FrmRegistroAutores()
         {
             InitializeComponent();
         }
 
+        public static FrmRegistroAutores GetInstance()
+        {
+            if (formulario == null)
+            {
+                formulario = new FrmRegistroAutores();
+            }
+            return formulario;
+        }
+
+        private void FrmRegistroAutores_Load(object sender, EventArgs e)
+        {
+            DeshabilidarCamposMenosId();
+        }
+
         private void Limpiar()
         {
+            autor = null;
             autorIdTextBox.Clear();
             nombreTextBox.Clear();
+            DeshabilitarModificarBorrar();
         }
 
         private bool Validar()
@@ -32,23 +51,12 @@ namespace BiblioTechProject.UI.Registros
             return true;
         }
 
-        private void PonerEstadosInvisibles()
+        private void LlenarCamposInstancia()
         {
-            guardadoToolStripStatusLabel.Visible = false;
-            ErrorToolStripStatusLabel.Visible = false;
-            noEncontradoToolStripStatusLabel.Visible = false;
-            eliminadoToolStripStatusLabel.Visible = false;
+            autor = new Entidades.Autor(Utilidad.ToInt(autorIdTextBox.Text), nombreTextBox.Text, FrmLogin.GetUsuarioLogueado().UsuarioId);
         }
 
-        /* Entidades.Autor GetAutorCampos()
-        {
-            //return new Entidades.Autor(Utilidad.ToInt(autorIdTextBox.Text), nombreTextBox);
-            //Hay que hacer uno global
-        }*/
 
-        private void FrmRegistroAutores_Load(object sender, EventArgs e)
-        {
-            
-        }
+
     }
 }

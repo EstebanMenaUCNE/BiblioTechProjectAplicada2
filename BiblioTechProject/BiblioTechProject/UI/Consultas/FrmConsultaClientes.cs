@@ -27,6 +27,14 @@ namespace BiblioTechProject.UI.Consultas
             return formulario;
         }
 
+        private void FrmConsultaClientes_Load(object sender, EventArgs e)
+        {
+            filtrarMaskedTextBox.Enabled = false;
+            filtrarComboBox.Text = "Todo";
+            desdeDateTimePicker.Enabled = false;
+            hastaDateTimePicker.Enabled = false;
+        }
+
         private void Filtrar()
         {
             List<Entidades.Cliente> lista = null;
@@ -92,32 +100,19 @@ namespace BiblioTechProject.UI.Consultas
                 }
                     
             }
-            clientesDataGridView.DataSource = lista;
-            //if (lista.Count > 0)
-            //{
-                clientesDataGridView.Columns["Usuario"].Visible = false;
-            //}
-            /*
             foreach (Entidades.Cliente cliente in lista)
             {
-                cliente.Usuario = new Entidades.Usuario();
+                cliente.UltimoUsuarioEnModificar = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == cliente.UsuarioId).Nombre;
             }
-            */
-            
+            clientesDataGridView.DataSource = lista;
+            clientesDataGridView.Columns["UsuarioId"].Visible = false;
+            clientesDataGridView.Columns["Usuario"].Visible = false;
             
         }
 
-        private void FrmConsultaClientes_Load(object sender, EventArgs e)
+        private void filtrarButton_Click(object sender, EventArgs e)
         {
-            filtrarMaskedTextBox.Enabled = false;
-            filtrarComboBox.Text = "Todo";
-            desdeDateTimePicker.Enabled = false;
-            hastaDateTimePicker.Enabled = false;
-        }
-
-        private void FrmConsultaClientes_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formulario = null;
+            Filtrar();
         }
 
         private void filtrarComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,12 +141,7 @@ namespace BiblioTechProject.UI.Consultas
                 }
             }
         }
-
-        private void filtrarButton_Click(object sender, EventArgs e)
-        {
-            Filtrar();
-        }
-
+        
         private void filtrarFechasCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (filtrarFechasCheckBox.Checked)
@@ -165,5 +155,19 @@ namespace BiblioTechProject.UI.Consultas
                 hastaDateTimePicker.Enabled = false;
             }
         }
+
+        private void filtrarMaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                Filtrar();
+            }
+        }
+
+        private void FrmConsultaClientes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formulario = null;
+        }
+                
     }
 }

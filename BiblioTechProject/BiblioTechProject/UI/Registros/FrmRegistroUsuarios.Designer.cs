@@ -55,6 +55,7 @@
             this.buscarButton = new System.Windows.Forms.Button();
             this.nuevoButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
+            this.botonesToolTip = new System.Windows.Forms.ToolTip(this.components);
             usuarioIdLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             nombreUsuarioLabel = new System.Windows.Forms.Label();
@@ -102,7 +103,7 @@
             contrasenaLabel.Name = "contrasenaLabel";
             contrasenaLabel.Size = new System.Drawing.Size(64, 13);
             contrasenaLabel.TabIndex = 7;
-            contrasenaLabel.Text = "Contrasena:";
+            contrasenaLabel.Text = "Contraseña:";
             // 
             // cargoLabel
             // 
@@ -120,7 +121,7 @@
             confimarContrasenaLabel.Name = "confimarContrasenaLabel";
             confimarContrasenaLabel.Size = new System.Drawing.Size(110, 13);
             confimarContrasenaLabel.TabIndex = 15;
-            confimarContrasenaLabel.Text = "Confirmar contrasena:";
+            confimarContrasenaLabel.Text = "Confirmar contraseña:";
             // 
             // usuarioIdTextBox
             // 
@@ -131,6 +132,7 @@
             this.usuarioIdTextBox.Size = new System.Drawing.Size(67, 20);
             this.usuarioIdTextBox.TabIndex = 0;
             this.usuarioIdTextBox.TextChanged += new System.EventHandler(this.usuarioIdTextBox_TextChanged);
+            this.usuarioIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.usuarioIdTextBox_KeyPress);
             // 
             // nombreTextBox
             // 
@@ -270,6 +272,7 @@
             this.modificarButton.Size = new System.Drawing.Size(33, 28);
             this.modificarButton.TabIndex = 10;
             this.modificarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.botonesToolTip.SetToolTip(this.modificarButton, "Modificar");
             this.modificarButton.UseVisualStyleBackColor = true;
             this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
             // 
@@ -283,6 +286,7 @@
             this.buscarButton.Name = "buscarButton";
             this.buscarButton.Size = new System.Drawing.Size(33, 28);
             this.buscarButton.TabIndex = 2;
+            this.botonesToolTip.SetToolTip(this.buscarButton, "Buscar");
             this.buscarButton.UseVisualStyleBackColor = true;
             this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
             // 
@@ -372,5 +376,6 @@
         private System.Windows.Forms.ToolStripStatusLabel eliminadoToolStripStatusLabel;
         private System.Windows.Forms.Button modificarButton;
         private System.Windows.Forms.Button eliminarButton;
+        private System.Windows.Forms.ToolTip botonesToolTip;
     }
 }

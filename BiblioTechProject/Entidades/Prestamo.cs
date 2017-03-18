@@ -15,6 +15,9 @@ namespace BiblioTechProject.Entidades
         public int ClienteId { get; set; }
         public int UsuarioId { get; set; }
 
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public string UltimoUsuarioEnModificar { get; set; }
+
         public Cliente Cliente { get; set; }
         public Usuario Usuario { get; set; }
         public ICollection<PrestamoLibro> PrestamosLibros { get; set; }

@@ -131,6 +131,35 @@ namespace BiblioTechProject.UI.Registros
             cargoComboBox.Enabled = true;
         }
 
+        private void Buscar()
+        {
+            PonerEstadosInvisibles();
+            int id = Utilidad.ToInt(usuarioIdTextBox.Text);
+            DeshabilidarCamposMenosId();
+            Limpiar();
+            usuario = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == id);
+            if (usuario != null)
+            {
+                usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
+                nombreTextBox.Text = usuario.Nombre;
+                nombreUsuarioTextBox.Text = usuario.NombreUsuario;
+                /*string contrasena = "";
+                foreach (char item in usuario.Contrasena)
+                {
+                    contrasena += "☻";
+                }
+                contrasenaTextBox.Text = contrasena;
+                confirmarContrasenaTextBox.Text = contrasena;*/
+                cargoComboBox.Text = usuario.Cargo;
+                HabilitarModificarBorrar();
+            }
+            else
+            {
+                noEncontradoToolStripStatusLabel.Visible = true;
+            }
+            usuarioIdTextBox.Focus();
+        }
+
         /*private void LimpiarErrorProviders()
         {
             nombreErrorProvider.Clear();
@@ -170,6 +199,7 @@ namespace BiblioTechProject.UI.Registros
                         guardadoToolStripStatusLabel.Visible = true;
                         DeshabilidarCamposMenosId();
                         HabilitarModificarBorrar();
+                        nuevoButton.Focus();
                     }
                     else
                     {
@@ -212,30 +242,7 @@ namespace BiblioTechProject.UI.Registros
 
         private void buscarButton_Click(object sender, EventArgs e)
         {
-            PonerEstadosInvisibles();
-            int id = Utilidad.ToInt(usuarioIdTextBox.Text);
-            DeshabilidarCamposMenosId();
-            Limpiar();
-            usuario = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == id);
-            if (usuario != null)
-            {
-                usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
-                nombreTextBox.Text = usuario.Nombre;
-                nombreUsuarioTextBox.Text = usuario.NombreUsuario;
-                /*string contrasena = "";
-                foreach (char item in usuario.Contrasena)
-                {
-                    contrasena += "☻";
-                }
-                contrasenaTextBox.Text = contrasena;
-                confirmarContrasenaTextBox.Text = contrasena;*/
-                cargoComboBox.Text = usuario.Cargo;
-                HabilitarModificarBorrar();
-            }
-            else
-            {
-                noEncontradoToolStripStatusLabel.Visible = true;
-            }            
+            Buscar();  
         }
 
         private void modificarButton_Click(object sender, EventArgs e)
@@ -284,10 +291,18 @@ namespace BiblioTechProject.UI.Registros
 
         }
 
+        private void usuarioIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys) e.KeyChar == Keys.Enter && buscarButton.Enabled == true)
+            {
+                Buscar();
+            }
+        }
+
         private void FrmRegistroUsuarios_FormClosed(object sender, FormClosedEventArgs e)
         {
             formulario = null;
         }
-        
+                
     }
 }

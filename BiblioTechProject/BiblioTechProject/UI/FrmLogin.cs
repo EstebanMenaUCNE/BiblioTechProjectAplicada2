@@ -63,7 +63,7 @@ namespace BiblioTechProject.UI
 
         }
 
-        private void LoginButton_Click(object sender, EventArgs e)
+        private void Login()
         {
             if (Validar())
             {
@@ -101,6 +101,11 @@ namespace BiblioTechProject.UI
             }
         }
 
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            Login();
+        }
+
         private void SalirButton_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
@@ -115,6 +120,22 @@ namespace BiblioTechProject.UI
         private void contrasenaTextBox_TextChanged(object sender, EventArgs e)
         {
             contrasenaErrorProvider.Clear();
+        }
+
+        private void usuarioTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                contrasenaTextBox.Focus();
+            }
+        }
+
+        private void contrasenaTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                Login();
+            }
         }
     }
 }

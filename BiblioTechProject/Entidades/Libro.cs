@@ -16,6 +16,9 @@ namespace BiblioTechProject.Entidades
         public int EditorialId { get; set; }
         public int UsuarioId { get; set; }
 
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public string UltimoUsuarioEnModificar { get; set; }
+
         public virtual Usuario Usuario { get; set; }
         public List<Autor> Autores { get; set; }
         public virtual ICollection<EditorialLibro> EditorialesLibros { get; set; }

@@ -142,6 +142,32 @@ namespace BiblioTechProject.UI.Registros
             emailTextBox.ReadOnly = false;
         }
 
+        private void Buscar()
+        {
+            PonerEstadosInvisibles();
+            int id = Utilidad.ToInt(clienteIdTextBox.Text);
+            DeshabilidarCamposMenosId();
+            Limpiar();
+            cliente = BLL.ClienteBLL.Buscar(C => C.ClienteId == id);
+            if (cliente != null)
+            {
+                clienteIdTextBox.Text = cliente.ClienteId.ToString();
+                nombreTextBox.Text = cliente.Nombre;
+                cedulaMaskedTextBox.Text = cliente.Cedula;
+                sexoComboBox.Text = cliente.Sexo;
+                telefonoMaskedTextBox.Text = cliente.Telefono;
+                direccionTextBox.Text = cliente.Direccion;
+                fechaNacimientoDateTimePicker.Value = cliente.FechaNacimiento;
+                emailTextBox.Text = cliente.Email;
+                HabilitarModificarBorrar();
+            }
+            else
+            {
+                noEncontradoToolStripStatusLabel.Visible = true;
+            }
+            clienteIdTextBox.Focus();
+        }
+
         private void nuevoButton_Click_1(object sender, EventArgs e)
         {
             Limpiar();
@@ -155,21 +181,29 @@ namespace BiblioTechProject.UI.Registros
             PonerEstadosInvisibles();
             if (!nombreTextBox.ReadOnly)
             {
-                if (validar())
+                if (FrmLogin.GetUsuarioLogueado().UsuarioId > 0)
                 {
-                    LlenarCamposInstancia();
-                    cliente = BLL.ClienteBLL.Guardar(cliente); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
-                    if (cliente != null)
+                    if (validar())
                     {
-                        clienteIdTextBox.Text = cliente.ClienteId.ToString();
-                        guardadoToolStripStatusLabel.Visible = true;
-                        DeshabilidarCamposMenosId();
-                        HabilitarModificarBorrar();
-                    }
-                    else
-                    {
-                        ErrorToolStripStatusLabel.Visible = true;
-                    }
+                        LlenarCamposInstancia();
+                        cliente = BLL.ClienteBLL.Guardar(cliente); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
+                        if (cliente != null)
+                        {
+                            clienteIdTextBox.Text = cliente.ClienteId.ToString();
+                            guardadoToolStripStatusLabel.Visible = true;
+                            DeshabilidarCamposMenosId();
+                            HabilitarModificarBorrar();
+                            nuevoButton.Focus();
+                        }
+                        else
+                        {
+                            ErrorToolStripStatusLabel.Visible = true;
+                        }
+                    }                    
+                }
+                else
+                {
+                    MessageBox.Show("Este usuario no puede guardar registros.\nCree otro usuario para realizar esta operación.", "¡Oops!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }            
         }
@@ -197,27 +231,7 @@ namespace BiblioTechProject.UI.Registros
         
         private void buscarButton_Click_1(object sender, EventArgs e)
         {
-            PonerEstadosInvisibles();
-            int id = Utilidad.ToInt(clienteIdTextBox.Text);
-            DeshabilidarCamposMenosId();
-            Limpiar();
-            cliente = BLL.ClienteBLL.Buscar(C => C.ClienteId == id);
-            if (cliente != null)
-            {
-                clienteIdTextBox.Text = cliente.ClienteId.ToString();
-                nombreTextBox.Text = cliente.Nombre;
-                cedulaMaskedTextBox.Text = cliente.Cedula;
-                sexoComboBox.Text = cliente.Sexo;
-                telefonoMaskedTextBox.Text = cliente.Telefono;
-                direccionTextBox.Text = cliente.Direccion;
-                fechaNacimientoDateTimePicker.Value = cliente.FechaNacimiento;
-                emailTextBox.Text = cliente.Email;
-                HabilitarModificarBorrar();
-            }
-            else
-            {
-                noEncontradoToolStripStatusLabel.Visible = true;
-            }
+            Buscar();
         }
 
         private void modificarButton_Click(object sender, EventArgs e)
@@ -277,11 +291,18 @@ namespace BiblioTechProject.UI.Registros
             emailErrorProvider.Clear();
         }
 
+        private void clienteIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys) e.KeyChar == Keys.Enter && buscarButton.Enabled == true)
+            {
+                Buscar();
+            }
+        }
+
         private void FrmRegistroClientes_FormClosed(object sender, FormClosedEventArgs e)
         {
             formulario = null;
         }
-
-        
+                
     }
 }

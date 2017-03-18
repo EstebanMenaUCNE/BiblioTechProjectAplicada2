@@ -38,11 +38,13 @@
             this.ErrorToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.noEncontradoToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.eliminadoToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.nombreErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.botonesToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.modificarButton = new System.Windows.Forms.Button();
             this.buscarButton = new System.Windows.Forms.Button();
             this.eliminarButton = new System.Windows.Forms.Button();
             this.nuevoButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
-            this.nombreErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             autorIdLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             this.RegistroUsuariosStatusStrip.SuspendLayout();
@@ -58,13 +60,6 @@
             autorIdLabel.TabIndex = 1;
             autorIdLabel.Text = "Autor Id:";
             // 
-            // autorIdTextBox
-            // 
-            this.autorIdTextBox.Location = new System.Drawing.Point(92, 65);
-            this.autorIdTextBox.Name = "autorIdTextBox";
-            this.autorIdTextBox.Size = new System.Drawing.Size(97, 20);
-            this.autorIdTextBox.TabIndex = 2;
-            // 
             // nombreLabel
             // 
             nombreLabel.AutoSize = true;
@@ -73,6 +68,13 @@
             nombreLabel.Size = new System.Drawing.Size(47, 13);
             nombreLabel.TabIndex = 3;
             nombreLabel.Text = "Nombre:";
+            // 
+            // autorIdTextBox
+            // 
+            this.autorIdTextBox.Location = new System.Drawing.Point(92, 65);
+            this.autorIdTextBox.Name = "autorIdTextBox";
+            this.autorIdTextBox.Size = new System.Drawing.Size(97, 20);
+            this.autorIdTextBox.TabIndex = 2;
             // 
             // nombreTextBox
             // 
@@ -122,57 +124,85 @@
             this.eliminadoToolStripStatusLabel.Text = "Eliminado con éxito!";
             this.eliminadoToolStripStatusLabel.Visible = false;
             // 
+            // nombreErrorProvider
+            // 
+            this.nombreErrorProvider.ContainerControl = this;
+            // 
+            // modificarButton
+            // 
+            this.modificarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.modificarButton.Enabled = false;
+            this.modificarButton.Image = global::BiblioTechProject.Properties.Resources.ic_mode_edit_black_24dp_1x;
+            this.modificarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.modificarButton.Location = new System.Drawing.Point(237, 60);
+            this.modificarButton.Name = "modificarButton";
+            this.modificarButton.Size = new System.Drawing.Size(33, 28);
+            this.modificarButton.TabIndex = 26;
+            this.modificarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.botonesToolTip.SetToolTip(this.modificarButton, "Modificar");
+            this.modificarButton.UseVisualStyleBackColor = true;
+            // 
             // buscarButton
             // 
             this.buscarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buscarButton.Location = new System.Drawing.Point(195, 63);
+            this.buscarButton.Enabled = false;
+            this.buscarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
+            this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buscarButton.Location = new System.Drawing.Point(198, 60);
             this.buscarButton.Name = "buscarButton";
-            this.buscarButton.Size = new System.Drawing.Size(75, 23);
-            this.buscarButton.TabIndex = 20;
-            this.buscarButton.Text = "Buscar";
+            this.buscarButton.Size = new System.Drawing.Size(33, 28);
+            this.buscarButton.TabIndex = 23;
+            this.botonesToolTip.SetToolTip(this.buscarButton, "Buscar");
             this.buscarButton.UseVisualStyleBackColor = true;
             // 
             // eliminarButton
             // 
-            this.eliminarButton.Location = new System.Drawing.Point(205, 169);
+            this.eliminarButton.Enabled = false;
+            this.eliminarButton.Image = global::BiblioTechProject.Properties.Resources.ic_delete_black_24dp_1x;
+            this.eliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.eliminarButton.Location = new System.Drawing.Point(205, 148);
             this.eliminarButton.Name = "eliminarButton";
-            this.eliminarButton.Size = new System.Drawing.Size(75, 23);
-            this.eliminarButton.TabIndex = 18;
+            this.eliminarButton.Size = new System.Drawing.Size(75, 28);
+            this.eliminarButton.TabIndex = 25;
             this.eliminarButton.Text = "Eliminar";
+            this.eliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.eliminarButton.UseVisualStyleBackColor = true;
             // 
             // nuevoButton
             // 
-            this.nuevoButton.Location = new System.Drawing.Point(21, 169);
+            this.nuevoButton.Image = global::BiblioTechProject.Properties.Resources.ic_note_add_black_24dp_1x;
+            this.nuevoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nuevoButton.Location = new System.Drawing.Point(21, 148);
             this.nuevoButton.Name = "nuevoButton";
-            this.nuevoButton.Size = new System.Drawing.Size(75, 23);
-            this.nuevoButton.TabIndex = 19;
+            this.nuevoButton.Size = new System.Drawing.Size(75, 28);
+            this.nuevoButton.TabIndex = 22;
             this.nuevoButton.Text = "Nuevo";
+            this.nuevoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nuevoButton.UseVisualStyleBackColor = true;
             // 
             // guardarButton
             // 
-            this.guardarButton.Location = new System.Drawing.Point(114, 169);
+            this.guardarButton.Image = global::BiblioTechProject.Properties.Resources.ic_save_black_24dp_1x;
+            this.guardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.guardarButton.Location = new System.Drawing.Point(113, 148);
             this.guardarButton.Name = "guardarButton";
-            this.guardarButton.Size = new System.Drawing.Size(75, 23);
-            this.guardarButton.TabIndex = 17;
+            this.guardarButton.Size = new System.Drawing.Size(75, 28);
+            this.guardarButton.TabIndex = 24;
             this.guardarButton.Text = "Guardar";
+            this.guardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.guardarButton.UseVisualStyleBackColor = true;
-            // 
-            // nombreErrorProvider
-            // 
-            this.nombreErrorProvider.ContainerControl = this;
             // 
             // FrmRegistroAutores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(301, 261);
-            this.Controls.Add(this.RegistroUsuariosStatusStrip);
+            this.Controls.Add(this.modificarButton);
             this.Controls.Add(this.buscarButton);
             this.Controls.Add(this.eliminarButton);
             this.Controls.Add(this.nuevoButton);
             this.Controls.Add(this.guardarButton);
+            this.Controls.Add(this.RegistroUsuariosStatusStrip);
             this.Controls.Add(autorIdLabel);
             this.Controls.Add(this.autorIdTextBox);
             this.Controls.Add(nombreLabel);
@@ -197,10 +227,12 @@
         private System.Windows.Forms.ToolStripStatusLabel ErrorToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel noEncontradoToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel eliminadoToolStripStatusLabel;
+        private System.Windows.Forms.ErrorProvider nombreErrorProvider;
+        private System.Windows.Forms.ToolTip botonesToolTip;
+        private System.Windows.Forms.Button modificarButton;
         private System.Windows.Forms.Button buscarButton;
         private System.Windows.Forms.Button eliminarButton;
         private System.Windows.Forms.Button nuevoButton;
         private System.Windows.Forms.Button guardarButton;
-        private System.Windows.Forms.ErrorProvider nombreErrorProvider;
     }
 }

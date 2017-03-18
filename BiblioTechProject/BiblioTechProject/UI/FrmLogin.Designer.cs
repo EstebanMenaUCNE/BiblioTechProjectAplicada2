@@ -56,6 +56,7 @@
             this.usuarioTextBox.Size = new System.Drawing.Size(113, 20);
             this.usuarioTextBox.TabIndex = 0;
             this.usuarioTextBox.TextChanged += new System.EventHandler(this.usuarioTextBox_TextChanged);
+            this.usuarioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.usuarioTextBox_KeyPress);
             // 
             // usuarioLabel
             // 
@@ -85,6 +86,7 @@
             this.contrasenaTextBox.Size = new System.Drawing.Size(113, 20);
             this.contrasenaTextBox.TabIndex = 1;
             this.contrasenaTextBox.TextChanged += new System.EventHandler(this.contrasenaTextBox_TextChanged);
+            this.contrasenaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contrasenaTextBox_KeyPress);
             // 
             // contrasenaErrorProvider
             // 
@@ -151,7 +153,6 @@
             this.Controls.Add(this.usuarioLabel);
             this.Controls.Add(this.usuarioTextBox);
             this.Controls.Add(this.loginButton);
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "FrmLogin";
             this.Text = "BiblioTech - Inicio de sesión";
             this.Load += new System.EventHandler(this.FrmLogin_Load);

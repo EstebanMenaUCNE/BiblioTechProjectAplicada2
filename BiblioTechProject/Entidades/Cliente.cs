@@ -19,11 +19,14 @@ namespace BiblioTechProject.Entidades
         public string Email { get; set; }
         public int UsuarioId { get; set; }
 
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public string UltimoUsuarioEnModificar { get; set; }
+
         public virtual Usuario Usuario { get; set; }
 
         public Cliente()
         {
-                
+            
         }
 
         public Cliente(int clienteId, string nombre, string cedula, string sexo, string telefono, string direccion, DateTime fechaNacimiento, string email, int usuarioId)
