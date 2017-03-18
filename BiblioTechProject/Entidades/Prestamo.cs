@@ -18,20 +18,28 @@ namespace BiblioTechProject.Entidades
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string UltimoUsuarioEnModificar { get; set; }
 
-        public Cliente Cliente { get; set; }
+        /*public Cliente Cliente { get; set; }
         public Usuario Usuario { get; set; }
         public ICollection<PrestamoLibro> PrestamosLibros { get; set; }
-
+        */
         public Prestamo()
         {
-            PrestamosLibros = new HashSet<PrestamoLibro>();
+            //PrestamosLibros = new HashSet<PrestamoLibro>();
         }
 
-        public void AgregarDetalle(int libroId)
+        /*public void AgregarDetalle(int libroId)
         {
             PrestamosLibros.Add(new PrestamoLibro(libroId));
-        }
+        }*/
 
+        public Prestamo(int prestamoId, DateTime fechaPrestamo, DateTime fechaEntregarAntes, int clienteId, int usuarioId)
+        {
+            PrestamoId = prestamoId;
+            FechaPrestamo = fechaPrestamo;
+            FechaEntregarAntes = fechaEntregarAntes;
+            ClienteId = clienteId;
+            UsuarioId = usuarioId;
+        }
     }
 
 }

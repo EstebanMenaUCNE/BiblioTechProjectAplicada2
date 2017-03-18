@@ -24,13 +24,13 @@ Nombre varchar(50),
 UsuarioId int REFERENCES usuarios(UsuarioId)
 );*/
 
-CREATE TABLE Autores(
+CREATE TABLE Autors(
 AutorId int IDENTITY(1,1) PRIMARY KEY,
 Nombre varchar(100),
 UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
 
-CREATE TABLE Editoriales(
+CREATE TABLE Editorials(
 EditorialId int IDENTITY(1,1) PRIMARY KEY,
 Nombre varchar(100),
 UsuarioId int REFERENCES Usuarios(UsuarioId)
@@ -41,19 +41,19 @@ LibroId int IDENTITY(1,1) PRIMARY KEY,
 Titulo varchar(100),
 Edicion int,
 Estado varchar(10) CHECK(Estado IN('Disponible','Prestado','Reparación')),
-EditorialId int REFERENCES Editoriales(EditorialId),
+EditorialId int REFERENCES Editorials(EditorialId),
 UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
 
 CREATE TABLE EditorialesLibros(
 Id int IDENTITY(1,1) PRIMARY KEY,
-EditorialId int REFERENCES Editoriales(EditorialId),
+EditorialId int REFERENCES Editorials(EditorialId),
 LibroId int REFERENCES Libros(LibroId)
 );
 
 CREATE TABLE AutoresLibros(
 Id int IDENTITY(1,1) PRIMARY KEY,
-AutorId int REFERENCES Autores(AutorId),
+AutorId int REFERENCES Autors(AutorId),
 LibroId int REFERENCES Libros(LibroId)
 );
 
@@ -71,7 +71,7 @@ PrestamoId int REFERENCES Prestamos(PrestamoId),
 LibroId int REFERENCES Libros(LibroId)
 );
 
-CREATE TABLE Devoluciones(
+CREATE TABLE Devolucions(
 DevolucionId int IDENTITY(1,1) PRIMARY KEY,
 FechaDevolucion date,
 ClienteId int REFERENCES Clientes(ClienteId),
@@ -80,6 +80,6 @@ UsuarioId int REFERENCES Usuarios(UsuarioId)
 
 CREATE TABLE DevolucionesLibros(
 Id int IDENTITY(1,1) PRIMARY KEY,
-DevolucionId int REFERENCES Devoluciones(DevolucionId),
+DevolucionId int REFERENCES Devolucions(DevolucionId),
 LibroId int REFERENCES Libros(LibroId)
 );

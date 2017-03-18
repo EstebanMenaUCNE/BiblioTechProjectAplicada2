@@ -12,12 +12,24 @@ namespace BiblioTechProject.Entidades
         public int Id { get; set; }
         public int EditorialId { get; set; }
         public int LibroId { get; set; }
-
+        /*
         public virtual Editorial Editorial { get; set; }
         public virtual Libro Libro { get; set; }
-
+        */
         public EditorialLibro(int libroId)
         {
+            LibroId = libroId;
+        }
+
+        public EditorialLibro()
+        {
+
+        }
+
+        public EditorialLibro(int id, int editorialId, int libroId)
+        {
+            Id = id;
+            EditorialId = editorialId;
             LibroId = libroId;
         }
     }

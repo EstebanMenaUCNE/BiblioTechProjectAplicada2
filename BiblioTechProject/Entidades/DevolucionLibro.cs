@@ -9,15 +9,27 @@ namespace BiblioTechProject.Entidades
     public class DevolucionLibro
     {
         [Key]
-        public int DevolicionLibroId { get; set; }
+        public int Id { get; set; }
         public int DevolucionId { get; set; }
         public int LibroId { get; set; }
-
+        /*
         public virtual Libro Libro { get; set; }
         public virtual Usuario Usuario { get; set; }
-
+        */
         public DevolucionLibro(int libroId)
         {
+            LibroId = libroId;
+        }
+
+        public DevolucionLibro()
+        {
+
+        }
+
+        public DevolucionLibro(int id, int devolucionId, int libroId)
+        {
+            Id = id;
+            DevolucionId = devolucionId;
             LibroId = libroId;
         }
 

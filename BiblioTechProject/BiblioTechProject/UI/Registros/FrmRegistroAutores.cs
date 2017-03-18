@@ -32,7 +32,7 @@ namespace BiblioTechProject.UI.Registros
 
         private void FrmRegistroAutores_Load(object sender, EventArgs e)
         {
-            DeshabilidarCamposMenosId();
+            
         }
 
         private void Limpiar()
@@ -40,7 +40,6 @@ namespace BiblioTechProject.UI.Registros
             autor = null;
             autorIdTextBox.Clear();
             nombreTextBox.Clear();
-            DeshabilitarModificarBorrar();
         }
 
         private bool Validar()
@@ -70,53 +69,17 @@ namespace BiblioTechProject.UI.Registros
             noEncontradoToolStripStatusLabel.Visible = false;
             eliminadoToolStripStatusLabel.Visible = false;
         }
-
-        private void HabilitarModificarBorrar()
-        {
-            eliminarButton.Enabled = true;
-            modificarButton.Enabled = true;
-        }
-
-        private void DeshabilitarModificarBorrar()
-        {
-            eliminarButton.Enabled = false;
-            modificarButton.Enabled = false;
-        }
-
-        private void HabDeshabBuscar()
-        {
-            if (string.IsNullOrWhiteSpace(autorIdTextBox.Text))
-            {
-                buscarButton.Enabled = false;
-            }
-            else
-            {
-                buscarButton.Enabled = true;
-            }
-        }
-
-        private void DeshabilidarCamposMenosId()
-        {
-            nombreTextBox.ReadOnly = true;
-        }
-
-        private void HabilidarCamposMenosId()
-        {
-            nombreTextBox.ReadOnly = false;
-        }
-
+                
         private void Buscar()
         {
             PonerEstadosInvisibles();
             int id = Utilidad.ToInt(autorIdTextBox.Text);
-            DeshabilidarCamposMenosId();
             Limpiar();
             autor = BLL.AutorBLL.Buscar(C => C.AutorId == id);
             if (autor != null)
             {
                 autorIdTextBox.Text = autor.AutorId.ToString();
                 nombreTextBox.Text = autor.Nombre;
-                HabilitarModificarBorrar();
             }
             else
             {
@@ -128,7 +91,6 @@ namespace BiblioTechProject.UI.Registros
         private void nuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
-            HabilidarCamposMenosId();
             nombreTextBox.Focus();
             PonerEstadosInvisibles();
         }
@@ -148,8 +110,6 @@ namespace BiblioTechProject.UI.Registros
                         {
                             autorIdTextBox.Text = autor.AutorId.ToString();
                             guardadoToolStripStatusLabel.Visible = true;
-                            DeshabilidarCamposMenosId();
-                            HabilitarModificarBorrar();
                             nuevoButton.Focus();
                         }
                         else
@@ -191,26 +151,20 @@ namespace BiblioTechProject.UI.Registros
             Buscar();
         }
 
-        private void modificarButton_Click(object sender, EventArgs e)
-        {
-            PonerEstadosInvisibles();
-            HabilidarCamposMenosId();
-        }
-
         private void autorIdTextBox_TextChanged(object sender, EventArgs e)
         {
             PonerEstadosInvisibles();
-            HabDeshabBuscar();
         }
 
         private void nombreTextBox_TextChanged(object sender, EventArgs e)
         {
             nombreErrorProvider.Clear();
+            PonerEstadosInvisibles();
         }
 
         private void autorIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((Keys)e.KeyChar == Keys.Enter && buscarButton.Enabled == true)
+            if ((Keys)e.KeyChar == Keys.Enter)
             {
                 Buscar();
             }

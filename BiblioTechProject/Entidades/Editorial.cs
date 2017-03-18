@@ -15,18 +15,25 @@ namespace BiblioTechProject.Entidades
 
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string UltimoUsuarioEnModificar { get; set; }
-
+        /*
         public virtual Usuario Usuario { get; set; }
         public ICollection<EditorialLibro> EditorialesLibros { get; set; }
-
+        */
         public Editorial()
         {
-            EditorialesLibros = new HashSet<EditorialLibro>();
+            //EditorialesLibros = new HashSet<EditorialLibro>();
         }
-
+        /*
         public void AgregarDetalle(int libroId)
         {
             EditorialesLibros.Add(new EditorialLibro(libroId));
+        }
+        */
+        public Editorial(int editorialId, string nombre, int usuarioId)
+        {
+            EditorialId = editorialId;
+            Nombre = nombre;
+            UsuarioId = usuarioId;
         }
     }
 

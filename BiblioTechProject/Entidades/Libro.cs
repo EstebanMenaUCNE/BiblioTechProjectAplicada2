@@ -19,11 +19,27 @@ namespace BiblioTechProject.Entidades
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string UltimoUsuarioEnModificar { get; set; }
 
-        public virtual Usuario Usuario { get; set; }
+        /*public virtual Usuario Usuario { get; set; }
         public List<Autor> Autores { get; set; }
         public virtual ICollection<EditorialLibro> EditorialesLibros { get; set; }
         public virtual ICollection<PrestamoLibro> PrestamosLibros { get; set; }
         public virtual ICollection<DevolucionLibro> DevolucionesLibros { get; set; }
+        */
+
+        public Libro()
+        {
+
+        }
+
+        public Libro(int libroId, string titulo, int edicion, string estado, int editorialId, int usuarioId)
+        {
+            LibroId = libroId;
+            Titulo = titulo;
+            Edicion = edicion;
+            Estado = estado;
+            EditorialId = editorialId;
+            UsuarioId = usuarioId;
+        }
     }
 
 }

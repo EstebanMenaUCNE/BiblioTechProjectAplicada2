@@ -40,7 +40,6 @@
             this.eliminadoToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.nombreErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.botonesToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.modificarButton = new System.Windows.Forms.Button();
             this.buscarButton = new System.Windows.Forms.Button();
             this.eliminarButton = new System.Windows.Forms.Button();
             this.nuevoButton = new System.Windows.Forms.Button();
@@ -74,7 +73,7 @@
             this.autorIdTextBox.Location = new System.Drawing.Point(92, 65);
             this.autorIdTextBox.Name = "autorIdTextBox";
             this.autorIdTextBox.Size = new System.Drawing.Size(97, 20);
-            this.autorIdTextBox.TabIndex = 2;
+            this.autorIdTextBox.TabIndex = 0;
             this.autorIdTextBox.TextChanged += new System.EventHandler(this.autorIdTextBox_TextChanged);
             this.autorIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.autorIdTextBox_KeyPress);
             // 
@@ -83,7 +82,7 @@
             this.nombreTextBox.Location = new System.Drawing.Point(92, 91);
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(178, 20);
-            this.nombreTextBox.TabIndex = 4;
+            this.nombreTextBox.TabIndex = 1;
             this.nombreTextBox.TextChanged += new System.EventHandler(this.nombreTextBox_TextChanged);
             // 
             // RegistroUsuariosStatusStrip
@@ -131,44 +130,29 @@
             // 
             this.nombreErrorProvider.ContainerControl = this;
             // 
-            // modificarButton
-            // 
-            this.modificarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.modificarButton.Enabled = false;
-            this.modificarButton.Image = global::BiblioTechProject.Properties.Resources.ic_mode_edit_black_24dp_1x;
-            this.modificarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.modificarButton.Location = new System.Drawing.Point(237, 60);
-            this.modificarButton.Name = "modificarButton";
-            this.modificarButton.Size = new System.Drawing.Size(33, 28);
-            this.modificarButton.TabIndex = 26;
-            this.modificarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.botonesToolTip.SetToolTip(this.modificarButton, "Modificar");
-            this.modificarButton.UseVisualStyleBackColor = true;
-            this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
-            // 
             // buscarButton
             // 
             this.buscarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buscarButton.Enabled = false;
             this.buscarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
             this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscarButton.Location = new System.Drawing.Point(198, 60);
+            this.buscarButton.Location = new System.Drawing.Point(195, 60);
             this.buscarButton.Name = "buscarButton";
-            this.buscarButton.Size = new System.Drawing.Size(33, 28);
-            this.buscarButton.TabIndex = 23;
+            this.buscarButton.Size = new System.Drawing.Size(75, 28);
+            this.buscarButton.TabIndex = 5;
+            this.buscarButton.Text = "Buscar";
+            this.buscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.botonesToolTip.SetToolTip(this.buscarButton, "Buscar");
             this.buscarButton.UseVisualStyleBackColor = true;
             this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
             // 
             // eliminarButton
             // 
-            this.eliminarButton.Enabled = false;
             this.eliminarButton.Image = global::BiblioTechProject.Properties.Resources.ic_delete_black_24dp_1x;
             this.eliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.eliminarButton.Location = new System.Drawing.Point(205, 148);
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(75, 28);
-            this.eliminarButton.TabIndex = 25;
+            this.eliminarButton.TabIndex = 4;
             this.eliminarButton.Text = "Eliminar";
             this.eliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.eliminarButton.UseVisualStyleBackColor = true;
@@ -181,7 +165,7 @@
             this.nuevoButton.Location = new System.Drawing.Point(21, 148);
             this.nuevoButton.Name = "nuevoButton";
             this.nuevoButton.Size = new System.Drawing.Size(75, 28);
-            this.nuevoButton.TabIndex = 22;
+            this.nuevoButton.TabIndex = 3;
             this.nuevoButton.Text = "Nuevo";
             this.nuevoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nuevoButton.UseVisualStyleBackColor = true;
@@ -194,7 +178,7 @@
             this.guardarButton.Location = new System.Drawing.Point(113, 148);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(75, 28);
-            this.guardarButton.TabIndex = 24;
+            this.guardarButton.TabIndex = 2;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.guardarButton.UseVisualStyleBackColor = true;
@@ -205,7 +189,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(301, 261);
-            this.Controls.Add(this.modificarButton);
             this.Controls.Add(this.buscarButton);
             this.Controls.Add(this.eliminarButton);
             this.Controls.Add(this.nuevoButton);
@@ -238,7 +221,6 @@
         private System.Windows.Forms.ToolStripStatusLabel eliminadoToolStripStatusLabel;
         private System.Windows.Forms.ErrorProvider nombreErrorProvider;
         private System.Windows.Forms.ToolTip botonesToolTip;
-        private System.Windows.Forms.Button modificarButton;
         private System.Windows.Forms.Button buscarButton;
         private System.Windows.Forms.Button eliminarButton;
         private System.Windows.Forms.Button nuevoButton;

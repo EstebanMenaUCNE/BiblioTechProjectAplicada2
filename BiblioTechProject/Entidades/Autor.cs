@@ -15,13 +15,13 @@ namespace BiblioTechProject.Entidades
 
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string UltimoUsuarioEnModificar { get; set; }
-
+        /*
         public virtual Usuario Usuario { get; set; }
         public List<Libro> Libros { get; set; }
-
+        */
         public Autor()
         {
-            Libros = new List<Libro>();
+            //Libros = new List<Libro>();
         }
 
         public Autor(int autorId, string nombre, int usuarioId)
@@ -29,7 +29,7 @@ namespace BiblioTechProject.Entidades
             AutorId = autorId;
             Nombre = nombre;
             UsuarioId = usuarioId;
-            Libros = new List<Libro>();
+            //Libros = new List<Libro>();
         }
     }
 

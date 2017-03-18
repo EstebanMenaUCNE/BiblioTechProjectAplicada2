@@ -17,19 +17,27 @@ namespace BiblioTechProject.Entidades
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string UltimoUsuarioEnModificar { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        /*public virtual Cliente Cliente { get; set; }
         public virtual Usuario Usuario { get; set; }
         public virtual ICollection<DevolucionLibro> DevolucionesLibros { get; set; }
-
+        */
         public Devolucion()
         {
-            DevolucionesLibros = new HashSet<DevolucionLibro>();
+            //DevolucionesLibros = new HashSet<DevolucionLibro>();
         }
 
-        public void AgregarDetalle(int libroId)
+        public Devolucion(int devolucionId, DateTime fechaDevolucion, int clienteId, int usuarioId)
+        {
+            DevolucionId = devolucionId;
+            FechaDevolucion = fechaDevolucion;
+            ClienteId = clienteId;
+            UsuarioId = usuarioId;
+        }
+
+        /*public void AgregarDetalle(int libroId)
         {
             DevolucionesLibros.Add(new DevolucionLibro(libroId));
-        }
+        }*/
     }
 
 }

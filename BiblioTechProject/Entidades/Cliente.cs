@@ -22,7 +22,7 @@ namespace BiblioTechProject.Entidades
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string UltimoUsuarioEnModificar { get; set; }
 
-        public virtual Usuario Usuario { get; set; }
+        //public virtual Usuario Usuario { get; set; }
 
         public Cliente()
         {

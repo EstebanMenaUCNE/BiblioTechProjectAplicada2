@@ -31,7 +31,6 @@ namespace BiblioTechProject.UI.Registros
         private void FrmRegistroUsuarios_Load(object sender, EventArgs e)
         {
             cargoComboBox.Text = "Bibliotecario";
-            DeshabilidarCamposMenosId();
         }
 
         private void Limpiar()
@@ -42,7 +41,6 @@ namespace BiblioTechProject.UI.Registros
             nombreUsuarioTextBox.Clear();
             contrasenaTextBox.Clear();
             confirmarContrasenaTextBox.Clear();
-            DeshabilitarModificarBorrar();
         }
 
         private bool Validar()
@@ -93,54 +91,11 @@ namespace BiblioTechProject.UI.Registros
             noEncontradoToolStripStatusLabel.Visible = false;
             eliminadoToolStripStatusLabel.Visible = false;
         }
-
-        private void HabilitarModificarBorrar()
-        {
-            eliminarButton.Enabled = true;
-            modificarButton.Enabled = true;
-        }
-
-        private void DeshabilitarModificarBorrar()
-        {
-            eliminarButton.Enabled = false;
-            modificarButton.Enabled = false;
-        }
-
-        private void HabDeshabBuscar()
-        {
-            if (string.IsNullOrWhiteSpace(usuarioIdTextBox.Text))
-            {
-                buscarButton.Enabled = false;
-            }
-            else
-            {
-                buscarButton.Enabled = true;
-            }
-        }
-
-        private void DeshabilidarCamposMenosId()
-        {
-            nombreTextBox.ReadOnly = true;
-            nombreUsuarioTextBox.ReadOnly = true;
-            contrasenaTextBox.ReadOnly = true;
-            confirmarContrasenaTextBox.ReadOnly = true;
-            cargoComboBox.Enabled = false;
-        }
-
-        private void HabilidarCamposMenosId()
-        {
-            nombreTextBox.ReadOnly = false;
-            nombreUsuarioTextBox.ReadOnly = false;
-            contrasenaTextBox.ReadOnly = false;
-            confirmarContrasenaTextBox.ReadOnly = false;
-            cargoComboBox.Enabled = true;
-        }
-
+        
         private void Buscar()
         {
             PonerEstadosInvisibles();
             int id = Utilidad.ToInt(usuarioIdTextBox.Text);
-            DeshabilidarCamposMenosId();
             Limpiar();
             usuario = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == id);
             if (usuario != null)
@@ -156,7 +111,6 @@ namespace BiblioTechProject.UI.Registros
                 contrasenaTextBox.Text = contrasena;
                 confirmarContrasenaTextBox.Text = contrasena;*/
                 cargoComboBox.Text = usuario.Cargo;
-                HabilitarModificarBorrar();
             }
             else
             {
@@ -164,22 +118,12 @@ namespace BiblioTechProject.UI.Registros
             }
             usuarioIdTextBox.Focus();
         }
-
-        /*private void LimpiarErrorProviders()
-        {
-            nombreErrorProvider.Clear();
-            usuarioErrorProvider.Clear();
-            contrasenaErrorProvider.Clear();
-            confirmarContrasenaErrorProvider.Clear();
-        }*/
         
         private void nuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
-            HabilidarCamposMenosId();
             nombreTextBox.Focus();
             PonerEstadosInvisibles();
-            //DeshabilitarModificarBorrar();
         }
         
         private void guardarButton_Click(object sender, EventArgs e)
@@ -202,8 +146,6 @@ namespace BiblioTechProject.UI.Registros
                         contrasenaTextBox.Text = contrasena;
                         confirmarContrasenaTextBox.Text = contrasena;*/
                         guardadoToolStripStatusLabel.Visible = true;
-                        DeshabilidarCamposMenosId();
-                        HabilitarModificarBorrar();
                         nuevoButton.Focus();
                     }
                     else
@@ -229,7 +171,6 @@ namespace BiblioTechProject.UI.Registros
                     if (BLL.UsuarioBLL.Eliminar(usuario))
                     {
                         Limpiar();
-                        //DeshabilitarModificarBorrar();
                         eliminadoToolStripStatusLabel.Visible = true;
                     }
                     else
@@ -250,45 +191,38 @@ namespace BiblioTechProject.UI.Registros
             Buscar();  
         }
 
-        private void modificarButton_Click(object sender, EventArgs e)
-        {
-            PonerEstadosInvisibles();
-            HabilidarCamposMenosId();
-        }
-
         private void usuarioIdTextBox_TextChanged(object sender, EventArgs e)
         {
             PonerEstadosInvisibles();
-            HabDeshabBuscar();
         }
 
         private void nombreTextBox_TextChanged(object sender, EventArgs e)
         {
             nombreErrorProvider.Clear();
-            //PonerEstadosInvisibles();
+            PonerEstadosInvisibles();
         }
 
         private void nombreUsuarioTextBox_TextChanged(object sender, EventArgs e)
         {
             usuarioErrorProvider.Clear();
-            //PonerEstadosInvisibles();
+            PonerEstadosInvisibles();
         }
 
         private void contrasenaTextBox_TextChanged(object sender, EventArgs e)
         {
             contrasenaErrorProvider.Clear();
-            //PonerEstadosInvisibles();
+            PonerEstadosInvisibles();
         }
 
         private void confirmarContrasenaTextBox_TextChanged(object sender, EventArgs e)
         {
             confirmarContrasenaErrorProvider.Clear();
-            //PonerEstadosInvisibles();
+            PonerEstadosInvisibles();
         }
 
         private void cargoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //PonerEstadosInvisibles();
+            PonerEstadosInvisibles();
         }
                 
         private void RegistroUsuariosStatusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -298,7 +232,7 @@ namespace BiblioTechProject.UI.Registros
 
         private void usuarioIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((Keys) e.KeyChar == Keys.Enter && buscarButton.Enabled == true)
+            if ((Keys) e.KeyChar == Keys.Enter)
             {
                 Buscar();
             }

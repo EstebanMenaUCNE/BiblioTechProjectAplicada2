@@ -51,7 +51,6 @@
             this.noEncontradoToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.eliminadoToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.eliminarButton = new System.Windows.Forms.Button();
-            this.modificarButton = new System.Windows.Forms.Button();
             this.buscarButton = new System.Windows.Forms.Button();
             this.nuevoButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
@@ -141,7 +140,7 @@
             this.nombreTextBox.Location = new System.Drawing.Point(144, 64);
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(148, 20);
-            this.nombreTextBox.TabIndex = 3;
+            this.nombreTextBox.TabIndex = 1;
             this.nombreTextBox.TextChanged += new System.EventHandler(this.nombreTextBox_TextChanged);
             // 
             // nombreUsuarioTextBox
@@ -151,7 +150,7 @@
             this.nombreUsuarioTextBox.Location = new System.Drawing.Point(144, 90);
             this.nombreUsuarioTextBox.Name = "nombreUsuarioTextBox";
             this.nombreUsuarioTextBox.Size = new System.Drawing.Size(148, 20);
-            this.nombreUsuarioTextBox.TabIndex = 4;
+            this.nombreUsuarioTextBox.TabIndex = 2;
             this.nombreUsuarioTextBox.TextChanged += new System.EventHandler(this.nombreUsuarioTextBox_TextChanged);
             // 
             // contrasenaTextBox
@@ -161,7 +160,7 @@
             this.contrasenaTextBox.Location = new System.Drawing.Point(144, 116);
             this.contrasenaTextBox.Name = "contrasenaTextBox";
             this.contrasenaTextBox.Size = new System.Drawing.Size(148, 20);
-            this.contrasenaTextBox.TabIndex = 5;
+            this.contrasenaTextBox.TabIndex = 3;
             this.contrasenaTextBox.TextChanged += new System.EventHandler(this.contrasenaTextBox_TextChanged);
             // 
             // cargoComboBox
@@ -176,7 +175,7 @@
             this.cargoComboBox.Location = new System.Drawing.Point(144, 168);
             this.cargoComboBox.Name = "cargoComboBox";
             this.cargoComboBox.Size = new System.Drawing.Size(148, 21);
-            this.cargoComboBox.TabIndex = 7;
+            this.cargoComboBox.TabIndex = 5;
             this.cargoComboBox.SelectedIndexChanged += new System.EventHandler(this.cargoComboBox_SelectedIndexChanged);
             // 
             // nombreErrorProvider
@@ -198,7 +197,7 @@
             this.confirmarContrasenaTextBox.Location = new System.Drawing.Point(144, 142);
             this.confirmarContrasenaTextBox.Name = "confirmarContrasenaTextBox";
             this.confirmarContrasenaTextBox.Size = new System.Drawing.Size(148, 20);
-            this.confirmarContrasenaTextBox.TabIndex = 6;
+            this.confirmarContrasenaTextBox.TabIndex = 4;
             this.confirmarContrasenaTextBox.TextChanged += new System.EventHandler(this.confirmarContrasenaTextBox_TextChanged);
             // 
             // confirmarContrasenaErrorProvider
@@ -249,43 +248,28 @@
             // 
             // eliminarButton
             // 
-            this.eliminarButton.Enabled = false;
             this.eliminarButton.Image = global::BiblioTechProject.Properties.Resources.ic_delete_black_24dp_1x;
             this.eliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.eliminarButton.Location = new System.Drawing.Point(217, 210);
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(75, 28);
-            this.eliminarButton.TabIndex = 9;
+            this.eliminarButton.TabIndex = 8;
             this.eliminarButton.Text = "Eliminar";
             this.eliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.eliminarButton.UseVisualStyleBackColor = true;
             this.eliminarButton.Click += new System.EventHandler(this.eliminarButton_Click);
             // 
-            // modificarButton
-            // 
-            this.modificarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.modificarButton.Enabled = false;
-            this.modificarButton.Image = global::BiblioTechProject.Properties.Resources.ic_mode_edit_black_24dp_1x;
-            this.modificarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.modificarButton.Location = new System.Drawing.Point(259, 33);
-            this.modificarButton.Name = "modificarButton";
-            this.modificarButton.Size = new System.Drawing.Size(33, 28);
-            this.modificarButton.TabIndex = 10;
-            this.modificarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.botonesToolTip.SetToolTip(this.modificarButton, "Modificar");
-            this.modificarButton.UseVisualStyleBackColor = true;
-            this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
-            // 
             // buscarButton
             // 
             this.buscarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buscarButton.Enabled = false;
             this.buscarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
             this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscarButton.Location = new System.Drawing.Point(220, 33);
+            this.buscarButton.Location = new System.Drawing.Point(217, 33);
             this.buscarButton.Name = "buscarButton";
-            this.buscarButton.Size = new System.Drawing.Size(33, 28);
-            this.buscarButton.TabIndex = 2;
+            this.buscarButton.Size = new System.Drawing.Size(75, 28);
+            this.buscarButton.TabIndex = 9;
+            this.buscarButton.Text = "Buscar";
+            this.buscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.botonesToolTip.SetToolTip(this.buscarButton, "Buscar");
             this.buscarButton.UseVisualStyleBackColor = true;
             this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
@@ -297,7 +281,7 @@
             this.nuevoButton.Location = new System.Drawing.Point(33, 210);
             this.nuevoButton.Name = "nuevoButton";
             this.nuevoButton.Size = new System.Drawing.Size(75, 28);
-            this.nuevoButton.TabIndex = 1;
+            this.nuevoButton.TabIndex = 7;
             this.nuevoButton.Text = "Nuevo";
             this.nuevoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nuevoButton.UseVisualStyleBackColor = true;
@@ -310,7 +294,7 @@
             this.guardarButton.Location = new System.Drawing.Point(125, 210);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(75, 28);
-            this.guardarButton.TabIndex = 8;
+            this.guardarButton.TabIndex = 6;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.guardarButton.UseVisualStyleBackColor = true;
@@ -322,7 +306,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 292);
             this.Controls.Add(this.eliminarButton);
-            this.Controls.Add(this.modificarButton);
             this.Controls.Add(this.RegistroUsuariosStatusStrip);
             this.Controls.Add(confimarContrasenaLabel);
             this.Controls.Add(this.confirmarContrasenaTextBox);
@@ -374,7 +357,6 @@
         private System.Windows.Forms.ToolStripStatusLabel ErrorToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel noEncontradoToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel eliminadoToolStripStatusLabel;
-        private System.Windows.Forms.Button modificarButton;
         private System.Windows.Forms.Button eliminarButton;
         private System.Windows.Forms.ToolTip botonesToolTip;
     }
