@@ -308,6 +308,7 @@ namespace BiblioTechProject.UI.Registros
         {
             formulario = null;
         }
+
                 
     }
 }
