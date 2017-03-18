@@ -35,17 +35,18 @@
             // 
             this.usuariosReportViewer.Location = new System.Drawing.Point(2, 2);
             this.usuariosReportViewer.Name = "usuariosReportViewer";
-            this.usuariosReportViewer.Size = new System.Drawing.Size(396, 246);
+            this.usuariosReportViewer.Size = new System.Drawing.Size(817, 357);
             this.usuariosReportViewer.TabIndex = 0;
             // 
             // FrmReporteUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 361);
+            this.ClientSize = new System.Drawing.Size(822, 361);
             this.Controls.Add(this.usuariosReportViewer);
             this.Name = "FrmReporteUsuarios";
             this.Text = "BiblioTech - Reporte de Usuarios";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmReporteUsuarios_FormClosed);
             this.Load += new System.EventHandler(this.FrmReporteUsuarios_Load);
             this.ResumeLayout(false);
 

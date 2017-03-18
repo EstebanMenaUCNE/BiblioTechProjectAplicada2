@@ -105,7 +105,8 @@ namespace BiblioTechProject.UI
 
         private void usuariosToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            new Reportes.FrmReporteUsuarios().Show();
+            Reportes.FrmReporteUsuarios.GetInstance().Show();
+            Reportes.FrmReporteUsuarios.GetInstance().Activate();
         }
     }
 }
