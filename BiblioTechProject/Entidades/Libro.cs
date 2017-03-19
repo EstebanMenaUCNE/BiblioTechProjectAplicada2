@@ -18,6 +18,8 @@ namespace BiblioTechProject.Entidades
 
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string UltimoUsuarioEnModificar { get; set; }
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public string NombreEditorial { get; set; }
 
         /*public virtual Usuario Usuario { get; set; }
         public List<Autor> Autores { get; set; }

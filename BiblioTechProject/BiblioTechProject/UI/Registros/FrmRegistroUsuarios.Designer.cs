@@ -124,8 +124,6 @@
             // 
             // usuarioIdTextBox
             // 
-            this.usuarioIdTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.usuarioIdTextBox.Location = new System.Drawing.Point(144, 38);
             this.usuarioIdTextBox.Name = "usuarioIdTextBox";
             this.usuarioIdTextBox.Size = new System.Drawing.Size(67, 20);
@@ -135,8 +133,6 @@
             // 
             // nombreTextBox
             // 
-            this.nombreTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.nombreTextBox.Location = new System.Drawing.Point(144, 64);
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(148, 20);
@@ -145,8 +141,6 @@
             // 
             // nombreUsuarioTextBox
             // 
-            this.nombreUsuarioTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.nombreUsuarioTextBox.Location = new System.Drawing.Point(144, 90);
             this.nombreUsuarioTextBox.Name = "nombreUsuarioTextBox";
             this.nombreUsuarioTextBox.Size = new System.Drawing.Size(148, 20);
@@ -155,8 +149,6 @@
             // 
             // contrasenaTextBox
             // 
-            this.contrasenaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.contrasenaTextBox.Location = new System.Drawing.Point(144, 116);
             this.contrasenaTextBox.Name = "contrasenaTextBox";
             this.contrasenaTextBox.Size = new System.Drawing.Size(148, 20);
@@ -165,8 +157,6 @@
             // 
             // cargoComboBox
             // 
-            this.cargoComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cargoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cargoComboBox.FormattingEnabled = true;
             this.cargoComboBox.Items.AddRange(new object[] {
@@ -192,8 +182,6 @@
             // 
             // confirmarContrasenaTextBox
             // 
-            this.confirmarContrasenaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.confirmarContrasenaTextBox.Location = new System.Drawing.Point(144, 142);
             this.confirmarContrasenaTextBox.Name = "confirmarContrasenaTextBox";
             this.confirmarContrasenaTextBox.Size = new System.Drawing.Size(148, 20);
@@ -261,7 +249,6 @@
             // 
             // buscarButton
             // 
-            this.buscarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buscarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
             this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buscarButton.Location = new System.Drawing.Point(217, 33);

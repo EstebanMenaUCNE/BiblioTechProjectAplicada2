@@ -97,25 +97,29 @@ namespace BiblioTechProject.UI.Registros
         private void Buscar()
         {
             PonerEstadosInvisibles();
-            int id = Utilidad.ToInt(clienteIdTextBox.Text);
-            Limpiar();
-            cliente = BLL.ClienteBLL.Buscar(C => C.ClienteId == id);
-            if (cliente != null)
+            if (!string.IsNullOrWhiteSpace(clienteIdTextBox.Text))
             {
-                clienteIdTextBox.Text = cliente.ClienteId.ToString();
-                nombreTextBox.Text = cliente.Nombre;
-                cedulaMaskedTextBox.Text = cliente.Cedula;
-                sexoComboBox.Text = cliente.Sexo;
-                telefonoMaskedTextBox.Text = cliente.Telefono;
-                direccionTextBox.Text = cliente.Direccion;
-                fechaNacimientoDateTimePicker.Value = cliente.FechaNacimiento;
-                emailTextBox.Text = cliente.Email;
+                int id = Utilidad.ToInt(clienteIdTextBox.Text);
+                Limpiar();
+                cliente = BLL.ClienteBLL.Buscar(C => C.ClienteId == id);
+                if (cliente != null)
+                {
+                    clienteIdTextBox.Text = cliente.ClienteId.ToString();
+                    nombreTextBox.Text = cliente.Nombre;
+                    cedulaMaskedTextBox.Text = cliente.Cedula;
+                    sexoComboBox.Text = cliente.Sexo;
+                    telefonoMaskedTextBox.Text = cliente.Telefono;
+                    direccionTextBox.Text = cliente.Direccion;
+                    fechaNacimientoDateTimePicker.Value = cliente.FechaNacimiento;
+                    emailTextBox.Text = cliente.Email;
+                }
+                else
+                {
+                    noEncontradoToolStripStatusLabel.Visible = true;
+                }
+                clienteIdTextBox.Focus();
             }
-            else
-            {
-                noEncontradoToolStripStatusLabel.Visible = true;
-            }
-            clienteIdTextBox.Focus();
+                
         }
 
         private void nuevoButton_Click_1(object sender, EventArgs e)
@@ -130,8 +134,8 @@ namespace BiblioTechProject.UI.Registros
             PonerEstadosInvisibles();
             if (!nombreTextBox.ReadOnly)
             {
-                if (FrmLogin.GetUsuarioLogueado().UsuarioId > 0)
-                {
+                //if (FrmLogin.GetUsuarioLogueado().UsuarioId > 0)
+                //{
                     if (Validar())
                     {
                         LlenarCamposInstancia();
@@ -147,11 +151,11 @@ namespace BiblioTechProject.UI.Registros
                             ErrorToolStripStatusLabel.Visible = true;
                         }
                     }                    
-                }
+                /*}
                 else
                 {
                     MessageBox.Show("Este usuario no puede guardar registros.\nCree otro usuario para realizar esta operación.", "¡Oops!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                }*/
             }            
         }
 

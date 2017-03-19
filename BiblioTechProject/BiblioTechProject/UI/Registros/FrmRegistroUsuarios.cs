@@ -95,28 +95,32 @@ namespace BiblioTechProject.UI.Registros
         private void Buscar()
         {
             PonerEstadosInvisibles();
-            int id = Utilidad.ToInt(usuarioIdTextBox.Text);
-            Limpiar();
-            usuario = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == id);
-            if (usuario != null)
+            if (!string.IsNullOrWhiteSpace(usuarioIdTextBox.Text))
             {
-                usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
-                nombreTextBox.Text = usuario.Nombre;
-                nombreUsuarioTextBox.Text = usuario.NombreUsuario;
-                /*string contrasena = "";
-                foreach (char item in usuario.Contrasena)
+                int id = Utilidad.ToInt(usuarioIdTextBox.Text);
+                Limpiar();
+                usuario = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == id);
+                if (usuario != null)
                 {
-                    contrasena += "☻";
+                    usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
+                    nombreTextBox.Text = usuario.Nombre;
+                    nombreUsuarioTextBox.Text = usuario.NombreUsuario;
+                    /*string contrasena = "";
+                    foreach (char item in usuario.Contrasena)
+                    {
+                        contrasena += "☻";
+                    }
+                    contrasenaTextBox.Text = contrasena;
+                    confirmarContrasenaTextBox.Text = contrasena;*/
+                    cargoComboBox.Text = usuario.Cargo;
                 }
-                contrasenaTextBox.Text = contrasena;
-                confirmarContrasenaTextBox.Text = contrasena;*/
-                cargoComboBox.Text = usuario.Cargo;
+                else
+                {
+                    noEncontradoToolStripStatusLabel.Visible = true;
+                }
+                usuarioIdTextBox.Focus();
             }
-            else
-            {
-                noEncontradoToolStripStatusLabel.Visible = true;
-            }
-            usuarioIdTextBox.Focus();
+                
         }
         
         private void nuevoButton_Click(object sender, EventArgs e)

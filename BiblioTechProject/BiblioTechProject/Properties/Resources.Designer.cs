@@ -83,6 +83,36 @@ namespace BiblioTechProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_add_box_black_24dp_1x {
+            get {
+                object obj = ResourceManager.GetObject("ic_add_box_black_24dp_1x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_add_circle_black_24dp_1x {
+            get {
+                object obj = ResourceManager.GetObject("ic_add_circle_black_24dp_1x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_add_circle_outline_black_24dp_1x {
+            get {
+                object obj = ResourceManager.GetObject("ic_add_circle_outline_black_24dp_1x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_delete_black_24dp_1x {
             get {
                 object obj = ResourceManager.GetObject("ic_delete_black_24dp_1x", resourceCulture);

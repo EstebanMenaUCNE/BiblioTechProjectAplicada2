@@ -194,6 +194,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BiblioTechDb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\ic_add_circle_outline_black_24dp_1x.png" />
+    <None Include="Resources\ic_add_circle_black_24dp_1x.png" />
+    <None Include="Resources\ic_add_box_black_24dp_1x.png" />
     <None Include="Resources\ic_exit_to_app_black_24dp_1x.png" />
     <None Include="Resources\ic_fingerprint_black_24dp_1x.png" />
     <None Include="Resources\ic_lock_black_24dp_1x.png" />

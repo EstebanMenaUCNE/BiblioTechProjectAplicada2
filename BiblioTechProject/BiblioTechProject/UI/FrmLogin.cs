@@ -70,7 +70,8 @@ namespace BiblioTechProject.UI
                 Entidades.Usuario usuario = null;
                 if (usuarioTextBox.Text == "root")
                 {
-                    usuario = new Entidades.Usuario(0, "Admin", "root", "123", "Administrador");
+                    usuario = new Entidades.Usuario(1, "Admin", "root", "1", "Administrador");
+                    BLL.UsuarioBLL.Guardar(usuario);
                 }
                 else
                 {

@@ -13,8 +13,9 @@ namespace BiblioTechProject.UI.Registros
     {
         private static FrmRegistroAutores formulario = null;
         private Entidades.Autor autor = null;
-
-        //Falta detalle
+        private List<Entidades.AutorLibro> listaRelaciones = null;
+        private List<Entidades.Libro> listaLibros = null;
+        private Entidades.Libro libro = null;
 
         public FrmRegistroAutores()
         {
@@ -32,14 +33,45 @@ namespace BiblioTechProject.UI.Registros
 
         private void FrmRegistroAutores_Load(object sender, EventArgs e)
         {
-            
+            //Quitar
+            BLL.EditorialBLL.Guardar(new Entidades.Editorial(1, "D' chuli Editorial", 1));
+            BLL.LibroBLL.Guardar(new Entidades.Libro(1, "El gato y el ratón", 2, "Disponible", 1, 1));
+            //BLL.LibroBLL.Guardar(new Entidades.Libro(0, "La doña de la esquina", 3, "Prestado", 1, 1));
+
+            listaRelaciones = new List<Entidades.AutorLibro>();
+            listaLibros = new List<Entidades.Libro>();
         }
 
         private void Limpiar()
         {
             autor = null;
+            listaRelaciones = new List<Entidades.AutorLibro>();
+            listaLibros = new List<Entidades.Libro>();
+            LimpiarLibro();
+            RefrescarDataViewGrid();
             autorIdTextBox.Clear();
             nombreTextBox.Clear();
+            libroIdTextBox.Clear();
+        }
+
+        private void LimpiarLibro()
+        {
+            libro = null;
+            //libroIdTextBox.Clear();
+            libroTituloTextBox.Clear();
+            libroEdicionTextBox.Clear();
+            libroEditorialTextBox.Clear();
+            libroIdTextBox.Focus();
+        }
+
+        private void RefrescarDataViewGrid()
+        {
+            librosDataGridView.DataSource = null;
+            librosDataGridView.DataSource = listaLibros;
+            librosDataGridView.Columns["EditorialId"].Visible = false;
+            librosDataGridView.Columns["UsuarioId"].Visible = false;
+            librosDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;
+            librosDataGridView.Columns["NombreEditorial"].HeaderText = "Nombre_Editorial";
         }
 
         private bool Validar()
@@ -73,19 +105,43 @@ namespace BiblioTechProject.UI.Registros
         private void Buscar()
         {
             PonerEstadosInvisibles();
-            int id = Utilidad.ToInt(autorIdTextBox.Text);
-            Limpiar();
-            autor = BLL.AutorBLL.Buscar(C => C.AutorId == id);
-            if (autor != null)
+            if (!string.IsNullOrWhiteSpace(autorIdTextBox.Text))
             {
-                autorIdTextBox.Text = autor.AutorId.ToString();
-                nombreTextBox.Text = autor.Nombre;
+                int id = Utilidad.ToInt(autorIdTextBox.Text);
+                Limpiar();
+                autor = BLL.AutorBLL.Buscar(C => C.AutorId == id);
+                if (autor != null)
+                {
+                    autorIdTextBox.Text = autor.AutorId.ToString();
+                    nombreTextBox.Text = autor.Nombre;
+                }
+                else
+                {
+                    noEncontradoToolStripStatusLabel.Visible = true;
+                }
+                autorIdTextBox.Focus();
             }
-            else
+        }
+
+        private void BuscarLibro()
+        {
+            if (!string.IsNullOrWhiteSpace(libroIdTextBox.Text))
             {
-                noEncontradoToolStripStatusLabel.Visible = true;
+                int id = Utilidad.ToInt(libroIdTextBox.Text);
+                LimpiarLibro();
+                libro = BLL.LibroBLL.Buscar(L => L.LibroId == id);
+                if (libro != null)
+                {
+                    libroTituloTextBox.Text = libro.Titulo;
+                    libroEdicionTextBox.Text = libro.Edicion.ToString();
+                    libro.NombreEditorial = BLL.EditorialBLL.Buscar(E => E.EditorialId == libro.EditorialId).Nombre;
+                    libroEditorialTextBox.Text = libro.NombreEditorial;
+                }
+                else
+                {
+                    noEncontradoToolStripStatusLabel.Visible = true;
+                }
             }
-            autorIdTextBox.Focus();
         }
 
         private void nuevoButton_Click(object sender, EventArgs e)
@@ -100,8 +156,8 @@ namespace BiblioTechProject.UI.Registros
             PonerEstadosInvisibles();
             if (!nombreTextBox.ReadOnly)
             {
-                if (FrmLogin.GetUsuarioLogueado().UsuarioId > 0)
-                {
+                /*if (FrmLogin.GetUsuarioLogueado().UsuarioId > 0)
+                {*/
                     if (Validar())
                     {
                         LlenarCamposInstancia();
@@ -117,11 +173,11 @@ namespace BiblioTechProject.UI.Registros
                             ErrorToolStripStatusLabel.Visible = true;
                         }
                     }
-                }
+                /*}
                 else
                 {
                     MessageBox.Show("Este usuario no puede guardar registros.\nCree otro usuario para realizar esta operación.", "¡Oops!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                }**/
             }
         }
 
@@ -148,7 +204,31 @@ namespace BiblioTechProject.UI.Registros
 
         private void buscarButton_Click(object sender, EventArgs e)
         {
+            PonerEstadosInvisibles();
             Buscar();
+        }
+
+        private void buscarLibroButton_Click(object sender, EventArgs e)
+        {
+            BuscarLibro();
+        }
+
+        private void anadirLibroButton_Click(object sender, EventArgs e)
+        {
+            if (libro != null)
+            {
+                if (!listaLibros.Contains(libro))
+                {
+                    listaLibros.Add(libro);
+                    listaRelaciones.Add(new Entidades.AutorLibro(0, 0, libro.LibroId));
+                    RefrescarDataViewGrid();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ningún libro seleccionado...");
+            }
+
         }
 
         private void autorIdTextBox_TextChanged(object sender, EventArgs e)
@@ -159,6 +239,11 @@ namespace BiblioTechProject.UI.Registros
         private void nombreTextBox_TextChanged(object sender, EventArgs e)
         {
             nombreErrorProvider.Clear();
+            PonerEstadosInvisibles();
+        }
+
+        private void libroIdTextBox_TextChanged(object sender, EventArgs e)
+        {
             PonerEstadosInvisibles();
         }
 
@@ -174,5 +259,6 @@ namespace BiblioTechProject.UI.Registros
         {
             formulario = null;
         }
+                
     }
 }

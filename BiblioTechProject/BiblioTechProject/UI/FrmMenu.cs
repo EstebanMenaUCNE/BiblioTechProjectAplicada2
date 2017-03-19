@@ -98,7 +98,7 @@ namespace BiblioTechProject.UI
         }
 
         private void autorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {            
             Registros.FrmRegistroAutores.GetInstance().Show();
             Consultas.FrmConsultaClientes.GetInstance().Activate();
         }
