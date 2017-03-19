@@ -44,13 +44,13 @@ Estado varchar(10) CHECK(Estado IN('Disponible','Prestado','Reparación')),
 EditorialId int REFERENCES Editorials(EditorialId),
 UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
-/*
+
 CREATE TABLE EditorialLibroes(
 Id int IDENTITY(1,1) PRIMARY KEY,
 EditorialId int REFERENCES Editorials(EditorialId),
 LibroId int REFERENCES Libroes(LibroId)
 );
-*/
+
 CREATE TABLE AutorLibroes(
 Id int IDENTITY(1,1) PRIMARY KEY,
 AutorId int REFERENCES Autors(AutorId),

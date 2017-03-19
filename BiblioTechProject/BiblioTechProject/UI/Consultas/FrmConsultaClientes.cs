@@ -106,8 +106,6 @@ namespace BiblioTechProject.UI.Consultas
             }
             clientesDataGridView.DataSource = lista;
             clientesDataGridView.Columns["UsuarioId"].Visible = false;
-            clientesDataGridView.Columns["Usuario"].Visible = false;
-            
         }
 
         private void filtrarButton_Click(object sender, EventArgs e)

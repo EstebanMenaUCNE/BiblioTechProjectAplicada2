@@ -40,23 +40,23 @@
             this.eliminadoToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.nombreErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.botonesToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.buscarButton = new System.Windows.Forms.Button();
             this.buscarLibroButton = new System.Windows.Forms.Button();
+            this.buscarButton = new System.Windows.Forms.Button();
             this.librosGroupBox = new System.Windows.Forms.GroupBox();
+            this.libroEditorialLabel = new System.Windows.Forms.Label();
+            this.libroEdicionLabel = new System.Windows.Forms.Label();
+            this.libroTituloLabel = new System.Windows.Forms.Label();
+            this.libroIdLabel = new System.Windows.Forms.Label();
             this.libroEditorialTextBox = new System.Windows.Forms.TextBox();
             this.libroEdicionTextBox = new System.Windows.Forms.TextBox();
             this.anadirLibroButton = new System.Windows.Forms.Button();
             this.libroTituloTextBox = new System.Windows.Forms.TextBox();
             this.libroIdTextBox = new System.Windows.Forms.TextBox();
             this.librosDataGridView = new System.Windows.Forms.DataGridView();
+            this.libroErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.eliminarButton = new System.Windows.Forms.Button();
             this.nuevoButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
-            this.libroIdLabel = new System.Windows.Forms.Label();
-            this.libroTituloLabel = new System.Windows.Forms.Label();
-            this.libroEdicionLabel = new System.Windows.Forms.Label();
-            this.libroEditorialLabel = new System.Windows.Forms.Label();
-            this.libroErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             autorIdLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             this.RegistroUsuariosStatusStrip.SuspendLayout();
@@ -69,7 +69,7 @@
             // autorIdLabel
             // 
             autorIdLabel.AutoSize = true;
-            autorIdLabel.Location = new System.Drawing.Point(151, 41);
+            autorIdLabel.Location = new System.Drawing.Point(146, 41);
             autorIdLabel.Name = "autorIdLabel";
             autorIdLabel.Size = new System.Drawing.Size(47, 13);
             autorIdLabel.TabIndex = 1;
@@ -78,7 +78,7 @@
             // nombreLabel
             // 
             nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(151, 67);
+            nombreLabel.Location = new System.Drawing.Point(146, 67);
             nombreLabel.Name = "nombreLabel";
             nombreLabel.Size = new System.Drawing.Size(47, 13);
             nombreLabel.TabIndex = 3;
@@ -86,18 +86,18 @@
             // 
             // autorIdTextBox
             // 
-            this.autorIdTextBox.Location = new System.Drawing.Point(215, 38);
+            this.autorIdTextBox.Location = new System.Drawing.Point(210, 38);
             this.autorIdTextBox.Name = "autorIdTextBox";
-            this.autorIdTextBox.Size = new System.Drawing.Size(97, 20);
+            this.autorIdTextBox.Size = new System.Drawing.Size(68, 20);
             this.autorIdTextBox.TabIndex = 0;
             this.autorIdTextBox.TextChanged += new System.EventHandler(this.autorIdTextBox_TextChanged);
             this.autorIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.autorIdTextBox_KeyPress);
             // 
             // nombreTextBox
             // 
-            this.nombreTextBox.Location = new System.Drawing.Point(215, 64);
+            this.nombreTextBox.Location = new System.Drawing.Point(210, 64);
             this.nombreTextBox.Name = "nombreTextBox";
-            this.nombreTextBox.Size = new System.Drawing.Size(178, 20);
+            this.nombreTextBox.Size = new System.Drawing.Size(208, 20);
             this.nombreTextBox.TabIndex = 1;
             this.nombreTextBox.TextChanged += new System.EventHandler(this.nombreTextBox_TextChanged);
             // 
@@ -146,20 +146,6 @@
             // 
             this.nombreErrorProvider.ContainerControl = this;
             // 
-            // buscarButton
-            // 
-            this.buscarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
-            this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscarButton.Location = new System.Drawing.Point(318, 33);
-            this.buscarButton.Name = "buscarButton";
-            this.buscarButton.Size = new System.Drawing.Size(75, 28);
-            this.buscarButton.TabIndex = 5;
-            this.buscarButton.Text = "Buscar";
-            this.buscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.botonesToolTip.SetToolTip(this.buscarButton, "Buscar");
-            this.buscarButton.UseVisualStyleBackColor = true;
-            this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
-            // 
             // buscarLibroButton
             // 
             this.buscarLibroButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
@@ -167,11 +153,25 @@
             this.buscarLibroButton.Location = new System.Drawing.Point(61, 32);
             this.buscarLibroButton.Name = "buscarLibroButton";
             this.buscarLibroButton.Size = new System.Drawing.Size(32, 28);
-            this.buscarLibroButton.TabIndex = 26;
+            this.buscarLibroButton.TabIndex = 1;
             this.buscarLibroButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.botonesToolTip.SetToolTip(this.buscarLibroButton, "Buscar");
             this.buscarLibroButton.UseVisualStyleBackColor = true;
             this.buscarLibroButton.Click += new System.EventHandler(this.buscarLibroButton_Click);
+            // 
+            // buscarButton
+            // 
+            this.buscarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
+            this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buscarButton.Location = new System.Drawing.Point(290, 33);
+            this.buscarButton.Name = "buscarButton";
+            this.buscarButton.Size = new System.Drawing.Size(75, 28);
+            this.buscarButton.TabIndex = 6;
+            this.buscarButton.Text = "Buscar";
+            this.buscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.botonesToolTip.SetToolTip(this.buscarButton, "Buscar");
+            this.buscarButton.UseVisualStyleBackColor = true;
+            this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
             // 
             // librosGroupBox
             // 
@@ -189,9 +189,47 @@
             this.librosGroupBox.Location = new System.Drawing.Point(31, 102);
             this.librosGroupBox.Name = "librosGroupBox";
             this.librosGroupBox.Size = new System.Drawing.Size(501, 219);
-            this.librosGroupBox.TabIndex = 22;
+            this.librosGroupBox.TabIndex = 2;
             this.librosGroupBox.TabStop = false;
             this.librosGroupBox.Text = "Libros del autor";
+            // 
+            // libroEditorialLabel
+            // 
+            this.libroEditorialLabel.AutoSize = true;
+            this.libroEditorialLabel.Location = new System.Drawing.Point(348, 20);
+            this.libroEditorialLabel.Name = "libroEditorialLabel";
+            this.libroEditorialLabel.Size = new System.Drawing.Size(44, 13);
+            this.libroEditorialLabel.TabIndex = 30;
+            this.libroEditorialLabel.Text = "Editorial";
+            this.libroEditorialLabel.Click += new System.EventHandler(this.libroEditorialLabel_Click);
+            // 
+            // libroEdicionLabel
+            // 
+            this.libroEdicionLabel.AutoSize = true;
+            this.libroEdicionLabel.Location = new System.Drawing.Point(290, 21);
+            this.libroEdicionLabel.Name = "libroEdicionLabel";
+            this.libroEdicionLabel.Size = new System.Drawing.Size(42, 13);
+            this.libroEdicionLabel.TabIndex = 29;
+            this.libroEdicionLabel.Text = "Edición";
+            // 
+            // libroTituloLabel
+            // 
+            this.libroTituloLabel.AutoSize = true;
+            this.libroTituloLabel.Location = new System.Drawing.Point(120, 21);
+            this.libroTituloLabel.Name = "libroTituloLabel";
+            this.libroTituloLabel.Size = new System.Drawing.Size(35, 13);
+            this.libroTituloLabel.TabIndex = 28;
+            this.libroTituloLabel.Text = "Título";
+            // 
+            // libroIdLabel
+            // 
+            this.libroIdLabel.AutoSize = true;
+            this.libroIdLabel.Location = new System.Drawing.Point(9, 21);
+            this.libroIdLabel.Name = "libroIdLabel";
+            this.libroIdLabel.Size = new System.Drawing.Size(42, 13);
+            this.libroIdLabel.TabIndex = 27;
+            this.libroIdLabel.Text = "Libro Id";
+            this.libroIdLabel.Click += new System.EventHandler(this.libroIdLabel_Click);
             // 
             // libroEditorialTextBox
             // 
@@ -216,7 +254,7 @@
             this.anadirLibroButton.Location = new System.Drawing.Point(420, 32);
             this.anadirLibroButton.Name = "anadirLibroButton";
             this.anadirLibroButton.Size = new System.Drawing.Size(75, 28);
-            this.anadirLibroButton.TabIndex = 23;
+            this.anadirLibroButton.TabIndex = 2;
             this.anadirLibroButton.Text = "Añadir  ";
             this.anadirLibroButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.anadirLibroButton.UseVisualStyleBackColor = true;
@@ -235,7 +273,7 @@
             this.libroIdTextBox.Location = new System.Drawing.Point(6, 37);
             this.libroIdTextBox.Name = "libroIdTextBox";
             this.libroIdTextBox.Size = new System.Drawing.Size(50, 20);
-            this.libroIdTextBox.TabIndex = 1;
+            this.libroIdTextBox.TabIndex = 0;
             this.libroIdTextBox.TextChanged += new System.EventHandler(this.libroIdTextBox_TextChanged);
             this.libroIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.libroIdTextBox_KeyPress);
             // 
@@ -247,6 +285,10 @@
             this.librosDataGridView.Size = new System.Drawing.Size(489, 136);
             this.librosDataGridView.TabIndex = 0;
             // 
+            // libroErrorProvider
+            // 
+            this.libroErrorProvider.ContainerControl = this;
+            // 
             // eliminarButton
             // 
             this.eliminarButton.Image = global::BiblioTechProject.Properties.Resources.ic_delete_black_24dp_1x;
@@ -254,7 +296,7 @@
             this.eliminarButton.Location = new System.Drawing.Point(329, 337);
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(75, 28);
-            this.eliminarButton.TabIndex = 4;
+            this.eliminarButton.TabIndex = 5;
             this.eliminarButton.Text = "Eliminar";
             this.eliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.eliminarButton.UseVisualStyleBackColor = true;
@@ -267,7 +309,7 @@
             this.nuevoButton.Location = new System.Drawing.Point(145, 337);
             this.nuevoButton.Name = "nuevoButton";
             this.nuevoButton.Size = new System.Drawing.Size(75, 28);
-            this.nuevoButton.TabIndex = 3;
+            this.nuevoButton.TabIndex = 4;
             this.nuevoButton.Text = "Nuevo";
             this.nuevoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nuevoButton.UseVisualStyleBackColor = true;
@@ -280,53 +322,11 @@
             this.guardarButton.Location = new System.Drawing.Point(237, 337);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(75, 28);
-            this.guardarButton.TabIndex = 2;
+            this.guardarButton.TabIndex = 3;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.guardarButton.UseVisualStyleBackColor = true;
             this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
-            // 
-            // libroIdLabel
-            // 
-            this.libroIdLabel.AutoSize = true;
-            this.libroIdLabel.Location = new System.Drawing.Point(9, 21);
-            this.libroIdLabel.Name = "libroIdLabel";
-            this.libroIdLabel.Size = new System.Drawing.Size(42, 13);
-            this.libroIdLabel.TabIndex = 27;
-            this.libroIdLabel.Text = "Libro Id";
-            this.libroIdLabel.Click += new System.EventHandler(this.libroIdLabel_Click);
-            // 
-            // libroTituloLabel
-            // 
-            this.libroTituloLabel.AutoSize = true;
-            this.libroTituloLabel.Location = new System.Drawing.Point(120, 21);
-            this.libroTituloLabel.Name = "libroTituloLabel";
-            this.libroTituloLabel.Size = new System.Drawing.Size(35, 13);
-            this.libroTituloLabel.TabIndex = 28;
-            this.libroTituloLabel.Text = "Título";
-            // 
-            // libroEdicionLabel
-            // 
-            this.libroEdicionLabel.AutoSize = true;
-            this.libroEdicionLabel.Location = new System.Drawing.Point(290, 21);
-            this.libroEdicionLabel.Name = "libroEdicionLabel";
-            this.libroEdicionLabel.Size = new System.Drawing.Size(42, 13);
-            this.libroEdicionLabel.TabIndex = 29;
-            this.libroEdicionLabel.Text = "Edición";
-            // 
-            // libroEditorialLabel
-            // 
-            this.libroEditorialLabel.AutoSize = true;
-            this.libroEditorialLabel.Location = new System.Drawing.Point(348, 20);
-            this.libroEditorialLabel.Name = "libroEditorialLabel";
-            this.libroEditorialLabel.Size = new System.Drawing.Size(44, 13);
-            this.libroEditorialLabel.TabIndex = 30;
-            this.libroEditorialLabel.Text = "Editorial";
-            this.libroEditorialLabel.Click += new System.EventHandler(this.libroEditorialLabel_Click);
-            // 
-            // libroErrorProvider
-            // 
-            this.libroErrorProvider.ContainerControl = this;
             // 
             // FrmRegistroAutores
             // 

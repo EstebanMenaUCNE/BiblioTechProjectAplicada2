@@ -237,6 +237,14 @@ namespace BiblioTechProject.UI.Registros
             {
                 Buscar();
             }
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void FrmRegistroUsuarios_FormClosed(object sender, FormClosedEventArgs e)

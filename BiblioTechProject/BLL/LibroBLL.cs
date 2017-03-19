@@ -12,7 +12,7 @@ namespace BiblioTechProject.BLL
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Libro>())
             {
-                if (Buscar(L => L.LibroId == libro.EditorialId) == null)
+                if (Buscar(L => L.LibroId == libro.LibroId) == null)
                 {
                     return repositorio.Guardar(libro);
                 }

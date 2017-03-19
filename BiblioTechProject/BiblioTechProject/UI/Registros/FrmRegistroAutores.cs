@@ -13,12 +13,13 @@ namespace BiblioTechProject.UI.Registros
     public partial class FrmRegistroAutores : Form
     {
         private static FrmRegistroAutores formulario = null;
+
         private Entidades.Autor autor = null;
         private List<Entidades.AutorLibro> listaRelaciones = null;
         private List<Entidades.Libro> listaLibros = null;
         private Entidades.Libro libro = null;
 
-        public FrmRegistroAutores()
+        private FrmRegistroAutores()
         {
             InitializeComponent();
         }
@@ -44,21 +45,19 @@ namespace BiblioTechProject.UI.Registros
             autor = null;
             listaRelaciones = new List<Entidades.AutorLibro>();
             listaLibros = new List<Entidades.Libro>();
-            LimpiarLibro();
-            RefrescarDataViewGrid();
             autorIdTextBox.Clear();
             nombreTextBox.Clear();
-            libroIdTextBox.Clear();
+            LimpiarLibro();
+            RefrescarDataViewGrid();
         }
 
         private void LimpiarLibro()
         {
             libro = null;
-            //libroIdTextBox.Clear();
+            libroIdTextBox.Clear();
             libroTituloTextBox.Clear();
             libroEdicionTextBox.Clear();
             libroEditorialTextBox.Clear();
-            libroIdTextBox.Focus();
         }
 
         private void RefrescarDataViewGrid()
@@ -110,7 +109,6 @@ namespace BiblioTechProject.UI.Registros
                     autorIdTextBox.Text = autor.AutorId.ToString();
                     nombreTextBox.Text = autor.Nombre;
                     listaRelaciones = AutorLibroBLL.GetList(A => A.AutorId == autor.AutorId);
-                    //listaLibros = new List<Entidades.Libro>();
                     foreach (var relacion in listaRelaciones)
                     {
                         listaLibros.Add(BLL.LibroBLL.Buscar(L => L.LibroId == relacion.LibroId));
@@ -131,9 +129,11 @@ namespace BiblioTechProject.UI.Registros
             {
                 int id = Utilidad.ToInt(libroIdTextBox.Text);
                 LimpiarLibro();
+                libroIdTextBox.Focus();
                 libro = BLL.LibroBLL.Buscar(L => L.LibroId == id);
                 if (libro != null)
                 {
+                    libroIdTextBox.Text = libro.LibroId.ToString();
                     libroTituloTextBox.Text = libro.Titulo;
                     libroEdicionTextBox.Text = libro.Edicion.ToString();
                     libro.NombreEditorial = BLL.EditorialBLL.Buscar(E => E.EditorialId == libro.EditorialId).Nombre;
@@ -170,7 +170,6 @@ namespace BiblioTechProject.UI.Registros
                         if (AutorLibroBLL.Guardar(relacion) == null)
                         {
                             relacionesGuardadas = false;
-                            break;
                         }
                     }
                 }                    
@@ -195,7 +194,20 @@ namespace BiblioTechProject.UI.Registros
                 DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuestaEliminar == DialogResult.Yes)
                 {
-                    if (BLL.AutorBLL.Eliminar(autor))
+                    bool relacionesEliminadas = true;
+                    bool autorEliminado = false;
+                    foreach (var relacion in listaRelaciones)
+                    {
+                        if (!AutorLibroBLL.Eliminar(relacion))
+                        {
+                            relacionesEliminadas = false;
+                        }
+                    }
+                    if (relacionesEliminadas)
+                    {
+                        autorEliminado = BLL.AutorBLL.Eliminar(autor);
+                    }
+                    if (autorEliminado)
                     {
                         Limpiar();
                         eliminadoToolStripStatusLabel.Visible = true;
@@ -260,6 +272,14 @@ namespace BiblioTechProject.UI.Registros
             {
                 Buscar();
             }
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void libroIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -267,6 +287,14 @@ namespace BiblioTechProject.UI.Registros
             if ((Keys)e.KeyChar == Keys.Enter)
             {
                 BuscarLibro();
+            }
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
             }
         }
 
