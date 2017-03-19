@@ -44,14 +44,14 @@ Estado varchar(10) CHECK(Estado IN('Disponible','Prestado','Reparación')),
 EditorialId int REFERENCES Editorials(EditorialId),
 UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
-
-CREATE TABLE EditorialesLibroes(
+/*
+CREATE TABLE EditorialLibroes(
 Id int IDENTITY(1,1) PRIMARY KEY,
 EditorialId int REFERENCES Editorials(EditorialId),
 LibroId int REFERENCES Libroes(LibroId)
 );
-
-CREATE TABLE AutoresLibroes(
+*/
+CREATE TABLE AutorLibroes(
 Id int IDENTITY(1,1) PRIMARY KEY,
 AutorId int REFERENCES Autors(AutorId),
 LibroId int REFERENCES Libroes(LibroId)
@@ -65,7 +65,7 @@ ClienteId int REFERENCES Clientes(ClienteId),
 UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
 
-CREATE TABLE PrestamosLibros(
+CREATE TABLE PrestamoLibroes(
 Id int IDENTITY(1,1) PRIMARY KEY,
 PrestamoId int REFERENCES Prestamos(PrestamoId),
 LibroId int REFERENCES Libroes(LibroId)
@@ -78,7 +78,7 @@ ClienteId int REFERENCES Clientes(ClienteId),
 UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
 
-CREATE TABLE DevolucionesLibros(
+CREATE TABLE DevolucionLibroes(
 Id int IDENTITY(1,1) PRIMARY KEY,
 DevolucionId int REFERENCES Devolucions(DevolucionId),
 LibroId int REFERENCES Libroes(LibroId)

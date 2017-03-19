@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,11 +34,6 @@ namespace BiblioTechProject.UI.Registros
 
         private void FrmRegistroAutores_Load(object sender, EventArgs e)
         {
-            //Quitar
-            BLL.EditorialBLL.Guardar(new Entidades.Editorial(1, "D' chuli Editorial", 1));
-            BLL.LibroBLL.Guardar(new Entidades.Libro(1, "El gato y el ratón", 2, "Disponible", 1, 1));
-            //BLL.LibroBLL.Guardar(new Entidades.Libro(0, "La doña de la esquina", 3, "Prestado", 1, 1));
-
             listaRelaciones = new List<Entidades.AutorLibro>();
             listaLibros = new List<Entidades.Libro>();
         }
@@ -71,7 +67,6 @@ namespace BiblioTechProject.UI.Registros
             librosDataGridView.Columns["EditorialId"].Visible = false;
             librosDataGridView.Columns["UsuarioId"].Visible = false;
             librosDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;
-            librosDataGridView.Columns["NombreEditorial"].HeaderText = "Nombre_Editorial";
         }
 
         private bool Validar()
@@ -104,7 +99,6 @@ namespace BiblioTechProject.UI.Registros
                 
         private void Buscar()
         {
-            PonerEstadosInvisibles();
             if (!string.IsNullOrWhiteSpace(autorIdTextBox.Text))
             {
                 int id = Utilidad.ToInt(autorIdTextBox.Text);
@@ -114,6 +108,13 @@ namespace BiblioTechProject.UI.Registros
                 {
                     autorIdTextBox.Text = autor.AutorId.ToString();
                     nombreTextBox.Text = autor.Nombre;
+                    listaRelaciones = AutorLibroBLL.GetList(A => A.AutorId == autor.AutorId);
+                    //listaLibros = new List<Entidades.Libro>();
+                    foreach (var relacion in listaRelaciones)
+                    {
+                        listaLibros.Add(BLL.LibroBLL.Buscar(L => L.LibroId == relacion.LibroId));
+                    }
+                    RefrescarDataViewGrid();
                 }
                 else
                 {
@@ -149,6 +150,12 @@ namespace BiblioTechProject.UI.Registros
             Limpiar();
             nombreTextBox.Focus();
             PonerEstadosInvisibles();
+
+            //Quitar
+            //BLL.EditorialBLL.Guardar(new Entidades.Editorial(1, "D' chuli Editorial", 1));
+            //BLL.LibroBLL.Guardar(new Entidades.Libro(0, "El gato y el ratón", 2, "Disponible", 1, FrmLogin.GetUsuarioLogueado().UsuarioId));
+            //BLL.LibroBLL.Guardar(new Entidades.Libro(0, "La doña de la esquina", 3, "Prestado", 1, FrmLogin.GetUsuarioLogueado().UsuarioId));
+            
         }
 
         private void guardarButton_Click(object sender, EventArgs e)
@@ -156,28 +163,35 @@ namespace BiblioTechProject.UI.Registros
             PonerEstadosInvisibles();
             if (!nombreTextBox.ReadOnly)
             {
-                /*if (FrmLogin.GetUsuarioLogueado().UsuarioId > 0)
-                {*/
-                    if (Validar())
-                    {
-                        LlenarCamposInstancia();
-                        autor = BLL.AutorBLL.Guardar(autor); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
-                        if (autor != null)
-                        {
-                            autorIdTextBox.Text = autor.AutorId.ToString();
-                            guardadoToolStripStatusLabel.Visible = true;
-                            nuevoButton.Focus();
-                        }
-                        else
-                        {
-                            ErrorToolStripStatusLabel.Visible = true;
-                        }
-                    }
-                /*}
-                else
+                if (Validar())
                 {
-                    MessageBox.Show("Este usuario no puede guardar registros.\nCree otro usuario para realizar esta operación.", "¡Oops!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }**/
+                    LlenarCamposInstancia();
+                    autor = BLL.AutorBLL.Guardar(autor); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
+                    bool relacionesGuardadas = false;
+                    if (autor != null)
+                    {
+                        relacionesGuardadas = true;
+                        foreach (var relacion in listaRelaciones)
+                        {
+                            relacion.AutorId = autor.AutorId;
+                            if (AutorLibroBLL.Guardar(relacion) == null)
+                            {
+                                relacionesGuardadas = false;
+                                break;
+                            }
+                        }
+                    }                    
+                    if (relacionesGuardadas)
+                    {
+                        autorIdTextBox.Text = autor.AutorId.ToString();
+                        guardadoToolStripStatusLabel.Visible = true;
+                        nuevoButton.Focus();
+                    }
+                    else
+                    {
+                        ErrorToolStripStatusLabel.Visible = true;
+                    }
+                }
             }
         }
 
