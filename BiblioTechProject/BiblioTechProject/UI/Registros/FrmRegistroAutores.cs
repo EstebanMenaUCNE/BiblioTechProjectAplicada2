@@ -36,6 +36,7 @@ namespace BiblioTechProject.UI.Registros
         {
             listaRelaciones = new List<Entidades.AutorLibro>();
             listaLibros = new List<Entidades.Libro>();
+            RefrescarDataViewGrid();
         }
 
         private void Limpiar()
@@ -231,7 +232,7 @@ namespace BiblioTechProject.UI.Registros
             }
             else
             {
-                MessageBox.Show("Ningún libro seleccionado...");
+                libroErrorProvider.SetError(libroTituloLabel, "Ningún libro seleccionado");
             }
 
         }
@@ -249,6 +250,7 @@ namespace BiblioTechProject.UI.Registros
 
         private void libroIdTextBox_TextChanged(object sender, EventArgs e)
         {
+            libroErrorProvider.Clear();
             PonerEstadosInvisibles();
         }
 
@@ -260,9 +262,29 @@ namespace BiblioTechProject.UI.Registros
             }
         }
 
+        private void libroIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                BuscarLibro();
+            }
+        }
+
         private void FrmRegistroAutores_FormClosed(object sender, FormClosedEventArgs e)
         {
             formulario = null;
         }
+
+        private void libroIdLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void libroEditorialLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

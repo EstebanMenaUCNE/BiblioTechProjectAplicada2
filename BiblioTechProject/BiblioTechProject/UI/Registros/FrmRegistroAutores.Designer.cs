@@ -52,12 +52,18 @@
             this.eliminarButton = new System.Windows.Forms.Button();
             this.nuevoButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
+            this.libroIdLabel = new System.Windows.Forms.Label();
+            this.libroTituloLabel = new System.Windows.Forms.Label();
+            this.libroEdicionLabel = new System.Windows.Forms.Label();
+            this.libroEditorialLabel = new System.Windows.Forms.Label();
+            this.libroErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             autorIdLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             this.RegistroUsuariosStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nombreErrorProvider)).BeginInit();
             this.librosGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.librosDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libroErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // autorIdLabel
@@ -158,7 +164,7 @@
             // 
             this.buscarLibroButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
             this.buscarLibroButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscarLibroButton.Location = new System.Drawing.Point(61, 28);
+            this.buscarLibroButton.Location = new System.Drawing.Point(61, 32);
             this.buscarLibroButton.Name = "buscarLibroButton";
             this.buscarLibroButton.Size = new System.Drawing.Size(32, 28);
             this.buscarLibroButton.TabIndex = 26;
@@ -169,6 +175,10 @@
             // 
             // librosGroupBox
             // 
+            this.librosGroupBox.Controls.Add(this.libroEditorialLabel);
+            this.librosGroupBox.Controls.Add(this.libroEdicionLabel);
+            this.librosGroupBox.Controls.Add(this.libroTituloLabel);
+            this.librosGroupBox.Controls.Add(this.libroIdLabel);
             this.librosGroupBox.Controls.Add(this.buscarLibroButton);
             this.librosGroupBox.Controls.Add(this.libroEditorialTextBox);
             this.librosGroupBox.Controls.Add(this.libroEdicionTextBox);
@@ -185,7 +195,7 @@
             // 
             // libroEditorialTextBox
             // 
-            this.libroEditorialTextBox.Location = new System.Drawing.Point(345, 33);
+            this.libroEditorialTextBox.Location = new System.Drawing.Point(345, 37);
             this.libroEditorialTextBox.Name = "libroEditorialTextBox";
             this.libroEditorialTextBox.ReadOnly = true;
             this.libroEditorialTextBox.Size = new System.Drawing.Size(69, 20);
@@ -193,7 +203,7 @@
             // 
             // libroEdicionTextBox
             // 
-            this.libroEdicionTextBox.Location = new System.Drawing.Point(287, 33);
+            this.libroEdicionTextBox.Location = new System.Drawing.Point(287, 37);
             this.libroEdicionTextBox.Name = "libroEdicionTextBox";
             this.libroEdicionTextBox.ReadOnly = true;
             this.libroEdicionTextBox.Size = new System.Drawing.Size(52, 20);
@@ -203,18 +213,18 @@
             // 
             this.anadirLibroButton.Image = global::BiblioTechProject.Properties.Resources.ic_add_circle_black_24dp_1x;
             this.anadirLibroButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.anadirLibroButton.Location = new System.Drawing.Point(420, 28);
+            this.anadirLibroButton.Location = new System.Drawing.Point(420, 32);
             this.anadirLibroButton.Name = "anadirLibroButton";
             this.anadirLibroButton.Size = new System.Drawing.Size(75, 28);
             this.anadirLibroButton.TabIndex = 23;
-            this.anadirLibroButton.Text = "Añadir";
+            this.anadirLibroButton.Text = "Añadir  ";
             this.anadirLibroButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.anadirLibroButton.UseVisualStyleBackColor = true;
             this.anadirLibroButton.Click += new System.EventHandler(this.anadirLibroButton_Click);
             // 
             // libroTituloTextBox
             // 
-            this.libroTituloTextBox.Location = new System.Drawing.Point(99, 33);
+            this.libroTituloTextBox.Location = new System.Drawing.Point(99, 37);
             this.libroTituloTextBox.Name = "libroTituloTextBox";
             this.libroTituloTextBox.ReadOnly = true;
             this.libroTituloTextBox.Size = new System.Drawing.Size(182, 20);
@@ -222,18 +232,19 @@
             // 
             // libroIdTextBox
             // 
-            this.libroIdTextBox.Location = new System.Drawing.Point(6, 33);
+            this.libroIdTextBox.Location = new System.Drawing.Point(6, 37);
             this.libroIdTextBox.Name = "libroIdTextBox";
             this.libroIdTextBox.Size = new System.Drawing.Size(50, 20);
             this.libroIdTextBox.TabIndex = 1;
             this.libroIdTextBox.TextChanged += new System.EventHandler(this.libroIdTextBox_TextChanged);
+            this.libroIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.libroIdTextBox_KeyPress);
             // 
             // librosDataGridView
             // 
             this.librosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.librosDataGridView.Location = new System.Drawing.Point(6, 69);
+            this.librosDataGridView.Location = new System.Drawing.Point(6, 66);
             this.librosDataGridView.Name = "librosDataGridView";
-            this.librosDataGridView.Size = new System.Drawing.Size(489, 133);
+            this.librosDataGridView.Size = new System.Drawing.Size(489, 136);
             this.librosDataGridView.TabIndex = 0;
             // 
             // eliminarButton
@@ -275,6 +286,48 @@
             this.guardarButton.UseVisualStyleBackColor = true;
             this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
+            // libroIdLabel
+            // 
+            this.libroIdLabel.AutoSize = true;
+            this.libroIdLabel.Location = new System.Drawing.Point(9, 21);
+            this.libroIdLabel.Name = "libroIdLabel";
+            this.libroIdLabel.Size = new System.Drawing.Size(42, 13);
+            this.libroIdLabel.TabIndex = 27;
+            this.libroIdLabel.Text = "Libro Id";
+            this.libroIdLabel.Click += new System.EventHandler(this.libroIdLabel_Click);
+            // 
+            // libroTituloLabel
+            // 
+            this.libroTituloLabel.AutoSize = true;
+            this.libroTituloLabel.Location = new System.Drawing.Point(120, 21);
+            this.libroTituloLabel.Name = "libroTituloLabel";
+            this.libroTituloLabel.Size = new System.Drawing.Size(35, 13);
+            this.libroTituloLabel.TabIndex = 28;
+            this.libroTituloLabel.Text = "Título";
+            // 
+            // libroEdicionLabel
+            // 
+            this.libroEdicionLabel.AutoSize = true;
+            this.libroEdicionLabel.Location = new System.Drawing.Point(290, 21);
+            this.libroEdicionLabel.Name = "libroEdicionLabel";
+            this.libroEdicionLabel.Size = new System.Drawing.Size(42, 13);
+            this.libroEdicionLabel.TabIndex = 29;
+            this.libroEdicionLabel.Text = "Edición";
+            // 
+            // libroEditorialLabel
+            // 
+            this.libroEditorialLabel.AutoSize = true;
+            this.libroEditorialLabel.Location = new System.Drawing.Point(348, 20);
+            this.libroEditorialLabel.Name = "libroEditorialLabel";
+            this.libroEditorialLabel.Size = new System.Drawing.Size(44, 13);
+            this.libroEditorialLabel.TabIndex = 30;
+            this.libroEditorialLabel.Text = "Editorial";
+            this.libroEditorialLabel.Click += new System.EventHandler(this.libroEditorialLabel_Click);
+            // 
+            // libroErrorProvider
+            // 
+            this.libroErrorProvider.ContainerControl = this;
+            // 
             // FrmRegistroAutores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +353,7 @@
             this.librosGroupBox.ResumeLayout(false);
             this.librosGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.librosDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libroErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +382,10 @@
         private System.Windows.Forms.TextBox libroEdicionTextBox;
         private System.Windows.Forms.Button buscarLibroButton;
         private System.Windows.Forms.TextBox libroEditorialTextBox;
+        private System.Windows.Forms.Label libroEditorialLabel;
+        private System.Windows.Forms.Label libroEdicionLabel;
+        private System.Windows.Forms.Label libroTituloLabel;
+        private System.Windows.Forms.Label libroIdLabel;
+        private System.Windows.Forms.ErrorProvider libroErrorProvider;
     }
 }
