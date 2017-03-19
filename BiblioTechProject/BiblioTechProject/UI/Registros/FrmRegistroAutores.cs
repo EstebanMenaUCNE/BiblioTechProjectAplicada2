@@ -149,48 +149,39 @@ namespace BiblioTechProject.UI.Registros
         {
             Limpiar();
             nombreTextBox.Focus();
-            PonerEstadosInvisibles();
-
-            //Quitar
-            //BLL.EditorialBLL.Guardar(new Entidades.Editorial(1, "D' chuli Editorial", 1));
-            //BLL.LibroBLL.Guardar(new Entidades.Libro(0, "El gato y el ratón", 2, "Disponible", 1, FrmLogin.GetUsuarioLogueado().UsuarioId));
-            //BLL.LibroBLL.Guardar(new Entidades.Libro(0, "La doña de la esquina", 3, "Prestado", 1, FrmLogin.GetUsuarioLogueado().UsuarioId));
-            
+            PonerEstadosInvisibles();            
         }
 
         private void guardarButton_Click(object sender, EventArgs e)
         {
             PonerEstadosInvisibles();
-            if (!nombreTextBox.ReadOnly)
+            if (Validar())
             {
-                if (Validar())
+                LlenarCamposInstancia();
+                autor = BLL.AutorBLL.Guardar(autor); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
+                bool relacionesGuardadas = false;
+                if (autor != null)
                 {
-                    LlenarCamposInstancia();
-                    autor = BLL.AutorBLL.Guardar(autor); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
-                    bool relacionesGuardadas = false;
-                    if (autor != null)
+                    relacionesGuardadas = true;
+                    foreach (var relacion in listaRelaciones)
                     {
-                        relacionesGuardadas = true;
-                        foreach (var relacion in listaRelaciones)
+                        relacion.AutorId = autor.AutorId;
+                        if (AutorLibroBLL.Guardar(relacion) == null)
                         {
-                            relacion.AutorId = autor.AutorId;
-                            if (AutorLibroBLL.Guardar(relacion) == null)
-                            {
-                                relacionesGuardadas = false;
-                                break;
-                            }
+                            relacionesGuardadas = false;
+                            break;
                         }
-                    }                    
-                    if (relacionesGuardadas)
-                    {
-                        autorIdTextBox.Text = autor.AutorId.ToString();
-                        guardadoToolStripStatusLabel.Visible = true;
-                        nuevoButton.Focus();
                     }
-                    else
-                    {
-                        ErrorToolStripStatusLabel.Visible = true;
-                    }
+                }                    
+                if (relacionesGuardadas)
+                {
+                    autorIdTextBox.Text = autor.AutorId.ToString();
+                    guardadoToolStripStatusLabel.Visible = true;
+                    nuevoButton.Focus();
+                }
+                else
+                {
+                    ErrorToolStripStatusLabel.Visible = true;
                 }
             }
         }
@@ -273,6 +264,5 @@ namespace BiblioTechProject.UI.Registros
         {
             formulario = null;
         }
-                
     }
 }

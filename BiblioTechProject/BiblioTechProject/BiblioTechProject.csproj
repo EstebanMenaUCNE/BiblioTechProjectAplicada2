@@ -71,6 +71,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\Consultas\FrmConsultaAutores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\FrmConsultaAutores.Designer.cs">
+      <DependentUpon>FrmConsultaAutores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\FrmConsultaEditoriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\FrmConsultaEditoriales.Designer.cs">
+      <DependentUpon>FrmConsultaEditoriales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\FrmRegistroEditoriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\FrmRegistroEditoriales.Designer.cs">
+      <DependentUpon>FrmRegistroEditoriales.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\BiblioTechDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -137,8 +155,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Consultas\FrmConsultaAutores.resx">
+      <DependentUpon>FrmConsultaAutores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\FrmConsultaClientes.resx">
       <DependentUpon>FrmConsultaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\FrmConsultaEditoriales.resx">
+      <DependentUpon>FrmConsultaEditoriales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\FrmConsultaUsuarios.resx">
       <DependentUpon>FrmConsultaUsuarios.cs</DependentUpon>
@@ -154,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\FrmRegistroClientes.resx">
       <DependentUpon>FrmRegistroClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\FrmRegistroEditoriales.resx">
+      <DependentUpon>FrmRegistroEditoriales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\FrmRegistroUsuarios.resx">
       <DependentUpon>FrmRegistroUsuarios.cs</DependentUpon>

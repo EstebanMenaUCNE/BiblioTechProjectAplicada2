@@ -133,29 +133,26 @@ namespace BiblioTechProject.UI.Registros
         private void guardarButton_Click(object sender, EventArgs e)
         {
             PonerEstadosInvisibles();
-            if (!nombreTextBox.ReadOnly)
+            if (Validar())
             {
-                if (Validar())
+                LlenarCamposInstancia();
+                usuario = BLL.UsuarioBLL.Guardar(usuario); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
+                if (usuario != null)
                 {
-                    LlenarCamposInstancia();
-                    usuario = BLL.UsuarioBLL.Guardar(usuario); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
-                    if (usuario != null)
+                    usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
+                    /*string contrasena = "";
+                    foreach (char item in usuario.Contrasena)
                     {
-                        usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
-                        /*string contrasena = "";
-                        foreach (char item in usuario.Contrasena)
-                        {
-                            contrasena += "☻";
-                        }
-                        contrasenaTextBox.Text = contrasena;
-                        confirmarContrasenaTextBox.Text = contrasena;*/
-                        guardadoToolStripStatusLabel.Visible = true;
-                        nuevoButton.Focus();
+                        contrasena += "☻";
                     }
-                    else
-                    {
-                        ErrorToolStripStatusLabel.Visible = true;
-                    }
+                    contrasenaTextBox.Text = contrasena;
+                    confirmarContrasenaTextBox.Text = contrasena;*/
+                    guardadoToolStripStatusLabel.Visible = true;
+                    nuevoButton.Focus();
+                }
+                else
+                {
+                    ErrorToolStripStatusLabel.Visible = true;
                 }
             }
         }

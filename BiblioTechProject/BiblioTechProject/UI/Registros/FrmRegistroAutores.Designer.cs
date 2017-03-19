@@ -40,18 +40,18 @@
             this.eliminadoToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.nombreErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.botonesToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.librosGroupBox = new System.Windows.Forms.GroupBox();
-            this.librosDataGridView = new System.Windows.Forms.DataGridView();
-            this.libroIdTextBox = new System.Windows.Forms.TextBox();
-            this.libroTituloTextBox = new System.Windows.Forms.TextBox();
-            this.anadirLibroButton = new System.Windows.Forms.Button();
             this.buscarButton = new System.Windows.Forms.Button();
+            this.buscarLibroButton = new System.Windows.Forms.Button();
+            this.librosGroupBox = new System.Windows.Forms.GroupBox();
+            this.libroEditorialTextBox = new System.Windows.Forms.TextBox();
+            this.libroEdicionTextBox = new System.Windows.Forms.TextBox();
+            this.anadirLibroButton = new System.Windows.Forms.Button();
+            this.libroTituloTextBox = new System.Windows.Forms.TextBox();
+            this.libroIdTextBox = new System.Windows.Forms.TextBox();
+            this.librosDataGridView = new System.Windows.Forms.DataGridView();
             this.eliminarButton = new System.Windows.Forms.Button();
             this.nuevoButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
-            this.libroEdicionTextBox = new System.Windows.Forms.TextBox();
-            this.libroEditorialTextBox = new System.Windows.Forms.TextBox();
-            this.buscarLibroButton = new System.Windows.Forms.Button();
             autorIdLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             this.RegistroUsuariosStatusStrip.SuspendLayout();
@@ -140,6 +140,33 @@
             // 
             this.nombreErrorProvider.ContainerControl = this;
             // 
+            // buscarButton
+            // 
+            this.buscarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
+            this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buscarButton.Location = new System.Drawing.Point(318, 33);
+            this.buscarButton.Name = "buscarButton";
+            this.buscarButton.Size = new System.Drawing.Size(75, 28);
+            this.buscarButton.TabIndex = 5;
+            this.buscarButton.Text = "Buscar";
+            this.buscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.botonesToolTip.SetToolTip(this.buscarButton, "Buscar");
+            this.buscarButton.UseVisualStyleBackColor = true;
+            this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
+            // 
+            // buscarLibroButton
+            // 
+            this.buscarLibroButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
+            this.buscarLibroButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buscarLibroButton.Location = new System.Drawing.Point(61, 28);
+            this.buscarLibroButton.Name = "buscarLibroButton";
+            this.buscarLibroButton.Size = new System.Drawing.Size(32, 28);
+            this.buscarLibroButton.TabIndex = 26;
+            this.buscarLibroButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.botonesToolTip.SetToolTip(this.buscarLibroButton, "Buscar");
+            this.buscarLibroButton.UseVisualStyleBackColor = true;
+            this.buscarLibroButton.Click += new System.EventHandler(this.buscarLibroButton_Click);
+            // 
             // librosGroupBox
             // 
             this.librosGroupBox.Controls.Add(this.buscarLibroButton);
@@ -156,29 +183,21 @@
             this.librosGroupBox.TabStop = false;
             this.librosGroupBox.Text = "Libros del autor";
             // 
-            // librosDataGridView
+            // libroEditorialTextBox
             // 
-            this.librosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.librosDataGridView.Location = new System.Drawing.Point(6, 69);
-            this.librosDataGridView.Name = "librosDataGridView";
-            this.librosDataGridView.Size = new System.Drawing.Size(489, 133);
-            this.librosDataGridView.TabIndex = 0;
+            this.libroEditorialTextBox.Location = new System.Drawing.Point(345, 33);
+            this.libroEditorialTextBox.Name = "libroEditorialTextBox";
+            this.libroEditorialTextBox.ReadOnly = true;
+            this.libroEditorialTextBox.Size = new System.Drawing.Size(69, 20);
+            this.libroEditorialTextBox.TabIndex = 25;
             // 
-            // libroIdTextBox
+            // libroEdicionTextBox
             // 
-            this.libroIdTextBox.Location = new System.Drawing.Point(6, 33);
-            this.libroIdTextBox.Name = "libroIdTextBox";
-            this.libroIdTextBox.Size = new System.Drawing.Size(50, 20);
-            this.libroIdTextBox.TabIndex = 1;
-            this.libroIdTextBox.TextChanged += new System.EventHandler(this.libroIdTextBox_TextChanged);
-            // 
-            // libroTituloTextBox
-            // 
-            this.libroTituloTextBox.Location = new System.Drawing.Point(99, 33);
-            this.libroTituloTextBox.Name = "libroTituloTextBox";
-            this.libroTituloTextBox.ReadOnly = true;
-            this.libroTituloTextBox.Size = new System.Drawing.Size(182, 20);
-            this.libroTituloTextBox.TabIndex = 2;
+            this.libroEdicionTextBox.Location = new System.Drawing.Point(287, 33);
+            this.libroEdicionTextBox.Name = "libroEdicionTextBox";
+            this.libroEdicionTextBox.ReadOnly = true;
+            this.libroEdicionTextBox.Size = new System.Drawing.Size(52, 20);
+            this.libroEdicionTextBox.TabIndex = 24;
             // 
             // anadirLibroButton
             // 
@@ -193,19 +212,29 @@
             this.anadirLibroButton.UseVisualStyleBackColor = true;
             this.anadirLibroButton.Click += new System.EventHandler(this.anadirLibroButton_Click);
             // 
-            // buscarButton
+            // libroTituloTextBox
             // 
-            this.buscarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
-            this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscarButton.Location = new System.Drawing.Point(318, 33);
-            this.buscarButton.Name = "buscarButton";
-            this.buscarButton.Size = new System.Drawing.Size(75, 28);
-            this.buscarButton.TabIndex = 5;
-            this.buscarButton.Text = "Buscar";
-            this.buscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.botonesToolTip.SetToolTip(this.buscarButton, "Buscar");
-            this.buscarButton.UseVisualStyleBackColor = true;
-            this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
+            this.libroTituloTextBox.Location = new System.Drawing.Point(99, 33);
+            this.libroTituloTextBox.Name = "libroTituloTextBox";
+            this.libroTituloTextBox.ReadOnly = true;
+            this.libroTituloTextBox.Size = new System.Drawing.Size(182, 20);
+            this.libroTituloTextBox.TabIndex = 2;
+            // 
+            // libroIdTextBox
+            // 
+            this.libroIdTextBox.Location = new System.Drawing.Point(6, 33);
+            this.libroIdTextBox.Name = "libroIdTextBox";
+            this.libroIdTextBox.Size = new System.Drawing.Size(50, 20);
+            this.libroIdTextBox.TabIndex = 1;
+            this.libroIdTextBox.TextChanged += new System.EventHandler(this.libroIdTextBox_TextChanged);
+            // 
+            // librosDataGridView
+            // 
+            this.librosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.librosDataGridView.Location = new System.Drawing.Point(6, 69);
+            this.librosDataGridView.Name = "librosDataGridView";
+            this.librosDataGridView.Size = new System.Drawing.Size(489, 133);
+            this.librosDataGridView.TabIndex = 0;
             // 
             // eliminarButton
             // 
@@ -245,35 +274,6 @@
             this.guardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.guardarButton.UseVisualStyleBackColor = true;
             this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
-            // 
-            // libroEdicionTextBox
-            // 
-            this.libroEdicionTextBox.Location = new System.Drawing.Point(287, 33);
-            this.libroEdicionTextBox.Name = "libroEdicionTextBox";
-            this.libroEdicionTextBox.ReadOnly = true;
-            this.libroEdicionTextBox.Size = new System.Drawing.Size(52, 20);
-            this.libroEdicionTextBox.TabIndex = 24;
-            // 
-            // libroEditorialTextBox
-            // 
-            this.libroEditorialTextBox.Location = new System.Drawing.Point(345, 33);
-            this.libroEditorialTextBox.Name = "libroEditorialTextBox";
-            this.libroEditorialTextBox.ReadOnly = true;
-            this.libroEditorialTextBox.Size = new System.Drawing.Size(69, 20);
-            this.libroEditorialTextBox.TabIndex = 25;
-            // 
-            // buscarLibroButton
-            // 
-            this.buscarLibroButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
-            this.buscarLibroButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscarLibroButton.Location = new System.Drawing.Point(61, 28);
-            this.buscarLibroButton.Name = "buscarLibroButton";
-            this.buscarLibroButton.Size = new System.Drawing.Size(32, 28);
-            this.buscarLibroButton.TabIndex = 26;
-            this.buscarLibroButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.botonesToolTip.SetToolTip(this.buscarLibroButton, "Buscar");
-            this.buscarLibroButton.UseVisualStyleBackColor = true;
-            this.buscarLibroButton.Click += new System.EventHandler(this.buscarLibroButton_Click);
             // 
             // FrmRegistroAutores
             // 

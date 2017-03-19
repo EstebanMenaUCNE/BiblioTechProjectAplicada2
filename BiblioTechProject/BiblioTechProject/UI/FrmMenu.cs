@@ -100,7 +100,7 @@ namespace BiblioTechProject.UI
         private void autorToolStripMenuItem_Click(object sender, EventArgs e)
         {            
             Registros.FrmRegistroAutores.GetInstance().Show();
-            Consultas.FrmConsultaClientes.GetInstance().Activate();
+            Registros.FrmRegistroAutores.GetInstance().Activate();
         }
 
         private void usuariosToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -108,5 +108,25 @@ namespace BiblioTechProject.UI
             Reportes.FrmReporteUsuarios.GetInstance().Show();
             Reportes.FrmReporteUsuarios.GetInstance().Activate();
         }
+
+        private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.FrmRegistroEditoriales.GetInstance().Show();
+            Registros.FrmRegistroEditoriales.GetInstance().Activate();
+        }
+
+        private void autoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consultas.FrmConsultaAutores.GetInstance().Show();
+            Consultas.FrmConsultaAutores.GetInstance().Activate();
+        }
+
+        private void editorialesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Consultas.FrmConsultaEditoriales.GetInstance().Show();
+            Consultas.FrmConsultaEditoriales.GetInstance().Activate();
+        }
+
+        
     }
 }

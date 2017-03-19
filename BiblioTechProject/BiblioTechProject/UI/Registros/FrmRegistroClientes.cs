@@ -132,31 +132,28 @@ namespace BiblioTechProject.UI.Registros
         private void guardarButton_Click_1(object sender, EventArgs e)
         {
             PonerEstadosInvisibles();
-            if (!nombreTextBox.ReadOnly)
-            {
-                //if (FrmLogin.GetUsuarioLogueado().UsuarioId > 0)
-                //{
-                    if (Validar())
-                    {
-                        LlenarCamposInstancia();
-                        cliente = BLL.ClienteBLL.Guardar(cliente); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
-                        if (cliente != null)
-                        {
-                            clienteIdTextBox.Text = cliente.ClienteId.ToString();
-                            guardadoToolStripStatusLabel.Visible = true;
-                            nuevoButton.Focus();
-                        }
-                        else
-                        {
-                            ErrorToolStripStatusLabel.Visible = true;
-                        }
-                    }                    
-                /*}
-                else
+            //if (FrmLogin.GetUsuarioLogueado().UsuarioId > 0)
+            //{
+                if (Validar())
                 {
-                    MessageBox.Show("Este usuario no puede guardar registros.\nCree otro usuario para realizar esta operación.", "¡Oops!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }*/
-            }            
+                    LlenarCamposInstancia();
+                    cliente = BLL.ClienteBLL.Guardar(cliente); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
+                    if (cliente != null)
+                    {
+                        clienteIdTextBox.Text = cliente.ClienteId.ToString();
+                        guardadoToolStripStatusLabel.Visible = true;
+                        nuevoButton.Focus();
+                    }
+                    else
+                    {
+                        ErrorToolStripStatusLabel.Visible = true;
+                    }
+                }                    
+            /*}
+            else
+            {
+                MessageBox.Show("Este usuario no puede guardar registros.\nCree otro usuario para realizar esta operación.", "¡Oops!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }*/       
         }
 
         private void eliminarButton_Click(object sender, EventArgs e)
