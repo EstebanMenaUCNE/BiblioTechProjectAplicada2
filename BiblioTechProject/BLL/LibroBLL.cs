@@ -62,30 +62,8 @@ namespace BiblioTechProject.BLL
             {
                 return repositorio.GetList(L => L.Titulo == titulo);
             }
-        }*/
-
-        public static List<Entidades.Libro> GetListEditorial(string nombreEditorial)
-        {
-            Entidades.Editorial editorial = null;
-            List<Entidades.Editorial> lista = EditorialBLL.GetList(E => E.Nombre == nombreEditorial);
-            if (lista.Count > 0)
-            {
-                editorial = lista.ElementAt(0);
-            }
-            if (editorial != null)
-            {
-                using (var repositorio = new DAL.Repositorio<Entidades.Libro>())
-                {
-                    return repositorio.GetList(L => L.EditorialId == editorial.EditorialId);
-
-                }
-            }
-            else
-            {
-                return new List<Entidades.Libro>();
-            }
-                
         }
+        */
 
     }
 }

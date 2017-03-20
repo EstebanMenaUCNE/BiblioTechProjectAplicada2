@@ -156,6 +156,17 @@ namespace BiblioTechProject.UI.Consultas
 
         private void filtrarMaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (filtrarComboBox.Text == "Id")
+            {
+                if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
             if ((Keys)e.KeyChar == Keys.Enter)
             {
                 Filtrar();
