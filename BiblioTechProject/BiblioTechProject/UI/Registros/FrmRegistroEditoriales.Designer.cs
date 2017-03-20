@@ -74,7 +74,7 @@
             this.eliminarButton.Location = new System.Drawing.Point(209, 160);
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(75, 28);
-            this.eliminarButton.TabIndex = 7;
+            this.eliminarButton.TabIndex = 4;
             this.eliminarButton.Text = "Eliminar";
             this.eliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.eliminarButton.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             this.nuevoButton.Location = new System.Drawing.Point(25, 160);
             this.nuevoButton.Name = "nuevoButton";
             this.nuevoButton.Size = new System.Drawing.Size(75, 28);
-            this.nuevoButton.TabIndex = 6;
+            this.nuevoButton.TabIndex = 3;
             this.nuevoButton.Text = "Nuevo";
             this.nuevoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nuevoButton.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             this.guardarButton.Location = new System.Drawing.Point(117, 160);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(75, 28);
-            this.guardarButton.TabIndex = 5;
+            this.guardarButton.TabIndex = 2;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.guardarButton.UseVisualStyleBackColor = true;
@@ -113,7 +113,7 @@
             this.buscarButton.Location = new System.Drawing.Point(189, 70);
             this.buscarButton.Name = "buscarButton";
             this.buscarButton.Size = new System.Drawing.Size(75, 28);
-            this.buscarButton.TabIndex = 8;
+            this.buscarButton.TabIndex = 5;
             this.buscarButton.Text = "Buscar";
             this.buscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buscarButton.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             this.editorialIdTextBox.Location = new System.Drawing.Point(105, 75);
             this.editorialIdTextBox.Name = "editorialIdTextBox";
             this.editorialIdTextBox.Size = new System.Drawing.Size(78, 20);
-            this.editorialIdTextBox.TabIndex = 9;
+            this.editorialIdTextBox.TabIndex = 0;
             this.editorialIdTextBox.TextChanged += new System.EventHandler(this.editorialIdTextBox_TextChanged_1);
             this.editorialIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editorialIdTextBox_KeyPress);
             // 
@@ -133,7 +133,7 @@
             this.nombreTextBox.Location = new System.Drawing.Point(105, 101);
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(159, 20);
-            this.nombreTextBox.TabIndex = 11;
+            this.nombreTextBox.TabIndex = 1;
             this.nombreTextBox.TextChanged += new System.EventHandler(this.nombreTextBox_TextChanged);
             // 
             // nombreErrorProvider

@@ -294,7 +294,9 @@
             this.estadoComboBox.Items.AddRange(new object[] {
             "Disponible",
             "Prestado",
-            "Reparación"});
+            "Reparación",
+            "Desaparecido",
+            "En mal estado"});
             this.estadoComboBox.Location = new System.Drawing.Point(158, 114);
             this.estadoComboBox.Name = "estadoComboBox";
             this.estadoComboBox.Size = new System.Drawing.Size(292, 21);

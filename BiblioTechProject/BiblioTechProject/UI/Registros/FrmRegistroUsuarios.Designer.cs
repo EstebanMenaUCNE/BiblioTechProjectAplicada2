@@ -161,7 +161,8 @@
             this.cargoComboBox.FormattingEnabled = true;
             this.cargoComboBox.Items.AddRange(new object[] {
             "Bibliotecario",
-            "Administrador"});
+            "Administrador",
+            "Consultor"});
             this.cargoComboBox.Location = new System.Drawing.Point(144, 168);
             this.cargoComboBox.Name = "cargoComboBox";
             this.cargoComboBox.Size = new System.Drawing.Size(148, 21);

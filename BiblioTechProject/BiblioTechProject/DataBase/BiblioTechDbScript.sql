@@ -3,7 +3,7 @@ UsuarioId int IDENTITY(1,1) PRIMARY KEY,
 Nombre varchar(100),
 NombreUsuario varchar(50),
 Contrasena varchar(20),
-Cargo varchar(13) CHECK(Cargo IN('Administrador','Bibliotecario'))
+Cargo varchar(13) CHECK(Cargo IN('Administrador','Bibliotecario','Consultor'))
 );
 
 CREATE TABLE Clientes(
@@ -40,16 +40,16 @@ CREATE TABLE Libroes(
 LibroId int IDENTITY(1,1) PRIMARY KEY,
 Titulo varchar(100),
 Edicion int,
-Estado varchar(10) CHECK(Estado IN('Disponible','Prestado','Reparación')),
+Estado varchar(13) CHECK(Estado IN('Disponible','Prestado','Reparación','Desaparecido','En mal estado')),
 EditorialId int REFERENCES Editorials(EditorialId),
 UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
-
+/*
 CREATE TABLE EditorialLibroes(
 Id int IDENTITY(1,1) PRIMARY KEY,
 EditorialId int REFERENCES Editorials(EditorialId),
 LibroId int REFERENCES Libroes(LibroId)
-);
+);*/
 
 CREATE TABLE AutorLibroes(
 Id int IDENTITY(1,1) PRIMARY KEY,
