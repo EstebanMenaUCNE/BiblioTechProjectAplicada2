@@ -101,6 +101,12 @@
     <Compile Include="UI\Registros\FrmRegistroLibros.Designer.cs">
       <DependentUpon>FrmRegistroLibros.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Registros\FrmRegistroPrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\FrmRegistroPrestamos.Designer.cs">
+      <DependentUpon>FrmRegistroPrestamos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\BiblioTechDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\FrmRegistroLibros.resx">
       <DependentUpon>FrmRegistroLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\FrmRegistroPrestamos.resx">
+      <DependentUpon>FrmRegistroPrestamos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\FrmRegistroUsuarios.resx">
       <DependentUpon>FrmRegistroUsuarios.cs</DependentUpon>

@@ -130,15 +130,8 @@ namespace BiblioTechProject.UI.Registros
                     edicionTextBox.Text = libro.Edicion.ToString();
                     estadoComboBox.Text = libro.Estado;
                     editorial = BLL.EditorialBLL.Buscar(E => E.EditorialId == libro.EditorialId);
-                    //if (editorial != null)
-                    //{
-                        editorialIdTextBox.Text = editorial.EditorialId.ToString();
-                        editorialNombreTextBox.Text = editorial.Nombre;
-                    /*}
-                    else
-                    {
-                        MessageBox.Show("Algo salió mal... Editorial no encontrada...");
-                    }*/
+                    editorialIdTextBox.Text = editorial.EditorialId.ToString();
+                    editorialNombreTextBox.Text = editorial.Nombre;
                     listaRelaciones = AutorLibroBLL.GetList(A => A.LibroId == libro.LibroId);
                     foreach (var relacion in listaRelaciones)
                     {
@@ -212,10 +205,6 @@ namespace BiblioTechProject.UI.Registros
                 if (libro != null)
                 {
                     relacionesGuardadas = true;
-                    /*if (EditorialLibroBLL.Guardar(new Entidades.EditorialLibro(0, editorial.EditorialId, libro.LibroId)) == null)
-                    {
-                        relacionesGuardadas = false;
-                    }*/
                     foreach (var relacion in listaRelaciones)
                     {
                         relacion.LibroId = libro.LibroId;
@@ -268,12 +257,6 @@ namespace BiblioTechProject.UI.Registros
                     {
                         ErrorToolStripStatusLabel.Visible = true;
                     }
-                    //Codigo por si implemento el detalle de muchos a uno de editorial y libros
-                    /*Entidades.EditorialLibro relacionEditorial = EditorialLibroBLL.Buscar(R => R.EditorialId == editorial.EditorialId);
-                        if (!EditorialLibroBLL.Eliminar(relacionEditorial))
-                        {
-                            relacionesEliminadas = false;
-                        }*/
                 }
             }
         }

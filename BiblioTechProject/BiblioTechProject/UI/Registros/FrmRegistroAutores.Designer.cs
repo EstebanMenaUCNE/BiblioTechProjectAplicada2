@@ -196,7 +196,7 @@
             // libroEditorialLabel
             // 
             this.libroEditorialLabel.AutoSize = true;
-            this.libroEditorialLabel.Location = new System.Drawing.Point(348, 20);
+            this.libroEditorialLabel.Location = new System.Drawing.Point(348, 21);
             this.libroEditorialLabel.Name = "libroEditorialLabel";
             this.libroEditorialLabel.Size = new System.Drawing.Size(44, 13);
             this.libroEditorialLabel.TabIndex = 30;

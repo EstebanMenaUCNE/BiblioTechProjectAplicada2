@@ -57,7 +57,7 @@ AutorId int REFERENCES Autors(AutorId),
 LibroId int REFERENCES Libroes(LibroId)
 );
 
-CREATE TABLE Prestamos(
+CREATE TABLE Prestamoes(
 PrestamoId int IDENTITY(1,1) PRIMARY KEY,
 FechaPrestamo date,
 FechaEntregarAntes date,
@@ -67,7 +67,7 @@ UsuarioId int REFERENCES Usuarios(UsuarioId)
 
 CREATE TABLE PrestamoLibroes(
 Id int IDENTITY(1,1) PRIMARY KEY,
-PrestamoId int REFERENCES Prestamos(PrestamoId),
+PrestamoId int REFERENCES Prestamoes(PrestamoId),
 LibroId int REFERENCES Libroes(LibroId)
 );
 

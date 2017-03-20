@@ -122,11 +122,24 @@ namespace BiblioTechProject.UI.Registros
             PonerEstadosInvisibles();
             if (editorial != null)
             {
-                DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado? \nNota: Si borra esta editorial también se borrarán\ntodos los libros de ésta.", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuestaEliminar == DialogResult.Yes)
                 {
-                    //Poner a que no se borre el usuario logueado, ni el ultimo usuario admin
-                    if (BLL.EditorialBLL.Eliminar(editorial))
+                    bool librosEliminados = true;
+                    bool editorialEliminada = false;
+                    List<Entidades.Libro> listaLibros = BLL.LibroBLL.GetList(L => L.EditorialId == editorial.EditorialId);
+                    foreach (var libro in listaLibros)
+                    {
+                        if (BLL.LibroBLL.Eliminar(libro) == false)
+                        {
+                            librosEliminados = false;
+                        }
+                    }
+                    if (librosEliminados)
+                    {
+                        editorialEliminada = BLL.EditorialBLL.Eliminar(editorial);
+                    }
+                    if (editorialEliminada)
                     {
                         Limpiar();
                         eliminadoToolStripStatusLabel.Visible = true;

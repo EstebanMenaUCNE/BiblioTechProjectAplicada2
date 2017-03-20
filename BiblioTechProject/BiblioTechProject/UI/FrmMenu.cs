@@ -138,5 +138,11 @@ namespace BiblioTechProject.UI
             Consultas.FrmConsultaLibros.GetInstance().Show();
             Consultas.FrmConsultaLibros.GetInstance().Activate();
         }
+
+        private void prestamosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.FrmRegistroPrestamos.GetInstance().Show();
+            Registros.FrmRegistroPrestamos.GetInstance().Activate();
+        }
     }
 }
