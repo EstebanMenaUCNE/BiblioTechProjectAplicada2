@@ -36,6 +36,7 @@ namespace BiblioTechProject.UI.Registros
 
         private void FrmRegistroPrestamos_Load(object sender, EventArgs e)
         {
+            estadoComboBox.Text = "Pendiente";
             listaRelaciones = new List<Entidades.PrestamoLibro>();
             listaLibros = new List<Entidades.Libro>();
             RefrescarDataViewGrid();
@@ -49,8 +50,9 @@ namespace BiblioTechProject.UI.Registros
             prestamoIdTextBox.Clear();
             fechaPrestamoDateTimePicker.Value = DateTime.Now;
             fechaEntregarAntesDateTimePicker.Value = DateTime.Now;
-            LimpiarLibro();
             LimpiarCliente();
+            estadoComboBox.Text = "Pendiente";
+            LimpiarLibro();
             RefrescarDataViewGrid();
         }
 
@@ -61,6 +63,7 @@ namespace BiblioTechProject.UI.Registros
             libroTituloTextBox.Clear();
             libroEdicionTextBox.Clear();
             libroEditorialTextBox.Clear();
+            libroEstadoTextBox.Clear();
         }
 
         private void LimpiarCliente()
@@ -104,11 +107,20 @@ namespace BiblioTechProject.UI.Registros
         private void LlenarCamposInstancia()
         {
             int id = 0;
+            DateTime fechaPrestamo = DateTime.Now;
+            DateTime fechaLibrosEntregados = DateTime.Now;
+            string estado = estadoComboBox.Text;
             if (prestamo != null)
             {
+                fechaPrestamo = prestamo.FechaPrestamo;
                 id = prestamo.PrestamoId;
+                if (prestamo.Estado == "Devuelto")
+                {
+                    estado = prestamo.Estado;
+                    fechaLibrosEntregados = prestamo.FechaLibrosEntregados;
+                }
             }
-            prestamo = new Entidades.Prestamo(id, fechaPrestamoDateTimePicker.Value.Date, fechaEntregarAntesDateTimePicker.Value.Date, cliente.ClienteId, FrmLogin.GetUsuarioLogueado().UsuarioId);
+            prestamo = new Entidades.Prestamo(id, fechaPrestamo, fechaEntregarAntesDateTimePicker.Value, fechaLibrosEntregados, estado, cliente.ClienteId, FrmLogin.GetUsuarioLogueado().UsuarioId);
         }
 
         private void PonerEstadosInvisibles()
@@ -131,6 +143,7 @@ namespace BiblioTechProject.UI.Registros
                     prestamoIdTextBox.Text = prestamo.PrestamoId.ToString();
                     fechaPrestamoDateTimePicker.Value = prestamo.FechaPrestamo;
                     fechaEntregarAntesDateTimePicker.Value = prestamo.FechaEntregarAntes;
+                    estadoComboBox.Text = prestamo.Estado;
                     cliente = BLL.ClienteBLL.Buscar(C => C.ClienteId == prestamo.ClienteId);
                     clienteIdTextBox.Text = cliente.ClienteId.ToString();
                     clienteNombreTextBox.Text = cliente.Nombre;
@@ -138,6 +151,10 @@ namespace BiblioTechProject.UI.Registros
                     foreach (var relacion in listaRelaciones)
                     {
                         listaLibros.Add(BLL.LibroBLL.Buscar(L => L.LibroId == relacion.LibroId));
+                    }
+                    foreach (var libro in listaLibros)
+                    {
+                        libro.NombreEditorial = BLL.EditorialBLL.Buscar(E => E.EditorialId == libro.EditorialId).Nombre;
                     }
                     RefrescarDataViewGrid();
                 }
@@ -205,12 +222,17 @@ namespace BiblioTechProject.UI.Registros
             PonerEstadosInvisibles();
             if (Validar())
             {
+                string estadoAntesModificar = "";
+                if (prestamo != null)
+                {
+                    estadoAntesModificar = prestamo.Estado;
+                }
                 LlenarCamposInstancia();
                 prestamo = BLL.PrestamoBLL.Guardar(prestamo); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
                 bool relacionesGuardadas = false;
                 if (prestamo != null)
                 {
-                    relacionesGuardadas = true;
+                    relacionesGuardadas = true;                    
                     foreach (var relacion in listaRelaciones)
                     {
                         relacion.PrestamoId = prestamo.PrestamoId;
@@ -219,12 +241,28 @@ namespace BiblioTechProject.UI.Registros
                             relacionesGuardadas = false;
                         }
                     }
-                    //Poner estados de los libros como "Prestado"
-                    foreach (var libro in listaLibros)
+                    //Poner estados de los libros como "Prestado" o "Disponible"
+                    if (estadoAntesModificar == "Devuelto")
                     {
-                        libro.Estado = "Prestado";
-                        BLL.LibroBLL.Guardar(libro);
+                        estadoComboBox.Text = "Devuelto";
                     }
+                    else if (estadoAntesModificar == "Pendiente" && prestamo.Estado == "Devuelto")
+                    {
+                        foreach (var libro in listaLibros)
+                        {
+                            libro.Estado = "Disponible";
+                            BLL.LibroBLL.Guardar(libro);
+                        }
+                    }
+                    else
+                    {
+                        foreach (var libro in listaLibros)
+                        {
+                            libro.Estado = "Prestado";
+                            BLL.LibroBLL.Guardar(libro);
+                        }
+                    }
+                    RefrescarDataViewGrid();
                 }
                 if (relacionesGuardadas)
                 {
@@ -295,7 +333,16 @@ namespace BiblioTechProject.UI.Registros
             {
                 if (libro.Estado == "Disponible")
                 {
-                    if (!listaLibros.Contains(libro))
+                    bool estaEnLista = false;
+                    foreach (var libroLista in listaLibros)
+                    {
+                        if (libro.LibroId == libroLista.LibroId)
+                        {
+                            estaEnLista = true;
+                            break;
+                        }
+                    }
+                    if (!estaEnLista)
                     {
                         listaLibros.Add(libro);
                         listaRelaciones.Add(new Entidades.PrestamoLibro(0, 0, libro.LibroId));

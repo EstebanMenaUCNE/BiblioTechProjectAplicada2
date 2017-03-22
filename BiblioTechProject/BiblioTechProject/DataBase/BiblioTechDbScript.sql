@@ -61,6 +61,8 @@ CREATE TABLE Prestamoes(
 PrestamoId int IDENTITY(1,1) PRIMARY KEY,
 FechaPrestamo date,
 FechaEntregarAntes date,
+FechaLibrosEntregados date,
+Estado varchar(10) CHECK(Estado IN ('Pendiente', 'Devuelto')),
 ClienteId int REFERENCES Clientes(ClienteId),
 UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
@@ -70,7 +72,7 @@ Id int IDENTITY(1,1) PRIMARY KEY,
 PrestamoId int REFERENCES Prestamoes(PrestamoId),
 LibroId int REFERENCES Libroes(LibroId)
 );
-
+/*
 CREATE TABLE Devolucions(
 DevolucionId int IDENTITY(1,1) PRIMARY KEY,
 FechaDevolucion date,
@@ -82,4 +84,4 @@ CREATE TABLE DevolucionLibroes(
 Id int IDENTITY(1,1) PRIMARY KEY,
 DevolucionId int REFERENCES Devolucions(DevolucionId),
 LibroId int REFERENCES Libroes(LibroId)
-);
+);*/

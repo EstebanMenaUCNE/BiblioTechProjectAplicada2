@@ -12,6 +12,8 @@ namespace BiblioTechProject.Entidades
         public int PrestamoId { get; set; }
         public DateTime FechaPrestamo { get; set; }
         public DateTime FechaEntregarAntes { get; set; }
+        public DateTime FechaLibrosEntregados { get; set; }
+        public string Estado { get; set; }
         public int ClienteId { get; set; }
         public int UsuarioId { get; set; }
 
@@ -32,11 +34,13 @@ namespace BiblioTechProject.Entidades
             PrestamosLibros.Add(new PrestamoLibro(libroId));
         }*/
 
-        public Prestamo(int prestamoId, DateTime fechaPrestamo, DateTime fechaEntregarAntes, int clienteId, int usuarioId)
+        public Prestamo(int prestamoId, DateTime fechaPrestamo, DateTime fechaEntregarAntes, DateTime fechaLibrosEntregados, string estado, int clienteId, int usuarioId)
         {
             PrestamoId = prestamoId;
             FechaPrestamo = fechaPrestamo;
             FechaEntregarAntes = fechaEntregarAntes;
+            FechaLibrosEntregados = fechaLibrosEntregados;
+            Estado = estado;
             ClienteId = clienteId;
             UsuarioId = usuarioId;
         }

@@ -33,6 +33,7 @@
             System.Windows.Forms.Label fechaPrestamoLabel;
             System.Windows.Forms.Label fechaEntregarAntesLabel;
             System.Windows.Forms.Label clienteIdLabel;
+            System.Windows.Forms.Label estadoLabel;
             this.prestamoIdTextBox = new System.Windows.Forms.TextBox();
             this.fechaPrestamoDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.fechaEntregarAntesDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -65,10 +66,12 @@
             this.fechasErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.clienteErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.libroErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.estadoComboBox = new System.Windows.Forms.ComboBox();
             prestamoIdLabel = new System.Windows.Forms.Label();
             fechaPrestamoLabel = new System.Windows.Forms.Label();
             fechaEntregarAntesLabel = new System.Windows.Forms.Label();
             clienteIdLabel = new System.Windows.Forms.Label();
+            estadoLabel = new System.Windows.Forms.Label();
             this.librosGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.librosDataGridView)).BeginInit();
             this.RegistroUsuariosStatusStrip.SuspendLayout();
@@ -91,18 +94,18 @@
             fechaPrestamoLabel.AutoSize = true;
             fechaPrestamoLabel.Location = new System.Drawing.Point(129, 68);
             fechaPrestamoLabel.Name = "fechaPrestamoLabel";
-            fechaPrestamoLabel.Size = new System.Drawing.Size(87, 13);
+            fechaPrestamoLabel.Size = new System.Drawing.Size(86, 13);
             fechaPrestamoLabel.TabIndex = 3;
-            fechaPrestamoLabel.Text = "Fecha Prestamo:";
+            fechaPrestamoLabel.Text = "Fecha prestamo:";
             // 
             // fechaEntregarAntesLabel
             // 
             fechaEntregarAntesLabel.AutoSize = true;
             fechaEntregarAntesLabel.Location = new System.Drawing.Point(129, 94);
             fechaEntregarAntesLabel.Name = "fechaEntregarAntesLabel";
-            fechaEntregarAntesLabel.Size = new System.Drawing.Size(113, 13);
+            fechaEntregarAntesLabel.Size = new System.Drawing.Size(120, 13);
             fechaEntregarAntesLabel.TabIndex = 5;
-            fechaEntregarAntesLabel.Text = "Fecha Entregar Antes:";
+            fechaEntregarAntesLabel.Text = "Fecha a entregar antes:";
             // 
             // clienteIdLabel
             // 
@@ -115,7 +118,7 @@
             // 
             // prestamoIdTextBox
             // 
-            this.prestamoIdTextBox.Location = new System.Drawing.Point(248, 38);
+            this.prestamoIdTextBox.Location = new System.Drawing.Point(258, 38);
             this.prestamoIdTextBox.Name = "prestamoIdTextBox";
             this.prestamoIdTextBox.Size = new System.Drawing.Size(66, 20);
             this.prestamoIdTextBox.TabIndex = 2;
@@ -124,8 +127,10 @@
             // 
             // fechaPrestamoDateTimePicker
             // 
+            this.fechaPrestamoDateTimePicker.CustomFormat = "dd/MM/yyyy   hh:mm";
+            this.fechaPrestamoDateTimePicker.Enabled = false;
             this.fechaPrestamoDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaPrestamoDateTimePicker.Location = new System.Drawing.Point(248, 64);
+            this.fechaPrestamoDateTimePicker.Location = new System.Drawing.Point(258, 64);
             this.fechaPrestamoDateTimePicker.Name = "fechaPrestamoDateTimePicker";
             this.fechaPrestamoDateTimePicker.Size = new System.Drawing.Size(147, 20);
             this.fechaPrestamoDateTimePicker.TabIndex = 4;
@@ -133,8 +138,9 @@
             // 
             // fechaEntregarAntesDateTimePicker
             // 
+            this.fechaEntregarAntesDateTimePicker.CustomFormat = "dd/MM/yyyy   hh:mm";
             this.fechaEntregarAntesDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaEntregarAntesDateTimePicker.Location = new System.Drawing.Point(248, 90);
+            this.fechaEntregarAntesDateTimePicker.Location = new System.Drawing.Point(258, 90);
             this.fechaEntregarAntesDateTimePicker.Name = "fechaEntregarAntesDateTimePicker";
             this.fechaEntregarAntesDateTimePicker.Size = new System.Drawing.Size(147, 20);
             this.fechaEntregarAntesDateTimePicker.TabIndex = 6;
@@ -142,7 +148,7 @@
             // 
             // clienteIdTextBox
             // 
-            this.clienteIdTextBox.Location = new System.Drawing.Point(248, 116);
+            this.clienteIdTextBox.Location = new System.Drawing.Point(258, 116);
             this.clienteIdTextBox.Name = "clienteIdTextBox";
             this.clienteIdTextBox.Size = new System.Drawing.Size(66, 20);
             this.clienteIdTextBox.TabIndex = 8;
@@ -164,7 +170,7 @@
             this.librosGroupBox.Controls.Add(this.libroTituloTextBox);
             this.librosGroupBox.Controls.Add(this.libroIdTextBox);
             this.librosGroupBox.Controls.Add(this.librosDataGridView);
-            this.librosGroupBox.Location = new System.Drawing.Point(33, 154);
+            this.librosGroupBox.Location = new System.Drawing.Point(43, 168);
             this.librosGroupBox.Name = "librosGroupBox";
             this.librosGroupBox.Size = new System.Drawing.Size(604, 219);
             this.librosGroupBox.TabIndex = 22;
@@ -295,7 +301,7 @@
             // 
             this.buscarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
             this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscarButton.Location = new System.Drawing.Point(320, 33);
+            this.buscarButton.Location = new System.Drawing.Point(330, 33);
             this.buscarButton.Name = "buscarButton";
             this.buscarButton.Size = new System.Drawing.Size(75, 28);
             this.buscarButton.TabIndex = 26;
@@ -308,7 +314,7 @@
             // 
             this.eliminarButton.Image = global::BiblioTechProject.Properties.Resources.ic_delete_black_24dp_1x;
             this.eliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.eliminarButton.Location = new System.Drawing.Point(370, 390);
+            this.eliminarButton.Location = new System.Drawing.Point(370, 405);
             this.eliminarButton.Name = "eliminarButton";
             this.eliminarButton.Size = new System.Drawing.Size(75, 28);
             this.eliminarButton.TabIndex = 25;
@@ -321,7 +327,7 @@
             // 
             this.nuevoButton.Image = global::BiblioTechProject.Properties.Resources.ic_note_add_black_24dp_1x;
             this.nuevoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nuevoButton.Location = new System.Drawing.Point(186, 390);
+            this.nuevoButton.Location = new System.Drawing.Point(186, 405);
             this.nuevoButton.Name = "nuevoButton";
             this.nuevoButton.Size = new System.Drawing.Size(75, 28);
             this.nuevoButton.TabIndex = 24;
@@ -334,7 +340,7 @@
             // 
             this.guardarButton.Image = global::BiblioTechProject.Properties.Resources.ic_save_black_24dp_1x;
             this.guardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.guardarButton.Location = new System.Drawing.Point(278, 390);
+            this.guardarButton.Location = new System.Drawing.Point(278, 405);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(75, 28);
             this.guardarButton.TabIndex = 23;
@@ -350,9 +356,9 @@
             this.ErrorToolStripStatusLabel,
             this.noEncontradoToolStripStatusLabel,
             this.eliminadoToolStripStatusLabel});
-            this.RegistroUsuariosStatusStrip.Location = new System.Drawing.Point(0, 439);
+            this.RegistroUsuariosStatusStrip.Location = new System.Drawing.Point(0, 452);
             this.RegistroUsuariosStatusStrip.Name = "RegistroUsuariosStatusStrip";
-            this.RegistroUsuariosStatusStrip.Size = new System.Drawing.Size(673, 22);
+            this.RegistroUsuariosStatusStrip.Size = new System.Drawing.Size(697, 22);
             this.RegistroUsuariosStatusStrip.TabIndex = 27;
             this.RegistroUsuariosStatusStrip.Text = "statusStrip1";
             // 
@@ -388,7 +394,7 @@
             // 
             this.buscarClienteButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
             this.buscarClienteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscarClienteButton.Location = new System.Drawing.Point(320, 111);
+            this.buscarClienteButton.Location = new System.Drawing.Point(330, 111);
             this.buscarClienteButton.Name = "buscarClienteButton";
             this.buscarClienteButton.Size = new System.Drawing.Size(32, 28);
             this.buscarClienteButton.TabIndex = 32;
@@ -398,7 +404,7 @@
             // 
             // clienteNombreTextBox
             // 
-            this.clienteNombreTextBox.Location = new System.Drawing.Point(358, 116);
+            this.clienteNombreTextBox.Location = new System.Drawing.Point(368, 116);
             this.clienteNombreTextBox.Name = "clienteNombreTextBox";
             this.clienteNombreTextBox.ReadOnly = true;
             this.clienteNombreTextBox.Size = new System.Drawing.Size(192, 20);
@@ -416,11 +422,34 @@
             // 
             this.libroErrorProvider.ContainerControl = this;
             // 
+            // estadoLabel
+            // 
+            estadoLabel.AutoSize = true;
+            estadoLabel.Location = new System.Drawing.Point(129, 146);
+            estadoLabel.Name = "estadoLabel";
+            estadoLabel.Size = new System.Drawing.Size(89, 13);
+            estadoLabel.TabIndex = 34;
+            estadoLabel.Text = "Estado prestamo:";
+            // 
+            // estadoComboBox
+            // 
+            this.estadoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.estadoComboBox.FormattingEnabled = true;
+            this.estadoComboBox.Items.AddRange(new object[] {
+            "Pendiente",
+            "Devuelto"});
+            this.estadoComboBox.Location = new System.Drawing.Point(258, 142);
+            this.estadoComboBox.Name = "estadoComboBox";
+            this.estadoComboBox.Size = new System.Drawing.Size(147, 21);
+            this.estadoComboBox.TabIndex = 35;
+            // 
             // FrmRegistroPrestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 461);
+            this.ClientSize = new System.Drawing.Size(697, 474);
+            this.Controls.Add(this.estadoComboBox);
+            this.Controls.Add(estadoLabel);
             this.Controls.Add(this.buscarClienteButton);
             this.Controls.Add(this.clienteNombreTextBox);
             this.Controls.Add(this.librosGroupBox);
@@ -487,5 +516,6 @@
         private System.Windows.Forms.ErrorProvider fechasErrorProvider;
         private System.Windows.Forms.ErrorProvider clienteErrorProvider;
         private System.Windows.Forms.ErrorProvider libroErrorProvider;
+        private System.Windows.Forms.ComboBox estadoComboBox;
     }
 }
