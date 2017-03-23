@@ -59,9 +59,9 @@ LibroId int REFERENCES Libroes(LibroId)
 
 CREATE TABLE Prestamoes(
 PrestamoId int IDENTITY(1,1) PRIMARY KEY,
-FechaPrestamo date,
-FechaEntregarAntes date,
-FechaLibrosEntregados date,
+FechaPrestamo datetime,
+FechaEntregarAntes datetime,
+FechaLibrosEntregados datetime,
 Estado varchar(10) CHECK(Estado IN ('Pendiente', 'Devuelto')),
 ClienteId int REFERENCES Clientes(ClienteId),
 UsuarioId int REFERENCES Usuarios(UsuarioId)

@@ -67,6 +67,7 @@
             this.clienteErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.libroErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.estadoComboBox = new System.Windows.Forms.ComboBox();
+            this.fechaLibrosEntregadosDateTimePicker = new System.Windows.Forms.DateTimePicker();
             prestamoIdLabel = new System.Windows.Forms.Label();
             fechaPrestamoLabel = new System.Windows.Forms.Label();
             fechaEntregarAntesLabel = new System.Windows.Forms.Label();
@@ -116,6 +117,15 @@
             clienteIdLabel.TabIndex = 7;
             clienteIdLabel.Text = "Cliente:";
             // 
+            // estadoLabel
+            // 
+            estadoLabel.AutoSize = true;
+            estadoLabel.Location = new System.Drawing.Point(129, 146);
+            estadoLabel.Name = "estadoLabel";
+            estadoLabel.Size = new System.Drawing.Size(89, 13);
+            estadoLabel.TabIndex = 34;
+            estadoLabel.Text = "Estado prestamo:";
+            // 
             // prestamoIdTextBox
             // 
             this.prestamoIdTextBox.Location = new System.Drawing.Point(258, 38);
@@ -128,8 +138,7 @@
             // fechaPrestamoDateTimePicker
             // 
             this.fechaPrestamoDateTimePicker.CustomFormat = "dd/MM/yyyy   hh:mm";
-            this.fechaPrestamoDateTimePicker.Enabled = false;
-            this.fechaPrestamoDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fechaPrestamoDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaPrestamoDateTimePicker.Location = new System.Drawing.Point(258, 64);
             this.fechaPrestamoDateTimePicker.Name = "fechaPrestamoDateTimePicker";
             this.fechaPrestamoDateTimePicker.Size = new System.Drawing.Size(147, 20);
@@ -139,7 +148,7 @@
             // fechaEntregarAntesDateTimePicker
             // 
             this.fechaEntregarAntesDateTimePicker.CustomFormat = "dd/MM/yyyy   hh:mm";
-            this.fechaEntregarAntesDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fechaEntregarAntesDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaEntregarAntesDateTimePicker.Location = new System.Drawing.Point(258, 90);
             this.fechaEntregarAntesDateTimePicker.Name = "fechaEntregarAntesDateTimePicker";
             this.fechaEntregarAntesDateTimePicker.Size = new System.Drawing.Size(147, 20);
@@ -422,15 +431,6 @@
             // 
             this.libroErrorProvider.ContainerControl = this;
             // 
-            // estadoLabel
-            // 
-            estadoLabel.AutoSize = true;
-            estadoLabel.Location = new System.Drawing.Point(129, 146);
-            estadoLabel.Name = "estadoLabel";
-            estadoLabel.Size = new System.Drawing.Size(89, 13);
-            estadoLabel.TabIndex = 34;
-            estadoLabel.Text = "Estado prestamo:";
-            // 
             // estadoComboBox
             // 
             this.estadoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -442,12 +442,25 @@
             this.estadoComboBox.Name = "estadoComboBox";
             this.estadoComboBox.Size = new System.Drawing.Size(147, 21);
             this.estadoComboBox.TabIndex = 35;
+            this.estadoComboBox.SelectedIndexChanged += new System.EventHandler(this.estadoComboBox_SelectedIndexChanged);
+            // 
+            // fechaLibrosEntregadosDateTimePicker
+            // 
+            this.fechaLibrosEntregadosDateTimePicker.CustomFormat = "dd/MM/yyyy   hh:mm";
+            this.fechaLibrosEntregadosDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.fechaLibrosEntregadosDateTimePicker.Location = new System.Drawing.Point(413, 142);
+            this.fechaLibrosEntregadosDateTimePicker.Name = "fechaLibrosEntregadosDateTimePicker";
+            this.fechaLibrosEntregadosDateTimePicker.Size = new System.Drawing.Size(147, 20);
+            this.fechaLibrosEntregadosDateTimePicker.TabIndex = 36;
+            this.fechaLibrosEntregadosDateTimePicker.Visible = false;
+            this.fechaLibrosEntregadosDateTimePicker.ValueChanged += new System.EventHandler(this.fechaLibrosEntregadosDateTimePicker_ValueChanged);
             // 
             // FrmRegistroPrestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(697, 474);
+            this.Controls.Add(this.fechaLibrosEntregadosDateTimePicker);
             this.Controls.Add(this.estadoComboBox);
             this.Controls.Add(estadoLabel);
             this.Controls.Add(this.buscarClienteButton);
@@ -517,5 +530,6 @@
         private System.Windows.Forms.ErrorProvider clienteErrorProvider;
         private System.Windows.Forms.ErrorProvider libroErrorProvider;
         private System.Windows.Forms.ComboBox estadoComboBox;
+        private System.Windows.Forms.DateTimePicker fechaLibrosEntregadosDateTimePicker;
     }
 }

@@ -50,6 +50,7 @@ namespace BiblioTechProject.UI.Registros
             prestamoIdTextBox.Clear();
             fechaPrestamoDateTimePicker.Value = DateTime.Now;
             fechaEntregarAntesDateTimePicker.Value = DateTime.Now;
+            fechaLibrosEntregadosDateTimePicker.Value = DateTime.Now;
             LimpiarCliente();
             estadoComboBox.Text = "Pendiente";
             LimpiarLibro();
@@ -85,10 +86,15 @@ namespace BiblioTechProject.UI.Registros
         private bool Validar()
         {
             bool flag = true;
-            if (fechaPrestamoDateTimePicker.Value.Date > fechaEntregarAntesDateTimePicker.Value.Date)
+            if (fechaPrestamoDateTimePicker.Value > fechaEntregarAntesDateTimePicker.Value)
             {
-                fechasErrorProvider.SetError(fechaPrestamoDateTimePicker, "La fecha de prestamo no puede ser mayor a la fecha entregar antes");
-                fechasErrorProvider.SetError(fechaEntregarAntesDateTimePicker, "La fecha entregar antes no puede ser menor a la fecha de prestamo");
+                fechasErrorProvider.SetError(fechaPrestamoDateTimePicker, "La fecha y hora ded prestamo no puede ser mayor a la fecha y hora a entregar antes");
+                fechasErrorProvider.SetError(fechaEntregarAntesDateTimePicker, "La fecha y hora a entregar antes no puede ser menor a la fecha y hora del prestamo");
+                flag = false;
+            }
+            if ((estadoComboBox.Text == "Devuelto" && fechaLibrosEntregadosDateTimePicker.Value < fechaPrestamoDateTimePicker.Value) || (prestamo != null && prestamo.Estado == "Devuelto"  && fechaLibrosEntregadosDateTimePicker.Value < fechaPrestamoDateTimePicker.Value))
+            {
+                fechasErrorProvider.SetError(fechaLibrosEntregadosDateTimePicker, "La fecha y hora en que se entragaron los libros no puede ser mayor a la fecha y hora del prestamo");
                 flag = false;
             }
             if (cliente == null)
@@ -98,7 +104,7 @@ namespace BiblioTechProject.UI.Registros
             }
             if (listaLibros.Count == 0)
             {
-                libroErrorProvider.SetError(libroTituloLabel, "Ningún libro seleccionado para el prestamo");
+                libroErrorProvider.SetError(libroTituloLabel, "Ningún libro añadido para el prestamo");
                 flag = false;
             }
             return flag;
@@ -107,20 +113,20 @@ namespace BiblioTechProject.UI.Registros
         private void LlenarCamposInstancia()
         {
             int id = 0;
-            DateTime fechaPrestamo = DateTime.Now;
-            DateTime fechaLibrosEntregados = DateTime.Now;
+            //DateTime fechaPrestamo = fechaPrestamoDateTimePicker.Value;
+            DateTime fechaLibrosEntregados = fechaLibrosEntregadosDateTimePicker.Value;
             string estado = estadoComboBox.Text;
             if (prestamo != null)
             {
-                fechaPrestamo = prestamo.FechaPrestamo;
+                //fechaPrestamo = prestamo.FechaPrestamo;
                 id = prestamo.PrestamoId;
                 if (prestamo.Estado == "Devuelto")
                 {
                     estado = prestamo.Estado;
-                    fechaLibrosEntregados = prestamo.FechaLibrosEntregados;
+                    //fechaLibrosEntregados = prestamo.FechaLibrosEntregados;
                 }
             }
-            prestamo = new Entidades.Prestamo(id, fechaPrestamo, fechaEntregarAntesDateTimePicker.Value, fechaLibrosEntregados, estado, cliente.ClienteId, FrmLogin.GetUsuarioLogueado().UsuarioId);
+            prestamo = new Entidades.Prestamo(id, fechaPrestamoDateTimePicker.Value, fechaEntregarAntesDateTimePicker.Value, fechaLibrosEntregados, estado, cliente.ClienteId, FrmLogin.GetUsuarioLogueado().UsuarioId);
         }
 
         private void PonerEstadosInvisibles()
@@ -129,6 +135,18 @@ namespace BiblioTechProject.UI.Registros
             ErrorToolStripStatusLabel.Visible = false;
             noEncontradoToolStripStatusLabel.Visible = false;
             eliminadoToolStripStatusLabel.Visible = false;
+        }
+
+        private void CambiarVisibilidadFechaEntregaLibros()
+        {
+            if (estadoComboBox.Text == "Devuelto" || (prestamo != null && prestamo.Estado == "Devuelto"))
+            {
+                fechaLibrosEntregadosDateTimePicker.Visible = true;
+            }
+            else
+            {
+                fechaLibrosEntregadosDateTimePicker.Visible = false;
+            }
         }
 
         private void Buscar()
@@ -143,6 +161,7 @@ namespace BiblioTechProject.UI.Registros
                     prestamoIdTextBox.Text = prestamo.PrestamoId.ToString();
                     fechaPrestamoDateTimePicker.Value = prestamo.FechaPrestamo;
                     fechaEntregarAntesDateTimePicker.Value = prestamo.FechaEntregarAntes;
+                    fechaLibrosEntregadosDateTimePicker.Value = prestamo.FechaLibrosEntregados;
                     estadoComboBox.Text = prestamo.Estado;
                     cliente = BLL.ClienteBLL.Buscar(C => C.ClienteId == prestamo.ClienteId);
                     clienteIdTextBox.Text = cliente.ClienteId.ToString();
@@ -213,6 +232,7 @@ namespace BiblioTechProject.UI.Registros
         private void nuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
+            CambiarVisibilidadFechaEntregaLibros();
             fechaPrestamoDateTimePicker.Focus();
             PonerEstadosInvisibles();
         }
@@ -346,6 +366,7 @@ namespace BiblioTechProject.UI.Registros
                     {
                         listaLibros.Add(libro);
                         listaRelaciones.Add(new Entidades.PrestamoLibro(0, 0, libro.LibroId));
+                        libroErrorProvider.Clear();
                         RefrescarDataViewGrid();
                     }
                 }
@@ -372,6 +393,12 @@ namespace BiblioTechProject.UI.Registros
         }
 
         private void fechaEntregarAntesDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            fechasErrorProvider.Clear();
+            PonerEstadosInvisibles();
+        }
+
+        private void fechaLibrosEntregadosDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             fechasErrorProvider.Clear();
             PonerEstadosInvisibles();
@@ -445,6 +472,11 @@ namespace BiblioTechProject.UI.Registros
         private void FrmRegistroPrestamos_FormClosed(object sender, FormClosedEventArgs e)
         {
             formulario = null;
+        }
+
+        private void estadoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CambiarVisibilidadFechaEntregaLibros();
         }
 
         
