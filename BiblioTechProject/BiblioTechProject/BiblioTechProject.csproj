@@ -89,6 +89,12 @@
     <Compile Include="UI\Consultas\FrmConsultaLibros.Designer.cs">
       <DependentUpon>FrmConsultaLibros.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consultas\FrmConsultaPrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\FrmConsultaPrestamos.Designer.cs">
+      <DependentUpon>FrmConsultaPrestamos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registros\FrmRegistroEditoriales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\FrmConsultaLibros.resx">
       <DependentUpon>FrmConsultaLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\FrmConsultaPrestamos.resx">
+      <DependentUpon>FrmConsultaPrestamos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\FrmConsultaUsuarios.resx">
       <DependentUpon>FrmConsultaUsuarios.cs</DependentUpon>

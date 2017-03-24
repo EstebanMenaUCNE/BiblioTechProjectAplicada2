@@ -141,6 +141,10 @@ namespace BiblioTechProject.UI.Registros
         {
             if (estadoComboBox.Text == "Devuelto" || (prestamo != null && prestamo.Estado == "Devuelto"))
             {
+                if (!(prestamo != null && prestamo.Estado == "Devuelto"))
+                {
+                    fechaLibrosEntregadosDateTimePicker.Value = DateTime.Now;
+                }
                 fechaLibrosEntregadosDateTimePicker.Visible = true;
             }
             else
@@ -161,8 +165,8 @@ namespace BiblioTechProject.UI.Registros
                     prestamoIdTextBox.Text = prestamo.PrestamoId.ToString();
                     fechaPrestamoDateTimePicker.Value = prestamo.FechaPrestamo;
                     fechaEntregarAntesDateTimePicker.Value = prestamo.FechaEntregarAntes;
+                    estadoComboBox.Text = prestamo.Estado; //Se tiene que cambiar primero que la fecha libros entregados
                     fechaLibrosEntregadosDateTimePicker.Value = prestamo.FechaLibrosEntregados;
-                    estadoComboBox.Text = prestamo.Estado;
                     cliente = BLL.ClienteBLL.Buscar(C => C.ClienteId == prestamo.ClienteId);
                     clienteIdTextBox.Text = cliente.ClienteId.ToString();
                     clienteNombreTextBox.Text = cliente.Nombre;

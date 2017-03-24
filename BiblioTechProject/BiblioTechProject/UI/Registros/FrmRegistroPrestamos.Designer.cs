@@ -113,9 +113,9 @@
             clienteIdLabel.AutoSize = true;
             clienteIdLabel.Location = new System.Drawing.Point(129, 119);
             clienteIdLabel.Name = "clienteIdLabel";
-            clienteIdLabel.Size = new System.Drawing.Size(42, 13);
+            clienteIdLabel.Size = new System.Drawing.Size(54, 13);
             clienteIdLabel.TabIndex = 7;
-            clienteIdLabel.Text = "Cliente:";
+            clienteIdLabel.Text = "Cliente Id:";
             // 
             // estadoLabel
             // 
@@ -130,28 +130,28 @@
             // 
             this.prestamoIdTextBox.Location = new System.Drawing.Point(258, 38);
             this.prestamoIdTextBox.Name = "prestamoIdTextBox";
-            this.prestamoIdTextBox.Size = new System.Drawing.Size(66, 20);
+            this.prestamoIdTextBox.Size = new System.Drawing.Size(77, 20);
             this.prestamoIdTextBox.TabIndex = 2;
             this.prestamoIdTextBox.TextChanged += new System.EventHandler(this.prestamoIdTextBox_TextChanged);
             this.prestamoIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.prestamoIdTextBox_KeyPress);
             // 
             // fechaPrestamoDateTimePicker
             // 
-            this.fechaPrestamoDateTimePicker.CustomFormat = "dd/MM/yyyy   hh:mm";
+            this.fechaPrestamoDateTimePicker.CustomFormat = "dd/MM/yyyy   hh:mm tt";
             this.fechaPrestamoDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaPrestamoDateTimePicker.Location = new System.Drawing.Point(258, 64);
             this.fechaPrestamoDateTimePicker.Name = "fechaPrestamoDateTimePicker";
-            this.fechaPrestamoDateTimePicker.Size = new System.Drawing.Size(147, 20);
+            this.fechaPrestamoDateTimePicker.Size = new System.Drawing.Size(158, 20);
             this.fechaPrestamoDateTimePicker.TabIndex = 4;
             this.fechaPrestamoDateTimePicker.ValueChanged += new System.EventHandler(this.fechaPrestamoDateTimePicker_ValueChanged);
             // 
             // fechaEntregarAntesDateTimePicker
             // 
-            this.fechaEntregarAntesDateTimePicker.CustomFormat = "dd/MM/yyyy   hh:mm";
+            this.fechaEntregarAntesDateTimePicker.CustomFormat = "dd/MM/yyyy   hh:mm tt";
             this.fechaEntregarAntesDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaEntregarAntesDateTimePicker.Location = new System.Drawing.Point(258, 90);
             this.fechaEntregarAntesDateTimePicker.Name = "fechaEntregarAntesDateTimePicker";
-            this.fechaEntregarAntesDateTimePicker.Size = new System.Drawing.Size(147, 20);
+            this.fechaEntregarAntesDateTimePicker.Size = new System.Drawing.Size(158, 20);
             this.fechaEntregarAntesDateTimePicker.TabIndex = 6;
             this.fechaEntregarAntesDateTimePicker.ValueChanged += new System.EventHandler(this.fechaEntregarAntesDateTimePicker_ValueChanged);
             // 
@@ -159,7 +159,7 @@
             // 
             this.clienteIdTextBox.Location = new System.Drawing.Point(258, 116);
             this.clienteIdTextBox.Name = "clienteIdTextBox";
-            this.clienteIdTextBox.Size = new System.Drawing.Size(66, 20);
+            this.clienteIdTextBox.Size = new System.Drawing.Size(77, 20);
             this.clienteIdTextBox.TabIndex = 8;
             this.clienteIdTextBox.TextChanged += new System.EventHandler(this.clienteIdTextBox_TextChanged);
             this.clienteIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.clienteIdTextBox_KeyPress);
@@ -310,7 +310,7 @@
             // 
             this.buscarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
             this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscarButton.Location = new System.Drawing.Point(330, 33);
+            this.buscarButton.Location = new System.Drawing.Point(341, 33);
             this.buscarButton.Name = "buscarButton";
             this.buscarButton.Size = new System.Drawing.Size(75, 28);
             this.buscarButton.TabIndex = 26;
@@ -403,7 +403,7 @@
             // 
             this.buscarClienteButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x1;
             this.buscarClienteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscarClienteButton.Location = new System.Drawing.Point(330, 111);
+            this.buscarClienteButton.Location = new System.Drawing.Point(341, 111);
             this.buscarClienteButton.Name = "buscarClienteButton";
             this.buscarClienteButton.Size = new System.Drawing.Size(32, 28);
             this.buscarClienteButton.TabIndex = 32;
@@ -413,10 +413,10 @@
             // 
             // clienteNombreTextBox
             // 
-            this.clienteNombreTextBox.Location = new System.Drawing.Point(368, 116);
+            this.clienteNombreTextBox.Location = new System.Drawing.Point(379, 116);
             this.clienteNombreTextBox.Name = "clienteNombreTextBox";
             this.clienteNombreTextBox.ReadOnly = true;
-            this.clienteNombreTextBox.Size = new System.Drawing.Size(192, 20);
+            this.clienteNombreTextBox.Size = new System.Drawing.Size(201, 20);
             this.clienteNombreTextBox.TabIndex = 33;
             // 
             // fechasErrorProvider
@@ -440,17 +440,17 @@
             "Devuelto"});
             this.estadoComboBox.Location = new System.Drawing.Point(258, 142);
             this.estadoComboBox.Name = "estadoComboBox";
-            this.estadoComboBox.Size = new System.Drawing.Size(147, 21);
+            this.estadoComboBox.Size = new System.Drawing.Size(158, 21);
             this.estadoComboBox.TabIndex = 35;
             this.estadoComboBox.SelectedIndexChanged += new System.EventHandler(this.estadoComboBox_SelectedIndexChanged);
             // 
             // fechaLibrosEntregadosDateTimePicker
             // 
-            this.fechaLibrosEntregadosDateTimePicker.CustomFormat = "dd/MM/yyyy   hh:mm";
+            this.fechaLibrosEntregadosDateTimePicker.CustomFormat = "dd/MM/yyyy   hh:mm tt";
             this.fechaLibrosEntregadosDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fechaLibrosEntregadosDateTimePicker.Location = new System.Drawing.Point(413, 142);
+            this.fechaLibrosEntregadosDateTimePicker.Location = new System.Drawing.Point(422, 142);
             this.fechaLibrosEntregadosDateTimePicker.Name = "fechaLibrosEntregadosDateTimePicker";
-            this.fechaLibrosEntregadosDateTimePicker.Size = new System.Drawing.Size(147, 20);
+            this.fechaLibrosEntregadosDateTimePicker.Size = new System.Drawing.Size(158, 20);
             this.fechaLibrosEntregadosDateTimePicker.TabIndex = 36;
             this.fechaLibrosEntregadosDateTimePicker.Visible = false;
             this.fechaLibrosEntregadosDateTimePicker.ValueChanged += new System.EventHandler(this.fechaLibrosEntregadosDateTimePicker_ValueChanged);
