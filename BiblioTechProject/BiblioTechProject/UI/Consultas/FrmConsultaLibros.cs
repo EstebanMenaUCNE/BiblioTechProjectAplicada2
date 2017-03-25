@@ -13,6 +13,7 @@ namespace BiblioTechProject.UI.Consultas
     public partial class FrmConsultaLibros : Form
     {
         private static FrmConsultaLibros formulario = null;
+        public List<Entidades.Libro> Lista { get; set; }
 
         private FrmConsultaLibros()
         {
@@ -33,63 +34,93 @@ namespace BiblioTechProject.UI.Consultas
             filtrarTextBox.Enabled = false;
             filtrarComboBox.Text = "Todo";
             estadosComboBox.Text = "Disponible";
+            Lista = new List<Entidades.Libro>();
         }
 
         private void Filtrar()
         {
-            List<Entidades.Libro> lista = null;
             if (filtrarComboBox.Text == "Id")
             {
                 int id = Utilidad.ToInt(filtrarTextBox.Text);
-                lista = BLL.LibroBLL.GetList(U => U.LibroId == id);
+                Lista = BLL.LibroBLL.GetList(U => U.LibroId == id);
             }
             else if (filtrarComboBox.Text == "Título")
             {
-                lista = BLL.LibroBLL.GetList(U => U.Titulo == filtrarTextBox.Text);
+                Lista = BLL.LibroBLL.GetList(U => U.Titulo == filtrarTextBox.Text);
             }
             else if (filtrarComboBox.Text == "Estado")
             {
-                lista = BLL.LibroBLL.GetList(U => U.Estado == estadosComboBox.Text);
+                Lista = BLL.LibroBLL.GetList(U => U.Estado == estadosComboBox.Text);
             }
-            else if (filtrarComboBox.Text == "Editorial")
+            else if (filtrarComboBox.Text == "Editorial (Id)")
             {
-                lista = new List<Entidades.Libro>();
+                Lista = new List<Entidades.Libro>();
+                int id = Utilidad.ToInt(filtrarTextBox.Text);
+                Entidades.Editorial editorial = BLL.EditorialBLL.Buscar(E => E.EditorialId == id);
+                if (editorial != null)
+                {
+                    Lista = BLL.LibroBLL.GetList(L => L.EditorialId == editorial.EditorialId);
+                }
+            }
+            else if (filtrarComboBox.Text == "Editorial (Nombre)")
+            {
+                Lista = new List<Entidades.Libro>();
                 Entidades.Editorial editorial = BLL.EditorialBLL.Buscar(E => E.Nombre == filtrarTextBox.Text);
                 if (editorial != null)
                 {
-                    lista = BLL.LibroBLL.GetList(L => L.EditorialId == editorial.EditorialId);
+                    Lista = BLL.LibroBLL.GetList(L => L.EditorialId == editorial.EditorialId);
                 }
             }
-            else if (filtrarComboBox.Text == "Autor")
+            else if (filtrarComboBox.Text == "Autor (Id)")
             {
-                lista = new List<Entidades.Libro>();
+                Lista = new List<Entidades.Libro>();
+                int id = Utilidad.ToInt(filtrarTextBox.Text);
+                Entidades.Autor autor = BLL.AutorBLL.Buscar(A => A.AutorId == id);
+                if (autor != null)
+                {
+                    List<Entidades.AutorLibro> listaRelaciones = AutorLibroBLL.GetList(R => R.AutorId == autor.AutorId);
+                    foreach (var relacion in listaRelaciones)
+                    {
+                        Lista.Add(BLL.LibroBLL.Buscar(L => L.LibroId == relacion.LibroId));
+                    }
+                }
+            }
+            else if (filtrarComboBox.Text == "Autor (Nombre)")
+            {
+                Lista = new List<Entidades.Libro>();
                 Entidades.Autor autor = BLL.AutorBLL.Buscar(A => A.Nombre == filtrarTextBox.Text);
                 if (autor != null)
                 {
                     List<Entidades.AutorLibro> listaRelaciones = AutorLibroBLL.GetList(R => R.AutorId == autor.AutorId);
                     foreach (var relacion in listaRelaciones)
                     {
-                        lista.Add(BLL.LibroBLL.Buscar(L => L.LibroId == relacion.LibroId));
+                        Lista.Add(BLL.LibroBLL.Buscar(L => L.LibroId == relacion.LibroId));
                     }
                 }
             }
             else
             {
-                lista = BLL.LibroBLL.GetList(U => U.LibroId > 0);
+                Lista = BLL.LibroBLL.GetList(U => U.LibroId > 0);
             }
-            foreach (var libro in lista)
+            foreach (var libro in Lista)
             {
                 libro.UltimoUsuarioEnModificar = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == libro.UsuarioId).Nombre;
                 libro.NombreEditorial = BLL.EditorialBLL.Buscar(E => E.EditorialId == libro.EditorialId).Nombre;
             }
-            autoresDataGridView.DataSource = lista;
-            autoresDataGridView.Columns["UsuarioId"].Visible = false;
-            autoresDataGridView.Columns["EditorialId"].Visible = false;
+            autoresDataGridView.DataSource = Lista;
+            //autoresDataGridView.Columns["UsuarioId"].Visible = false;
+            //autoresDataGridView.Columns["EditorialId"].Visible = false;
         }
 
         private void filtrarButton_Click(object sender, EventArgs e)
         {
             Filtrar();
+        }
+
+        private void imprimirButton_Click(object sender, EventArgs e)
+        {
+            Reportes.FrmReporteLibros.GetInstance().Show();
+            Reportes.FrmReporteLibros.GetInstance().Activate();
         }
 
         private void filtrarComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,7 +150,7 @@ namespace BiblioTechProject.UI.Consultas
 
         private void filtrarTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (filtrarComboBox.Text == "Id")
+            if (filtrarComboBox.Text == "Id" || filtrarComboBox.Text == "Cliente (Id)" || filtrarComboBox.Text == "Autor (Id)")
             {
                 if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
                 {
@@ -140,5 +171,7 @@ namespace BiblioTechProject.UI.Consultas
         {
             formulario = null;
         }
+
+        
     }
 }

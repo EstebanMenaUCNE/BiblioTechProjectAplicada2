@@ -32,6 +32,7 @@
             this.filtrarLabel = new System.Windows.Forms.Label();
             this.filtrarTextBox = new System.Windows.Forms.TextBox();
             this.usuariosDataGridView = new System.Windows.Forms.DataGridView();
+            this.imprimirButton = new System.Windows.Forms.Button();
             this.filtrarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +66,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.filtrarTextBox.Location = new System.Drawing.Point(214, 36);
             this.filtrarTextBox.Name = "filtrarTextBox";
-            this.filtrarTextBox.Size = new System.Drawing.Size(285, 20);
+            this.filtrarTextBox.Size = new System.Drawing.Size(204, 20);
             this.filtrarTextBox.TabIndex = 2;
             this.filtrarTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filtrarTextBox_KeyPress);
             // 
@@ -80,12 +81,26 @@
             this.usuariosDataGridView.Size = new System.Drawing.Size(546, 150);
             this.usuariosDataGridView.TabIndex = 3;
             // 
+            // imprimirButton
+            // 
+            this.imprimirButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imprimirButton.Image = global::BiblioTechProject.Properties.Resources.ic_print_black_24dp_1x;
+            this.imprimirButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.imprimirButton.Location = new System.Drawing.Point(505, 31);
+            this.imprimirButton.Name = "imprimirButton";
+            this.imprimirButton.Size = new System.Drawing.Size(75, 28);
+            this.imprimirButton.TabIndex = 5;
+            this.imprimirButton.Text = "Imprimir";
+            this.imprimirButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.imprimirButton.UseVisualStyleBackColor = true;
+            this.imprimirButton.Click += new System.EventHandler(this.imprimirButton_Click);
+            // 
             // filtrarButton
             // 
             this.filtrarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.filtrarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x;
             this.filtrarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.filtrarButton.Location = new System.Drawing.Point(505, 31);
+            this.filtrarButton.Location = new System.Drawing.Point(424, 31);
             this.filtrarButton.Name = "filtrarButton";
             this.filtrarButton.Size = new System.Drawing.Size(75, 28);
             this.filtrarButton.TabIndex = 4;
@@ -99,6 +114,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(619, 261);
+            this.Controls.Add(this.imprimirButton);
             this.Controls.Add(this.filtrarButton);
             this.Controls.Add(this.usuariosDataGridView);
             this.Controls.Add(this.filtrarTextBox);
@@ -121,5 +137,6 @@
         private System.Windows.Forms.TextBox filtrarTextBox;
         private System.Windows.Forms.DataGridView usuariosDataGridView;
         private System.Windows.Forms.Button filtrarButton;
+        private System.Windows.Forms.Button imprimirButton;
     }
 }

@@ -34,6 +34,7 @@
             this.filtrarLabel = new System.Windows.Forms.Label();
             this.filtrarComboBox = new System.Windows.Forms.ComboBox();
             this.estadosComboBox = new System.Windows.Forms.ComboBox();
+            this.imprimirButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.autoresDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             this.filtrarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.filtrarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x;
             this.filtrarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.filtrarButton.Location = new System.Drawing.Point(512, 34);
+            this.filtrarButton.Location = new System.Drawing.Point(701, 34);
             this.filtrarButton.Name = "filtrarButton";
             this.filtrarButton.Size = new System.Drawing.Size(75, 28);
             this.filtrarButton.TabIndex = 19;
@@ -59,7 +60,7 @@
             this.autoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.autoresDataGridView.Location = new System.Drawing.Point(41, 76);
             this.autoresDataGridView.Name = "autoresDataGridView";
-            this.autoresDataGridView.Size = new System.Drawing.Size(546, 150);
+            this.autoresDataGridView.Size = new System.Drawing.Size(816, 206);
             this.autoresDataGridView.TabIndex = 18;
             // 
             // filtrarTextBox
@@ -68,7 +69,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.filtrarTextBox.Location = new System.Drawing.Point(221, 39);
             this.filtrarTextBox.Name = "filtrarTextBox";
-            this.filtrarTextBox.Size = new System.Drawing.Size(285, 20);
+            this.filtrarTextBox.Size = new System.Drawing.Size(474, 20);
             this.filtrarTextBox.TabIndex = 17;
             this.filtrarTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filtrarTextBox_KeyPress);
             // 
@@ -90,8 +91,10 @@
             "Id",
             "Título",
             "Estado",
-            "Editorial",
-            "Autor"});
+            "Editorial (Id)",
+            "Editorial (Nombre)",
+            "Autor (Id)",
+            "Autor (Nombre)"});
             this.filtrarComboBox.Location = new System.Drawing.Point(94, 39);
             this.filtrarComboBox.Name = "filtrarComboBox";
             this.filtrarComboBox.Size = new System.Drawing.Size(121, 21);
@@ -100,6 +103,8 @@
             // 
             // estadosComboBox
             // 
+            this.estadosComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.estadosComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.estadosComboBox.FormattingEnabled = true;
             this.estadosComboBox.Items.AddRange(new object[] {
@@ -110,15 +115,30 @@
             "En mal estado"});
             this.estadosComboBox.Location = new System.Drawing.Point(221, 39);
             this.estadosComboBox.Name = "estadosComboBox";
-            this.estadosComboBox.Size = new System.Drawing.Size(285, 21);
+            this.estadosComboBox.Size = new System.Drawing.Size(474, 21);
             this.estadosComboBox.TabIndex = 20;
             this.estadosComboBox.Visible = false;
+            // 
+            // imprimirButton
+            // 
+            this.imprimirButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imprimirButton.Image = global::BiblioTechProject.Properties.Resources.ic_print_black_24dp_1x;
+            this.imprimirButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.imprimirButton.Location = new System.Drawing.Point(782, 34);
+            this.imprimirButton.Name = "imprimirButton";
+            this.imprimirButton.Size = new System.Drawing.Size(75, 28);
+            this.imprimirButton.TabIndex = 21;
+            this.imprimirButton.Text = "Imprimir";
+            this.imprimirButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.imprimirButton.UseVisualStyleBackColor = true;
+            this.imprimirButton.Click += new System.EventHandler(this.imprimirButton_Click);
             // 
             // FrmConsultaLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 261);
+            this.ClientSize = new System.Drawing.Size(895, 317);
+            this.Controls.Add(this.imprimirButton);
             this.Controls.Add(this.estadosComboBox);
             this.Controls.Add(this.filtrarButton);
             this.Controls.Add(this.autoresDataGridView);
@@ -143,5 +163,6 @@
         private System.Windows.Forms.Label filtrarLabel;
         private System.Windows.Forms.ComboBox filtrarComboBox;
         private System.Windows.Forms.ComboBox estadosComboBox;
+        private System.Windows.Forms.Button imprimirButton;
     }
 }

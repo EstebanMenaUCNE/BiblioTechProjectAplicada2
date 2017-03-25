@@ -12,6 +12,7 @@ namespace BiblioTechProject.UI.Consultas
     public partial class FrmConsultaUsuarios : Form
     {
         private static FrmConsultaUsuarios formulario = null;
+        public List<Entidades.Usuario> Lista { get; set; }
 
         private FrmConsultaUsuarios()
         {
@@ -27,24 +28,30 @@ namespace BiblioTechProject.UI.Consultas
             return formulario;
         }
 
+        private void FrmConsultaUsuarios_Load(object sender, EventArgs e)
+        {
+            filtrarTextBox.Enabled = false;
+            filtrarComboBox.Text = "Todo";
+            Lista = new List<Entidades.Usuario>();
+        }
+
         private void Filtrar()
         {
-            List<Entidades.Usuario> lista = null;
             if (filtrarComboBox.Text == "Id")
             {
                 int id = Utilidad.ToInt(filtrarTextBox.Text);
-                lista = BLL.UsuarioBLL.GetList(U => U.UsuarioId == id);
+                Lista = BLL.UsuarioBLL.GetList(U => U.UsuarioId == id);
             }
             else if (filtrarComboBox.Text == "Nombre")
             {
-                lista = BLL.UsuarioBLL.GetList(U => U.Nombre == filtrarTextBox.Text);
+                Lista = BLL.UsuarioBLL.GetList(U => U.Nombre == filtrarTextBox.Text);
             }
             else
             {
-                lista = BLL.UsuarioBLL.GetList(U => U.UsuarioId > 0);
+                Lista = BLL.UsuarioBLL.GetList(U => U.UsuarioId > 0);
             }
             
-            usuariosDataGridView.DataSource = lista;
+            usuariosDataGridView.DataSource = Lista;
             usuariosDataGridView.Columns["Contrasena"].Visible = false;
         }
 
@@ -53,12 +60,12 @@ namespace BiblioTechProject.UI.Consultas
             Filtrar();
         }
 
-        private void FrmConsultaUsuarios_Load(object sender, EventArgs e)
+        private void imprimirButton_Click(object sender, EventArgs e)
         {
-            filtrarTextBox.Enabled = false;
-            filtrarComboBox.Text = "Todo";
+            Reportes.FrmReporteUsuarios.GetInstance().Show();
+            Reportes.FrmReporteUsuarios.GetInstance().Activate();
         }
-                
+        
         private void filtrarComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (filtrarComboBox.Text == "Todo")
@@ -97,5 +104,6 @@ namespace BiblioTechProject.UI.Consultas
             formulario = null;
         }
 
+        
     }
 }

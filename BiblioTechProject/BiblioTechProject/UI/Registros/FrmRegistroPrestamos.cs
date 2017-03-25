@@ -170,6 +170,7 @@ namespace BiblioTechProject.UI.Registros
                     cliente = BLL.ClienteBLL.Buscar(C => C.ClienteId == prestamo.ClienteId);
                     clienteIdTextBox.Text = cliente.ClienteId.ToString();
                     clienteNombreTextBox.Text = cliente.Nombre;
+                    libroErrorProvider.Clear();
                     listaRelaciones = PrestamoLibroBLL.GetList(R => R.PrestamoId == prestamo.PrestamoId);
                     foreach (var relacion in listaRelaciones)
                     {

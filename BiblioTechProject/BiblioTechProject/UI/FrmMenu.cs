@@ -35,15 +35,22 @@ namespace BiblioTechProject.UI
 
         private void DesabilitarNoAdmin()
         {
-            if (FrmLogin.GetUsuarioLogueado().Cargo != "Administrador")
+            if (FrmLogin.GetUsuarioLogueado().Cargo == "Consultor")
             {
-                usuariosToolStripMenuItem.Enabled = false;
+                registrosToolStripMenuItem.Enabled = false;
             }
             else
             {
-                usuariosToolStripMenuItem.Enabled = true;
+                registrosToolStripMenuItem.Enabled = true;
+                if (FrmLogin.GetUsuarioLogueado().Cargo == "Bibliotecario")
+                {
+                    usuariosToolStripMenuItem.Enabled = false;
+                }
+                else
+                {
+                    usuariosToolStripMenuItem.Enabled = true;
+                }
             }
-
         }
 
         private void FrmMenu_Load(object sender, EventArgs e)

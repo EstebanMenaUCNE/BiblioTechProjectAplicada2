@@ -34,7 +34,7 @@ namespace BiblioTechProject.UI.Reportes
             this.usuariosReportViewer.ProcessingMode = ProcessingMode.Local;
             this.usuariosReportViewer.LocalReport.ReportPath = @"C:\Users\Equipo\Desktop\Programacion Aplicada 1\BiblioTechProjectAplicada1\BiblioTechProject\BiblioTechProject\UI\Reportes\UsuariosReport.rdlc";
 
-            ReportDataSource source = new ReportDataSource("UsuariosReportDataSet", BLL.UsuarioBLL.GetList(U => U.UsuarioId > 0));
+            ReportDataSource source = new ReportDataSource("UsuariosReportDataSet", Consultas.FrmConsultaUsuarios.GetInstance().Lista);
             this.usuariosReportViewer.LocalReport.DataSources.Add(source);
             this.usuariosReportViewer.RefreshReport();
         }

@@ -71,6 +71,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\Reportes\BiblioTechDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BiblioTechDbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consultas\FrmConsultaAutores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,11 +117,6 @@
     </Compile>
     <Compile Include="UI\Registros\FrmRegistroPrestamos.Designer.cs">
       <DependentUpon>FrmRegistroPrestamos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Reportes\BiblioTechDbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BiblioTechDbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,6 +161,36 @@
     </Compile>
     <Compile Include="UI\Registros\FrmRegistroUsuarios.Designer.cs">
       <DependentUpon>FrmRegistroUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteAutores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteAutores.Designer.cs">
+      <DependentUpon>FrmReporteAutores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteClientes.Designer.cs">
+      <DependentUpon>FrmReporteClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteEditoriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteEditoriales.Designer.cs">
+      <DependentUpon>FrmReporteEditoriales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteLibros.Designer.cs">
+      <DependentUpon>FrmReporteLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReportePrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReportePrestamos.Designer.cs">
+      <DependentUpon>FrmReportePrestamos.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\FrmReporteUsuarios.cs">
       <SubType>Form</SubType>
@@ -221,9 +251,29 @@
     <EmbeddedResource Include="UI\Registros\FrmRegistroUsuarios.resx">
       <DependentUpon>FrmRegistroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\AutoresReport.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\ClientesReport.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\EditorialesReport.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\FrmReporteAutores.resx">
+      <DependentUpon>FrmReporteAutores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\FrmReporteClientes.resx">
+      <DependentUpon>FrmReporteClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\FrmReporteEditoriales.resx">
+      <DependentUpon>FrmReporteEditoriales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\FrmReporteLibros.resx">
+      <DependentUpon>FrmReporteLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\FrmReportePrestamos.resx">
+      <DependentUpon>FrmReportePrestamos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\FrmReporteUsuarios.resx">
       <DependentUpon>FrmReporteUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\LibrosReport.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\PrestamosReport.rdlc" />
     <EmbeddedResource Include="UI\Reportes\UsuariosReport.rdlc" />
     <None Include="app.config" />
     <None Include="UI\Reportes\BiblioTechDbDataSet.xsc">
@@ -257,6 +307,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BiblioTechDb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\ic_print_black_24dp_1x.png" />
     <None Include="Resources\ic_add_circle_outline_black_24dp_1x.png" />
     <None Include="Resources\ic_add_circle_black_24dp_1x.png" />
     <None Include="Resources\ic_add_box_black_24dp_1x.png" />

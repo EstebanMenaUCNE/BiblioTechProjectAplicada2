@@ -12,6 +12,7 @@ namespace BiblioTechProject.UI.Consultas
     public partial class FrmConsultaEditoriales : Form
     {
         private static FrmConsultaEditoriales formulario = null;
+        public List<Entidades.Editorial> Lista { get; set; }
 
         private FrmConsultaEditoriales()
         {
@@ -22,6 +23,7 @@ namespace BiblioTechProject.UI.Consultas
         {
             filtrarTextBox.Enabled = false;
             filtrarComboBox.Text = "Todo";
+            Lista = new List<Entidades.Editorial>();
         }
 
         public static FrmConsultaEditoriales GetInstance()
@@ -35,31 +37,36 @@ namespace BiblioTechProject.UI.Consultas
 
         private void Filtrar()
         {
-            List<Entidades.Editorial> lista = null;
             if (filtrarComboBox.Text == "Id")
             {
                 int id = Utilidad.ToInt(filtrarTextBox.Text);
-                lista = BLL.EditorialBLL.GetList(U => U.EditorialId == id);
+                Lista = BLL.EditorialBLL.GetList(U => U.EditorialId == id);
             }
             else if (filtrarComboBox.Text == "Nombre")
             {
-                lista = BLL.EditorialBLL.GetList(U => U.Nombre == filtrarTextBox.Text);
+                Lista = BLL.EditorialBLL.GetList(U => U.Nombre == filtrarTextBox.Text);
             }
             else
             {
-                lista = BLL.EditorialBLL.GetList(U => U.EditorialId > 0);
+                Lista = BLL.EditorialBLL.GetList(U => U.EditorialId > 0);
             }
-            foreach (var editorial in lista)
+            foreach (var editorial in Lista)
             {
                 editorial.UltimoUsuarioEnModificar = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == editorial.UsuarioId).Nombre;
             }
-            editorialesDataGridView.DataSource = lista;
+            editorialesDataGridView.DataSource = Lista;
             editorialesDataGridView.Columns["UsuarioId"].Visible = false;
         }
 
         private void filtrarButton_Click(object sender, EventArgs e)
         {
             Filtrar();
+        }
+
+        private void imprimirButton_Click(object sender, EventArgs e)
+        {
+            Reportes.FrmReporteEditoriales.GetInstance().Show();
+            Reportes.FrmReporteEditoriales.GetInstance().Activate();
         }
 
         private void filtrarComboBox_SelectedIndexChanged(object sender, EventArgs e)

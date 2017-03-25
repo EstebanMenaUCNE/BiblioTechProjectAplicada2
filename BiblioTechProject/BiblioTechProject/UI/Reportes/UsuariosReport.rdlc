@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.91792cm</Width>
+              <Width>1.78563cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>5.04cm</Width>
@@ -15,7 +15,7 @@
               <Width>3.74354cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.90229cm</Width>
+              <Width>3.63771cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -290,10 +290,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>UsuariosReportDataSet</DataSetName>
-        <Top>2.21932cm</Top>
-        <Left>1.37266cm</Left>
+        <Top>1.3462cm</Top>
+        <Left>1.05516cm</Left>
         <Height>1.2cm</Height>
-        <Width>14.60375cm</Width>
+        <Width>14.20688cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -306,6 +306,59 @@
   </Body>
   <Width>6.5in</Width>
   <Page>
+    <PageHeader>
+      <Height>2.54cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox8">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Reporte de Usuarios</Value>
+                  <Style>
+                    <FontSize>16pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox7</rd:DefaultName>
+          <Top>0.91708cm</Top>
+          <Left>5.71532cm</Left>
+          <Height>0.7852cm</Height>
+          <Width>5.26458cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>2.54cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>

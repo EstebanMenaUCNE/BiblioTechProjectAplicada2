@@ -12,6 +12,7 @@ namespace BiblioTechProject.UI.Consultas
     public partial class FrmConsultaPrestamos : Form
     {
         private static FrmConsultaPrestamos formulario = null;
+        public List<Entidades.Prestamo> Lista { get; set; }
 
         private FrmConsultaPrestamos()
         {
@@ -33,48 +34,48 @@ namespace BiblioTechProject.UI.Consultas
             filtrarComboBox.Text = "Todo";
             desdeDateTimePicker.Enabled = false;
             hastaDateTimePicker.Enabled = false;
+            Lista = new List<Entidades.Prestamo>();
         }
 
         private void Filtrar()
         {
-            List<Entidades.Prestamo> lista = null;
             if (filtrarComboBox.Text == "Id")
             {
                 int id = Utilidad.ToInt(filtrarMaskedTextBox.Text);
                 if (filtrarFechasCheckBox.Checked)
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.PrestamoId == id && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
+                    Lista = BLL.PrestamoBLL.GetList(P => P.PrestamoId == id && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
                 }
                 else
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.PrestamoId == id);
+                    Lista = BLL.PrestamoBLL.GetList(P => P.PrestamoId == id);
                 }
             }
-            else if (filtrarComboBox.Text == "Cliente Id")
+            else if (filtrarComboBox.Text == "Cliente (Id)")
             {
                 int clienteId = Utilidad.ToInt(filtrarMaskedTextBox.Text);
                 if (filtrarFechasCheckBox.Checked)
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.ClienteId == clienteId && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
+                    Lista = BLL.PrestamoBLL.GetList(P => P.ClienteId == clienteId && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
                 }
                 else
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.ClienteId == clienteId);
+                    Lista = BLL.PrestamoBLL.GetList(P => P.ClienteId == clienteId);
                 }
             }
-            else if (filtrarComboBox.Text == "Nombre cliente")
+            else if (filtrarComboBox.Text == "Cliente (Nombre)")
             {
-                lista = new List<Entidades.Prestamo>();
+                Lista = new List<Entidades.Prestamo>();
                 Entidades.Cliente cliente = BLL.ClienteBLL.Buscar(C => C.Nombre == filtrarMaskedTextBox.Text);
                 if (cliente != null)
                 {
                     if (filtrarFechasCheckBox.Checked)
                     {
-                        lista = BLL.PrestamoBLL.GetList(P => P.ClienteId == cliente.ClienteId && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
+                        Lista = BLL.PrestamoBLL.GetList(P => P.ClienteId == cliente.ClienteId && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
                     }
                     else
                     {
-                        lista = BLL.PrestamoBLL.GetList(P => P.ClienteId == cliente.ClienteId);
+                        Lista = BLL.PrestamoBLL.GetList(P => P.ClienteId == cliente.ClienteId);
                     }
                 }
                 
@@ -83,51 +84,51 @@ namespace BiblioTechProject.UI.Consultas
             {
                 if (filtrarFechasCheckBox.Checked)
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Pendiente" && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
+                    Lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Pendiente" && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
                 }
                 else
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Pendiente");
+                    Lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Pendiente");
                 }
             }
             else if (filtrarComboBox.Text == "Devueltos")
             {
                 if (filtrarFechasCheckBox.Checked)
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Devuelto" && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
+                    Lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Devuelto" && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
                 }
                 else
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Devuelto");
+                    Lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Devuelto");
                 }
             }
             else if (filtrarComboBox.Text == "Retrasados")
             {
                 if (filtrarFechasCheckBox.Checked)
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Pendiente" && P.FechaEntregarAntes < DateTime.Now && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
+                    Lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Pendiente" && P.FechaEntregarAntes < DateTime.Now && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
                 }
                 else
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Pendiente" && P.FechaEntregarAntes < DateTime.Now);
+                    Lista = BLL.PrestamoBLL.GetList(P => P.Estado == "Pendiente" && P.FechaEntregarAntes < DateTime.Now);
                 }
             }
             else
             {
                 if (filtrarFechasCheckBox.Checked)
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.PrestamoId > 0 && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
+                    Lista = BLL.PrestamoBLL.GetList(P => P.PrestamoId > 0 && P.FechaPrestamo >= desdeDateTimePicker.Value && P.FechaPrestamo <= hastaDateTimePicker.Value);
                 }
                 else
                 {
-                    lista = BLL.PrestamoBLL.GetList(P => P.PrestamoId > 0);
+                    Lista = BLL.PrestamoBLL.GetList(P => P.PrestamoId > 0);
                 }
             }
-            foreach (Entidades.Prestamo prestamo in lista)
+            foreach (Entidades.Prestamo prestamo in Lista)
             {
                 prestamo.UltimoUsuarioEnModificar = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == prestamo.UsuarioId).Nombre;
             }
-            clientesDataGridView.DataSource = lista;
+            clientesDataGridView.DataSource = Lista;
             //clientesDataGridView.Columns["UsuarioId"].Visible = false;
         }
 
@@ -136,10 +137,16 @@ namespace BiblioTechProject.UI.Consultas
             Filtrar();
         }
 
+        private void imprimirButton_Click(object sender, EventArgs e)
+        {
+            Reportes.FrmReportePrestamos.GetInstance().Show();
+            Reportes.FrmReportePrestamos.GetInstance().Activate();
+        }
+
         private void filtrarComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             filtrarMaskedTextBox.Clear();
-            if (filtrarComboBox.Text == "Todo")
+            if (filtrarComboBox.Text == "Todo" || filtrarComboBox.Text == "Pendientes" || filtrarComboBox.Text == "Devueltos" || filtrarComboBox.Text == "Retrasados")
             {
                 filtrarMaskedTextBox.Enabled = false;
             }
@@ -165,7 +172,7 @@ namespace BiblioTechProject.UI.Consultas
 
         private void filtrarMaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (filtrarComboBox.Text == "Id" || filtrarComboBox.Text == "Cliente Id")
+            if (filtrarComboBox.Text == "Id" || filtrarComboBox.Text == "Cliente (Id)")
             {
                 if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
                 {
@@ -191,5 +198,7 @@ namespace BiblioTechProject.UI.Consultas
         {
 
         }
+
+        
     }
 }

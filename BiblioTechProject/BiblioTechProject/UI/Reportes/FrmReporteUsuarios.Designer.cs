@@ -33,9 +33,10 @@
             // 
             // usuariosReportViewer
             // 
-            this.usuariosReportViewer.Location = new System.Drawing.Point(2, 2);
+            this.usuariosReportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usuariosReportViewer.Location = new System.Drawing.Point(0, 0);
             this.usuariosReportViewer.Name = "usuariosReportViewer";
-            this.usuariosReportViewer.Size = new System.Drawing.Size(817, 357);
+            this.usuariosReportViewer.Size = new System.Drawing.Size(822, 361);
             this.usuariosReportViewer.TabIndex = 0;
             // 
             // FrmReporteUsuarios

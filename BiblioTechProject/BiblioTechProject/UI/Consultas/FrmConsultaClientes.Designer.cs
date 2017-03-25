@@ -38,6 +38,7 @@
             this.desdeLabel = new System.Windows.Forms.Label();
             this.hastaLabel = new System.Windows.Forms.Label();
             this.filtrarFechasCheckBox = new System.Windows.Forms.CheckBox();
+            this.imprimirButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             this.filtrarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.filtrarButton.Image = global::BiblioTechProject.Properties.Resources.ic_search_black_24dp_1x;
             this.filtrarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.filtrarButton.Location = new System.Drawing.Point(784, 31);
+            this.filtrarButton.Location = new System.Drawing.Point(703, 31);
             this.filtrarButton.Name = "filtrarButton";
             this.filtrarButton.Size = new System.Drawing.Size(75, 28);
             this.filtrarButton.TabIndex = 9;
@@ -98,7 +99,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.filtrarMaskedTextBox.Location = new System.Drawing.Point(214, 36);
             this.filtrarMaskedTextBox.Name = "filtrarMaskedTextBox";
-            this.filtrarMaskedTextBox.Size = new System.Drawing.Size(564, 20);
+            this.filtrarMaskedTextBox.Size = new System.Drawing.Size(483, 20);
             this.filtrarMaskedTextBox.TabIndex = 10;
             this.filtrarMaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filtrarMaskedTextBox_KeyPress);
             // 
@@ -147,11 +148,26 @@
             this.filtrarFechasCheckBox.UseVisualStyleBackColor = true;
             this.filtrarFechasCheckBox.CheckedChanged += new System.EventHandler(this.filtrarFechasCheckBox_CheckedChanged);
             // 
+            // imprimirButton
+            // 
+            this.imprimirButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imprimirButton.Image = global::BiblioTechProject.Properties.Resources.ic_print_black_24dp_1x;
+            this.imprimirButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.imprimirButton.Location = new System.Drawing.Point(784, 31);
+            this.imprimirButton.Name = "imprimirButton";
+            this.imprimirButton.Size = new System.Drawing.Size(75, 28);
+            this.imprimirButton.TabIndex = 16;
+            this.imprimirButton.Text = "Imprimir";
+            this.imprimirButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.imprimirButton.UseVisualStyleBackColor = true;
+            this.imprimirButton.Click += new System.EventHandler(this.imprimirButton_Click);
+            // 
             // FrmConsultaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 317);
+            this.Controls.Add(this.imprimirButton);
             this.Controls.Add(this.filtrarFechasCheckBox);
             this.Controls.Add(this.hastaLabel);
             this.Controls.Add(this.desdeLabel);
@@ -184,5 +200,6 @@
         private System.Windows.Forms.Label desdeLabel;
         private System.Windows.Forms.Label hastaLabel;
         private System.Windows.Forms.CheckBox filtrarFechasCheckBox;
+        private System.Windows.Forms.Button imprimirButton;
     }
 }

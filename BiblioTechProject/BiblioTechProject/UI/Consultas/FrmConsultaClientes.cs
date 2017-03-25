@@ -12,6 +12,7 @@ namespace BiblioTechProject.UI.Consultas
     public partial class FrmConsultaClientes : Form
     {
         private static FrmConsultaClientes formulario = null;
+        public List<Entidades.Cliente> Lista { get; set; }
 
         private FrmConsultaClientes()
         {
@@ -33,58 +34,58 @@ namespace BiblioTechProject.UI.Consultas
             filtrarComboBox.Text = "Todo";
             desdeDateTimePicker.Enabled = false;
             hastaDateTimePicker.Enabled = false;
+            Lista = new List<Entidades.Cliente>();
         }
 
         private void Filtrar()
         {
-            List<Entidades.Cliente> lista = null;
             if (filtrarComboBox.Text == "Id")
             {
                 int id = Utilidad.ToInt(filtrarMaskedTextBox.Text);
-                lista = BLL.ClienteBLL.GetList(C => C.ClienteId == id);
+                Lista = BLL.ClienteBLL.GetList(C => C.ClienteId == id);
             }
             else if (filtrarComboBox.Text == "Nombre")
             {
                 if (filtrarFechasCheckBox.Checked)
                 {
-                    lista = BLL.ClienteBLL.GetList(C => C.Nombre == filtrarMaskedTextBox.Text && C.FechaNacimiento >= desdeDateTimePicker.Value.Date && C.FechaNacimiento <= hastaDateTimePicker.Value.Date);
+                    Lista = BLL.ClienteBLL.GetList(C => C.Nombre == filtrarMaskedTextBox.Text && C.FechaNacimiento >= desdeDateTimePicker.Value.Date && C.FechaNacimiento <= hastaDateTimePicker.Value.Date);
                 }
                 else
                 {
-                    lista = BLL.ClienteBLL.GetList(C => C.Nombre == filtrarMaskedTextBox.Text);
+                    Lista = BLL.ClienteBLL.GetList(C => C.Nombre == filtrarMaskedTextBox.Text);
                 }
             }
             else if (filtrarComboBox.Text == "Cédula")
             {
                 if (filtrarFechasCheckBox.Checked)
                 {
-                    lista = BLL.ClienteBLL.GetList(C => C.Cedula == filtrarMaskedTextBox.Text && C.FechaNacimiento >= desdeDateTimePicker.Value.Date && C.FechaNacimiento <= hastaDateTimePicker.Value.Date);
+                    Lista = BLL.ClienteBLL.GetList(C => C.Cedula == filtrarMaskedTextBox.Text && C.FechaNacimiento >= desdeDateTimePicker.Value.Date && C.FechaNacimiento <= hastaDateTimePicker.Value.Date);
                 }
                 else
                 {
-                    lista = BLL.ClienteBLL.GetList(C => C.Cedula == filtrarMaskedTextBox.Text);
+                    Lista = BLL.ClienteBLL.GetList(C => C.Cedula == filtrarMaskedTextBox.Text);
                 }
             }
             else if (filtrarComboBox.Text == "Teléfono")
             {
                 if (filtrarFechasCheckBox.Checked)
                 {
-                    lista = BLL.ClienteBLL.GetList(C => C.Telefono == filtrarMaskedTextBox.Text && C.FechaNacimiento >= desdeDateTimePicker.Value.Date && C.FechaNacimiento <= hastaDateTimePicker.Value.Date);
+                    Lista = BLL.ClienteBLL.GetList(C => C.Telefono == filtrarMaskedTextBox.Text && C.FechaNacimiento >= desdeDateTimePicker.Value.Date && C.FechaNacimiento <= hastaDateTimePicker.Value.Date);
                 }
                 else
                 {
-                    lista = BLL.ClienteBLL.GetList(C => C.Telefono == filtrarMaskedTextBox.Text);
+                    Lista = BLL.ClienteBLL.GetList(C => C.Telefono == filtrarMaskedTextBox.Text);
                 }
             }
             else if (filtrarComboBox.Text == "Email")
             {
                 if (filtrarFechasCheckBox.Checked)
                 {
-                    lista = BLL.ClienteBLL.GetList(C => C.Email == filtrarMaskedTextBox.Text && C.FechaNacimiento >= desdeDateTimePicker.Value.Date && C.FechaNacimiento <= hastaDateTimePicker.Value.Date);
+                    Lista = BLL.ClienteBLL.GetList(C => C.Email == filtrarMaskedTextBox.Text && C.FechaNacimiento >= desdeDateTimePicker.Value.Date && C.FechaNacimiento <= hastaDateTimePicker.Value.Date);
                 }
                 else
                 {
-                    lista = BLL.ClienteBLL.GetList(C => C.Email == filtrarMaskedTextBox.Text);
+                    Lista = BLL.ClienteBLL.GetList(C => C.Email == filtrarMaskedTextBox.Text);
                 }
                     
             }
@@ -92,25 +93,31 @@ namespace BiblioTechProject.UI.Consultas
             {
                 if (filtrarFechasCheckBox.Checked)
                 {
-                    lista = BLL.ClienteBLL.GetList(C => C.FechaNacimiento >= desdeDateTimePicker.Value.Date && C.FechaNacimiento <= hastaDateTimePicker.Value.Date);
+                    Lista = BLL.ClienteBLL.GetList(C => C.FechaNacimiento >= desdeDateTimePicker.Value.Date && C.FechaNacimiento <= hastaDateTimePicker.Value.Date);
                 }
                 else
                 {
-                    lista = BLL.ClienteBLL.GetList(C => C.ClienteId > 0);
+                    Lista = BLL.ClienteBLL.GetList(C => C.ClienteId > 0);
                 }
                     
             }
-            foreach (Entidades.Cliente cliente in lista)
+            foreach (Entidades.Cliente cliente in Lista)
             {
                 cliente.UltimoUsuarioEnModificar = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == cliente.UsuarioId).Nombre;
             }
-            clientesDataGridView.DataSource = lista;
-            clientesDataGridView.Columns["UsuarioId"].Visible = false;
+            clientesDataGridView.DataSource = Lista;
+            //clientesDataGridView.Columns["UsuarioId"].Visible = false;
         }
 
         private void filtrarButton_Click(object sender, EventArgs e)
         {
             Filtrar();
+        }
+
+        private void imprimirButton_Click(object sender, EventArgs e)
+        {
+            Reportes.FrmReporteClientes.GetInstance().Show();
+            Reportes.FrmReporteClientes.GetInstance().Activate();
         }
 
         private void filtrarComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -177,6 +184,7 @@ namespace BiblioTechProject.UI.Consultas
         {
             formulario = null;
         }
-                
+
+        
     }
 }

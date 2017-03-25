@@ -183,6 +183,16 @@ namespace BiblioTechProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_print_black_24dp_1x {
+            get {
+                object obj = ResourceManager.GetObject("ic_print_black_24dp_1x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_save_black_24dp_1x {
             get {
                 object obj = ResourceManager.GetObject("ic_save_black_24dp_1x", resourceCulture);
