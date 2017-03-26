@@ -35,7 +35,20 @@ namespace BiblioTechProject.BLL
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Editorial>())
             {
-                return repositorio.Eliminar(editorial);
+                bool librosEliminados = true;
+                List<Entidades.Libro> listaLibros = LibroBLL.GetList(L => L.EditorialId == editorial.EditorialId);
+                foreach (var libro in listaLibros)
+                {
+                    if (LibroBLL.Eliminar(libro) == false)
+                    {
+                        librosEliminados = false;
+                    }
+                }
+                if (librosEliminados)
+                {
+                    return repositorio.Eliminar(editorial);
+                }
+                return false;
             }
         }
 

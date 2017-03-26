@@ -83,7 +83,7 @@ namespace BiblioTechProject.UI.Registros
             {
                 id = cliente.ClienteId;
             }
-            cliente = new Entidades.Cliente(id, nombreTextBox.Text, cedulaMaskedTextBox.Text, sexoComboBox.Text, telefonoMaskedTextBox.Text, direccionTextBox.Text, fechaNacimientoDateTimePicker.Value, emailTextBox.Text, FrmLogin.GetUsuarioLogueado().UsuarioId);
+            cliente = new Entidades.Cliente(id, nombreTextBox.Text, cedulaMaskedTextBox.Text, sexoComboBox.Text, telefonoMaskedTextBox.Text, direccionTextBox.Text, fechaNacimientoDateTimePicker.Value, emailTextBox.Text);
         }
 
         private void PonerEstadosInvisibles()
@@ -161,7 +161,7 @@ namespace BiblioTechProject.UI.Registros
             PonerEstadosInvisibles();
             if (cliente != null)
             {
-                DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado? \nNota: Si elimina el cliente también se eliminarán los préstamos realizados a éste.", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuestaEliminar == DialogResult.Yes)
                 {
                     if (BLL.ClienteBLL.Eliminar(cliente))

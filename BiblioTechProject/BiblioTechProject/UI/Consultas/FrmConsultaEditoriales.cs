@@ -50,10 +50,10 @@ namespace BiblioTechProject.UI.Consultas
             {
                 Lista = BLL.EditorialBLL.GetList(U => U.EditorialId > 0);
             }
-            foreach (var editorial in Lista)
+            /*foreach (var editorial in Lista)
             {
                 editorial.UltimoUsuarioEnModificar = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == editorial.UsuarioId).Nombre;
-            }
+            }*/
             editorialesDataGridView.DataSource = Lista;
             editorialesDataGridView.Columns["UsuarioId"].Visible = false;
         }

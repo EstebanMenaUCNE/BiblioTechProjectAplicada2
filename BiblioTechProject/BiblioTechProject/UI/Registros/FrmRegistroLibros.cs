@@ -73,8 +73,8 @@ namespace BiblioTechProject.UI.Registros
         {
             autoresDataGridView.DataSource = null;
             autoresDataGridView.DataSource = listaAutores;
-            autoresDataGridView.Columns["UsuarioId"].Visible = false;
-            autoresDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;
+            //autoresDataGridView.Columns["UsuarioId"].Visible = false;
+            //autoresDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;
         }
 
         private bool Validar()
@@ -105,7 +105,7 @@ namespace BiblioTechProject.UI.Registros
             {
                 id = libro.LibroId;
             }
-            libro = new Entidades.Libro(id, tituloTextBox.Text, Utilidad.ToInt(edicionTextBox.Text), estadoComboBox.Text, editorial.EditorialId, FrmLogin.GetUsuarioLogueado().UsuarioId);
+            libro = new Entidades.Libro(id, tituloTextBox.Text, Utilidad.ToInt(edicionTextBox.Text), estadoComboBox.Text, editorial.EditorialId);
         }
 
         private void PonerEstadosInvisibles()
@@ -235,20 +235,7 @@ namespace BiblioTechProject.UI.Registros
                 DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuestaEliminar == DialogResult.Yes)
                 {
-                    bool relacionesEliminadas = true;
-                    bool libroEliminado = false;
-                    foreach (var relacion in listaRelaciones)
-                    {
-                        if (!AutorLibroBLL.Eliminar(relacion))
-                        {
-                            relacionesEliminadas = false;
-                        }
-                    }
-                    if (relacionesEliminadas)
-                    {
-                        libroEliminado = BLL.LibroBLL.Eliminar(libro);
-                    }
-                    if (libroEliminado)
+                    if (BLL.LibroBLL.Eliminar(libro))
                     {
                         Limpiar();
                         eliminadoToolStripStatusLabel.Visible = true;

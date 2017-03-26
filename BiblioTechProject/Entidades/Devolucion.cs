@@ -12,7 +12,7 @@ namespace BiblioTechProject.Entidades
         public int DevolucionId { get; set; }
         public DateTime FechaDevolucion { get; set; }
         public int ClienteId { get; set; }
-        public int UsuarioId { get; set; }
+        //public int UsuarioId { get; set; }
 
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string UltimoUsuarioEnModificar { get; set; }
@@ -26,12 +26,12 @@ namespace BiblioTechProject.Entidades
             //DevolucionesLibros = new HashSet<DevolucionLibro>();
         }
 
-        public Devolucion(int devolucionId, DateTime fechaDevolucion, int clienteId, int usuarioId)
+        public Devolucion(int devolucionId, DateTime fechaDevolucion, int clienteId)
         {
             DevolucionId = devolucionId;
             FechaDevolucion = fechaDevolucion;
             ClienteId = clienteId;
-            UsuarioId = usuarioId;
+            //UsuarioId = usuarioId;
         }
 
         /*public void AgregarDetalle(int libroId)

@@ -104,7 +104,7 @@ namespace BiblioTechProject.UI.Consultas
             }
             foreach (var libro in Lista)
             {
-                libro.UltimoUsuarioEnModificar = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == libro.UsuarioId).Nombre;
+                //libro.UltimoUsuarioEnModificar = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == libro.UsuarioId).Nombre;
                 libro.NombreEditorial = BLL.EditorialBLL.Buscar(E => E.EditorialId == libro.EditorialId).Nombre;
             }
             autoresDataGridView.DataSource = Lista;

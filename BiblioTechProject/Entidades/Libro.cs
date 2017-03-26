@@ -14,33 +14,26 @@ namespace BiblioTechProject.Entidades
         public int Edicion { get; set; }
         public string Estado { get; set; }
         public int EditorialId { get; set; }
-        public int UsuarioId { get; set; }
+        //public int UsuarioId { get; set; }
 
-        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
-        public string UltimoUsuarioEnModificar { get; set; }
+        //[System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        //public string UltimoUsuarioEnModificar { get; set; }
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string NombreEditorial { get; set; }
-
-        /*public virtual Usuario Usuario { get; set; }
-        public List<Autor> Autores { get; set; }
-        public virtual ICollection<EditorialLibro> EditorialesLibros { get; set; }
-        public virtual ICollection<PrestamoLibro> PrestamosLibros { get; set; }
-        public virtual ICollection<DevolucionLibro> DevolucionesLibros { get; set; }
-        */
 
         public Libro()
         {
 
         }
 
-        public Libro(int libroId, string titulo, int edicion, string estado, int editorialId, int usuarioId)
+        public Libro(int libroId, string titulo, int edicion, string estado, int editorialId)
         {
             LibroId = libroId;
             Titulo = titulo;
             Edicion = edicion;
             Estado = estado;
             EditorialId = editorialId;
-            UsuarioId = usuarioId;
+            //UsuarioId = usuarioId;
         }
     }
 

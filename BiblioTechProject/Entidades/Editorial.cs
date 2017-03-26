@@ -11,29 +11,20 @@ namespace BiblioTechProject.Entidades
         [Key]
         public int EditorialId { get; set; }
         public string Nombre { get; set; }
-        public int UsuarioId { get; set; }
+        //public int UsuarioId { get; set; }
 
-        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
-        public string UltimoUsuarioEnModificar { get; set; }
-        /*
-        public virtual Usuario Usuario { get; set; }
-        public ICollection<EditorialLibro> EditorialesLibros { get; set; }
-        */
+        //[System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        //public string UltimoUsuarioEnModificar { get; set; }
+        
         public Editorial()
         {
-            //EditorialesLibros = new HashSet<EditorialLibro>();
+            
         }
-        /*
-        public void AgregarDetalle(int libroId)
-        {
-            EditorialesLibros.Add(new EditorialLibro(libroId));
-        }
-        */
-        public Editorial(int editorialId, string nombre, int usuarioId)
+        public Editorial(int editorialId, string nombre)
         {
             EditorialId = editorialId;
             Nombre = nombre;
-            UsuarioId = usuarioId;
+            //UsuarioId = usuarioId;
         }
     }
 

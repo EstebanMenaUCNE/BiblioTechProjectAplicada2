@@ -79,8 +79,8 @@ namespace BiblioTechProject.UI.Registros
             librosDataGridView.DataSource = null;
             librosDataGridView.DataSource = listaLibros;
             librosDataGridView.Columns["EditorialId"].Visible = false;
-            librosDataGridView.Columns["UsuarioId"].Visible = false;
-            librosDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;
+            //librosDataGridView.Columns["UsuarioId"].Visible = false;
+            //librosDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;
         }
 
         private bool Validar()
@@ -126,7 +126,7 @@ namespace BiblioTechProject.UI.Registros
                     //fechaLibrosEntregados = prestamo.FechaLibrosEntregados;
                 }
             }
-            prestamo = new Entidades.Prestamo(id, fechaPrestamoDateTimePicker.Value, fechaEntregarAntesDateTimePicker.Value, fechaLibrosEntregados, estado, cliente.ClienteId, FrmLogin.GetUsuarioLogueado().UsuarioId);
+            prestamo = new Entidades.Prestamo(id, fechaPrestamoDateTimePicker.Value, fechaEntregarAntesDateTimePicker.Value, fechaLibrosEntregados, estado, cliente.ClienteId);
         }
 
         private void PonerEstadosInvisibles()
@@ -271,7 +271,7 @@ namespace BiblioTechProject.UI.Registros
                     {
                         estadoComboBox.Text = "Devuelto";
                     }
-                    else if (estadoAntesModificar == "Pendiente" && prestamo.Estado == "Devuelto")
+                    else if (estadoComboBox.Text == "Devuelto")
                     {
                         foreach (var libro in listaLibros)
                         {
@@ -310,20 +310,7 @@ namespace BiblioTechProject.UI.Registros
                 DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuestaEliminar == DialogResult.Yes)
                 {
-                    bool relacionesEliminadas = true;
-                    bool prestamoEliminado = false;
-                    foreach (var relacion in listaRelaciones)
-                    {
-                        if (!PrestamoLibroBLL.Eliminar(relacion))
-                        {
-                            relacionesEliminadas = false;
-                        }
-                    }
-                    if (relacionesEliminadas)
-                    {
-                        prestamoEliminado = BLL.PrestamoBLL.Eliminar(prestamo);
-                    }
-                    if (prestamoEliminado)
+                    if (BLL.PrestamoBLL.Eliminar(prestamo))
                     {
                         Limpiar();
                         eliminadoToolStripStatusLabel.Visible = true;

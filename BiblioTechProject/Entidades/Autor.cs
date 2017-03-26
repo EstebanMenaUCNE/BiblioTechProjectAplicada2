@@ -11,10 +11,10 @@ namespace BiblioTechProject.Entidades
         [Key]
         public int AutorId { get; set; }
         public string Nombre { get; set; }
-        public int UsuarioId { get; set; }
+        //public int UsuarioId { get; set; }
 
-        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
-        public string UltimoUsuarioEnModificar { get; set; }
+        //[System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        //public string UltimoUsuarioEnModificar { get; set; }
         /*
         public virtual Usuario Usuario { get; set; }
         public List<Libro> Libros { get; set; }
@@ -24,11 +24,11 @@ namespace BiblioTechProject.Entidades
             //Libros = new List<Libro>();
         }
 
-        public Autor(int autorId, string nombre, int usuarioId)
+        public Autor(int autorId, string nombre)
         {
             AutorId = autorId;
             Nombre = nombre;
-            UsuarioId = usuarioId;
+            //UsuarioId = usuarioId;
             //Libros = new List<Libro>();
         }
     }

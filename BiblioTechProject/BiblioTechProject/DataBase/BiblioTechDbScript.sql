@@ -15,7 +15,7 @@ Telefono varchar(14),
 Direccion varchar(100),
 FechaNacimiento date,
 Email varchar(100),
-UsuarioId int REFERENCES Usuarios(UsuarioId)
+--UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
 
 /*CREATE TABLE Categorias(
@@ -27,13 +27,13 @@ UsuarioId int REFERENCES usuarios(UsuarioId)
 CREATE TABLE Autors(
 AutorId int IDENTITY(1,1) PRIMARY KEY,
 Nombre varchar(100),
-UsuarioId int REFERENCES Usuarios(UsuarioId)
+--UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
 
 CREATE TABLE Editorials(
 EditorialId int IDENTITY(1,1) PRIMARY KEY,
 Nombre varchar(100),
-UsuarioId int REFERENCES Usuarios(UsuarioId)
+--UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
 
 CREATE TABLE Libroes(
@@ -42,7 +42,7 @@ Titulo varchar(100),
 Edicion int,
 Estado varchar(13) CHECK(Estado IN('Disponible','Prestado','Reparación','Desaparecido','En mal estado')),
 EditorialId int REFERENCES Editorials(EditorialId),
-UsuarioId int REFERENCES Usuarios(UsuarioId)
+--UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
 /*
 CREATE TABLE EditorialLibroes(
@@ -64,7 +64,7 @@ FechaEntregarAntes datetime,
 FechaLibrosEntregados datetime,
 Estado varchar(10) CHECK(Estado IN ('Pendiente', 'Devuelto')),
 ClienteId int REFERENCES Clientes(ClienteId),
-UsuarioId int REFERENCES Usuarios(UsuarioId)
+--UsuarioId int REFERENCES Usuarios(UsuarioId)
 );
 
 CREATE TABLE PrestamoLibroes(

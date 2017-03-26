@@ -15,26 +15,16 @@ namespace BiblioTechProject.Entidades
         public DateTime FechaLibrosEntregados { get; set; }
         public string Estado { get; set; }
         public int ClienteId { get; set; }
-        public int UsuarioId { get; set; }
+        //public int UsuarioId { get; set; }
 
-        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
-        public string UltimoUsuarioEnModificar { get; set; }
-
-        /*public Cliente Cliente { get; set; }
-        public Usuario Usuario { get; set; }
-        public ICollection<PrestamoLibro> PrestamosLibros { get; set; }
-        */
+        //[System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        //public string UltimoUsuarioEnModificar { get; set; }
+        
         public Prestamo()
         {
-            //PrestamosLibros = new HashSet<PrestamoLibro>();
+
         }
-
-        /*public void AgregarDetalle(int libroId)
-        {
-            PrestamosLibros.Add(new PrestamoLibro(libroId));
-        }*/
-
-        public Prestamo(int prestamoId, DateTime fechaPrestamo, DateTime fechaEntregarAntes, DateTime fechaLibrosEntregados, string estado, int clienteId, int usuarioId)
+        public Prestamo(int prestamoId, DateTime fechaPrestamo, DateTime fechaEntregarAntes, DateTime fechaLibrosEntregados, string estado, int clienteId)
         {
             PrestamoId = prestamoId;
             FechaPrestamo = fechaPrestamo;
@@ -42,7 +32,7 @@ namespace BiblioTechProject.Entidades
             FechaLibrosEntregados = fechaLibrosEntregados;
             Estado = estado;
             ClienteId = clienteId;
-            UsuarioId = usuarioId;
+            //UsuarioId = usuarioId;
         }
     }
 

@@ -35,7 +35,20 @@ namespace BiblioTechProject.BLL
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Cliente>())
             {
-                return repositorio.Eliminar(cliente);
+                bool prestamosElimiados = true;
+                List<Entidades.Prestamo> listaPrestamos = PrestamoBLL.GetList(P => P.ClienteId == cliente.ClienteId);
+                foreach (var prestamo in listaPrestamos)
+                {
+                    if (!PrestamoBLL.Eliminar(prestamo))
+                    {
+                        prestamosElimiados = false;
+                    }
+                }
+                if (prestamosElimiados)
+                {
+                    return repositorio.Eliminar(cliente);
+                }
+                return false;
             }
         }
 

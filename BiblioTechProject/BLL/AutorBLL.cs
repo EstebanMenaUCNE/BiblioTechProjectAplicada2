@@ -1,5 +1,6 @@
 ﻿using BiblioTechProject.DAL;
 using BiblioTechProject.Entidades;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,20 @@ namespace BiblioTechProject.BLL
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Autor>())
             {
-                return repositorio.Eliminar(autor);
+                bool relacionesEliminadas = true;
+                List<AutorLibro> listaRelaciones = AutorLibroBLL.GetList(R => R.AutorId == autor.AutorId);
+                foreach (var relacion in listaRelaciones)
+                {
+                    if (!AutorLibroBLL.Eliminar(relacion))
+                    {
+                        relacionesEliminadas = false;
+                    }
+                }
+                if (relacionesEliminadas)
+                {
+                    return repositorio.Eliminar(autor);
+                }
+                return false;
             }
         }
 

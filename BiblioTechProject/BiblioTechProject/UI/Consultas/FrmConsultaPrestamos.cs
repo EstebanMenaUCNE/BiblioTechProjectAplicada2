@@ -124,10 +124,10 @@ namespace BiblioTechProject.UI.Consultas
                     Lista = BLL.PrestamoBLL.GetList(P => P.PrestamoId > 0);
                 }
             }
-            foreach (Entidades.Prestamo prestamo in Lista)
+            /*foreach (Entidades.Prestamo prestamo in Lista)
             {
                 prestamo.UltimoUsuarioEnModificar = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == prestamo.UsuarioId).Nombre;
-            }
+            }*/
             clientesDataGridView.DataSource = Lista;
             //clientesDataGridView.Columns["UsuarioId"].Visible = false;
         }

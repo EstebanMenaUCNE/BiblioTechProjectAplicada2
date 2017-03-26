@@ -65,8 +65,8 @@ namespace BiblioTechProject.UI.Registros
             librosDataGridView.DataSource = null;
             librosDataGridView.DataSource = listaLibros;
             librosDataGridView.Columns["EditorialId"].Visible = false;
-            librosDataGridView.Columns["UsuarioId"].Visible = false;
-            librosDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;
+            //librosDataGridView.Columns["UsuarioId"].Visible = false;
+            //librosDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;
         }
 
         private bool Validar()
@@ -86,7 +86,7 @@ namespace BiblioTechProject.UI.Registros
             {
                 id = autor.AutorId;
             }
-            autor = new Entidades.Autor(id, nombreTextBox.Text, FrmLogin.GetUsuarioLogueado().UsuarioId);
+            autor = new Entidades.Autor(id, nombreTextBox.Text);
         }
 
         private void PonerEstadosInvisibles()
@@ -194,20 +194,7 @@ namespace BiblioTechProject.UI.Registros
                 DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuestaEliminar == DialogResult.Yes)
                 {
-                    bool relacionesEliminadas = true;
-                    bool autorEliminado = false;
-                    foreach (var relacion in listaRelaciones)
-                    {
-                        if (!AutorLibroBLL.Eliminar(relacion))
-                        {
-                            relacionesEliminadas = false;
-                        }
-                    }
-                    if (relacionesEliminadas)
-                    {
-                        autorEliminado = BLL.AutorBLL.Eliminar(autor);
-                    }
-                    if (autorEliminado)
+                    if (BLL.AutorBLL.Eliminar(autor))
                     {
                         Limpiar();
                         eliminadoToolStripStatusLabel.Visible = true;

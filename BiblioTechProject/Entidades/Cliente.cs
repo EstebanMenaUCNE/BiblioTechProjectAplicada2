@@ -17,7 +17,7 @@ namespace BiblioTechProject.Entidades
         public string Direccion { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string Email { get; set; }
-        public int UsuarioId { get; set; }
+        //public int UsuarioId { get; set; }
 
         [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public string UltimoUsuarioEnModificar { get; set; }
@@ -29,7 +29,7 @@ namespace BiblioTechProject.Entidades
             
         }
 
-        public Cliente(int clienteId, string nombre, string cedula, string sexo, string telefono, string direccion, DateTime fechaNacimiento, string email, int usuarioId)
+        public Cliente(int clienteId, string nombre, string cedula, string sexo, string telefono, string direccion, DateTime fechaNacimiento, string email)
         {
             ClienteId = clienteId;
             Nombre = nombre;
@@ -39,7 +39,7 @@ namespace BiblioTechProject.Entidades
             Direccion = direccion;
             FechaNacimiento = fechaNacimiento;
             Email = email;
-            UsuarioId = usuarioId;
+            //UsuarioId = usuarioId;
         }
 
     }

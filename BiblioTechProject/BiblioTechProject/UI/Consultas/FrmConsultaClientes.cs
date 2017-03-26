@@ -101,10 +101,10 @@ namespace BiblioTechProject.UI.Consultas
                 }
                     
             }
-            foreach (Entidades.Cliente cliente in Lista)
+            /*foreach (Entidades.Cliente cliente in Lista)
             {
                 cliente.UltimoUsuarioEnModificar = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == cliente.UsuarioId).Nombre;
-            }
+            }*/
             clientesDataGridView.DataSource = Lista;
             //clientesDataGridView.Columns["UsuarioId"].Visible = false;
         }
