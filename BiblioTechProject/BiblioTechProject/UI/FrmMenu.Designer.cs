@@ -245,6 +245,7 @@
             this.MainMenuStrip = this.principalMenuStrip;
             this.Name = "FrmMenu";
             this.Text = "BiblioTech - Menú Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMenu_FormClosed);
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.VisibleChanged += new System.EventHandler(this.FrmMenu_VisibleChanged);

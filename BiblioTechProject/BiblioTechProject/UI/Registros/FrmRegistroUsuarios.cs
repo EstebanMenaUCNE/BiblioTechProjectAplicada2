@@ -32,7 +32,7 @@ namespace BiblioTechProject.UI.Registros
         {
             cargoComboBox.Text = "Bibliotecario";
         }
-
+        
         private void Limpiar()
         {
             usuario = null;
@@ -105,6 +105,11 @@ namespace BiblioTechProject.UI.Registros
                     usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
                     nombreTextBox.Text = usuario.Nombre;
                     nombreUsuarioTextBox.Text = usuario.NombreUsuario;
+                    if (usuario.Cargo != "Administrador")
+                    {
+                        contrasenaTextBox.Text = usuario.Contrasena;
+                        confirmarContrasenaTextBox.Text = usuario.Contrasena;
+                    }
                     /*string contrasena = "";
                     foreach (char item in usuario.Contrasena)
                     {
@@ -135,25 +140,38 @@ namespace BiblioTechProject.UI.Registros
             PonerEstadosInvisibles();
             if (Validar())
             {
-                LlenarCamposInstancia();
-                usuario = BLL.UsuarioBLL.Guardar(usuario); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
-                if (usuario != null)
+                if (usuario != null && usuario.Cargo == "Administrador")
                 {
-                    usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
-                    /*string contrasena = "";
-                    foreach (char item in usuario.Contrasena)
-                    {
-                        contrasena += "☻";
-                    }
-                    contrasenaTextBox.Text = contrasena;
-                    confirmarContrasenaTextBox.Text = contrasena;*/
-                    guardadoToolStripStatusLabel.Visible = true;
-                    nuevoButton.Focus();
+                    FrmAntiguaContrasena.GetInstance(usuario).ShowDialog();
                 }
                 else
                 {
-                    ErrorToolStripStatusLabel.Visible = true;
+                    FrmAntiguaContrasena.GetInstance(usuario).ContrasenaAcertada = true;
                 }
+                if (FrmAntiguaContrasena.GetInstance(usuario).ContrasenaAcertada)
+                {
+                    LlenarCamposInstancia();
+                    usuario = BLL.UsuarioBLL.Guardar(usuario); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
+                    if (usuario != null)
+                    {
+                        usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
+                        /*string contrasena = "";
+                        foreach (char item in usuario.Contrasena)
+                        {
+                            contrasena += "☻";
+                        }
+                        contrasenaTextBox.Text = contrasena;
+                        confirmarContrasenaTextBox.Text = contrasena;*/
+                        guardadoToolStripStatusLabel.Visible = true;
+                        nuevoButton.Focus();
+                    }
+                    else
+                    {
+                        ErrorToolStripStatusLabel.Visible = true;
+                    }
+                }
+                FrmAntiguaContrasena.GetInstance(usuario).Close();
+                FrmAntiguaContrasena.CloseForm();
             }
         }
 

@@ -55,7 +55,7 @@ namespace BiblioTechProject.UI.Consultas
                 editorial.UltimoUsuarioEnModificar = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == editorial.UsuarioId).Nombre;
             }*/
             editorialesDataGridView.DataSource = Lista;
-            editorialesDataGridView.Columns["UsuarioId"].Visible = false;
+            //editorialesDataGridView.Columns["UsuarioId"].Visible = false;
         }
 
         private void filtrarButton_Click(object sender, EventArgs e)

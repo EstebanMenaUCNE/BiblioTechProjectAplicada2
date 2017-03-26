@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\Registros\FrmAntiguaContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\FrmAntiguaContrasena.Designer.cs">
+      <DependentUpon>FrmAntiguaContrasena.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\BiblioTechDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\FrmAntiguaContrasena.resx">
+      <DependentUpon>FrmAntiguaContrasena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\FrmRegistroAutores.resx">
       <DependentUpon>FrmRegistroAutores.cs</DependentUpon>
