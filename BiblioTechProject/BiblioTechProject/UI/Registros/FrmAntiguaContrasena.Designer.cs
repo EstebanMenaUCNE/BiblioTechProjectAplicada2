@@ -36,16 +36,6 @@
             contrasenaLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // aceptarButton
-            // 
-            this.aceptarButton.Location = new System.Drawing.Point(54, 74);
-            this.aceptarButton.Name = "aceptarButton";
-            this.aceptarButton.Size = new System.Drawing.Size(75, 28);
-            this.aceptarButton.TabIndex = 0;
-            this.aceptarButton.Text = "Aceptar";
-            this.aceptarButton.UseVisualStyleBackColor = true;
-            this.aceptarButton.Click += new System.EventHandler(this.aceptarButton_Click);
-            // 
             // cancelarButton
             // 
             cancelarButton.Location = new System.Drawing.Point(164, 74);
@@ -65,10 +55,21 @@
             contrasenaLabel.TabIndex = 18;
             contrasenaLabel.Text = "Antigua Contraseña:";
             // 
+            // aceptarButton
+            // 
+            this.aceptarButton.Location = new System.Drawing.Point(54, 74);
+            this.aceptarButton.Name = "aceptarButton";
+            this.aceptarButton.Size = new System.Drawing.Size(75, 28);
+            this.aceptarButton.TabIndex = 0;
+            this.aceptarButton.Text = "Aceptar";
+            this.aceptarButton.UseVisualStyleBackColor = true;
+            this.aceptarButton.Click += new System.EventHandler(this.aceptarButton_Click);
+            // 
             // contrasenaTextBox
             // 
             this.contrasenaTextBox.Location = new System.Drawing.Point(127, 29);
             this.contrasenaTextBox.Name = "contrasenaTextBox";
+            this.contrasenaTextBox.PasswordChar = '☻';
             this.contrasenaTextBox.Size = new System.Drawing.Size(135, 20);
             this.contrasenaTextBox.TabIndex = 16;
             // 

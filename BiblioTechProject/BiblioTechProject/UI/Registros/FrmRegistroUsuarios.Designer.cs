@@ -134,6 +134,7 @@
             // nombreTextBox
             // 
             this.nombreTextBox.Location = new System.Drawing.Point(144, 64);
+            this.nombreTextBox.MaxLength = 100;
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(148, 20);
             this.nombreTextBox.TabIndex = 1;
@@ -142,6 +143,7 @@
             // nombreUsuarioTextBox
             // 
             this.nombreUsuarioTextBox.Location = new System.Drawing.Point(144, 90);
+            this.nombreUsuarioTextBox.MaxLength = 50;
             this.nombreUsuarioTextBox.Name = "nombreUsuarioTextBox";
             this.nombreUsuarioTextBox.Size = new System.Drawing.Size(148, 20);
             this.nombreUsuarioTextBox.TabIndex = 2;
@@ -150,7 +152,9 @@
             // contrasenaTextBox
             // 
             this.contrasenaTextBox.Location = new System.Drawing.Point(144, 116);
+            this.contrasenaTextBox.MaxLength = 20;
             this.contrasenaTextBox.Name = "contrasenaTextBox";
+            this.contrasenaTextBox.PasswordChar = '☻';
             this.contrasenaTextBox.Size = new System.Drawing.Size(148, 20);
             this.contrasenaTextBox.TabIndex = 3;
             this.contrasenaTextBox.TextChanged += new System.EventHandler(this.contrasenaTextBox_TextChanged);
@@ -184,7 +188,9 @@
             // confirmarContrasenaTextBox
             // 
             this.confirmarContrasenaTextBox.Location = new System.Drawing.Point(144, 142);
+            this.confirmarContrasenaTextBox.MaxLength = 20;
             this.confirmarContrasenaTextBox.Name = "confirmarContrasenaTextBox";
+            this.confirmarContrasenaTextBox.PasswordChar = '☻';
             this.confirmarContrasenaTextBox.Size = new System.Drawing.Size(148, 20);
             this.confirmarContrasenaTextBox.TabIndex = 4;
             this.confirmarContrasenaTextBox.TextChanged += new System.EventHandler(this.confirmarContrasenaTextBox_TextChanged);

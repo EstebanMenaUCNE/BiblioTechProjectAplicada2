@@ -160,6 +160,7 @@
             // nombreTextBox
             // 
             this.nombreTextBox.Location = new System.Drawing.Point(139, 64);
+            this.nombreTextBox.MaxLength = 100;
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(200, 20);
             this.nombreTextBox.TabIndex = 1;
@@ -181,6 +182,7 @@
             // direccionTextBox
             // 
             this.direccionTextBox.Location = new System.Drawing.Point(139, 169);
+            this.direccionTextBox.MaxLength = 100;
             this.direccionTextBox.Name = "direccionTextBox";
             this.direccionTextBox.Size = new System.Drawing.Size(200, 20);
             this.direccionTextBox.TabIndex = 5;
@@ -198,6 +200,7 @@
             // emailTextBox
             // 
             this.emailTextBox.Location = new System.Drawing.Point(139, 221);
+            this.emailTextBox.MaxLength = 100;
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(200, 20);
             this.emailTextBox.TabIndex = 7;

@@ -96,6 +96,7 @@
             // nombreTextBox
             // 
             this.nombreTextBox.Location = new System.Drawing.Point(210, 64);
+            this.nombreTextBox.MaxLength = 100;
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(208, 20);
             this.nombreTextBox.TabIndex = 1;

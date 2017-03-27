@@ -105,11 +105,11 @@ namespace BiblioTechProject.UI.Registros
                     usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
                     nombreTextBox.Text = usuario.Nombre;
                     nombreUsuarioTextBox.Text = usuario.NombreUsuario;
-                    if (usuario.Cargo != "Administrador")
-                    {
+                    //if (usuario.Cargo != "Administrador")
+                    //{
                         contrasenaTextBox.Text = usuario.Contrasena;
                         confirmarContrasenaTextBox.Text = usuario.Contrasena;
-                    }
+                    //}
                     /*string contrasena = "";
                     foreach (char item in usuario.Contrasena)
                     {
@@ -183,20 +183,28 @@ namespace BiblioTechProject.UI.Registros
             //usuario = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == Utilidad.ToInt(usuarioIdTextBox.Text));
             if (usuario != null)
             {
-                DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuestaEliminar == DialogResult.Yes)
+                if (usuario.UsuarioId != 1)
                 {
-                    //Poner a que no se borre el usuario logueado, ni el ultimo usuario admin
-                    if (BLL.UsuarioBLL.Eliminar(usuario))
+                    DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuestaEliminar == DialogResult.Yes)
                     {
-                        Limpiar();
-                        eliminadoToolStripStatusLabel.Visible = true;
+                        //Poner a que no se borre el usuario logueado, ni el ultimo usuario admin
+                        if (BLL.UsuarioBLL.Eliminar(usuario))
+                        {
+                            Limpiar();
+                            eliminadoToolStripStatusLabel.Visible = true;
+                        }
+                        else
+                        {
+                            ErrorToolStripStatusLabel.Visible = true;
+                        }
                     }
-                    else
-                    {
-                        ErrorToolStripStatusLabel.Visible = true;
-                    }
-                }                
+                }
+                else
+                {
+                    MessageBox.Show("Este usuario root no puede ser eliminado.", "¡Oops!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                                
             }
             /*else
             {
