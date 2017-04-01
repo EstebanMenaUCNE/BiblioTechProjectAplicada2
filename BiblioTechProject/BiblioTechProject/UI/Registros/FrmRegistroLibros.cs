@@ -200,21 +200,7 @@ namespace BiblioTechProject.UI.Registros
             if (Validar())
             {
                 LlenarCamposInstancia();
-                libro = BLL.LibroBLL.Guardar(libro); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
-                bool relacionesGuardadas = false;
-                if (libro != null)
-                {
-                    relacionesGuardadas = true;
-                    foreach (var relacion in listaRelaciones)
-                    {
-                        relacion.LibroId = libro.LibroId;
-                        if (AutorLibroBLL.Guardar(relacion) == null)
-                        {
-                            relacionesGuardadas = false;
-                        }
-                    }
-                }
-                if (relacionesGuardadas)
+                if (BLL.LibroBLL.Guardar(libro, listaRelaciones))
                 {
                     libroIdTextBox.Text = libro.LibroId.ToString();
                     guardadoToolStripStatusLabel.Visible = true;
@@ -268,7 +254,16 @@ namespace BiblioTechProject.UI.Registros
         {
             if (autor != null)
             {
-                if (!listaAutores.Contains(autor))
+                bool estaEnLista = false;
+                foreach (var autorLista in listaAutores)
+                {
+                    if (autor.AutorId == autorLista.AutorId)
+                    {
+                        estaEnLista = true;
+                        break;
+                    }
+                }
+                if (!estaEnLista)
                 {
                     listaAutores.Add(autor);
                     listaRelaciones.Add(new Entidades.AutorLibro(0, autor.AutorId, 0));

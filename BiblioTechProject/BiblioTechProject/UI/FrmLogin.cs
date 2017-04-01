@@ -138,5 +138,10 @@ namespace BiblioTechProject.UI
                 Login();
             }
         }
+
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formulario = null;
+        }
     }
 }

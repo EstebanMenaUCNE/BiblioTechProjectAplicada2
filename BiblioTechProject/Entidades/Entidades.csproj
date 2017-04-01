@@ -51,10 +51,7 @@
     <Compile Include="Autor.cs" />
     <Compile Include="AutorLibro.cs" />
     <Compile Include="Cliente.cs" />
-    <Compile Include="Devolucion.cs" />
-    <Compile Include="DevolucionLibro.cs" />
     <Compile Include="Editorial.cs" />
-    <Compile Include="EditorialLibro.cs" />
     <Compile Include="Libro.cs" />
     <Compile Include="Prestamo.cs" />
     <Compile Include="PrestamoLibro.cs" />

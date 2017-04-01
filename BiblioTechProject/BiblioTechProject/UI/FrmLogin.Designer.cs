@@ -169,6 +169,7 @@
             this.Controls.Add(this.loginButton);
             this.Name = "FrmLogin";
             this.Text = "BiblioTech - Inicio de sesión";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmLogin_FormClosed);
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usuarioErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contrasenaErrorProvider)).EndInit();

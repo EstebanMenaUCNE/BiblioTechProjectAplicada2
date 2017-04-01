@@ -9,18 +9,36 @@ namespace BiblioTechProject.BLL
 {
     public class LibroBLL
     {
-        public static Entidades.Libro Guardar(Entidades.Libro libro)
+        public static bool Guardar(Entidades.Libro libro, List<Entidades.AutorLibro> listaRelaciones)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Libro>())
             {
+                bool libroGuardado;
+                bool relacionesGuardadas = false;
                 if (Buscar(L => L.LibroId == libro.LibroId) == null)
                 {
-                    return repositorio.Guardar(libro);
+                    libroGuardado = repositorio.Guardar(libro);
                 }
                 else
                 {
-                    return repositorio.Modificar(libro);
+                    libroGuardado = repositorio.Modificar(libro);
                 }
+                if (libroGuardado)
+                {
+                    relacionesGuardadas = true;
+                    if (listaRelaciones != null)  //Si es diferente de null, porque modifico el estado de los libros en el registro de prestamos pero paso null a la lista porque no quiero modificar las relaciones de los autores y los libros
+                    {
+                        foreach (var relacion in listaRelaciones)
+                        {
+                            relacion.LibroId = libro.LibroId;
+                            if (!AutorLibroBLL.Guardar(relacion))
+                            {
+                                relacionesGuardadas = false;
+                            }
+                        }
+                    }
+                }
+                return relacionesGuardadas;
             }
         }
 

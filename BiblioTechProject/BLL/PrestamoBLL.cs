@@ -9,18 +9,33 @@ namespace BiblioTechProject.BLL
 {
     public class PrestamoBLL
     {
-        public static Entidades.Prestamo Guardar(Entidades.Prestamo prestamo)
+        public static bool Guardar(Entidades.Prestamo prestamo, List<Entidades.PrestamoLibro> listaRelaciones)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Prestamo>())
             {
+                bool prestamoGuardado;
+                bool relacionesGuardadas = false;
                 if (Buscar(P => P.PrestamoId == prestamo.PrestamoId) == null)
                 {
-                    return repositorio.Guardar(prestamo);
+                    prestamoGuardado = repositorio.Guardar(prestamo);
                 }
                 else
                 {
-                    return repositorio.Modificar(prestamo);
+                    prestamoGuardado = repositorio.Modificar(prestamo);
                 }
+                if (prestamoGuardado)
+                {
+                    relacionesGuardadas = true;
+                    foreach (var relacion in listaRelaciones)
+                    {
+                        relacion.PrestamoId = prestamo.PrestamoId;
+                        if (!PrestamoLibroBLL.Guardar(relacion))
+                        {
+                            relacionesGuardadas = false;
+                        }
+                    }
+                }
+                return relacionesGuardadas;
             }
         }
 

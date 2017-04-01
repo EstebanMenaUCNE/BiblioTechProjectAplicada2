@@ -105,18 +105,8 @@ namespace BiblioTechProject.UI.Registros
                     usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
                     nombreTextBox.Text = usuario.Nombre;
                     nombreUsuarioTextBox.Text = usuario.NombreUsuario;
-                    //if (usuario.Cargo != "Administrador")
-                    //{
-                        contrasenaTextBox.Text = usuario.Contrasena;
-                        confirmarContrasenaTextBox.Text = usuario.Contrasena;
-                    //}
-                    /*string contrasena = "";
-                    foreach (char item in usuario.Contrasena)
-                    {
-                        contrasena += "☻";
-                    }
-                    contrasenaTextBox.Text = contrasena;
-                    confirmarContrasenaTextBox.Text = contrasena;*/
+                    contrasenaTextBox.Text = usuario.Contrasena;
+                    confirmarContrasenaTextBox.Text = usuario.Contrasena;
                     cargoComboBox.Text = usuario.Cargo;
                 }
                 else
@@ -151,17 +141,9 @@ namespace BiblioTechProject.UI.Registros
                 if (FrmAntiguaContrasena.GetInstance(usuario).ContrasenaAcertada)
                 {
                     LlenarCamposInstancia();
-                    usuario = BLL.UsuarioBLL.Guardar(usuario); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
-                    if (usuario != null)
+                    if (BLL.UsuarioBLL.Guardar(usuario))
                     {
                         usuarioIdTextBox.Text = usuario.UsuarioId.ToString();
-                        /*string contrasena = "";
-                        foreach (char item in usuario.Contrasena)
-                        {
-                            contrasena += "☻";
-                        }
-                        contrasenaTextBox.Text = contrasena;
-                        confirmarContrasenaTextBox.Text = contrasena;*/
                         guardadoToolStripStatusLabel.Visible = true;
                         nuevoButton.Focus();
                     }
@@ -178,9 +160,6 @@ namespace BiblioTechProject.UI.Registros
         private void eliminarButton_Click(object sender, EventArgs e)
         {
             PonerEstadosInvisibles();
-            //if (!string.IsNullOrWhiteSpace(usuarioIdTextBox.Text))
-            //{
-            //usuario = BLL.UsuarioBLL.Buscar(U => U.UsuarioId == Utilidad.ToInt(usuarioIdTextBox.Text));
             if (usuario != null)
             {
                 if (usuario.UsuarioId != 1)
@@ -188,7 +167,6 @@ namespace BiblioTechProject.UI.Registros
                     DialogResult respuestaEliminar = MessageBox.Show("¿Seguro que desea eliminar el registro seleccionado?", "¡Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (respuestaEliminar == DialogResult.Yes)
                     {
-                        //Poner a que no se borre el usuario logueado, ni el ultimo usuario admin
                         if (BLL.UsuarioBLL.Eliminar(usuario))
                         {
                             Limpiar();
@@ -206,11 +184,6 @@ namespace BiblioTechProject.UI.Registros
                 }
                                 
             }
-            /*else
-            {
-                noEncontradoToolStripStatusLabel.Visible = true;
-            }*/
-            //}
         }
 
         private void buscarButton_Click(object sender, EventArgs e)

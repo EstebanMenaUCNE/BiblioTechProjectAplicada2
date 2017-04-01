@@ -103,8 +103,7 @@ namespace BiblioTechProject.UI.Registros
             if (Validar())
             {
                 LlenarCamposInstancia();
-                editorial = BLL.EditorialBLL.Guardar(editorial); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
-                if (editorial != null)
+                if (BLL.EditorialBLL.Guardar(editorial))
                 {
                     editorialIdTextBox.Text = editorial.EditorialId.ToString();
                     guardadoToolStripStatusLabel.Visible = true;

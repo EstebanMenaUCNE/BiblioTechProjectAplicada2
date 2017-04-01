@@ -10,7 +10,7 @@ namespace BLL
 {
     public class AutorLibroBLL
     {
-        public static AutorLibro Guardar(AutorLibro autorLibro)
+        public static bool Guardar(AutorLibro autorLibro)
         {
             using (var repositorio = new Repositorio<AutorLibro>())
             {

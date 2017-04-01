@@ -8,7 +8,7 @@ namespace BiblioTechProject.BLL
 {
     public class ClienteBLL
     {
-        public static Entidades.Cliente Guardar(Entidades.Cliente cliente)
+        public static bool Guardar(Entidades.Cliente cliente)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Cliente>())
             {

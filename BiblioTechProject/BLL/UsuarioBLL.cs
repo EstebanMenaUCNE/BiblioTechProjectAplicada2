@@ -8,7 +8,7 @@ namespace BiblioTechProject.BLL
 {
     public class UsuarioBLL
     {
-        public static Entidades.Usuario Guardar(Entidades.Usuario usuario)
+        public static bool Guardar(Entidades.Usuario usuario)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Usuario>())
             {

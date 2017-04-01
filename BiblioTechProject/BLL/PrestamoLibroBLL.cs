@@ -10,7 +10,7 @@ namespace BLL
 {
     public class PrestamoLibroBLL
     {
-        public static PrestamoLibro Guardar(PrestamoLibro prestamoLibro)
+        public static bool Guardar(PrestamoLibro prestamoLibro)
         {
             using (var repositorio = new Repositorio<PrestamoLibro>())
             {

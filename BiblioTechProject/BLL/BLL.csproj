@@ -52,10 +52,7 @@
     <Compile Include="AutorBLL.cs" />
     <Compile Include="AutorLibroBLL.cs" />
     <Compile Include="ClienteBLL.cs" />
-    <Compile Include="DevolucionBLL.cs" />
-    <Compile Include="DevolucionLibroBLL.cs" />
     <Compile Include="EditorialBLL.cs" />
-    <Compile Include="EditorialLibroBLL.cs" />
     <Compile Include="LibroBLL.cs" />
     <Compile Include="PrestamoBLL.cs" />
     <Compile Include="PrestamoLibroBLL.cs" />

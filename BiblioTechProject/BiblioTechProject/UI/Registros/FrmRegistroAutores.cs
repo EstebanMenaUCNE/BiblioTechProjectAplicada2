@@ -62,9 +62,13 @@ namespace BiblioTechProject.UI.Registros
 
         private void RefrescarDataViewGrid()
         {
+            foreach (var libro in listaLibros)
+            {
+                libro.NombreEditorial = BLL.EditorialBLL.Buscar(L => L.EditorialId == libro.EditorialId).Nombre;
+            }
             librosDataGridView.DataSource = null;
             librosDataGridView.DataSource = listaLibros;
-            librosDataGridView.Columns["EditorialId"].Visible = false;
+            //librosDataGridView.Columns["EditorialId"].Visible = false;
             //librosDataGridView.Columns["UsuarioId"].Visible = false;
             //librosDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;
         }
@@ -158,22 +162,8 @@ namespace BiblioTechProject.UI.Registros
             PonerEstadosInvisibles();
             if (Validar())
             {
-                LlenarCamposInstancia();
-                autor = BLL.AutorBLL.Guardar(autor); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
-                bool relacionesGuardadas = false;
-                if (autor != null)
-                {
-                    relacionesGuardadas = true;
-                    foreach (var relacion in listaRelaciones)
-                    {
-                        relacion.AutorId = autor.AutorId;
-                        if (AutorLibroBLL.Guardar(relacion) == null)
-                        {
-                            relacionesGuardadas = false;
-                        }
-                    }
-                }                    
-                if (relacionesGuardadas)
+                LlenarCamposInstancia();                  
+                if (BLL.AutorBLL.Guardar(autor, listaRelaciones))
                 {
                     autorIdTextBox.Text = autor.AutorId.ToString();
                     guardadoToolStripStatusLabel.Visible = true;
@@ -222,7 +212,16 @@ namespace BiblioTechProject.UI.Registros
         {
             if (libro != null)
             {
-                if (!listaLibros.Contains(libro))
+                bool estaEnLista = false;
+                foreach (var libroLista in listaLibros)
+                {
+                    if (libro.LibroId == libroLista.LibroId)
+                    {
+                        estaEnLista = true;
+                        break;
+                    }
+                }
+                if (!estaEnLista)
                 {
                     listaLibros.Add(libro);
                     listaRelaciones.Add(new Entidades.AutorLibro(0, 0, libro.LibroId));

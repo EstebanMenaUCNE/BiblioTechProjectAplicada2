@@ -56,7 +56,7 @@
             // hastaLabel
             // 
             this.hastaLabel.AutoSize = true;
-            this.hastaLabel.Location = new System.Drawing.Point(422, 71);
+            this.hastaLabel.Location = new System.Drawing.Point(424, 71);
             this.hastaLabel.Name = "hastaLabel";
             this.hastaLabel.Size = new System.Drawing.Size(35, 13);
             this.hastaLabel.TabIndex = 24;

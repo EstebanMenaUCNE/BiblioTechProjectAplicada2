@@ -253,19 +253,10 @@ namespace BiblioTechProject.UI.Registros
                     estadoAntesModificar = prestamo.Estado;
                 }
                 LlenarCamposInstancia();
-                prestamo = BLL.PrestamoBLL.Guardar(prestamo); //lo igualo por si retorna null, aunque la instancia cuando vuelve de guardarse viene con su id incluido
-                bool relacionesGuardadas = false;
-                if (prestamo != null)
+                bool librosModificados = false;
+                if (BLL.PrestamoBLL.Guardar(prestamo, listaRelaciones))
                 {
-                    relacionesGuardadas = true;                    
-                    foreach (var relacion in listaRelaciones)
-                    {
-                        relacion.PrestamoId = prestamo.PrestamoId;
-                        if (PrestamoLibroBLL.Guardar(relacion) == null)
-                        {
-                            relacionesGuardadas = false;
-                        }
-                    }
+                    librosModificados = true;
                     //Poner estados de los libros como "Prestado" o "Disponible"
                     if (estadoAntesModificar == "Devuelto")
                     {
@@ -276,7 +267,10 @@ namespace BiblioTechProject.UI.Registros
                         foreach (var libro in listaLibros)
                         {
                             libro.Estado = "Disponible";
-                            BLL.LibroBLL.Guardar(libro);
+                            if (!BLL.LibroBLL.Guardar(libro, null))
+                            {
+                                librosModificados = false;
+                            }
                         }
                     }
                     else
@@ -284,14 +278,17 @@ namespace BiblioTechProject.UI.Registros
                         foreach (var libro in listaLibros)
                         {
                             libro.Estado = "Prestado";
-                            BLL.LibroBLL.Guardar(libro);
+                            if (!BLL.LibroBLL.Guardar(libro, null))
+                            {
+                                librosModificados = false;
+                            }
                         }
                     }
-                    RefrescarDataViewGrid();
                 }
-                if (relacionesGuardadas)
+                if (librosModificados)
                 {
                     prestamoIdTextBox.Text = prestamo.PrestamoId.ToString();
+                    RefrescarDataViewGrid();
                     guardadoToolStripStatusLabel.Visible = true;
                     nuevoButton.Focus();
                 }

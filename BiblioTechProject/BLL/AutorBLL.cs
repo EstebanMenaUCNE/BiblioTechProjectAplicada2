@@ -11,18 +11,33 @@ namespace BiblioTechProject.BLL
 {
     public class AutorBLL
     {
-        public static Entidades.Autor Guardar(Entidades.Autor autor)
+        public static bool Guardar(Entidades.Autor autor, List<Entidades.AutorLibro> listaRelaciones)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Autor>())
             {
+                bool autorGuardado;
+                bool relacionesGuardadas = false;
                 if (Buscar(A => A.AutorId == autor.AutorId) == null)
                 {
-                    return repositorio.Guardar(autor);
+                    autorGuardado = repositorio.Guardar(autor);
                 }
                 else
                 {
-                    return repositorio.Modificar(autor);
+                    autorGuardado = repositorio.Modificar(autor);
                 }
+                if (autorGuardado)
+                {
+                    relacionesGuardadas = true;
+                    foreach (var relacion in listaRelaciones)
+                    {
+                        relacion.AutorId = autor.AutorId;
+                        if (!AutorLibroBLL.Guardar(relacion))
+                        {
+                            relacionesGuardadas = false;
+                        }
+                    }
+                }
+                return relacionesGuardadas;
             }
         }
 
