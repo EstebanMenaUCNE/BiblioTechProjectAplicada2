@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.principalMenuStrip = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,11 @@
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nombreUsuarioLabel = new System.Windows.Forms.Label();
             this.cargoUsuarioLabel = new System.Windows.Forms.Label();
+            this.letrasPictureBox = new System.Windows.Forms.PictureBox();
+            this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.principalMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.letrasPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // principalMenuStrip
@@ -234,14 +239,37 @@
             this.cargoUsuarioLabel.TabIndex = 3;
             this.cargoUsuarioLabel.Text = "Cargo";
             // 
+            // letrasPictureBox
+            // 
+            this.letrasPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.letrasPictureBox.Image = global::BiblioTechProject.Properties.Resources.BiblioTechLetras;
+            this.letrasPictureBox.Location = new System.Drawing.Point(347, 207);
+            this.letrasPictureBox.Name = "letrasPictureBox";
+            this.letrasPictureBox.Size = new System.Drawing.Size(232, 42);
+            this.letrasPictureBox.TabIndex = 10;
+            this.letrasPictureBox.TabStop = false;
+            // 
+            // logoPictureBox
+            // 
+            this.logoPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.logoPictureBox.Image = global::BiblioTechProject.Properties.Resources.business_color_books_icon_icons_com_53474;
+            this.logoPictureBox.Location = new System.Drawing.Point(310, 202);
+            this.logoPictureBox.Name = "logoPictureBox";
+            this.logoPictureBox.Size = new System.Drawing.Size(50, 47);
+            this.logoPictureBox.TabIndex = 11;
+            this.logoPictureBox.TabStop = false;
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 261);
+            this.Controls.Add(this.logoPictureBox);
+            this.Controls.Add(this.letrasPictureBox);
             this.Controls.Add(this.cargoUsuarioLabel);
             this.Controls.Add(this.nombreUsuarioLabel);
             this.Controls.Add(this.principalMenuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.principalMenuStrip;
             this.Name = "FrmMenu";
             this.Text = "BiblioTech - Menú Principal";
@@ -251,6 +279,8 @@
             this.VisibleChanged += new System.EventHandler(this.FrmMenu_VisibleChanged);
             this.principalMenuStrip.ResumeLayout(false);
             this.principalMenuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.letrasPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,5 +310,7 @@
         private System.Windows.Forms.ToolStripMenuItem librosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem prestamosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prestamosToolStripMenuItem1;
+        private System.Windows.Forms.PictureBox letrasPictureBox;
+        private System.Windows.Forms.PictureBox logoPictureBox;
     }
 }

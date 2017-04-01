@@ -316,6 +316,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BiblioTechDb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\business-color_books_icon-icons.com_53474.png" />
+    <None Include="Resources\BiblioTechLetras.png" />
     <None Include="Resources\ic_print_black_24dp_1x.png" />
     <None Include="Resources\ic_add_circle_outline_black_24dp_1x.png" />
     <None Include="Resources\ic_add_circle_black_24dp_1x.png" />

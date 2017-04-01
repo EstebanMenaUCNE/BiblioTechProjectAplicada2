@@ -63,6 +63,26 @@ namespace BiblioTechProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BiblioTechLetras {
+            get {
+                object obj = ResourceManager.GetObject("BiblioTechLetras", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap business_color_books_icon_icons_com_53474 {
+            get {
+                object obj = ResourceManager.GetObject("business-color_books_icon-icons.com_53474", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_account_circle_black_24dp_1x {
             get {
                 object obj = ResourceManager.GetObject("ic_account_circle_black_24dp_1x", resourceCulture);
