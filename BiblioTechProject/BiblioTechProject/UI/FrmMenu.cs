@@ -151,5 +151,10 @@ namespace BiblioTechProject.UI
             Consultas.FrmConsultaPrestamos.GetInstance().Show();
             Consultas.FrmConsultaPrestamos.GetInstance().Activate();
         }
+
+        private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("BiblioTech pretende ser una herramienta para \nfacilitar la gestión de bibliotecas públicas, \ndonde se pueda tener control de la infomación \nrelacionada con los libros y sus préstamos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
