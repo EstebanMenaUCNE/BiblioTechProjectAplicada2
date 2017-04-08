@@ -39,7 +39,6 @@ namespace BiblioTechProject.UI.Registros
             estadoComboBox.Text = "Pendiente";
             listaRelaciones = new List<Entidades.PrestamoLibro>();
             listaLibros = new List<Entidades.Libro>();
-            RefrescarDataViewGrid();
         }
 
         private void Limpiar()
@@ -77,8 +76,11 @@ namespace BiblioTechProject.UI.Registros
         private void RefrescarDataViewGrid()
         {
             librosDataGridView.DataSource = null;
-            librosDataGridView.DataSource = listaLibros;
-            librosDataGridView.Columns["EditorialId"].Visible = false;
+            if (listaLibros.Count > 0)
+            {
+                librosDataGridView.DataSource = listaLibros;
+                librosDataGridView.Columns["EditorialId"].Visible = false;
+            }
             //librosDataGridView.Columns["UsuarioId"].Visible = false;
             //librosDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;
         }

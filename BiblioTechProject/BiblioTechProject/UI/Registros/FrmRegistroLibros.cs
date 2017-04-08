@@ -38,7 +38,6 @@ namespace BiblioTechProject.UI.Registros
         {
             listaRelaciones = new List<Entidades.AutorLibro>();
             listaAutores = new List<Entidades.Autor>();
-            RefrescarDataViewGrid();
             estadoComboBox.Text = "Disponible";
         }
 
@@ -72,7 +71,10 @@ namespace BiblioTechProject.UI.Registros
         private void RefrescarDataViewGrid()
         {
             autoresDataGridView.DataSource = null;
-            autoresDataGridView.DataSource = listaAutores;
+            if (listaAutores.Count > 0)
+            {
+                autoresDataGridView.DataSource = listaAutores;
+            }            
             //autoresDataGridView.Columns["UsuarioId"].Visible = false;
             //autoresDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;
         }

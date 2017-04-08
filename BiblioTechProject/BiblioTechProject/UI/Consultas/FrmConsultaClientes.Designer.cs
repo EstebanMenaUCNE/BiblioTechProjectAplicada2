@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultaClientes));
             this.filtrarButton = new System.Windows.Forms.Button();
             this.clientesDataGridView = new System.Windows.Forms.DataGridView();
             this.filtrarLabel = new System.Windows.Forms.Label();
@@ -178,6 +179,7 @@
             this.Controls.Add(this.clientesDataGridView);
             this.Controls.Add(this.filtrarLabel);
             this.Controls.Add(this.filtrarComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmConsultaClientes";
             this.Text = "BiblioTech - Consulta de Clientes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmConsultaClientes_FormClosed);

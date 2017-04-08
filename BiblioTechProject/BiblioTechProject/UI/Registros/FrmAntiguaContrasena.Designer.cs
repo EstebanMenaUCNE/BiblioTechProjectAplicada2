@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.Button cancelarButton;
             System.Windows.Forms.Label contrasenaLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAntiguaContrasena));
             this.aceptarButton = new System.Windows.Forms.Button();
             this.contrasenaTextBox = new System.Windows.Forms.TextBox();
             cancelarButton = new System.Windows.Forms.Button();
@@ -84,6 +85,7 @@
             this.Controls.Add(this.contrasenaTextBox);
             this.Controls.Add(cancelarButton);
             this.Controls.Add(this.aceptarButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAntiguaContrasena";
             this.Text = "Confirmar Antigua Contraseña";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAntiguaContrasena_FormClosed);

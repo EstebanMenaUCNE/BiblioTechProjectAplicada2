@@ -34,6 +34,7 @@
             System.Windows.Forms.Label fechaEntregarAntesLabel;
             System.Windows.Forms.Label clienteIdLabel;
             System.Windows.Forms.Label estadoLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroPrestamos));
             this.prestamoIdTextBox = new System.Windows.Forms.TextBox();
             this.fechaPrestamoDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.fechaEntregarAntesDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -479,6 +480,7 @@
             this.Controls.Add(this.fechaEntregarAntesDateTimePicker);
             this.Controls.Add(clienteIdLabel);
             this.Controls.Add(this.clienteIdTextBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRegistroPrestamos";
             this.Text = "BiblioTech - Registro de Prestamos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmRegistroPrestamos_FormClosed);

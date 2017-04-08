@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultaLibros));
             this.filtrarButton = new System.Windows.Forms.Button();
             this.autoresDataGridView = new System.Windows.Forms.DataGridView();
             this.filtrarTextBox = new System.Windows.Forms.TextBox();
@@ -145,6 +146,7 @@
             this.Controls.Add(this.filtrarTextBox);
             this.Controls.Add(this.filtrarLabel);
             this.Controls.Add(this.filtrarComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmConsultaLibros";
             this.Text = "BiblioTech - Consulta de Libros";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmConsultaLibros_FormClosed);

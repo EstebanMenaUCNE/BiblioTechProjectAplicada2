@@ -37,7 +37,6 @@ namespace BiblioTechProject.UI.Registros
         {
             listaRelaciones = new List<Entidades.AutorLibro>();
             listaLibros = new List<Entidades.Libro>();
-            RefrescarDataViewGrid();
         }
 
         private void Limpiar()
@@ -67,7 +66,10 @@ namespace BiblioTechProject.UI.Registros
                 libro.NombreEditorial = BLL.EditorialBLL.Buscar(L => L.EditorialId == libro.EditorialId).Nombre;
             }
             librosDataGridView.DataSource = null;
-            librosDataGridView.DataSource = listaLibros;
+            if (listaLibros.Count > 0)
+            {
+                librosDataGridView.DataSource = listaLibros;
+            }
             //librosDataGridView.Columns["EditorialId"].Visible = false;
             //librosDataGridView.Columns["UsuarioId"].Visible = false;
             //librosDataGridView.Columns["UltimoUsuarioEnModificar"].Visible = false;

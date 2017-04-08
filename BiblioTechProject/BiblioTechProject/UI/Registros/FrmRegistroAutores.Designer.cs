@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label autorIdLabel;
             System.Windows.Forms.Label nombreLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroAutores));
             this.autorIdTextBox = new System.Windows.Forms.TextBox();
             this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.RegistroUsuariosStatusStrip = new System.Windows.Forms.StatusStrip();
@@ -344,6 +345,7 @@
             this.Controls.Add(this.autorIdTextBox);
             this.Controls.Add(nombreLabel);
             this.Controls.Add(this.nombreTextBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRegistroAutores";
             this.Text = "BiblioTech - Registro de Autores";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmRegistroAutores_FormClosed);

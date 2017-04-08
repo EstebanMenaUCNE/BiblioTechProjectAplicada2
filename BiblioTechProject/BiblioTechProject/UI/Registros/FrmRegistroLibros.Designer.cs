@@ -34,6 +34,7 @@
             System.Windows.Forms.Label edicionLabel;
             System.Windows.Forms.Label estadoLabel;
             System.Windows.Forms.Label editorialIdLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroLibros));
             this.librosGroupBox = new System.Windows.Forms.GroupBox();
             this.autorNombreLabel = new System.Windows.Forms.Label();
             this.autorIdLabel = new System.Windows.Forms.Label();
@@ -413,6 +414,7 @@
             this.Controls.Add(this.eliminarButton);
             this.Controls.Add(this.nuevoButton);
             this.Controls.Add(this.guardarButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRegistroLibros";
             this.Text = "BiblioTech - Registro de Libros";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmRegistroLibros_FormClosed);

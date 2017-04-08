@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReporteUsuarios));
             this.usuariosReportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 361);
             this.Controls.Add(this.usuariosReportViewer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReporteUsuarios";
             this.Text = "BiblioTech - Reporte de Usuarios";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmReporteUsuarios_FormClosed);

@@ -37,6 +37,7 @@
             System.Windows.Forms.Label direccionLabel;
             System.Windows.Forms.Label fechaNacimientoLabel;
             System.Windows.Forms.Label emailLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroClientes));
             this.clienteIdTextBox = new System.Windows.Forms.TextBox();
             this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.sexoComboBox = new System.Windows.Forms.ComboBox();
@@ -366,6 +367,7 @@
             this.Controls.Add(this.fechaNacimientoDateTimePicker);
             this.Controls.Add(emailLabel);
             this.Controls.Add(this.emailTextBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRegistroClientes";
             this.Text = "BiblioTech - Registro de Clientes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmRegistroClientes_FormClosed);

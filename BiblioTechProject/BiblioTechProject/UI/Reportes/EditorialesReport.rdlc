@@ -162,7 +162,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>EditorialesDataSet</DataSetName>
-        <Top>1.39912cm</Top>
+        <Top>0.70062cm</Top>
         <Left>2.13995cm</Left>
         <Height>1.2cm</Height>
         <Width>10.59625cm</Width>
@@ -176,14 +176,14 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>7.48276in</Width>
+  <Width>6.50359in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
+      <Height>1in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="Textbox11">
+        <Textbox Name="Textbox8">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
@@ -198,21 +198,323 @@
               </TextRuns>
               <Style />
             </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox7</rd:DefaultName>
+          <Top>1.55194cm</Top>
+          <Left>5.22097cm</Left>
+          <Height>0.7852cm</Height>
+          <Width>5.94315cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
+                  <Value>Biblioteca Pública Hilma Contreras</Value>
+                  <Style>
+                    <FontFamily>Old English Text MT</FontFamily>
+                    <FontSize>16pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.08142cm</Top>
+          <Left>2.34058cm</Left>
+          <Height>0.83369cm</Height>
+          <Width>8.82354cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>C/ Restauración casi esquina Colón, San Francisco de Macorís</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox11</rd:DefaultName>
-          <Top>1.29328cm</Top>
-          <Left>6.77016cm</Left>
-          <Height>0.78521cm</Height>
-          <Width>5.96604cm</Width>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.65145cm</Top>
+          <Left>2.34058cm</Left>
+          <Height>0.6cm</Height>
+          <Width>10.2687cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox6">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>(809)-588-2262 ext. 242 , 250</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox6</rd:DefaultName>
+          <Top>1.0915cm</Top>
+          <Left>2.34058cm</Left>
+          <Height>0.6cm</Height>
+          <Width>5.09292cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Line Name="Line1">
+          <Top>2.45858cm</Top>
+          <Left>0.74602cm</Left>
+          <Height>0cm</Height>
+          <Width>15.02709cm</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
+        <Textbox Name="ExecutionTime">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ExecutionTime</rd:DefaultName>
+          <Top>1.29378cm</Top>
+          <Left>12.55785cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.96236cm</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox10">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Fecha:</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>1.29378cm</Top>
+          <Left>11.20561cm</Left>
+          <Height>0.6cm</Height>
+          <Width>1.35224cm</Width>
+          <ZIndex>6</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Image Name="LogoImage">
+          <Source>Embedded</Source>
+          <Value>businesscolor_books_iconiconscom_53474</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.12059in</Top>
+          <Left>0.39372in</Left>
+          <Height>0.5in</Height>
+          <Width>0.5in</Width>
+          <ZIndex>7</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>1in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox9">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Página:</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.97cm</Top>
+          <Left>11.12447cm</Left>
+          <Height>0.6cm</Height>
+          <Width>1.35224cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="PageNumber">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!PageNumber</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>0.97cm</Top>
+          <Left>12.55785cm</Left>
+          <Height>0.6cm</Height>
+          <Width>1.15239cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox11">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>de</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.97cm</Top>
+          <Left>13.95498cm</Left>
+          <Height>0.6cm</Height>
+          <Width>0.58495cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="TotalPages">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!TotalPages</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>TotalPages</rd:DefaultName>
+          <Top>0.97cm</Top>
+          <Left>14.12718cm</Left>
+          <Height>0.6cm</Height>
+          <Width>1.15239cm</Width>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -229,24 +531,14 @@
           <Style>None</Style>
         </Border>
       </Style>
-    </PageHeader>
-    <PageFooter>
-      <Height>2.54cm</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
     </PageFooter>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
-    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <PageHeight>11.69in</PageHeight>
+    <PageWidth>8.27in</PageWidth>
+    <LeftMargin>0.7874in</LeftMargin>
+    <RightMargin>0.7874in</RightMargin>
+    <TopMargin>0.7874in</TopMargin>
+    <BottomMargin>0.7874in</BottomMargin>
+    <ColumnSpacing>0.05118in</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -289,6 +581,13 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <EmbeddedImages>
+    <EmbeddedImage Name="businesscolor_books_iconiconscom_53474">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAABQZJREFUaIHtWU1oXFUU/r73k9ikqUhsokSl2lprwTaY/gTbNCQhuBHcVbT4t2k2guBKdOHOrgQFEeKurT8gogtdKe1kOv40msFo2+lfGmNTG5Mmpmihk3nv3uNiMn9vJvPumDhTJB88mHvvOXfO984595z3HrCKVSwLrLUBGfQfGWvRFndBLXx/7Pmtc6Z6TubHyMEO10Rhx/txDwBGRkbM5Hfs8ErN9x1ONIuzpguW7oHWvQp8mIQtrP8EwFMmewOLHvjjpReiEOk00+BJ/dqbBLDbRFxETra1tXXvOnphXROxT2D1gOgh+QjybmBWHpg77sRbsX+/MtnfGTl40IWkOkHWGRlkWY+JUhZt2zKRJ9n5+Mdjn/oaT4J0wmKWQHOfv3PbMeAnk/2NjFguRNAHsuhuL62ge0xFq0KARKwSeaGsAAHbTl8rANtipNT8vU0untjUhO77GgsXhF3dETHyWEmhO15+Fe6GjQAA77dxzL99qOwmzc3NcN30oeR5HubmCk/BRvqRBbEFZDYF3tjbir33NIAklAh+mbmM+WQ6b0ncbl8dfxTAD2EEij1g2XA3bAQdB3Qc1D3wYNgecF0XJEESdXXFZ8GLa3lWgOkC0mvsLB+bxPaW2wJ2mIVReA5w+bWupeUvTXIof+7nmZsFMu2tawqVNHpN9q5KEgMApDAPRqeTBcvtLQECwJ6OQQktllUj4EFHREQy4zOzSXgqO0Rbk4P1DblDg2Tj2rXjocWyagROHNh0EeTvmXHSF5z7M+cFktge8IKF8DyoXgilUT6MgnkA3FoERCRAIJDIgZOI5O7Ot74rYpWPqhLwlT+Unwdn5xaw4Ovsemujg7sac6WJQEND6/qyTWZVCcSe2/IrgInMOKUEibmF7DrJisOo2jkA
+FOVBYRgVFzRrmQRyHl8ZMFgPbiIvqqCDfyfY2X9kKtAs5VDcC2kFb2Ic7v0PAAC8ifFQmzzPK+iFykEpNWRblnCxj0jMLuCDM9ehtGB0JonEbOHJRKLe5997AHxlRgDA/DuHcp2oCn8wCjZv5RB9dvOV3g/HLgLYDAAC4PCp+bI6tO0eLEFg6RBSysj4fwOydHu9JGTpglaLJC7KAwN07Dp6YV2phZoQEJGCehAGkk4D7K5SazUhcPyZjdMAE5XocInng9qEEAChVBhGvLUIQMOcgJ+CNXV2W/fTr9wZXDJ/1bHC0PRPUBxFsvjNgfKAaxPA1Pn0dW0cVL7jwt4H4LN8UQcAFMS84AoAEYjWoaIA8p/jCxA9sGW296NLpwC0Q/vA7OWcwTOXQD9VpKO1111E4Ivz5+3hOtcyJeC6rj0wOgpaxtHnWFZpYZ7+Ooqr59oxPQZ6yVIiBbBK9EXWlzduKE+LVgBMrpRSSouIiMDw8icnJ0u7a/jzCK+cNjIeAERka39/f0sBASPN/wi+n4yKSPnmKQ8kbaVUd/5cTQlEo9HrIjJaiU4wjGpKAKi8L5JAX1RzAkAF9SCNh7q6uu7ODGpOwPf9byrMA9bX12e9UHMC0Wj0BoAfK9ERkW2Z3zUnsIjQMBIRLSIJEXmX5HuZ+Zq1EvlQSkUcx3k9f26x3R4jGdFaRzzPi8ZisamgrhOPx72+vr5hETH6aKeUGl5sD4zkAZwcGBgoG+Mi8q2IJAA0ABgCEEmlUpFYLDYZtnm2UenoMPvMGo+nP7MODg4ayYcZH7BlhV+BrGIV/3/8A4eBFPjFXeLNAAAAAElFTkSuQmCC</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>c6182361-283f-49a8-9efe-236fd7332c00</rd:ReportID>
 </Report>

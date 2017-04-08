@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultaUsuarios));
             this.filtrarComboBox = new System.Windows.Forms.ComboBox();
             this.filtrarLabel = new System.Windows.Forms.Label();
             this.filtrarTextBox = new System.Windows.Forms.TextBox();
@@ -120,6 +121,7 @@
             this.Controls.Add(this.filtrarTextBox);
             this.Controls.Add(this.filtrarLabel);
             this.Controls.Add(this.filtrarComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmConsultaUsuarios";
             this.Text = "BiblioTech - Consulta de Usuarios";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmConsultaUsuarios_FormClosed);

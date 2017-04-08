@@ -35,6 +35,7 @@
             System.Windows.Forms.Label contrasenaLabel;
             System.Windows.Forms.Label cargoLabel;
             System.Windows.Forms.Label confimarContrasenaLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroUsuarios));
             this.usuarioIdTextBox = new System.Windows.Forms.TextBox();
             this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.nombreUsuarioTextBox = new System.Windows.Forms.TextBox();
@@ -316,6 +317,7 @@
             this.Controls.Add(this.contrasenaTextBox);
             this.Controls.Add(cargoLabel);
             this.Controls.Add(this.cargoComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRegistroUsuarios";
             this.Text = "BiblioTech - Registro de Usuarios";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmRegistroUsuarios_FormClosed);
