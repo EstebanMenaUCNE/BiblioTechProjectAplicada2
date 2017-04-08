@@ -56,6 +56,11 @@ namespace BiblioTechProject.UI.Registros
                 usuarioErrorProvider.SetError(nombreUsuarioTextBox, "Digite el nombre de usuario");
                 flag = false;
             }
+            else if (usuario == null && (BLL.UsuarioBLL.Buscar(U => U.NombreUsuario == nombreUsuarioTextBox.Text) != null))
+            {
+                usuarioErrorProvider.SetError(nombreUsuarioTextBox, "Este nombre de usuario ya existe");
+                flag = false;
+            }
             if (string.IsNullOrWhiteSpace(contrasenaTextBox.Text))
             {
                 contrasenaErrorProvider.SetError(contrasenaTextBox, "Digite la contraseña");
