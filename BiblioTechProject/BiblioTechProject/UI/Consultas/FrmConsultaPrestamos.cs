@@ -142,8 +142,7 @@ namespace BiblioTechProject.UI.Consultas
 
         private void imprimirButton_Click(object sender, EventArgs e)
         {
-            Reportes.FrmReportePrestamos.GetInstance().Show();
-            Reportes.FrmReportePrestamos.GetInstance().Activate();
+            
         }
 
         private void filtrarComboBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -29,23 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportePrestamos));
-            this.prestamosReportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            
             this.SuspendLayout();
             // 
             // prestamosReportViewer
             // 
-            this.prestamosReportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.prestamosReportViewer.Location = new System.Drawing.Point(0, 0);
-            this.prestamosReportViewer.Name = "prestamosReportViewer";
-            this.prestamosReportViewer.Size = new System.Drawing.Size(819, 366);
-            this.prestamosReportViewer.TabIndex = 0;
+            
             // 
             // FrmReportePrestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 366);
-            this.Controls.Add(this.prestamosReportViewer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReportePrestamos";
             this.Text = "BiblioTech - Reporte de Prestamos";
@@ -57,6 +52,6 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer prestamosReportViewer;
+        
     }
 }

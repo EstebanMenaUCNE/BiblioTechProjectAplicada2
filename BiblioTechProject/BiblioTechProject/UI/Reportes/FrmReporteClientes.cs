@@ -1,5 +1,4 @@
-﻿using Microsoft.Reporting.WinForms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,13 +29,7 @@ namespace BiblioTechProject.UI.Reportes
 
         private void FrmReporteClientes_Load(object sender, EventArgs e)
         {
-            this.clientesReportViewer.Reset();
-            this.clientesReportViewer.ProcessingMode = ProcessingMode.Local;
-            this.clientesReportViewer.LocalReport.ReportPath = @"C:\Users\Equipo\Desktop\Programacion Aplicada 1\BiblioTechProjectAplicada1\BiblioTechProject\BiblioTechProject\UI\Reportes\ClientesReport.rdlc";
-
-            ReportDataSource source = new ReportDataSource("ClientesDataSet", Consultas.FrmConsultaClientes.GetInstance().Lista);
-            this.clientesReportViewer.LocalReport.DataSources.Add(source);
-            this.clientesReportViewer.RefreshReport();
+            
         }
 
         private void FrmReporteClientes_FormClosed(object sender, FormClosedEventArgs e)

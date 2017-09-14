@@ -29,23 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReporteClientes));
-            this.clientesReportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // clientesReportViewer
             // 
-            this.clientesReportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clientesReportViewer.Location = new System.Drawing.Point(0, 0);
-            this.clientesReportViewer.Name = "clientesReportViewer";
-            this.clientesReportViewer.Size = new System.Drawing.Size(826, 364);
-            this.clientesReportViewer.TabIndex = 0;
             // 
             // FrmReporteClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 364);
-            this.Controls.Add(this.clientesReportViewer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReporteClientes";
             this.Text = "BiblioTech - Reporte de Clientes";
@@ -57,6 +50,6 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer clientesReportViewer;
+        
     }
 }
