@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiblioTechProject", "BiblioTechProject\BiblioTechProject.csproj", "{87485286-47EC-454E-A8B7-0AB48D289CF9}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{7AAE3E91-5149-4CFA-838B-398E9AB147CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{AE61C2E9-601D-4D03-B25E-0BD9966EEEA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiblioTechWeb", "BiblioTechWeb\BiblioTechWeb.csproj", "{319D0C3D-1A18-4116-83D4-927553AA2AA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +35,15 @@ Global
 		{AE61C2E9-601D-4D03-B25E-0BD9966EEEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE61C2E9-601D-4D03-B25E-0BD9966EEEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE61C2E9-601D-4D03-B25E-0BD9966EEEA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{319D0C3D-1A18-4116-83D4-927553AA2AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319D0C3D-1A18-4116-83D4-927553AA2AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319D0C3D-1A18-4116-83D4-927553AA2AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319D0C3D-1A18-4116-83D4-927553AA2AA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F85C6071-584E-4407-AC12-02965F2E0143}
 	EndGlobalSection
 EndGlobal
