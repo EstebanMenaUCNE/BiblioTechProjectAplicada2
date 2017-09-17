@@ -14,6 +14,7 @@ namespace BiblioTechProject.Entidades
         public string NombreUsuario { get; set; }
         public string Contrasena { get; set; }
         public string Cargo { get; set; }
+        public DateTime FechaCreacion { get; set; }
 
         public Usuario()
         {
@@ -27,6 +28,16 @@ namespace BiblioTechProject.Entidades
             NombreUsuario = nombreUsuario;
             Contrasena = contrasena;
             Cargo = cargo;
+        }
+
+        public Usuario(int usuarioId, string nombre, string nombreUsuario, string contrasena, string cargo, DateTime fechaCreacion)
+        {
+            UsuarioId = usuarioId;
+            Nombre = nombre;
+            NombreUsuario = nombreUsuario;
+            Contrasena = contrasena;
+            Cargo = cargo;
+            FechaCreacion = fechaCreacion;
         }
     }
 

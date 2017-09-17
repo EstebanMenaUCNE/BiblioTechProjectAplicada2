@@ -3,7 +3,8 @@ UsuarioId int IDENTITY(1,1) PRIMARY KEY,
 Nombre varchar(100),
 NombreUsuario varchar(50),
 Contrasena varchar(20),
-Cargo varchar(13) CHECK(Cargo IN('Administrador','Bibliotecario','Consultor'))
+Cargo varchar(13) CHECK(Cargo IN('Administrador','Bibliotecario','Consultor')),
+FechaCreacion date
 );
 
 CREATE TABLE Clientes(
