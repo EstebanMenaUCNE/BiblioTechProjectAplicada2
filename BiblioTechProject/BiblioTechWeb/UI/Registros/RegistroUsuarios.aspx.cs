@@ -19,12 +19,30 @@ namespace BiblioTechWeb.UI.Registros
             AlertaValidar.Visible = false;
             AlertaGuardadoExito.Visible = false;
             AlertaError.Visible = false;
-            YaExisteAlertaValidar.Visible = false;
+            YaExisteAlertaValidar.Visible = false;            
+
+            if (Consultas.ConsultaUsuarios.UsuarioSeleccionado != null)
+            {
+                usuario = Consultas.ConsultaUsuarios.UsuarioSeleccionado;
+                CargarDatos();
+                NuevoOModificando();
+            }
+        }
+        
+        private void DeshabilitarCampos()
+        {
+            NombreTextBox.Enabled = false;
+            NombreUsuarioTextBox.Enabled = false;
+            ContrasenaTextBox.Enabled = false;
+            ConfirmarContrasenaTextBox.Enabled = false;
+            CargoDropDownList.Enabled = false;
+            FechaCreacionTextBox.Enabled = false;
         }
 
         private void Limpiar()
         {
             usuario = null;
+            Consultas.ConsultaUsuarios.UsuarioSeleccionado = null;
             UsuarioIdTextBox.Text = "";
             NombreTextBox.Text = "";
             NombreUsuarioTextBox.Text = "";
@@ -39,6 +57,16 @@ namespace BiblioTechWeb.UI.Registros
             YaExisteAlertaValidar.Visible = false;
 
             NuevoOModificando();
+        }
+
+        private void CargarDatos()
+        {
+            UsuarioIdTextBox.Text = usuario.UsuarioId.ToString();
+            NombreTextBox.Text = usuario.Nombre;
+            NombreUsuarioTextBox.Text = usuario.NombreUsuario;
+            ContrasenaTextBox.Text = usuario.Contrasena;
+            ConfirmarContrasenaTextBox.Text = usuario.Contrasena;
+            FechaCreacionTextBox.Text = usuario.FechaCreacion.GetDateTimeFormats()[80].ToString().Substring(0, 10); ;
         }
 
         private void NuevoOModificando()
@@ -133,9 +161,18 @@ namespace BiblioTechWeb.UI.Registros
                     if (UsuarioBLL.Guardar(usuario))
                     {
                         UsuarioIdTextBox.Text = usuario.UsuarioId.ToString();
-                        MensajeAlertaGuardadoExito.Text = "¡Guardado con éxito con el ID " + usuario.UsuarioId + "!";
+                        
+                        if (Consultas.ConsultaUsuarios.UsuarioSeleccionado == null)
+                        {
+                            MensajeAlertaGuardadoExito.Text = "¡Guardado con éxito con el ID " + usuario.UsuarioId + "!";
+                        }
+                        else
+                        {
+                            MensajeAlertaGuardadoExito.Text = "Repita los cambios realizados para modificar. Esto por la seguridad de los datos.";
+                        }
                         AlertaGuardadoExito.Visible = true;
                         NuevoOModificando();
+                        Consultas.ConsultaUsuarios.UsuarioSeleccionado = null;
                     }
                     else
                     {
@@ -163,5 +200,6 @@ namespace BiblioTechWeb.UI.Registros
         {
             NuevoOModificando();
         }
+        
     }
 }

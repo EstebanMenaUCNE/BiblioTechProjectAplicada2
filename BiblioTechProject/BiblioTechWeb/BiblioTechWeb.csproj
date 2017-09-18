@@ -82,6 +82,7 @@
     <Content Include="Estilos\Estilos.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Scripts.js" />
+    <Content Include="UI\Consultas\ConsultaUsuarios.aspx" />
     <Content Include="UI\Registros\RegistroUsuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -95,6 +96,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consultas\ConsultaUsuarios.aspx.cs">
+      <DependentUpon>ConsultaUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaUsuarios.aspx.designer.cs">
+      <DependentUpon>ConsultaUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registros\RegistroUsuarios.aspx.cs">
       <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -107,7 +115,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="UI\Consultas\" />
     <Folder Include="UI\Reportes\" />
   </ItemGroup>
   <ItemGroup>

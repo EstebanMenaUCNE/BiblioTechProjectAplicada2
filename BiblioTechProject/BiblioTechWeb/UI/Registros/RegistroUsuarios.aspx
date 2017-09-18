@@ -38,8 +38,8 @@
                         Usuarios
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Consulta</a>
+                        <a class="dropdown-item" href="RegistroUsuarios.aspx">Registro</a>
+                        <a class="dropdown-item" href="../Consultas/ConsultaUsuarios.aspx">Consulta</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -111,7 +111,7 @@
                 </div>
                 <br />
                 <!--Formulario de registro de usuarios-->
-                <form runat="server">
+                <form id="Formulario" runat="server">
                     <div class="text-center">
                         <h4><asp:Label CssClass="text-center" ID="NuevoOModificandoLabel" runat="server" Text="Nuevo usuario"></asp:Label></h4>
                     </div>
@@ -177,6 +177,7 @@
                     <br />
                     <div class="text-center">
                         <asp:Button CssClass="btn btn-primary btn-lg" ID="GuardarButton" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
+                        <br />
                     </div>
                 
                 </form>
@@ -185,6 +186,9 @@
             
             <!--Alertas-->
             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-7">
+                <br />
+                <br />
+                <br />
                 <br />
                 <br />
                 <br />
@@ -201,8 +205,8 @@
             </div> 
 
         </div> <!--Fin row-->
-
-    </>
+    
+    </div> <!--Fin fluid-container-->
 
     <br/>
     <br/>
