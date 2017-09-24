@@ -143,6 +143,8 @@
     <Content Include="UI\Registros\RegistroAutores.aspx" />
     <Content Include="UI\Registros\RegistroEditoriales.aspx" />
     <Content Include="UI\Registros\RegistroUsuarios.aspx" />
+    <Content Include="UI\Reportes\ReporteAutores.aspx" />
+    <Content Include="UI\Reportes\ReporteEditoriales.aspx" />
     <Content Include="UI\Reportes\ReporteUsuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -204,6 +206,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BiblioTechWebDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\ReporteAutores.aspx.cs">
+      <DependentUpon>ReporteAutores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteAutores.aspx.designer.cs">
+      <DependentUpon>ReporteAutores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteEditoriales.aspx.cs">
+      <DependentUpon>ReporteEditoriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteEditoriales.aspx.designer.cs">
+      <DependentUpon>ReporteEditoriales.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\ReporteUsuarios.aspx.cs">
       <DependentUpon>ReporteUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -228,6 +244,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UI\Reportes\ReporteAutores.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\ReporteEditoriales.rdlc" />
     <EmbeddedResource Include="UI\Reportes\ReporteUsuarios.rdlc" />
   </ItemGroup>
   <PropertyGroup>

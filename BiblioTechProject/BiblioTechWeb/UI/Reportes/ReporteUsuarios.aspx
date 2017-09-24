@@ -7,7 +7,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <meta charset="UTF-8"/>
+    <meta lang="es-ES"/>
+    <title>Reporte de usuarios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 </head>
 <body style="height: 751px">
     <form id="formulario" runat="server">
