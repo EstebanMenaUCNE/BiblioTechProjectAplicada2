@@ -10,7 +10,7 @@ namespace BiblioTechWeb.UI.Consultas
 {
     public partial class ConsultaUsuarios : System.Web.UI.Page
     {
-        public List<Usuario> Lista { get; set; }
+        public static List<Usuario> Lista { get; set; }
         public static Usuario UsuarioSeleccionado = null;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -98,6 +98,11 @@ namespace BiblioTechWeb.UI.Consultas
             int id = Utilidad.ToInt(FilaTextBox.Text);
             UsuarioSeleccionado = BiblioTechProject.BLL.UsuarioBLL.Buscar(U => U.UsuarioId == id);
             Response.Redirect("../Registros/RegistroUsuarios.aspx");
+        }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
