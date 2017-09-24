@@ -47,8 +47,8 @@
                         Autores
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Consulta</a>
+                        <a class="dropdown-item" href="RegistroAutores.aspx">Registro</a>
+                        <a class="dropdown-item" href="../Consultas/ConsultaAutores.aspx">Consulta</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -56,8 +56,8 @@
                         Editoriales
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Consulta</a>
+                        <a class="dropdown-item" href="RegistroEditoriales.aspx">Registro</a>
+                        <a class="dropdown-item" href="../Consultas/ConsultaEditoriales.aspx">Consulta</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -65,8 +65,8 @@
                         Libros
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Consulta</a>
+                        <a class="dropdown-item" href="RegistroLibros.aspx">Registro</a>
+                        <a class="dropdown-item" href="../Consultas/ConsultaLibros.aspx">Consulta</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -74,8 +74,8 @@
                         Clientes
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Consulta</a>
+                        <a class="dropdown-item" href="RegistroClientes.aspx">Registro</a>
+                        <a class="dropdown-item" href="../Consultas/ConsultaClientes.aspx">Consulta</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -83,8 +83,8 @@
                         Préstamos
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Consulta</a>
+                        <a class="dropdown-item" href="RegistroPrestamos.aspx">Registro</a>
+                        <a class="dropdown-item" href="../Consultas/ConsultaPrestamos.aspx">Consulta</a>
                     </div>
                 </li>
             </ul>

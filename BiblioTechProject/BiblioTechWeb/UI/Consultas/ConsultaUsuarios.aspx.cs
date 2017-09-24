@@ -17,7 +17,6 @@ namespace BiblioTechWeb.UI.Consultas
         {
             Lista = new List<Usuario>();
             UsuarioSeleccionado = null;
-            Consola.Visible = false;
         }
 
         private void Filtrar()

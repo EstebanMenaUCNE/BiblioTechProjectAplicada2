@@ -73,7 +73,7 @@ namespace BiblioTechWeb.UI.Registros
         {
             if (UsuarioIdTextBox.Text == "")
             {
-                NuevoOModificandoLabel.Text = "Nuevo Usuario";
+                NuevoOModificandoLabel.Text = "Nuevo usuario";
             }
             else
             {

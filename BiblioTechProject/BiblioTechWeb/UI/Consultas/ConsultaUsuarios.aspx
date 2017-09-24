@@ -47,8 +47,8 @@
                         Autores
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Consulta</a>
+                        <a class="dropdown-item" href="../Registros/RegistroAutores.aspx">Registro</a>
+                        <a class="dropdown-item" href="ConsultaAutores.aspx">Consulta</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -56,8 +56,8 @@
                         Editoriales
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Consulta</a>
+                        <a class="dropdown-item" href="../Registros/RegistroEditoriales.aspx">Registro</a>
+                        <a class="dropdown-item" href="ConsultaEditoriales.aspx">Consulta</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -65,8 +65,8 @@
                         Libros
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Consulta</a>
+                        <a class="dropdown-item" href="../Registros/RegistroLibros.aspx">Registro</a>
+                        <a class="dropdown-item" href="ConsultaLibros.aspx">Consulta</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -74,8 +74,8 @@
                         Clientes
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Consulta</a>
+                        <a class="dropdown-item" href="../Registros/RegistroClientes.aspx">Registro</a>
+                        <a class="dropdown-item" href="ConsultaClientes.aspx">Consulta</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -83,8 +83,8 @@
                         Préstamos
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Consulta</a>
+                        <a class="dropdown-item" href="../Registros/RegistroPrestamos.aspx">Registro</a>
+                        <a class="dropdown-item" href="ConsultaPrestamos.aspx">Consulta</a>
                     </div>
                 </li>
             </ul>
@@ -221,7 +221,7 @@
                     <!--Resultado de la consulta-->                          
                     <tbody id="listaF">
                         <% foreach (var usuario in Lista) %>
-                        <% { Response.Write("<tr class='fila'> <td>" + usuario.UsuarioId + "</td> <td>" + usuario.Nombre + "</td> <td>" + usuario.NombreUsuario + "</td> <td>" + usuario.Cargo + "</td> <td>" + usuario.FechaCreacion.ToString().Substring(0,10) + "</td> <td> <a href='../Registros/RegistroUsuarios.aspx' class='btn-modificar btn btn-sm btn-warning' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</a> </td> <td>  <button class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</button> </td> </tr>"); } %>
+                        <% { Response.Write("<tr class='fila'> <td>" + usuario.UsuarioId + "</td> <td>" + usuario.Nombre + "</td> <td>" + usuario.NombreUsuario + "</td> <td>" + usuario.Cargo + "</td> <td>" + usuario.FechaCreacion.ToString().Substring(0,10) + "</td> <td> <button class='btn-modificar btn btn-sm btn-warning' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</button> </td> <td>  <button class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</button> </td> </tr>"); } %>
                     </tbody>
                        
                     <tr>
@@ -238,10 +238,6 @@
         </div>
 
     </div> <!--Fin fluid-container-->
-
-    <asp:Panel id="Consola" class="alert alert-info text-center" role="alert" runat="server">
-        <asp:Label ID="MensajeConsola" runat="server">Consola</asp:Label>
-    </asp:Panel>
 
     <br/>
     <br/>

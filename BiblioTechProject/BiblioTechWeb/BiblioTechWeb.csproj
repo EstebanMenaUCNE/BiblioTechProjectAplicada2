@@ -44,6 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -82,7 +88,11 @@
     <Content Include="Estilos\Estilos.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Scripts.js" />
+    <Content Include="UI\Consultas\ConsultaAutores.aspx" />
+    <Content Include="UI\Consultas\ConsultaEditoriales.aspx" />
     <Content Include="UI\Consultas\ConsultaUsuarios.aspx" />
+    <Content Include="UI\Registros\RegistroAutores.aspx" />
+    <Content Include="UI\Registros\RegistroEditoriales.aspx" />
     <Content Include="UI\Registros\RegistroUsuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -96,12 +106,40 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consultas\ConsultaAutores.aspx.cs">
+      <DependentUpon>ConsultaAutores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaAutores.aspx.designer.cs">
+      <DependentUpon>ConsultaAutores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaEditoriales.aspx.cs">
+      <DependentUpon>ConsultaEditoriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaEditoriales.aspx.designer.cs">
+      <DependentUpon>ConsultaEditoriales.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consultas\ConsultaUsuarios.aspx.cs">
       <DependentUpon>ConsultaUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI\Consultas\ConsultaUsuarios.aspx.designer.cs">
       <DependentUpon>ConsultaUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroAutores.aspx.cs">
+      <DependentUpon>RegistroAutores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroAutores.aspx.designer.cs">
+      <DependentUpon>RegistroAutores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroEditoriales.aspx.cs">
+      <DependentUpon>RegistroEditoriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroEditoriales.aspx.designer.cs">
+      <DependentUpon>RegistroEditoriales.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\RegistroUsuarios.aspx.cs">
       <DependentUpon>RegistroUsuarios.aspx</DependentUpon>

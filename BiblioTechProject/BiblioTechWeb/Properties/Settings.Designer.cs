@@ -27,8 +27,8 @@ namespace BiblioTechWeb.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\EquipoE\\Desktop\\Pro" +
-            "gramación Aplicada 2\\BiblioTechAplicada2\\BiblioTechProject\\BiblioTechProject\\Dat" +
-            "aBase\\BiblioTechDb.mdf\";Integrated Security=True;Connect Timeout=30")]
+            "gramación Aplicada 2\\BiblioTechAplicada2\\BiblioTechProject\\BiblioTechProject\\bin" +
+            "\\Debug\\DataBase\\BiblioTechDb.mdf\";Integrated Security=True;Connect Timeout=30")]
         public string ConStr {
             get {
                 return ((string)(this["ConStr"]));
