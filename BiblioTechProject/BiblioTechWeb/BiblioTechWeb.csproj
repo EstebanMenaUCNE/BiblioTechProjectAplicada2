@@ -97,11 +97,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="UI\Base.Master" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstraptheme.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Default.aspx" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-slim.min.js" />
+    <Content Include="Scripts\popper.min.js" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -115,6 +123,12 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="UI\ConsultaAutores.aspx" />
+    <Content Include="UI\ConsultaEditoriales.aspx" />
+    <Content Include="UI\ConsultaUsuarios.aspx" />
+    <Content Include="UI\RegistroAutores.aspx" />
+    <Content Include="UI\RegistroEditoriales.aspx" />
+    <Content Include="UI\RegistroUsuarios.aspx" />
     <Content Include="UI\Reportes\BiblioTechWebDataSet.xsc">
       <DependentUpon>BiblioTechWebDataSet.xsd</DependentUpon>
     </Content>
@@ -149,6 +163,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\Base.Master.cs">
+      <DependentUpon>Base.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Base.Master.designer.cs">
+      <DependentUpon>Base.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -159,6 +187,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UI\ConsultaAutores.aspx.cs">
+      <DependentUpon>ConsultaAutores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ConsultaAutores.aspx.designer.cs">
+      <DependentUpon>ConsultaAutores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConsultaEditoriales.aspx.cs">
+      <DependentUpon>ConsultaEditoriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ConsultaEditoriales.aspx.designer.cs">
+      <DependentUpon>ConsultaEditoriales.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consultas\ConsultaAutores.aspx.cs">
       <DependentUpon>ConsultaAutores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -179,6 +221,34 @@
     </Compile>
     <Compile Include="UI\Consultas\ConsultaUsuarios.aspx.designer.cs">
       <DependentUpon>ConsultaUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConsultaUsuarios.aspx.cs">
+      <DependentUpon>ConsultaUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ConsultaUsuarios.aspx.designer.cs">
+      <DependentUpon>ConsultaUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistroAutores.aspx.cs">
+      <DependentUpon>RegistroAutores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\RegistroAutores.aspx.designer.cs">
+      <DependentUpon>RegistroAutores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistroEditoriales.aspx.cs">
+      <DependentUpon>RegistroEditoriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\RegistroEditoriales.aspx.designer.cs">
+      <DependentUpon>RegistroEditoriales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistroUsuarios.aspx.cs">
+      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\RegistroUsuarios.aspx.designer.cs">
+      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\RegistroAutores.aspx.cs">
       <DependentUpon>RegistroAutores.aspx</DependentUpon>
@@ -231,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Img\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
