@@ -97,7 +97,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="UI\Base.Master" />
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -106,7 +113,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstraptheme.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="Default.aspx" />
+    <Content Include="UI\Default.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-slim.min.js" />
     <Content Include="Scripts\popper.min.js" />
@@ -126,6 +133,7 @@
     <Content Include="UI\ConsultaAutores.aspx" />
     <Content Include="UI\ConsultaEditoriales.aspx" />
     <Content Include="UI\ConsultaUsuarios.aspx" />
+    <Content Include="UI\Login.aspx" />
     <Content Include="UI\RegistroAutores.aspx" />
     <Content Include="UI\RegistroEditoriales.aspx" />
     <Content Include="UI\RegistroUsuarios.aspx" />
@@ -148,7 +156,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Estilos\Estilos.css" />
+    <Content Include="Content\Estilos.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Scripts.js" />
     <Content Include="UI\Consultas\ConsultaAutores.aspx" />
@@ -160,7 +168,9 @@
     <Content Include="UI\Reportes\ReporteAutores.aspx" />
     <Content Include="UI\Reportes\ReporteEditoriales.aspx" />
     <Content Include="UI\Reportes\ReporteUsuarios.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UI\Base.Master.cs">
@@ -170,11 +180,11 @@
     <Compile Include="UI\Base.Master.designer.cs">
       <DependentUpon>Base.Master</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="UI\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="UI\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -228,6 +238,13 @@
     </Compile>
     <Compile Include="UI\ConsultaUsuarios.aspx.designer.cs">
       <DependentUpon>ConsultaUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\RegistroAutores.aspx.cs">
       <DependentUpon>RegistroAutores.aspx</DependentUpon>

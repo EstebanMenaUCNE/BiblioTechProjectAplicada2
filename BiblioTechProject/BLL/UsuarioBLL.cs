@@ -47,6 +47,21 @@ namespace BiblioTechProject.BLL
             }
         }
 
+        public static bool Autenticar(string nombreUsuario, string contrasena)
+        {
+            using (var repositorio = new DAL.Repositorio<Entidades.Usuario>())
+            {
+                foreach (var usuario in GetList(P => P.UsuarioId > 0))
+                {
+                    if (nombreUsuario == usuario.NombreUsuario && contrasena == usuario.Contrasena)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
         /*
         public static List<Entidades.Usuario> GetListNombre(string nombre)
         {

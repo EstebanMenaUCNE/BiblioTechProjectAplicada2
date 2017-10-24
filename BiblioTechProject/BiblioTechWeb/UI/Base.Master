@@ -15,102 +15,105 @@
     <!-- Bootstrap 4.0.0 -->
     <link href="../Content/bootstrap.min.css" rel="stylesheet">
     <!-- Bootswatch flatly theme -->
-    <link href="../Content/bootstraptheme.min.css" rel="stylesheet">
+    <%--<link href="../Content/bootstraptheme.min.css" rel="stylesheet">--%>
+    <!-- Inclusión de Toastr -->
+    <link href="../Content/toastr.min.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
-    <link href="../Estilos/Estilos.css" rel="stylesheet">
+    <link href="../Content/Estilos.css" rel="stylesheet" />
+
+    <!-- Inclusión de Scripts --> <!-- Tuve que ponerlos aquí arriba para poder mostrar los toasts -->
+    <script src="../Scripts/jquery-slim.min.js"></script>
+    <script src="../Scripts/jquery-3.2.1.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/toastr.min.js"></script>
+    <script src="../Scripts/Scripts.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">BiblioTech</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="UsuariosNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Usuarios
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="RegistroUsuarios.aspx">Registro</a>
-                        <a class="dropdown-item" href="ConsultaUsuarios.aspx">Consulta</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="AutoresNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Autores
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="RegistroAutores.aspx">Registro</a>
-                        <a class="dropdown-item" href="ConsultaAutores.aspx">Consulta</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="EditorialesNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Editoriales
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="RegistroEditoriales.aspx">Registro</a>
-                        <a class="dropdown-item" href="ConsultaEditoriales.aspx">Consulta</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="LibrosNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Libros
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="RegistroLibros.aspx">Registro</a>
-                        <a class="dropdown-item" href="ConsultaLibros.aspx">Consulta</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="ClientesNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Clientes
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="RegistroClientes.aspx">Registro</a>
-                        <a class="dropdown-item" href="ConsultaClientes.aspx">Consulta</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="PrestamosNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Préstamos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="RegistroPrestamos.aspx">Registro</a>
-                        <a class="dropdown-item" href="ConsultaPrestamos.aspx">Consulta</a>
-                    </div>
-                </li>
-            </ul>
-            <%--<span class="navbar-text">
-                <a class="" href="#">Salir de sesión</a>
-            </span>--%>
-        </div>
-    </nav>
+    <form id="formMaster" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">BiblioTech</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Default.aspx">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="UsuariosNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuarios
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="RegistroUsuarios.aspx">Registro</a>
+                            <a class="dropdown-item" href="ConsultaUsuarios.aspx">Consulta</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="AutoresNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Autores
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="RegistroAutores.aspx">Registro</a>
+                            <a class="dropdown-item" href="ConsultaAutores.aspx">Consulta</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="EditorialesNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Editoriales
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="RegistroEditoriales.aspx">Registro</a>
+                            <a class="dropdown-item" href="ConsultaEditoriales.aspx">Consulta</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="LibrosNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Libros
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="RegistroLibros.aspx">Registro</a>
+                            <a class="dropdown-item" href="ConsultaLibros.aspx">Consulta</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="ClientesNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="RegistroClientes.aspx">Registro</a>
+                            <a class="dropdown-item" href="ConsultaClientes.aspx">Consulta</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="PrestamosNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Préstamos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="RegistroPrestamos.aspx">Registro</a>
+                            <a class="dropdown-item" href="ConsultaPrestamos.aspx">Consulta</a>
+                        </div>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <asp:Button CssClass="btn btn-outline-info" ID="SignOutButton" runat="server" Text="Salir de sesión" OnClick="SignOut_Click" />
+                </span>
+            </div>
+        </nav>
 
-    <div class="container">
-        <form id="formMaster" runat="server">
+        <div class="container">
             <div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-        </form>
-    </div>
+        </div>
 
+    </form>
     <footer>
-        <div class="alert bg-dark color-blanco"><p class="text-center">BiblioTech Web Version. 2017.</p></div>
+        <div class="alert bg-dark color-blanco color-blanco fondo-azul-oscuro">
+            <p class="text-center">BiblioTech Web Version. 2017.</p>
+        </div>
     </footer>
+
     
-    <!-- Inclusión de Scripts -->
-    <script src="../Scripts/jquery-slim.min.js"></script>
-    <script src="../Scripts/popper.min.js"></script>
-    <script src="../Scripts/bootstrap.min.js"></script>
-    <script src="../Scripts/Scripts.js"></script>
+    
 </body>
 </html>

@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  bibliotechweb:
+    image: bibliotechweb
+    build:
+      context: .\BiblioTechWeb
+      dockerfile: Dockerfile
