@@ -14,7 +14,7 @@
         <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">
             <!--header-->
             <div class="page-header text-center">
-                <h1 id="H1InicioSesion">Inicio de sesión</h1>
+                <h1 id="H1Inicio">Inicio de sesión</h1>
             </div>
             <br />
 
