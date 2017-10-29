@@ -9,13 +9,16 @@ namespace BiblioTechWeb.UI
 {
     public partial class ConsultaAutores : System.Web.UI.Page
     {
-        public static List<BiblioTechProject.Entidades.Autor> Lista { get; set; }
-        public static BiblioTechProject.Entidades.Autor AutorSeleccionado = null;
+        public List<BiblioTechProject.Entidades.Autor> Lista { get; set; }
+        public BiblioTechProject.Entidades.Autor AutorSeleccionado { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Lista = new List<BiblioTechProject.Entidades.Autor>();
-            AutorSeleccionado = null;
+            if (!this.IsPostBack)
+            {
+                Lista = new List<BiblioTechProject.Entidades.Autor>();
+                AutorSeleccionado = null;
+            }
         }
 
         private void Filtrar()
@@ -46,13 +49,14 @@ namespace BiblioTechWeb.UI
             AutorSeleccionado = BiblioTechProject.BLL.AutorBLL.Buscar(U => U.AutorId == id);
             BiblioTechProject.BLL.AutorBLL.Eliminar(AutorSeleccionado);
             AutorSeleccionado = null;
+            Filtrar();
         }
 
         protected void ModificarButton_Click(object sender, EventArgs e)
         {
             int id = Utilidad.ToInt(FilaTextBox.Text);
             AutorSeleccionado = BiblioTechProject.BLL.AutorBLL.Buscar(U => U.AutorId == id);
-            Response.Redirect("RegistroAutores.aspx");
+            Server.Transfer("RegistroAutores.aspx");
         }
     }
 }

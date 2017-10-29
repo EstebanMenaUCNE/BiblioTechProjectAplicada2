@@ -10,13 +10,16 @@ namespace BiblioTechWeb.UI
 {
     public partial class ConsultaUsuarios : System.Web.UI.Page
     {
-        public static List<Usuario> Lista { get; set; }
-        public static Usuario UsuarioSeleccionado = null;
+        public List<Usuario> Lista { get; set; }
+        public Usuario UsuarioSeleccionado { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Lista = new List<Usuario>();
-            UsuarioSeleccionado = null;
+            if (!this.IsPostBack)
+            {
+                Lista = new List<Usuario>();
+                UsuarioSeleccionado = null;
+            }            
         }
 
         private void Filtrar()
@@ -71,13 +74,14 @@ namespace BiblioTechWeb.UI
             UsuarioSeleccionado = BiblioTechProject.BLL.UsuarioBLL.Buscar(U => U.UsuarioId == id);
             BiblioTechProject.BLL.UsuarioBLL.Eliminar(UsuarioSeleccionado);
             UsuarioSeleccionado = null;
+            Filtrar();
         }
 
         protected void ModificarButton_Click(object sender, EventArgs e)
         {
             int id = Utilidad.ToInt(FilaTextBox.Text);
             UsuarioSeleccionado = BiblioTechProject.BLL.UsuarioBLL.Buscar(U => U.UsuarioId == id);
-            Response.Redirect("RegistroUsuarios.aspx");
+            Server.Transfer("RegistroUsuarios.aspx");
         }
     }
 }

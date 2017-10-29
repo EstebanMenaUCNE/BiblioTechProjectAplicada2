@@ -18,9 +18,9 @@ namespace BiblioTechWeb.UI
             AlertaGuardadoExito.Visible = false;
             AlertaError.Visible = false;
 
-            if (Consultas.ConsultaEditoriales.EditorialSeleccionada != null)
+            if (PreviousPage != null && PreviousPage.EditorialSeleccionada != null)
             {
-                editorial = Consultas.ConsultaEditoriales.EditorialSeleccionada;
+                editorial = PreviousPage.EditorialSeleccionada;
                 CargarDatos();
                 NuevoOModificando();
             }
@@ -34,7 +34,6 @@ namespace BiblioTechWeb.UI
         private void Limpiar()
         {
             editorial = null;
-            Consultas.ConsultaEditoriales.EditorialSeleccionada = null;
             EditorialIdTextBox.Text = "";
             NombreTextBox.Text = "";
 
@@ -91,18 +90,9 @@ namespace BiblioTechWeb.UI
                 if (BiblioTechProject.BLL.EditorialBLL.Guardar(editorial))
                 {
                     EditorialIdTextBox.Text = editorial.EditorialId.ToString();
-
-                    if (Consultas.ConsultaEditoriales.EditorialSeleccionada == null)
-                    {
-                        MensajeAlertaGuardadoExito.Text = "¡Guardado con éxito con el ID " + editorial.EditorialId + "!";
-                    }
-                    else
-                    {
-                        MensajeAlertaGuardadoExito.Text = "Repita los cambios realizados para modificar. Esto por la seguridad de los datos.";
-                    }
+                    MensajeAlertaGuardadoExito.Text = "¡Guardado con éxito con el ID " + editorial.EditorialId + "!";
                     AlertaGuardadoExito.Visible = true;
                     NuevoOModificando();
-                    Consultas.ConsultaEditoriales.EditorialSeleccionada = null;
                 }
                 else
                 {

@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+    <%@ PreviousPageType VirtualPath="~/UI/ConsultaAutores.aspx" %>
+
     <header class="text-center">
         <h1 class="display-1 d-none d-sm-block">BiblioTech</h1>
         <h1 class="display-4 d-sm-none">BiblioTech</h1>

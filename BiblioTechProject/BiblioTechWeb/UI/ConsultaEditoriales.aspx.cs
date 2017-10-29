@@ -9,13 +9,16 @@ namespace BiblioTechWeb.UI
 {
     public partial class ConsultaEditoriales : System.Web.UI.Page
     {
-        public static List<BiblioTechProject.Entidades.Editorial> Lista { get; set; }
-        public static BiblioTechProject.Entidades.Editorial EditorialSeleccionada = null;
+        public List<BiblioTechProject.Entidades.Editorial> Lista { get; set; }
+        public BiblioTechProject.Entidades.Editorial EditorialSeleccionada { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Lista = new List<BiblioTechProject.Entidades.Editorial>();
-            EditorialSeleccionada = null;
+            if (!this.IsPostBack)
+            {
+                Lista = new List<BiblioTechProject.Entidades.Editorial>();
+                EditorialSeleccionada = null;
+            }
         }
 
         private void Filtrar()
@@ -46,13 +49,14 @@ namespace BiblioTechWeb.UI
             EditorialSeleccionada = BiblioTechProject.BLL.EditorialBLL.Buscar(U => U.EditorialId == id);
             BiblioTechProject.BLL.EditorialBLL.Eliminar(EditorialSeleccionada);
             EditorialSeleccionada = null;
+            Filtrar();
         }
 
         protected void ModificarButton_Click(object sender, EventArgs e)
         {
             int id = Utilidad.ToInt(FilaTextBox.Text);
             EditorialSeleccionada = BiblioTechProject.BLL.EditorialBLL.Buscar(U => U.EditorialId == id);
-            Response.Redirect("RegistroEditoriales.aspx");
+            Server.Transfer("RegistroEditoriales.aspx");
         }
     }
 }

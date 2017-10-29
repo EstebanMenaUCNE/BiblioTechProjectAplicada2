@@ -1,27 +1,23 @@
 ﻿$(document).ready(function () {
-    if ($("#H1Inicio").html() === "Inicio de sesión") {
+    if ($("#H1Inicio").html() === "Inicio de sesión" || "Inicio") {
         $("#SignOutButton").hide();
     }
 
     //Script para mostrar/ocultar filtros de fecha en las consultas
-    if ($("#FiltrarFechaCheckBox").is(':checked')) {
-        $("#FechasPanel").show();
-    } else {
-        $("#FechasPanel").hide();
-    }
-
-    $("#FiltrarFechaCheckBox").click(function () {
-        if ($("#FiltrarFechaCheckBox").is(':checked')) {
-            $("#FechasPanel").show();
+    function mostrarOcultarPanelFechas() {
+        if ($("#ContentPlaceHolder1_FiltrarFechaCheckBox").is(':checked')) {
+            $("#ContentPlaceHolder1_FechasPanel").show();
         } else {
-            $("#FechasPanel").hide();
+            $("#ContentPlaceHolder1_FechasPanel").hide();
         }
-    });
+    }
+    mostrarOcultarPanelFechas();
+    $("#ContentPlaceHolder1_FiltrarFechaCheckBox").click(mostrarOcultarPanelFechas);
 
     //Scripts para llenar TextBox del elemento que se modificara/eliminara en una consulta 
     $(".fila").hover(function () {
         var id = $(this).children("td").first().html();
-        $("#FilaTextBox").val(id);
+        $("#ContentPlaceHolder1_FilaTextBox").val(id);
     });
     
 });

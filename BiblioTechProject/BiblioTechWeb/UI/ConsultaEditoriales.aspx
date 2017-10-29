@@ -100,7 +100,7 @@
                 <!--Resultado de la consulta-->
                 <tbody id="listaF">
                     <% foreach (var editorial in Lista) %>
-                    <% { Response.Write("<tr class='fila'> <td>" + editorial.EditorialId + "</td> <td>" + editorial.Nombre + "</td> <td> <button class='btn-modificar btn btn-sm btn-warning' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</button> </td> <td>  <button class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</button> </td> </tr>"); } %>
+                    <% { Response.Write("<tr class='fila'> <td>" + editorial.EditorialId + "</td> <td>" + editorial.Nombre + "</td> <td> <a class='btn-modificar btn btn-sm btn-warning' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</a> </td> <td>  <a class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</a> </td> </tr>"); } %>
                 </tbody>
 
                 <tr>

@@ -21,9 +21,9 @@ namespace BiblioTechWeb.UI.Registros
             AlertaError.Visible = false;
             YaExisteAlertaValidar.Visible = false;
 
-            if (Consultas.ConsultaUsuarios.UsuarioSeleccionado != null)
+            if (PreviousPage != null && PreviousPage.UsuarioSeleccionado != null)
             {
-                usuario = Consultas.ConsultaUsuarios.UsuarioSeleccionado;
+                usuario = PreviousPage.UsuarioSeleccionado;
                 CargarDatos();
                 NuevoOModificando();
             }
@@ -42,7 +42,6 @@ namespace BiblioTechWeb.UI.Registros
         private void Limpiar()
         {
             usuario = null;
-            Consultas.ConsultaUsuarios.UsuarioSeleccionado = null;
             UsuarioIdTextBox.Text = "";
             NombreTextBox.Text = "";
             NombreUsuarioTextBox.Text = "";
@@ -108,10 +107,6 @@ namespace BiblioTechWeb.UI.Registros
                     //Si es de otro usuario no puede modificarse, porque ese NombreUsuario le pertenece a otro.
                 }
             }
-            /*else if (UsuarioIdTextBox.Text =="" && (UsuarioBLL.Buscar(U => U.NombreUsuario == NombreUsuarioTextBox.Text) != null))
-            {
-                flag = false;
-            }*/
             if (string.IsNullOrWhiteSpace(ContrasenaTextBox.Text))
             {
                 flag = false;
@@ -161,18 +156,9 @@ namespace BiblioTechWeb.UI.Registros
                     if (UsuarioBLL.Guardar(usuario))
                     {
                         UsuarioIdTextBox.Text = usuario.UsuarioId.ToString();
-
-                        if (Consultas.ConsultaUsuarios.UsuarioSeleccionado == null)
-                        {
-                            MensajeAlertaGuardadoExito.Text = "¡Guardado con éxito con el ID " + usuario.UsuarioId + "!";
-                        }
-                        else
-                        {
-                            MensajeAlertaGuardadoExito.Text = "Repita los cambios realizados para modificar. Esto por la seguridad de los datos.";
-                        }
+                        MensajeAlertaGuardadoExito.Text = "¡Guardado con éxito con el ID " + usuario.UsuarioId + "!";
                         AlertaGuardadoExito.Visible = true;
                         NuevoOModificando();
-                        Consultas.ConsultaUsuarios.UsuarioSeleccionado = null;
                     }
                     else
                     {

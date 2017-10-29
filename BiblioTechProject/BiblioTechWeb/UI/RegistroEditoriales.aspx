@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <%-- Directiva PreviousPageType --%>
+    <%@ PreviousPageType VirtualPath="~/UI/ConsultaEditoriales.aspx" %>
+
     <!-- Header -->
     <header class="text-center">
         <h1 class="display-1 d-none d-sm-block">BiblioTech</h1>

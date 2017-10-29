@@ -164,5 +164,17 @@ namespace BiblioTechWeb.UI.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button GuardarButton;
+        
+        /// <summary>
+        /// PreviousPage property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new BiblioTechWeb.UI.ConsultaUsuarios PreviousPage {
+            get {
+                return ((BiblioTechWeb.UI.ConsultaUsuarios)(base.PreviousPage));
+            }
+        }
     }
 }

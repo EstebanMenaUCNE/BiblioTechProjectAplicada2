@@ -18,9 +18,9 @@ namespace BiblioTechWeb.UI
             AlertaGuardadoExito.Visible = false;
             AlertaError.Visible = false;
 
-            if (Consultas.ConsultaAutores.AutorSeleccionado != null)
+            if (PreviousPage != null && PreviousPage.AutorSeleccionado != null)
             {
-                autor = Consultas.ConsultaAutores.AutorSeleccionado;
+                autor = PreviousPage.AutorSeleccionado;
                 CargarDatos();
                 NuevoOModificando();
             }
@@ -34,7 +34,6 @@ namespace BiblioTechWeb.UI
         private void Limpiar()
         {
             autor = null;
-            Consultas.ConsultaAutores.AutorSeleccionado = null;
             AutorIdTextBox.Text = "";
             NombreTextBox.Text = "";
 
@@ -90,19 +89,9 @@ namespace BiblioTechWeb.UI
                 LlenarCamposInstancia();
                 if (BiblioTechProject.BLL.AutorBLL.Guardar(autor, new List<AutorLibro>()))
                 {
-                    AutorIdTextBox.Text = autor.AutorId.ToString();
-
-                    if (Consultas.ConsultaAutores.AutorSeleccionado == null)
-                    {
-                        MensajeAlertaGuardadoExito.Text = "¡Guardado con éxito con el ID " + autor.AutorId + "!";
-                    }
-                    else
-                    {
-                        MensajeAlertaGuardadoExito.Text = "Repita los cambios realizados para modificar. Esto por la seguridad de los datos.";
-                    }
+                    AutorIdTextBox.Text = autor.AutorId.ToString();MensajeAlertaGuardadoExito.Text = "¡Guardado con éxito con el ID " + autor.AutorId + "!";
                     AlertaGuardadoExito.Visible = true;
                     NuevoOModificando();
-                    Consultas.ConsultaAutores.AutorSeleccionado = null;
                 }
                 else
                 {

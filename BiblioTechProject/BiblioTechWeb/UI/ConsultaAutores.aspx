@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <header class="text-center">
         <h1 class="display-1 d-none d-sm-block">BiblioTech</h1>
         <h1 class="display-4 d-sm-none">BiblioTech</h1>
@@ -99,7 +100,7 @@
                 <!--Resultado de la consulta-->
                 <tbody id="listaF">
                     <% foreach (var autor in Lista) %>
-                    <% { Response.Write("<tr class='fila'> <td>" + autor.AutorId + "</td> <td>" + autor.Nombre + "</td> <td> <button class='btn-modificar btn btn-sm btn-warning' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</button> </td> <td>  <button class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</button> </td> </tr>"); } %>
+                    <% { Response.Write("<tr class='fila'> <td>" + autor.AutorId + "</td> <td>" + autor.Nombre + "</td> <td> <a class='btn-modificar btn btn-sm btn-warning' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</a> </td> <td>  <a class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</a> </td> </tr>"); } %>
                 </tbody>
 
                 <tr>

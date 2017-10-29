@@ -29,21 +29,21 @@
     <div class="col">
         <div class="form-group">
             <asp:CheckBox ID="FiltrarFechaCheckBox" runat="server" />
-            <label for="FiltrarFechaCheckBox">Fitrar por fecha</label>
+            <label for="ContentPlaceHolder1_FiltrarFechaCheckBox">Fitrar por fecha</label>
         </div>
     </div>
 
     <asp:Panel ID="FechasPanel" runat="server">
         <div class="col-xs-12 col-sm-5 d-inline-block">
             <div class="form-group">
-                <label for="FechaDesdeTextBox">Desde</label>
+                <label for="ContentPlaceHolder1_FechaDesdeTextBox">Desde</label>
                 <asp:TextBox type="date" CssClass="form-control" ID="FechaDesdeTextBox" runat="server" autocomplete="off"></asp:TextBox>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-5 d-inline-block">
             <div class="form-group">
-                <label for="FechaHastaTextBox">Hasta</label>
+                <label for="ContentPlaceHolder1_FechaHastaTextBox">Hasta</label>
                 <asp:TextBox type="date" CssClass="form-control" ID="FechaHastaTextBox" runat="server" autocomplete="off"></asp:TextBox>
             </div>
         </div>
@@ -122,7 +122,7 @@
                 <!--Resultado de la consulta-->
                 <tbody id="listaF">
                     <% foreach (var usuario in Lista) %>
-                    <% { Response.Write("<tr class='fila'> <td>" + usuario.UsuarioId + "</td> <td>" + usuario.Nombre + "</td> <td>" + usuario.NombreUsuario + "</td> <td>" + usuario.Cargo + "</td> <td>" + usuario.FechaCreacion.ToString().Substring(0, 10) + "</td> <td> <button class='btn-modificar btn btn-sm btn-warning' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</button> </td> <td>  <button class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</button> </td> </tr>"); } %>
+                    <% { Response.Write("<tr class='fila'> <td>" + usuario.UsuarioId + "</td> <td>" + usuario.Nombre + "</td> <td>" + usuario.NombreUsuario + "</td> <td>" + usuario.Cargo + "</td> <td>" + usuario.FechaCreacion.ToString().Substring(0, 10) + "</td> <td> <a class='btn-modificar btn btn-sm btn-warning' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</a> </td> <td>  <a class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</a> </td> </tr>"); } %>
                 </tbody>
 
                 <tr>
