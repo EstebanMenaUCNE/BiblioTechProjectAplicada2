@@ -10,7 +10,6 @@
     <meta name="description" content="BiblioTech">
     <meta name="author" content="Esteban S. Mena B.">
     <link rel="icon" href="favicon.ico">
-    <title></title>
 
     <!-- Bootstrap 4.0.0 -->
     <link href="../Content/bootstrap.min.css" rel="stylesheet">

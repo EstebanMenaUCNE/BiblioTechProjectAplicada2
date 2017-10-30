@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Inicio de sesión" Language="C#" MasterPageFile="~/UI/Base.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="BiblioTechWeb.UI.LoginN" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Inicio de sesión - BiblioTech</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
