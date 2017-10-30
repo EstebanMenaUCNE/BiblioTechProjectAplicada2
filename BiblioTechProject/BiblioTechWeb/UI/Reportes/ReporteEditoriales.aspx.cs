@@ -15,9 +15,9 @@ namespace BiblioTechWeb.UI.Reportes
             {
                 ReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
                 ReportViewer.Reset();
-                ReportViewer.LocalReport.ReportPath = Server.MapPath(@"ReporteEditoriales.rdlc");
+                ReportViewer.LocalReport.ReportPath = Server.MapPath(@"~/UI/Reportes/ReporteEditoriales.rdlc");
                 ReportViewer.LocalReport.DataSources.Clear();
-                ReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("EditorialesDataSet", Consultas.ConsultaEditoriales.Lista));
+                ReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("EditorialesDataSet", PreviousPage.Lista));
                 ReportViewer.LocalReport.Refresh();
             }
         }

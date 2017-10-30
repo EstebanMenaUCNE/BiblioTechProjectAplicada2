@@ -38,5 +38,17 @@ namespace BiblioTechWeb.UI.Reportes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer;
+        
+        /// <summary>
+        /// PreviousPage property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new BiblioTechWeb.UI.ConsultaUsuarios PreviousPage {
+            get {
+                return ((BiblioTechWeb.UI.ConsultaUsuarios)(base.PreviousPage));
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    if ($("#H1Inicio").html() === "Inicio de sesión" || "Inicio") {
+    if ($("#H1Inicio").html() === "Inicio de sesión" || $("#H1Inicio").html() === "Inicio") {
         $("#SignOutButton").hide();
     }
 

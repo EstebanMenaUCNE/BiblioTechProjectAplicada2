@@ -53,7 +53,7 @@
         <asp:Button CssClass="btn btn-primary" ID="BuscarButton" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
     </div>
     <div class="float-right">
-        <a class="btn btn-success" href="../Reportes/ReporteUsuarios.aspx" id="ImprimirButton">Imprimir</a>
+        <asp:Button CssClass="btn btn-success" ID="ImprimirButton" runat="server" Text="Imprimir" OnClick="ImprimirButton_Click" />
     </div>
     <br />
     <br />

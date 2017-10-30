@@ -58,5 +58,11 @@ namespace BiblioTechWeb.UI
             AutorSeleccionado = BiblioTechProject.BLL.AutorBLL.Buscar(U => U.AutorId == id);
             Server.Transfer("RegistroAutores.aspx");
         }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            Filtrar();
+            Server.Transfer("Reportes/ReporteAutores.aspx");
+        }
     }
 }

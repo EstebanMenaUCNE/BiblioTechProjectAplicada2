@@ -15,9 +15,9 @@ namespace BiblioTechWeb.UI.Reportes
             {
                 ReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
                 ReportViewer.Reset();
-                ReportViewer.LocalReport.ReportPath = Server.MapPath(@"ReporteUsuarios.rdlc");
+                ReportViewer.LocalReport.ReportPath = Server.MapPath(@"~/UI/Reportes/ReporteUsuarios.rdlc");
                 ReportViewer.LocalReport.DataSources.Clear();
-                ReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("UsuariosDataSet", Consultas.ConsultaUsuarios.Lista));
+                ReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("UsuariosDataSet", PreviousPage.Lista));
                 ReportViewer.LocalReport.Refresh();
             }
         }

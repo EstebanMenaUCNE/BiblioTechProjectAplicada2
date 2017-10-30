@@ -11,14 +11,17 @@ namespace BiblioTechWeb.UI.Reportes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (PreviousPage != null && PreviousPage.Lista != null)
             {
-                ReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
-                ReportViewer.Reset();
-                ReportViewer.LocalReport.ReportPath = Server.MapPath(@"ReporteAutores.rdlc");
-                ReportViewer.LocalReport.DataSources.Clear();
-                ReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("AutoresDataSet", Consultas.ConsultaAutores.Lista));
-                ReportViewer.LocalReport.Refresh();
+                if (!Page.IsPostBack)
+                {
+                    ReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
+                    ReportViewer.Reset();
+                    ReportViewer.LocalReport.ReportPath = Server.MapPath(@"~/UI/Reportes/ReporteAutores.rdlc");
+                    ReportViewer.LocalReport.DataSources.Clear();
+                    ReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("AutoresDataSet", PreviousPage.Lista));
+                    ReportViewer.LocalReport.Refresh();
+                }
             }
         }
     }

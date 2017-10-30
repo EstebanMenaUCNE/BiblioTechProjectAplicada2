@@ -68,7 +68,7 @@
                             <a class="dropdown-item" href="ConsultaEditoriales.aspx">Consulta</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                    <%--<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="LibrosNavbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Libros
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -91,7 +91,7 @@
                             <a class="dropdown-item" href="RegistroPrestamos.aspx">Registro</a>
                             <a class="dropdown-item" href="ConsultaPrestamos.aspx">Consulta</a>
                         </div>
-                    </li>
+                    </li>--%>
                 </ul>
                 <span class="navbar-text">
                     <asp:Button CssClass="btn btn-outline-info" ID="SignOutButton" runat="server" Text="Salir de sesión" OnClick="SignOut_Click" />

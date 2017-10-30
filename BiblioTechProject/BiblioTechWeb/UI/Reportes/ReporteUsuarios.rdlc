@@ -193,7 +193,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>UsuarioId1</rd:DefaultName>
@@ -309,7 +311,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!FechaCreacion.Value</Value>
+                              <Value>=Fields!FechaCreacion.Value.ToString().Substring(0, 10)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -328,6 +330,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

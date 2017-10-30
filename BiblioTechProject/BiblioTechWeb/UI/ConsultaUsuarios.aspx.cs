@@ -19,7 +19,7 @@ namespace BiblioTechWeb.UI
             {
                 Lista = new List<Usuario>();
                 UsuarioSeleccionado = null;
-            }            
+            }
         }
 
         private void Filtrar()
@@ -83,5 +83,12 @@ namespace BiblioTechWeb.UI
             UsuarioSeleccionado = BiblioTechProject.BLL.UsuarioBLL.Buscar(U => U.UsuarioId == id);
             Server.Transfer("RegistroUsuarios.aspx");
         }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            Filtrar();
+            Server.Transfer("Reportes/ReporteUsuarios.aspx");
+        }
+
     }
 }

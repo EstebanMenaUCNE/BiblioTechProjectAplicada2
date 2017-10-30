@@ -94,7 +94,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>AutorId</rd:DefaultName>
@@ -163,7 +165,7 @@
         </TablixRowHierarchy>
         <DataSetName>AutoresDataSet</DataSetName>
         <Top>0.73766cm</Top>
-        <Left>2.08703cm</Left>
+        <Left>3.00804cm</Left>
         <Height>1.2cm</Height>
         <Width>10.52979cm</Width>
         <Style>

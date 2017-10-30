@@ -58,5 +58,11 @@ namespace BiblioTechWeb.UI
             EditorialSeleccionada = BiblioTechProject.BLL.EditorialBLL.Buscar(U => U.EditorialId == id);
             Server.Transfer("RegistroEditoriales.aspx");
         }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            Filtrar();
+            Server.Transfer("Reportes/ReporteEditoriales.aspx");
+        }
     }
 }
