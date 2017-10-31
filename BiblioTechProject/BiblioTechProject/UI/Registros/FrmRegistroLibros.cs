@@ -202,7 +202,7 @@ namespace BiblioTechProject.UI.Registros
             if (Validar())
             {
                 LlenarCamposInstancia();
-                if (BLL.LibroBLL.Guardar(libro, listaRelaciones))
+                if (BLL.LibroBLL.Guardar(libro, listaRelaciones, false))
                 {
                     libroIdTextBox.Text = libro.LibroId.ToString();
                     guardadoToolStripStatusLabel.Visible = true;

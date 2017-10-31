@@ -269,7 +269,7 @@ namespace BiblioTechProject.UI.Registros
                         foreach (var libro in listaLibros)
                         {
                             libro.Estado = "Disponible";
-                            if (!BLL.LibroBLL.Guardar(libro, null))
+                            if (!BLL.LibroBLL.Guardar(libro, null, false))
                             {
                                 librosModificados = false;
                             }
@@ -280,7 +280,7 @@ namespace BiblioTechProject.UI.Registros
                         foreach (var libro in listaLibros)
                         {
                             libro.Estado = "Prestado";
-                            if (!BLL.LibroBLL.Guardar(libro, null))
+                            if (!BLL.LibroBLL.Guardar(libro, null, false))
                             {
                                 librosModificados = false;
                             }

@@ -115,6 +115,7 @@
     <Content Include="Content\bootstraptheme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="UI\ConsultaClientes.aspx" />
+    <Content Include="UI\ConsultaLibros.aspx" />
     <Content Include="UI\Default.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-slim.min.js" />
@@ -139,6 +140,7 @@
     <Content Include="UI\RegistroAutores.aspx" />
     <Content Include="UI\RegistroClientes.aspx" />
     <Content Include="UI\RegistroEditoriales.aspx" />
+    <Content Include="UI\RegistroLibros.aspx" />
     <Content Include="UI\RegistroUsuarios.aspx" />
     <Content Include="UI\Reportes\BiblioTechWebDataSet.xsc">
       <DependentUpon>BiblioTechWebDataSet.xsd</DependentUpon>
@@ -189,6 +191,13 @@
     </Compile>
     <Compile Include="UI\ConsultaClientes.aspx.designer.cs">
       <DependentUpon>ConsultaClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConsultaLibros.aspx.cs">
+      <DependentUpon>ConsultaLibros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ConsultaLibros.aspx.designer.cs">
+      <DependentUpon>ConsultaLibros.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -276,6 +285,13 @@
     </Compile>
     <Compile Include="UI\RegistroEditoriales.aspx.designer.cs">
       <DependentUpon>RegistroEditoriales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistroLibros.aspx.cs">
+      <DependentUpon>RegistroLibros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\RegistroLibros.aspx.designer.cs">
+      <DependentUpon>RegistroLibros.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\RegistroUsuarios.aspx.cs">
       <DependentUpon>RegistroUsuarios.aspx</DependentUpon>

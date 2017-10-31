@@ -130,10 +130,6 @@ namespace BiblioTechWeb.UI
         {
             Limpiar();
         }
-
-        protected void UsuarioIdTextBox_TextChanged(object sender, EventArgs e)
-        {
-            NuevoOModificando();
-        }
+        
     }
 }

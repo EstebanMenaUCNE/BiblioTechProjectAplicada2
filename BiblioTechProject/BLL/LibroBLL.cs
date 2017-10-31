@@ -9,7 +9,7 @@ namespace BiblioTechProject.BLL
 {
     public class LibroBLL
     {
-        public static bool Guardar(Entidades.Libro libro, List<Entidades.AutorLibro> listaRelaciones)
+        public static bool Guardar(Entidades.Libro libro, List<Entidades.AutorLibro> listaRelaciones, bool relacionesEliminadas)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Libro>())
             {
@@ -25,6 +25,14 @@ namespace BiblioTechProject.BLL
                 }
                 if (libroGuardado)
                 {
+                    if (relacionesEliminadas)
+                    {
+                        List<Entidades.AutorLibro> listaRelacionesBorrar = AutorLibroBLL.GetList(R => R.LibroId == libro.LibroId);
+                        foreach (var relacion in listaRelacionesBorrar)
+                        {
+                            AutorLibroBLL.Eliminar(relacion);
+                        }
+                    }
                     relacionesGuardadas = true;
                     if (listaRelaciones != null)  //Si es diferente de null, porque modifico el estado de los libros en el registro de prestamos pero paso null a la lista porque no quiero modificar las relaciones de los autores y los libros
                     {
@@ -84,6 +92,19 @@ namespace BiblioTechProject.BLL
             using (var repositorio = new DAL.Repositorio<Entidades.Libro>())
             {
                 return repositorio.GetList(criterioBusqueda);
+            }
+        }
+
+        public static List<Entidades.Libro> GetListConNombresEditoriales(Expression<Func<Entidades.Libro, bool>> criterioBusqueda)
+        {
+            using (var repositorio = new DAL.Repositorio<Entidades.Libro>())
+            {
+                List<Entidades.Libro> libros = repositorio.GetList(criterioBusqueda);
+                foreach (var libro in libros)
+                {
+                    libro.NombreEditorial = EditorialBLL.Buscar(E => E.EditorialId == libro.EditorialId).Nombre;
+                }
+                return libros;
             }
         }
 
