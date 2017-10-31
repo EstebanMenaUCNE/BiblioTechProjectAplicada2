@@ -14,11 +14,12 @@ namespace BiblioTechWeb.UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
-            {
+            //Si le pongo esa condición me genera un excepción cuando le doy a "Salir de sesión"
+            //if (!this.IsPostBack)
+            //{
                 Lista = new List<BiblioTechProject.Entidades.Autor>();
                 AutorSeleccionado = null;
-            }
+            //}
         }
 
         private void Filtrar()

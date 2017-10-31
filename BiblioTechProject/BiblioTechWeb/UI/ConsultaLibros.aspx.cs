@@ -14,11 +14,12 @@ namespace BiblioTechWeb.UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
-            {
+            //Si le pongo esa condición me genera un excepción cuando le doy a "Salir de sesión"
+            //if (!this.IsPostBack)
+            //{
                 Lista = new List<BiblioTechProject.Entidades.Libro>();
                 LibroSeleccionado = null;
-            }
+            //}
         }
 
         private void Filtrar()
@@ -61,8 +62,10 @@ namespace BiblioTechWeb.UI
 
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
-            Filtrar();
-            Server.Transfer("Reportes/ReporteLibros.aspx");
+            Lista = new List<BiblioTechProject.Entidades.Libro>();
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['info']('No disponible');", addScriptTags: true);
+            //Filtrar();
+            //Server.Transfer("Reportes/ReporteLibros.aspx");
         }
     }
 }

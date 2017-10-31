@@ -26,9 +26,8 @@ namespace BiblioTechWeb.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\EquipoE\\Desktop\\Pro" +
-            "gramación Aplicada 2\\BiblioTechAplicada2\\BiblioTechProject\\BiblioTechProject\\bin" +
-            "\\Debug\\DataBase\\BiblioTechDb.mdf\";Integrated Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=bibliotechweb.database.windows.net;Initial Catalog=BiblioTechDb;Persi" +
+            "st Security Info=True;User ID=esteban")]
         public string ConStr {
             get {
                 return ((string)(this["ConStr"]));
