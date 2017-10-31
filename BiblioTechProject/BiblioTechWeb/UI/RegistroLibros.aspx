@@ -63,7 +63,7 @@
                     <asp:ListItem>Prestado</asp:ListItem>
                     <asp:ListItem>Reparación</asp:ListItem>
                     <asp:ListItem>Desaparecido</asp:ListItem>
-                    <asp:ListItem>Deteriorado</asp:ListItem>
+                    <asp:ListItem>En mal estado</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="form-group">
