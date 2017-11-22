@@ -75,7 +75,20 @@ namespace BiblioTechProject.BLL
                 return repositorio.GetList(criterioBusqueda);
             }
         }
-        
+
+        public static List<Entidades.Prestamo> GetListConNombresClientes(Expression<Func<Entidades.Prestamo, bool>> criterioBusqueda)
+        {
+            using (var repositorio = new DAL.Repositorio<Entidades.Prestamo>())
+            {
+                List<Entidades.Prestamo> prestamos = repositorio.GetList(criterioBusqueda);
+                foreach (var prestamo in prestamos)
+                {
+                    prestamo.NombreCliente = ClienteBLL.Buscar(E => E.ClienteId == prestamo.PrestamoId).Nombre;
+                }
+                return prestamos;
+            }
+        }
+
         /*
         public static List<Entidades.Prestamo> GetListId(int id)
         {

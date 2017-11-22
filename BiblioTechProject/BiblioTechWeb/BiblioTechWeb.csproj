@@ -116,6 +116,7 @@
     <Content Include="favicon.ico" />
     <Content Include="UI\ConsultaClientes.aspx" />
     <Content Include="UI\ConsultaLibros.aspx" />
+    <Content Include="UI\ConsultaPrestamos.aspx" />
     <Content Include="UI\Default.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-slim.min.js" />
@@ -198,6 +199,13 @@
     </Compile>
     <Compile Include="UI\ConsultaLibros.aspx.designer.cs">
       <DependentUpon>ConsultaLibros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConsultaPrestamos.aspx.cs">
+      <DependentUpon>ConsultaPrestamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ConsultaPrestamos.aspx.designer.cs">
+      <DependentUpon>ConsultaPrestamos.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
