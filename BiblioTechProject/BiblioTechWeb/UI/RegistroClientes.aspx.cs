@@ -18,6 +18,13 @@ namespace BiblioTechWeb.UI
             AlertaValidar.Visible = false;
             AlertaGuardadoExito.Visible = false;
             AlertaError.Visible = false;
+
+            if (PreviousPage != null && PreviousPage.ClienteSeleccionado != null)
+            {
+                cliente = PreviousPage.ClienteSeleccionado;
+                CargarDatos();
+                NuevoOModificando();
+            }
         }
 
         private void Limpiar()
