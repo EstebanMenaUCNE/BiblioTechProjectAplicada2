@@ -142,6 +142,7 @@
     <Content Include="UI\RegistroClientes.aspx" />
     <Content Include="UI\RegistroEditoriales.aspx" />
     <Content Include="UI\RegistroLibros.aspx" />
+    <Content Include="UI\RegistroPrestamos.aspx" />
     <Content Include="UI\RegistroUsuarios.aspx" />
     <Content Include="UI\Reportes\BiblioTechWebDataSet.xsc">
       <DependentUpon>BiblioTechWebDataSet.xsd</DependentUpon>
@@ -300,6 +301,13 @@
     </Compile>
     <Compile Include="UI\RegistroLibros.aspx.designer.cs">
       <DependentUpon>RegistroLibros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistroPrestamos.aspx.cs">
+      <DependentUpon>RegistroPrestamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\RegistroPrestamos.aspx.designer.cs">
+      <DependentUpon>RegistroPrestamos.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\RegistroUsuarios.aspx.cs">
       <DependentUpon>RegistroUsuarios.aspx</DependentUpon>

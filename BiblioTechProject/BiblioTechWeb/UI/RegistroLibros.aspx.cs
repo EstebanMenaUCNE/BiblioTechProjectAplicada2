@@ -122,6 +122,14 @@ namespace BiblioTechWeb.UI
             {
                 flag = false;
             }
+            if (EditorialDropDownList.Text == "")
+            {
+                flag = false;
+            }
+            if (AutoresDropDownList.Text == "")
+            {
+                flag = false;
+            }
             return flag;
         }
 

@@ -15,13 +15,19 @@ namespace BiblioTechProject.BLL
             {
                 bool libroGuardado;
                 bool relacionesGuardadas = false;
-                if (Buscar(L => L.LibroId == libro.LibroId) == null)
+                if (repositorio.Buscar(L => L.LibroId == libro.LibroId) == null)
                 {
                     libroGuardado = repositorio.Guardar(libro);
                 }
                 else
                 {
-                    libroGuardado = repositorio.Modificar(libro);
+                    //libroGuardado = repositorio.Modificar(libro);
+                    using (var db = new DAL.BiblioTechDb())
+                    {
+                        db.Libros.Attach(libro);
+                        db.Entry<Entidades.Libro>(libro).State = System.Data.Entity.EntityState.Modified;
+                        libroGuardado = db.SaveChanges() > 0;
+                    }
                 }
                 if (libroGuardado)
                 {
@@ -54,7 +60,9 @@ namespace BiblioTechProject.BLL
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Libro>())
             {
-                return repositorio.Buscar(criterioBusqueda);
+                Entidades.Libro libro = repositorio.Buscar(criterioBusqueda);
+                libro.NombreEditorial = EditorialBLL.Buscar(E => E.EditorialId == libro.EditorialId).Nombre;
+                return libro;
             }
         }
 

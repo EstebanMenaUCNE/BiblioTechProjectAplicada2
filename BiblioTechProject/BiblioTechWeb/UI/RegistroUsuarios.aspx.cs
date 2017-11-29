@@ -119,7 +119,7 @@ namespace BiblioTechWeb.UI.Registros
             {
                 flag = false;
             }
-            if (string.IsNullOrWhiteSpace(FechaCreacionTextBox.Text))
+            if (Utilidad.ToDateTime(FechaCreacionTextBox.Text) == new DateTime(1,1,1))
             {
                 flag = false;
             }

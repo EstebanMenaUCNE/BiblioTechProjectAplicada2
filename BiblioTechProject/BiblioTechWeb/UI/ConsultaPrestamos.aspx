@@ -118,7 +118,7 @@
                     <th class="bg-info">Fecha entregar antes</th>
                     <th class="bg-info">Fecha libros entregados</th>
                     <th class="bg-info">Estado</th>
-                    <th class="bg-info">Cliente ID</th>
+                    <th class="bg-info">ID cliente</th>
                     <th class="bg-info">Cliente</th>
                     <th class="bg-info"></th>
                     <th class="bg-info"></th>
@@ -127,7 +127,7 @@
                 <!--Resultado de la consulta-->
                 <tbody id="listaF">
                     <% foreach (var prestamo in Lista) %>
-                    <% { Response.Write("<tr class='fila'> <td>" + prestamo.PrestamoId + "</td> <td>" + prestamo.FechaPrestamo.ToString().Substring(0, 10) + "</td> <td>" + prestamo.FechaEntregarAntes + "</td> <td>" + prestamo.FechaLibrosEntregados + "</td> <td>" + prestamo.Estado + "</td> <td>" + prestamo.ClienteId + "</td> <td>" + prestamo.NombreCliente + "</td> <td> <a class='btn-modificar btn btn-sm btn-warning' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</a> </td> <td>  <a class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</a> </td> </tr>"); } %>
+                    <% { Response.Write("<tr class='fila'> <td>" + prestamo.PrestamoId + "</td> <td>" + prestamo.FechaPrestamo.ToString().Substring(0, 10) + "</td> <td>" + prestamo.FechaEntregarAntes.ToString().Substring(0, 10) + "</td> <td>" + prestamo.FechaLibrosEntregados.ToString().Substring(0, 10) + "</td> <td>" + prestamo.Estado + "</td> <td>" + prestamo.ClienteId + "</td> <td>" + prestamo.NombreCliente + "</td> <td> <a class='btn-modificar btn btn-sm btn-warning' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</a> </td> <td>  <a class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</a> </td> </tr>"); } %>
                 </tbody>
 
                 <tr>

@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+
     if ($("#H1Inicio").html() === "Inicio de sesión" || $("#H1Inicio").html() === "Inicio") {
         $("#SignOutButton").hide();
     }
@@ -19,5 +20,18 @@
         var id = $(this).children("td").first().html();
         $("#ContentPlaceHolder1_FilaTextBox").val(id);
     });
-    
+
+    //Scripts para mostrar/ocultar la fecha libros devueltos en el registro de préstamos
+    function mostrarOcultarFechaDevuelto() {
+        //form_group_fecha_devuelto
+        if ($("#ContentPlaceHolder1_EstadoDropDownList").val() === "Pendiente") {
+            $("#form_group_fecha_devuelto").hide();
+        }
+        else {
+            $("#form_group_fecha_devuelto").show();
+        }
+    }
+    mostrarOcultarFechaDevuelto();
+    $("#ContentPlaceHolder1_EstadoDropDownList").change(mostrarOcultarFechaDevuelto);
+
 });

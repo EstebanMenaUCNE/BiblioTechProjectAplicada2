@@ -16,7 +16,7 @@ namespace BiblioTechWeb
 
         public static DateTime ToDateTime(string texto)
         {
-            DateTime fecha = new DateTime(1900,1,1);
+            DateTime fecha = new DateTime(1,1,1);
             DateTime.TryParse(texto, out fecha);
             return fecha;
         }

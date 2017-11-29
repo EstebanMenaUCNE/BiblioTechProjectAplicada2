@@ -256,7 +256,7 @@ namespace BiblioTechProject.UI.Registros
                 }
                 LlenarCamposInstancia();
                 bool librosModificados = false;
-                if (BLL.PrestamoBLL.Guardar(prestamo, listaRelaciones))
+                if (BLL.PrestamoBLL.Guardar(prestamo, listaRelaciones, false))
                 {
                     librosModificados = true;
                     //Poner estados de los libros como "Prestado" o "Disponible"

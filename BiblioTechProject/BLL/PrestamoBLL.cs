@@ -9,7 +9,7 @@ namespace BiblioTechProject.BLL
 {
     public class PrestamoBLL
     {
-        public static bool Guardar(Entidades.Prestamo prestamo, List<Entidades.PrestamoLibro> listaRelaciones)
+        public static bool Guardar(Entidades.Prestamo prestamo, List<Entidades.PrestamoLibro> listaRelaciones, bool relacionesEliminadas)
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Prestamo>())
             {
@@ -25,6 +25,15 @@ namespace BiblioTechProject.BLL
                 }
                 if (prestamoGuardado)
                 {
+                    if (relacionesEliminadas)
+                    {
+                        List<Entidades.PrestamoLibro> listaRelacionesBorrar = PrestamoLibroBLL.GetList(R => R.PrestamoId == prestamo.PrestamoId);
+                        foreach (var relacion in listaRelacionesBorrar)
+                        {
+                            PrestamoLibroBLL.Eliminar(relacion);
+                        }
+                    }
+
                     relacionesGuardadas = true;
                     foreach (var relacion in listaRelaciones)
                     {
@@ -83,7 +92,7 @@ namespace BiblioTechProject.BLL
                 List<Entidades.Prestamo> prestamos = repositorio.GetList(criterioBusqueda);
                 foreach (var prestamo in prestamos)
                 {
-                    prestamo.NombreCliente = ClienteBLL.Buscar(E => E.ClienteId == prestamo.PrestamoId).Nombre;
+                    prestamo.NombreCliente = ClienteBLL.Buscar(E => E.ClienteId == prestamo.ClienteId).Nombre;
                 }
                 return prestamos;
             }

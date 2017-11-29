@@ -92,11 +92,11 @@ namespace BiblioTechWeb.UI
             {
                 if (FiltrarFechaCheckBox.Checked)
                 {
-                    Lista = BiblioTechProject.BLL.PrestamoBLL.GetList(U => U.PrestamoId > 0 && U.FechaPrestamo >= fechaDesde.Date && U.FechaPrestamo <= fechaHasta.Date);
+                    Lista = BiblioTechProject.BLL.PrestamoBLL.GetListConNombresClientes(U => U.PrestamoId > 0 && U.FechaPrestamo >= fechaDesde.Date && U.FechaPrestamo <= fechaHasta.Date);
                 }
                 else
                 {
-                    Lista = BiblioTechProject.BLL.PrestamoBLL.GetList(U => U.PrestamoId > 0);
+                    Lista = BiblioTechProject.BLL.PrestamoBLL.GetListConNombresClientes(U => U.PrestamoId > 0);
                 }
             }
         }
