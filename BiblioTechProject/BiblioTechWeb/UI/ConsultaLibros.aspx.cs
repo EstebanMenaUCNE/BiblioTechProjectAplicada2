@@ -62,10 +62,10 @@ namespace BiblioTechWeb.UI
 
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
-            Lista = new List<BiblioTechProject.Entidades.Libro>();
-            ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['info']('No disponible');", addScriptTags: true);
-            //Filtrar();
-            //Server.Transfer("Reportes/ReporteLibros.aspx");
+            //Lista = new List<BiblioTechProject.Entidades.Libro>();
+            //ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['info']('No disponible');", addScriptTags: true);
+            Filtrar();
+            Server.Transfer("Reportes/ReporteLibros.aspx");
         }
     }
 }

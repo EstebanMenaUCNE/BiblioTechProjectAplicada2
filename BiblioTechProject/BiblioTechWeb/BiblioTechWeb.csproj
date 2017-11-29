@@ -173,7 +173,10 @@
     <Content Include="UI\Registros\RegistroEditoriales.aspx" />
     <Content Include="UI\Registros\RegistroUsuarios.aspx" />
     <Content Include="UI\Reportes\ReporteAutores.aspx" />
+    <Content Include="UI\Reportes\ReporteClientes.aspx" />
     <Content Include="UI\Reportes\ReporteEditoriales.aspx" />
+    <Content Include="UI\Reportes\ReporteLibros.aspx" />
+    <Content Include="UI\Reportes\ReportePrestamos.aspx" />
     <Content Include="UI\Reportes\ReporteUsuarios.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -349,12 +352,33 @@
     <Compile Include="UI\Reportes\ReporteAutores.aspx.designer.cs">
       <DependentUpon>ReporteAutores.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\ReporteClientes.aspx.cs">
+      <DependentUpon>ReporteClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteClientes.aspx.designer.cs">
+      <DependentUpon>ReporteClientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\ReporteEditoriales.aspx.cs">
       <DependentUpon>ReporteEditoriales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI\Reportes\ReporteEditoriales.aspx.designer.cs">
       <DependentUpon>ReporteEditoriales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteLibros.aspx.cs">
+      <DependentUpon>ReporteLibros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteLibros.aspx.designer.cs">
+      <DependentUpon>ReporteLibros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportePrestamos.aspx.cs">
+      <DependentUpon>ReportePrestamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportePrestamos.aspx.designer.cs">
+      <DependentUpon>ReportePrestamos.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\ReporteUsuarios.aspx.cs">
       <DependentUpon>ReporteUsuarios.aspx</DependentUpon>
@@ -381,6 +405,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UI\Reportes\ReportePrestamos.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\ReporteLibros.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\ReporteClientes.rdlc" />
     <EmbeddedResource Include="UI\Reportes\ReporteAutores.rdlc" />
     <EmbeddedResource Include="UI\Reportes\ReporteEditoriales.rdlc" />
     <EmbeddedResource Include="UI\Reportes\ReporteUsuarios.rdlc" />
