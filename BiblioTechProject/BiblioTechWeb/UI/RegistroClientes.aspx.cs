@@ -52,7 +52,7 @@ namespace BiblioTechWeb.UI
             CedulaTextBox.Text = cliente.Cedula;
             TelefonoTextBox.Text = cliente.Telefono;
             DireccionTextBox.Text = cliente.Direccion;
-            FechaNacimientoTextBox.Text = cliente.FechaNacimiento.GetDateTimeFormats()[80].ToString().Substring(0, 10); ;
+            FechaNacimientoTextBox.Text = cliente.FechaNacimiento.ToString("yyyy-MM-dd");
             EmailTextBox.Text = cliente.Email;
         }
 

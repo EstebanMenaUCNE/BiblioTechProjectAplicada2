@@ -66,7 +66,7 @@ namespace BiblioTechWeb.UI.Registros
             CargoDropDownList.Text = usuario.Cargo;
             ContrasenaTextBox.Text = usuario.Contrasena;
             ConfirmarContrasenaTextBox.Text = usuario.Contrasena;
-            FechaCreacionTextBox.Text = usuario.FechaCreacion.GetDateTimeFormats()[80].ToString().Substring(0, 10); ;
+            FechaCreacionTextBox.Text = usuario.FechaCreacion.ToString("yyyy-MM-dd");
         }
 
         private void NuevoOModificando()

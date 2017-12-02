@@ -63,11 +63,11 @@ namespace BiblioTechWeb.UI
         private void CargarDatos()
         {
             PrestamoIdTextBox.Text = prestamo.PrestamoId.ToString();
-            FechaPrestamoTextBox.Text = prestamo.FechaPrestamo.GetDateTimeFormats()[80].ToString().Substring(0, 10);
-            FechaEntregarAntesTextBox.Text = prestamo.FechaEntregarAntes.GetDateTimeFormats()[80].ToString().Substring(0, 10);
+            FechaPrestamoTextBox.Text = prestamo.FechaPrestamo.ToString("yyyy-MM-dd");
+            FechaEntregarAntesTextBox.Text = prestamo.FechaEntregarAntes.ToString("yyyy-MM-dd");
             ClienteDropDownList.SelectedValue = prestamo.ClienteId.ToString();
             ViewState["EstadoAntesModificar"] = EstadoDropDownList.Text = prestamo.Estado;
-            FechaLibrosEntregadosTextBox.Text = prestamo.FechaLibrosEntregados.GetDateTimeFormats()[80].ToString().Substring(0, 10);
+            FechaLibrosEntregadosTextBox.Text = prestamo.FechaLibrosEntregados.ToString("yyyy-MM-dd");
 
             string estado = ViewState["EstadoAntesModificar"].ToString();
 
