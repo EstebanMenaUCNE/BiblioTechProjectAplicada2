@@ -60,8 +60,22 @@ namespace BiblioTechWeb.UI
         {
             int id = Utilidad.ToInt(FilaTextBox.Text);
             ClienteSeleccionado = BiblioTechProject.BLL.ClienteBLL.Buscar(U => U.ClienteId == id);
-            BiblioTechProject.BLL.ClienteBLL.Eliminar(ClienteSeleccionado);
-            ClienteSeleccionado = null;
+            if (BiblioTechProject.BLL.PrestamoBLL.Buscar(R => R.ClienteId == ClienteSeleccionado.ClienteId) != null)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['error']('Este cliente no puede ser eliminado porque está registrado en un préstamo');", addScriptTags: true);
+            }
+            else
+            {
+                if (BiblioTechProject.BLL.ClienteBLL.Eliminar(ClienteSeleccionado))
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Cliente eliminado con éxito');", addScriptTags: true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['error']('Error al intentar eliminar cliente');", addScriptTags: true);
+                }
+                ClienteSeleccionado = null;
+            }
             Filtrar();
         }
 

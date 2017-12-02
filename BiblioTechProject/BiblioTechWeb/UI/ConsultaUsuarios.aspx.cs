@@ -97,7 +97,14 @@ namespace BiblioTechWeb.UI
         {
             int id = Utilidad.ToInt(FilaTextBox.Text);
             UsuarioSeleccionado = BiblioTechProject.BLL.UsuarioBLL.Buscar(U => U.UsuarioId == id);
-            BiblioTechProject.BLL.UsuarioBLL.Eliminar(UsuarioSeleccionado);
+            if (BiblioTechProject.BLL.UsuarioBLL.Eliminar(UsuarioSeleccionado))
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Usuario eliminado con éxito');", addScriptTags: true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['error']('Error al intentar eliminar usuario');", addScriptTags: true);
+            }
             UsuarioSeleccionado = null;
             Filtrar();
         }

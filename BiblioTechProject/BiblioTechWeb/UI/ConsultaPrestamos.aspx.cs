@@ -143,7 +143,14 @@ namespace BiblioTechWeb.UI
         {
             int id = Utilidad.ToInt(FilaTextBox.Text);
             PrestamoSeleccionado = BiblioTechProject.BLL.PrestamoBLL.Buscar(U => U.PrestamoId == id);
-            BiblioTechProject.BLL.PrestamoBLL.Eliminar(PrestamoSeleccionado);
+            if (BiblioTechProject.BLL.PrestamoBLL.Eliminar(PrestamoSeleccionado))
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Préstamo eliminado con éxito');", addScriptTags: true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['error']('Error al intentar eliminar préstamo');", addScriptTags: true);
+            }
             PrestamoSeleccionado = null;
             Filtrar();
         }

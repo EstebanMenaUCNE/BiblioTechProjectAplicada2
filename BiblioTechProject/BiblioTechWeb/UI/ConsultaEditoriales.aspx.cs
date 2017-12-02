@@ -48,8 +48,23 @@ namespace BiblioTechWeb.UI
         {
             int id = Utilidad.ToInt(FilaTextBox.Text);
             EditorialSeleccionada = BiblioTechProject.BLL.EditorialBLL.Buscar(U => U.EditorialId == id);
-            BiblioTechProject.BLL.EditorialBLL.Eliminar(EditorialSeleccionada);
-            EditorialSeleccionada = null;
+            List<BiblioTechProject.Entidades.Libro> libros = BiblioTechProject.BLL.LibroBLL.GetList(L => L.EditorialId == EditorialSeleccionada.EditorialId);
+            if (libros != null && libros.Count > 0)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['error']('Esta editorial no puede ser eliminada porque está registrada en un libro');", addScriptTags: true);
+            }
+            else
+            {
+                if (BiblioTechProject.BLL.EditorialBLL.Eliminar(EditorialSeleccionada))
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Editorial eliminada con éxito');", addScriptTags: true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['error']('Error al intentar eliminar editorial');", addScriptTags: true);
+                }
+                EditorialSeleccionada = null;
+            }
             Filtrar();
         }
 
