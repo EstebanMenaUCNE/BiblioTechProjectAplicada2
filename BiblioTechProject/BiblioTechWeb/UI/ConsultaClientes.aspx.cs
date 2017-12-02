@@ -33,6 +33,18 @@ namespace BiblioTechWeb.UI
             {
                 Lista = BiblioTechProject.BLL.ClienteBLL.GetList(U => U.Nombre == FiltrarTextBox.Text);
             }
+            else if (FiltrarDropDownList.Text == "Cédula")
+            {
+                Lista = BiblioTechProject.BLL.ClienteBLL.GetList(U => U.Cedula == FiltrarTextBox.Text);
+            }
+            else if (FiltrarDropDownList.Text == "Masculinos")
+            {
+                Lista = BiblioTechProject.BLL.ClienteBLL.GetList(U => U.Sexo == "Masculino");
+            }
+            else if (FiltrarDropDownList.Text == "Femeninos")
+            {
+                Lista = BiblioTechProject.BLL.ClienteBLL.GetList(U => U.Sexo == "Femenino");
+            }
             else
             {
                 Lista = BiblioTechProject.BLL.ClienteBLL.GetList(U => U.ClienteId > 0);

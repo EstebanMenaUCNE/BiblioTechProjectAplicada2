@@ -63,6 +63,7 @@ namespace BiblioTechWeb.UI.Registros
             UsuarioIdTextBox.Text = usuario.UsuarioId.ToString();
             NombreTextBox.Text = usuario.Nombre;
             NombreUsuarioTextBox.Text = usuario.NombreUsuario;
+            CargoDropDownList.Text = usuario.Cargo;
             ContrasenaTextBox.Text = usuario.Contrasena;
             ConfirmarContrasenaTextBox.Text = usuario.Contrasena;
             FechaCreacionTextBox.Text = usuario.FechaCreacion.GetDateTimeFormats()[80].ToString().Substring(0, 10); ;

@@ -33,6 +33,31 @@ namespace BiblioTechWeb.UI
             {
                 Lista = BiblioTechProject.BLL.LibroBLL.GetListConNombresEditoriales(U => U.Titulo == FiltrarTextBox.Text);
             }
+            else if (FiltrarDropDownList.Text == "Prestados")
+            {
+                Lista = BiblioTechProject.BLL.LibroBLL.GetListConNombresEditoriales(U => U.Estado == "Prestado");
+            }
+            else if (FiltrarDropDownList.Text == "Disponibles")
+            {
+                Lista = BiblioTechProject.BLL.LibroBLL.GetListConNombresEditoriales(U => U.Estado == "Disponible");
+            }
+            else if (FiltrarDropDownList.Text == "Editorial (ID)")
+            {
+                int id = Utilidad.ToInt(FiltrarTextBox.Text);
+                Lista = BiblioTechProject.BLL.LibroBLL.GetListConNombresEditoriales(U => U.EditorialId == id);
+            }
+            else if (FiltrarDropDownList.Text == "Editorial (Nombre)")
+            {
+                BiblioTechProject.Entidades.Editorial editorial = BiblioTechProject.BLL.EditorialBLL.Buscar(E => E.Nombre == FiltrarTextBox.Text);
+                if (editorial != null)
+                {
+                    Lista = BiblioTechProject.BLL.LibroBLL.GetListConNombresEditoriales(U => U.EditorialId == editorial.EditorialId);
+                }
+                else
+                {
+                    Lista = new List<BiblioTechProject.Entidades.Libro>();
+                }
+            }
             else
             {
                 Lista = BiblioTechProject.BLL.LibroBLL.GetListConNombresEditoriales(U => U.LibroId > 0);

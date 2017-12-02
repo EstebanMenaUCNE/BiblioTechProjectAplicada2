@@ -18,6 +18,8 @@
             <asp:ListItem>Sin filtro</asp:ListItem>
             <asp:ListItem>ID</asp:ListItem>
             <asp:ListItem>Nombre</asp:ListItem>
+            <asp:ListItem>Bibliotecarios</asp:ListItem>
+            <asp:ListItem>Administradores</asp:ListItem>
         </asp:DropDownList>
     </div>
 

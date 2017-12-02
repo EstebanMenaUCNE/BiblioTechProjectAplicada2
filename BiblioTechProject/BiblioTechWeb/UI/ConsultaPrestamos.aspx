@@ -17,9 +17,11 @@
             <asp:ListItem>Sin filtro</asp:ListItem>
             <asp:ListItem>ID</asp:ListItem>
             <asp:ListItem>Cliente (ID)</asp:ListItem>
+            <asp:ListItem>Cliente (Nombre)</asp:ListItem>
             <asp:ListItem>Pendientes</asp:ListItem>
             <asp:ListItem>Devueltos</asp:ListItem>
-            <asp:ListItem>Retrasados</asp:ListItem>
+            <asp:ListItem>Retrasados devueltos</asp:ListItem>
+            <asp:ListItem>Retrasados pendientes</asp:ListItem>
         </asp:DropDownList>
     </div>
 

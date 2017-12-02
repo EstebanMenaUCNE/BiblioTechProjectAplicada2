@@ -17,6 +17,10 @@
             <asp:ListItem>Sin filtro</asp:ListItem>
             <asp:ListItem>ID</asp:ListItem>
             <asp:ListItem>Título</asp:ListItem>
+            <asp:ListItem>Prestados</asp:ListItem>
+            <asp:ListItem>Disponibles</asp:ListItem>
+            <asp:ListItem>Editorial (ID)</asp:ListItem>
+            <asp:ListItem>Editorial (Nombre)</asp:ListItem>
             <%-- Agregar otras opciones de filtrado --%>
         </asp:DropDownList>
     </div>

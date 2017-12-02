@@ -51,6 +51,30 @@ namespace BiblioTechWeb.UI
                 }
 
             }
+            else if (FiltrarDropDownList.Text == "Bibliotecarios")
+            {
+                if (FiltrarFechaCheckBox.Checked)
+                {
+                    Lista = BiblioTechProject.BLL.UsuarioBLL.GetList(U => U.Cargo == "Bibliotecario" && U.FechaCreacion >= fechaDesde.Date && U.FechaCreacion <= fechaHasta.Date);
+                }
+                else
+                {
+                    Lista = BiblioTechProject.BLL.UsuarioBLL.GetList(U => U.Cargo == "Bibliotecario");
+                }
+
+            }
+            else if (FiltrarDropDownList.Text == "Administradores")
+            {
+                if (FiltrarFechaCheckBox.Checked)
+                {
+                    Lista = BiblioTechProject.BLL.UsuarioBLL.GetList(U => U.Cargo == "Administrador" && U.FechaCreacion >= fechaDesde.Date && U.FechaCreacion <= fechaHasta.Date);
+                }
+                else
+                {
+                    Lista = BiblioTechProject.BLL.UsuarioBLL.GetList(U => U.Cargo == "Administrador");
+                }
+
+            }
             else
             {
                 if (FiltrarFechaCheckBox.Checked)

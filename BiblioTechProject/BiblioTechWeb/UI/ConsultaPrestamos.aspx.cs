@@ -52,6 +52,27 @@ namespace BiblioTechWeb.UI
                 }
 
             }
+            else if (FiltrarDropDownList.Text == "Cliente (Nombre)")
+            {
+                BiblioTechProject.Entidades.Cliente cliente = BiblioTechProject.BLL.ClienteBLL.Buscar(C => C.Nombre == FiltrarTextBox.Text);
+                if (cliente != null)
+                {
+                    if (FiltrarFechaCheckBox.Checked)
+                    {
+                        Lista = BiblioTechProject.BLL.PrestamoBLL.GetListConNombresClientes(U => U.ClienteId == cliente.ClienteId && U.FechaPrestamo >= fechaDesde.Date && U.FechaPrestamo <= fechaHasta.Date);
+                    }
+                    else
+                    {
+                        Lista = BiblioTechProject.BLL.PrestamoBLL.GetListConNombresClientes(U => U.ClienteId == cliente.ClienteId);
+                    }
+                }
+                else
+                {
+                    Lista = new List<Prestamo>();
+                }
+                
+
+            }
             else if (FiltrarDropDownList.Text == "Pendientes")
             {
                 if (FiltrarFechaCheckBox.Checked)
@@ -76,7 +97,19 @@ namespace BiblioTechWeb.UI
                 }
 
             }
-            else if (FiltrarDropDownList.Text == "Retrasados")
+            else if (FiltrarDropDownList.Text == "Retrasados devueltos")
+            {
+                if (FiltrarFechaCheckBox.Checked)
+                {
+                    Lista = BiblioTechProject.BLL.PrestamoBLL.GetListConNombresClientes(U => U.Estado == "Devuelto" && U.FechaEntregarAntes < U.FechaLibrosEntregados && U.FechaPrestamo >= fechaDesde.Date && U.FechaPrestamo <= fechaHasta.Date);
+                }
+                else
+                {
+                    Lista = BiblioTechProject.BLL.PrestamoBLL.GetListConNombresClientes(U => U.Estado == "Devuelto" && U.FechaEntregarAntes < U.FechaLibrosEntregados);
+                }
+
+            }
+            else if (FiltrarDropDownList.Text == "Retrasados pendientes")
             {
                 if (FiltrarFechaCheckBox.Checked)
                 {

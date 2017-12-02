@@ -17,6 +17,9 @@
             <asp:ListItem>Sin filtro</asp:ListItem>
             <asp:ListItem>ID</asp:ListItem>
             <asp:ListItem>Nombre</asp:ListItem>
+            <asp:ListItem>Cédula</asp:ListItem>
+            <asp:ListItem>Masculinos</asp:ListItem>
+            <asp:ListItem>Femeninos</asp:ListItem>
         </asp:DropDownList>
     </div>
 
