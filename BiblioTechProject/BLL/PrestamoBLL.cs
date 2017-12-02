@@ -60,8 +60,17 @@ namespace BiblioTechProject.BLL
         {
             using (var repositorio = new DAL.Repositorio<Entidades.Prestamo>())
             {
-                bool relacionesEliminadas = true;
                 List<Entidades.PrestamoLibro> listaRelaciones = PrestamoLibroBLL.GetList(R => R.PrestamoId == prestamo.PrestamoId);
+                if (prestamo != null && prestamo.Estado == "Pendiente")
+                {
+                    foreach (var relacion in listaRelaciones)
+                    {
+                        Entidades.Libro libro = BLL.LibroBLL.Buscar(L => L.LibroId == relacion.LibroId);
+                        libro.Estado = "Disponible";
+                        BLL.LibroBLL.Guardar(libro, null, false);
+                    }
+                }
+                bool relacionesEliminadas = true;
                 foreach (var relacion in listaRelaciones)
                 {
                     if (!PrestamoLibroBLL.Eliminar(relacion))
